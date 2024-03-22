@@ -224,7 +224,7 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
   $ L(vb(r)) = norm(dot(vb(r))), $
   essa non è differenziabile in tutto $RR^3$, dato che ha dei punti angolosi.
   $ Phi(dot(vb(r))) = integral_(t_0)^(t_1) norm(dot(vb(r))(t)) dd(t). $
-  Essa fornisce l'espresisone della lunghezza del cammino parametrizzato $vb(r)(t)$.
+  Essa fornisce l'espressione della lunghezza del cammino parametrizzato $vb(r)(t)$.
   Vale
   $ grad_vb(r) L = 0, $
   $ grad_dot(vb(r)) L = dot(vb(r))/norm(dot(vb(r))) $
@@ -239,9 +239,9 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
 
 === Cambio di coordinate
 
-Si suppone di voler descrivere $RR^d$ (o un suo sottinsieme) tramite un sistema
+Si suppone di voler descrivere $RR^d$ (o un suo sottoinsieme) tramite un sistema
 di coordinate diverso da quelle "naturali" $vb(r)$, denotato con $vb(q)$, le cui
-coordinate sono date dalla funzione biiettiva
+coordinate sono date dalla funzione biettiva
 $ vb(q) = vb(q(r))=(q_1 (r_1, ..., r_d), ..., q_d (r_1,...,r_d)) $
 relativamente alle $vb(r)$. L'inversa, naturalmente, è indicata con $vb(r(q))$.
 
@@ -358,7 +358,7 @@ allora, ugualmente a come appena mostrato, si risale alle equazioni di
 Eulero-Lagrange, per $L=T-U$. In questi casi, $U(vb(r), vb(v), t)$ è detto _potenziale generalizzato_.
 
 Un esempio notevole di integrale generalizzato è dato dal campo
-elettromagentico.
+elettromagnetico.
 
 #example[
   la forza di Lorentz generalizzata è infatti, con $vb(E) = vb(E)(vb(r),t)$, $vb(B)=vb(B)(vb(r),t)$,

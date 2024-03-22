@@ -39,7 +39,7 @@ Una carta spesso si indica $(U,phi)$, mettendo in evidenza anche il suo dominio.
 
 Una funzione del tipo $phi^(-1)_2 compose phi_(1 | phi_1^(-1)(V))$ è un cambio
 di coordinate. Se due carte sono compatibili, si deve necessariamente avere che $U_1$ e $U_2$ sono
-sottinsiemi dello stesso spazio $RR^d$, dato che il cambio di coordinate è una
+sottoinsiemi dello stesso spazio $RR^d$, dato che il cambio di coordinate è una
 funzione invertibile.
 
 #def[
@@ -78,8 +78,8 @@ polo sud. Considerando allora un piano $pi_2$, esso mappa ogni punto eccetto il
 polo nord.
 
 Si noti che non si è mai usato, nelle precedenti definizioni, che $M$ è
-sottinsieme di $RR^N$. La geometria differenziale infatti ha valenza molto
-astratta, purché le definizioni valgano su un sottinsieme dotato di una
+sottoinsieme di $RR^N$. La geometria differenziale infatti ha valenza molto
+astratta, purché le definizioni valgano su un sottoinsieme dotato di una
 topologia (abbia definizioni di aperti e chiusi).
 
 Si considera un rettangolo in $RR^2$ in cui si impone che i punti sul lato
@@ -102,11 +102,11 @@ differenziale $M$, si utilizzerà l'idea intuitiva di vettore tangente.
 Si suppone, per adesso, che ogni carta $phi: U subset.eq RR^d ->V subset.eq M subset.eq RR^N$ sia
 differenziabile. Inoltre, si suppone che il differenziale $D phi_vb(q)$, che è
 un'applicazione lineare da $RR^d$ a $RR^N$, abbia rango massimo, uguale a $d$ (perché $d<=N$).
-Quindi $D phi_vb(q)$ è biiettiva. Intuitivamente, si può dire che l'immagine del
+Quindi $D phi_vb(q)$ è biettiva. Intuitivamente, si può dire che l'immagine del
 differenziale della carta è lo spazio tangente. Allora i vettori dello spazio
 tangente $T_phi(vb(q)) M$ sono tutti e soli i vettori del tipo $D phi_vb(q) (vb(u))$,
 con $vb(u) in RR^d$, dato che il differenziale è un'applicazione lineare
-biiettiva. Quindi il differenziale indicizza tutti gli elementi di $T_vb(r) M$.
+biettiva. Quindi il differenziale indicizza tutti gli elementi di $T_vb(r) M$.
 Questa relazione, in fisica si scrive spesso come
 $ dd(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] dd(vb(q)). $
 

@@ -33,7 +33,7 @@ Si presentano alcuni esempi di sistemi meccanici vincolati.
   una o più particelle vincolate a muoversi dentro un contenitore.
 ] <container>
 
-// "Vi dico un nome che non mi ricordo nenache io, ma come dicevano in Romeo e Giulietta, non è importante il nome"
+// "Vi dico un nome che non mi ricordo neanche io, ma come dicevano in Romeo e Giulietta, non è importante il nome"
 // "è una cosa che piace moltissimo agli ingegneri"
 Si dà una classificazione dei vincoli. Essi possono essere dati da equazioni o
 disequazioni nello _spazio di fase esteso_, ossia lo spazio delle $(vb(r_1), ..., vb(r_n), vb(v_1), ..., vb(v_n), t)$.
@@ -74,10 +74,10 @@ esplicitamente dipendenti dal tempo, e _scleronomi_ gli altri.
 
 L'@ring nel caso in cui il filo è fisso è un vincolo scleronomo, mentre se si
 muovesse sarebbe reonomo. I primi tre esempi presentati hanno vincoli olonomi;
-l'@wheel che può sembrare avere un vincolo alonomo, ha in realtà anch'esso un
+l'@wheel che può sembrare avere un vincolo anolonomo, ha in realtà anch'esso un
 vincolo olonomo. Infine, l'@sphere, ha un vincolo anolonomo.
 
-Naturalmente, possono coesistere vincoli olonimi e anolonomi, così come
+Naturalmente, possono coesistere vincoli olonomi e anolonomi, così come
 unilateri e bilateri.
 
 Si assumerà sempre che la totalità dei vincoli olonomi si possa riassumere
@@ -89,7 +89,7 @@ differenziabili $n$ volte. Nel linguaggio fisico si dirà che, almeno localmente
 tutte le possibili configurazioni sono espresse da
 $ gvec(r) = gvec(r)(q_1, ..., q_d, t) = gvec(r)_t (vb(q)) $
 dove $vb(q)$ è un vettore libero in $RR^d$, può variare in un aperto $U subset.eq RR^d$,
-e le $gvec(r)_t : U -> V subset.eq M_t$ sono funzioni biiettive e
+e le $gvec(r)_t : U -> V subset.eq M_t$ sono funzioni biettive e
 sufficientemente lisce. Per $vb(r)$ fuori da $V$ si applicheranno altre funzioni $gvec(r)_t$:
 $ r = gvec(r)_t (vb(q')), vb(q') in U', vb(r) in V'. $
 
@@ -100,14 +100,14 @@ Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
   riprendendo l'@ring, descritto dall'equazione
   $ z = 10 + sin x, x in [0, 6 pi]. $
 
-  Sì può usare la mappatura $vb(r)(q) = (q, 0, 10 + sin q)$, con $q in (0, 6 pi)$.
+  Si può usare la mappatura $vb(r)(q) = (q, 0, 10 + sin q)$, con $q in (0, 6 pi)$.
   Si vede che allora il vincolo è scleronomo.
 ]
 // "Non ha senso copiare, ha senso imparare"
 
 #example[
-  considerando sempre la configoìurazione dell'@ring, si considera un filo di
-  ferro che si muove verso l'alto di moto uniformemente accelerato:
+  considerando sempre la configurazione dell'@ring, si considera un filo di ferro
+  che si muove verso l'alto di moto uniformemente accelerato:
   $ z = a x + b/2 t^2, $
   allora in questo caso si pone
   $ vb(r)(q)= (q, 0, a q + b/2 t^2), q in RR. $

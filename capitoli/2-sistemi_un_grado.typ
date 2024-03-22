@@ -66,14 +66,14 @@ $ E(v,x) = v^2/2+U(x). $
 In particolare, per potenziali _non patologici_, gli insiemi di livello
 dell'energia
 $ Sigma_E = {(x,v) in RR^2 : v^2/2 + U(x) = E} $
-sono generalmente curve, e le curve di fase sono loro sottinsiemi.
+sono generalmente curve, e le curve di fase sono loro sottoinsiemi.
 
 I punti $macron(x)$ tali che $f(macron(x)) = 0$, (corrispondenti a punti critici
 dell'energia potenziale), sono detti _posizioni di equilibrio_.
 
 #def[
   le posizioni di equilibrio sono dette stabili se dopo una piccola perturbazione
-  delle condizioni iniali di equilibrio ($x(t)=macron(x), v(t)=0$) si ha che $x(t)$ rimane
+  delle condizioni iniziali di equilibrio ($x(t)=macron(x), v(t)=0$) si ha che $x(t)$ rimane
   vicino a $macron(x), forall t$.
 ]
 
@@ -228,7 +228,7 @@ un tempo infinito".
   vicino a, ma non coincidente con, $(macron(x), 0)$, vale
   $ T(v) = E-U(x)>0 $
   $ ==> v != 0 $
-  e quindi (o andando avanti o indietro nel temppo, a seconda dei casi) il punto
+  e quindi (o andando avanti o indietro nel tempo, a seconda dei casi) il punto
   materiale non si può fermare in un punto $hat(x)$ vicino ma diverso da $macron(x)$.
   Quindi è immediato che
   $ lim_(t->plus.minus infinity) x(t) = macron(x). $
@@ -279,7 +279,7 @@ un tempo infinito".
   Quindi si ha che $t = arctanh(x) ==> x(t) = tanh(t)$.
 
   Si vede che il primo tempo di inversione è $+infinity$, come in effetti ci si
-  poteva aspettare dalla forma del potenziale che mostra che la curva studaita è
+  poteva aspettare dalla forma del potenziale che mostra che la curva studiata è
   in effetti una separatrice.
   $ lim_(t->+infinity) x(t) =1, x(t)<1, forall t. $
 ]
@@ -540,12 +540,12 @@ Assumendo di avere il segno positivo,
 $ phi(r) = arcsin((L/r - k/L)/(sqrt(2E + k^2/L^2))) + phi_0. $
 
 Chiamando, per convenienza, $p := L^2/k$, $e := sqrt(1+(2 E L^2)/k^2)$, e dunque
-si ottiene, moltiplicando a numeratore e denominaore per $r/k$,
+si ottiene, moltiplicando a numeratore e denominatore per $r/k$,
 $ phi(r) = arcsin((L^2/(k r) - 1)/sqrt(1+(2 E L^2)/k^2)) + phi_0 = arcsin((p/r -1)/e) + phi_0 $
 $ ==> sin (phi-phi_0) = (p/r-1)/e $
 $ ==> r = p/(1+e sin (phi-phi_0)). $
 A meno di effettuare una ritraslazione degli angoli, si sceglie $phi_0 = - pi/2$,
-ottendendo
+ottenendo
 $ r = p/(1+e cos phi). $
 
 Assumendo invece di avere il segno negativo,

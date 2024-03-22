@@ -48,7 +48,7 @@ una equazione di primo grado con sei gradi di libertà.
 == Lavoro ed energia
 
 Data una forza $vb(F)$ (che non è necessariamente la forza totale che agisce su
-una particlella) e uno spostamento infinitesimo $vb(dd(r))$, il lavoro
+una particella) e uno spostamento infinitesimo $vb(dd(r))$, il lavoro
 infinitesimo di $vb(F)$ lungo $vb(dd(r))$ è
 $ dd(W)=vb(F) dprod vb(dd(r)) $
 
