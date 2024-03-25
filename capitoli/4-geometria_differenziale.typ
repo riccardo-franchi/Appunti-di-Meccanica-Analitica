@@ -92,12 +92,20 @@ che mappano tutta la superficie del rettangolo.
 == Vettori e spazi tangenti
 
 Senza definire formalmente il significato di vettore tangente ad una varietà
-differenziale $M$, si utilizzerà l'idea intuitiva di vettore tangente.
+differenziale $M$, si utilizzerà l'idea di vettore tangente, che è intuitiva per
+varietà immerse in $RR^N$.
 
 #def[
   lo _spazio tangente_ a $M subset.eq RR^N$ in $vb(r)$ è definito come
   $ T_vb(r) M = {vb(v) in RR^N : vb(v) "è tangente a" M "in" vb(r)} $
 ]
+
+Nelle applicazioni pratiche, è importante saper indicizzare i vettori di uno
+spazio tangente, al variare del punto di tangenza $vb(r) in M$, cioè trovare una
+funzione biunivoca fra $RR^d$ e un determinato spazio tangente, o fra un
+sottinsieme di $RR^d times RR^d$ e una porzione dell'insieme di tutti i vettori
+tangenti in tutti i punti di M. Si può effettuare tale indicizzazione mediante
+le carte di $M$.
 
 Si suppone, per adesso, che ogni carta $phi: U subset.eq RR^d ->V subset.eq M subset.eq RR^N$ sia
 differenziabile. Inoltre, si suppone che il differenziale $D phi_vb(q)$, che è
@@ -120,6 +128,9 @@ vettore $vb(v) in T_vb(r) M$ (date rispettivamente dalle carte $phi$ e $phi'$)
 allora valgono
 $ vb(q') = (phi')^(-1)(vb(r)) = ((phi')^(-1) compose phi)(vb(q)) $
 $ vb(u') = D((phi')^(-1) compose phi)_vb(q) (vb(u)). $
+
+In meccanica lagrangiana è utile lavorare con l'insieme di tutti i vettori
+tangenti a $M$, in un qualunque suo punto. Questo si chiama fibrato tangente di $M$.
 
 #def[
   si definisce _fibrato tangente_
