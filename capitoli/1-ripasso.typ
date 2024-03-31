@@ -319,7 +319,7 @@ Si ha che $vb(P)$ si conserva nel caso in cui $sum_i vb(F_i)^"tot"=0$.
 #def("momento angolare totale e momento della forza totale")[
   si definisce, per un punto di riferimento $vb(r_0) in RR^3$,
   $ vb(L) = sum_i vb(L_i) = sum_i (vb(r_i)- vb(r_0)) cprod vb(p_i) $
-  e // l'avevo indicato N vero
+  e
   $ vb(N) = sum_i vb(N_i) = sum_i (vb(r_i)-vb(r_0)) cprod vb(F_i). $
 ]
 
