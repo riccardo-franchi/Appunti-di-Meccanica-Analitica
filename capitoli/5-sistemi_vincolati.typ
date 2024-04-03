@@ -140,6 +140,8 @@ I vincoli sono sempre dovuti a forze. Si può esprimere il secondo principio
 della meccanica distinguendo tra _forze attive_ $vb(F)$ e _reazioni vincolari_ $vb(R)$:
 $ m dot.double(vb(r)) = vb(F) + vb(R). $
 
+Si vuole trovare $vb(F)$ senza conoscere necessariamente $vb(R)$.
+
 #def[
   uno _spostamento virtuale_ $var(vb(r)) = (var(r_1), ..., var(r_2))$ è un "cambiamento
   infinitesimo" della configurazione $vb(r)$ del sistema, compatibile con i
@@ -154,4 +156,59 @@ $ m dot.double(vb(r)) = vb(F) + vb(R). $
 ]
 
 Come conseguenza del principio di D'Alembert, $forall var(vb(r))$,
+
+#set math.equation(numbering: "(1)")
+
 $ m dot.double(vb(r)) dprod var(vb(r)) = vb(F) dprod var(vb(r)). $
+
+Vale che, indicando tra parentesi quadre la matrice Jacobiana,
+$ var(vb(r)) = [dv(vb(r), vb(q))(vb(q))] var(vb(q)). $
+Allora
+$ m dot.double(vb(r)) dprod var(vb(r)) = m dot.double(vb(r)) dprod [dv(vb(r), vb(q)) var(vb(q))] = m [dv(vb(r), vb(q))]^TT dot.double(vb(r)) dprod var(vb(q)). $ <transpose>
+Ma, si ha che
+$ [dv(vb(r), vb(q))]^TT dot.double(vb(r)) = dv(, t) ([dv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [dv(vb(r), vb(q))]^TT) dot(vb(r)). $ <transpose_derivative>
+Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
+$ dv(, t) [dv(vb(r), vb(q))] = dv(dot(vb(r)), vb(q)), $
+infatti,
+$ dv(, t) dv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q_k) + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q_k) + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
+
+Per definizione, vale anche che
+$ [dv(vb(r), vb(q))]=[dv(dot(vb(r)), dot(vb(q)))]. $ <jacobian_derivative>
+
+Infatti la trasformazione $(vb(q), dot(vb(q)), t) |-> dot(vb(r))$ è definita in
+maniera che valga
+$ dot(vb(r)) = [dv(vb(r), vb(q))] dot(vb(q)) + dv(vb(r), t). $
+
+Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
+$ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([dv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [dv(vb(r), vb(q))]^TT) dot(vb(r))) dprod var(vb(q)). $ <all_together>
+
+#set math.equation(numbering: none)
+
+Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
+ossia $T(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
+
+$ dv(T, dot(q_j)) = sum_(i=1)^n dv(T, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [dv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)) $
+$ ==> grad_dot(vb(q)) T = m [dv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+
+Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
+$ grad_vb(q) T = m [dv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
+La @all_together diventa quindi
+$ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T) dprod var(vb(q)). $
+
+Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
+$ vb(G)(vb(q), dot(vb(q)), t)=[dv(vb(q), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
+
+Dall'ultima espressione trovata, si ha che
+$ (dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) [dv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod vb(q). $
+
+Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
+e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
+$ dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T = vb(G). $
+
+Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
+allora si può esprimere l'energia come $U(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
+osservare che
+$ grad_vb(q) U = [dv(vb(r), vb(q))]^TT grad_vb(r) U = -[dv(vb(r), vb(q))] vb(F) = -vb(G). $
+
+Si ha llora che, per $L = T- U$,
+$ dv(, t) grad_dot(vb(q)) L - grad_vb(q) L = 0. $
