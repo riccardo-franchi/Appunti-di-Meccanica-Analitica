@@ -291,11 +291,12 @@ le espressioni delle equazioni di Eulero-Lagrange.
   il caso in cui la superficie di rotazione è data dalla rotazione di una curva
   del tipo $z=z(x)$).
 
-  Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora $(z,phi) |-> (r(z) cos phi, r(z) sin phi, z)$.
+  Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora
+  $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
 
   // "Facciamo come si fa da grandi, utilizando sempre T senza cambiare carattere"
   $ ==> dot(vb(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
-  Il resto dei calcoli è lasciato come esercizio. Si ha Infine
+  Il resto dei calcoli è lasciato come esercizio. Si ha infine
   $ T = 1/2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1/2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T(z, dot(z), dot(phi)) = L(z, dot(z), dot(phi)). $
   L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
   una coordinata ciclica, e quindi ci si aspetta che
