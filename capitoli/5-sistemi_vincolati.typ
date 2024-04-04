@@ -91,7 +91,7 @@ $ gvec(r) = gvec(r)(q_1, ..., q_d, t) = gvec(r)_t (vb(q)) $
 dove $vb(q)$ è un vettore libero in $RR^d$, può variare in un aperto $U subset.eq RR^d$,
 e le $gvec(r)_t : U -> V subset.eq M_t$ sono funzioni biettive e
 sufficientemente lisce. Per $vb(r)$ fuori da $V$ si applicheranno altre funzioni $gvec(r)_t$:
-$ r = gvec(r)_t (vb(q')), vb(q') in U', vb(r) in V'. $
+$ r = gvec(r)_t (vb(q')), vb(q') in 𝒰, vb(r) in V'. $
 
 Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
 
@@ -162,53 +162,93 @@ Come conseguenza del principio di D'Alembert, $forall var(vb(r))$,
 $ m dot.double(vb(r)) dprod var(vb(r)) = vb(F) dprod var(vb(r)). $
 
 Vale che, indicando tra parentesi quadre la matrice Jacobiana,
-$ var(vb(r)) = [dv(vb(r), vb(q))(vb(q))] var(vb(q)). $
+$ var(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] var(vb(q)). $
 Allora
-$ m dot.double(vb(r)) dprod var(vb(r)) = m dot.double(vb(r)) dprod [dv(vb(r), vb(q)) var(vb(q))] = m [dv(vb(r), vb(q))]^TT dot.double(vb(r)) dprod var(vb(q)). $ <transpose>
+$ m dot.double(vb(r)) dprod var(vb(r)) = m dot.double(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [pdv(vb(r), vb(q))]^TT dot.double(vb(r)) dprod var(vb(q)). $ <transpose>
 Ma, si ha che
-$ [dv(vb(r), vb(q))]^TT dot.double(vb(r)) = dv(, t) ([dv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [dv(vb(r), vb(q))]^TT) dot(vb(r)). $ <transpose_derivative>
+$ [pdv(vb(r), vb(q))]^TT dot.double(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r)). $ <transpose_derivative>
 Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
-$ dv(, t) [dv(vb(r), vb(q))] = dv(dot(vb(r)), vb(q)), $
+$ dv(, t) [pdv(vb(r), vb(q))] = dv(dot(vb(r)), vb(q)), $
 infatti,
-$ dv(, t) dv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q_k) + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q_k) + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
+$ dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q_k) + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q_k) + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
 
 Per definizione, vale anche che
-$ [dv(vb(r), vb(q))]=[dv(dot(vb(r)), dot(vb(q)))]. $ <jacobian_derivative>
+$ [pdv(vb(r), vb(q))]=[pdv(dot(vb(r)), dot(vb(q)))]. $ <jacobian_derivative>
 
 Infatti la trasformazione $(vb(q), dot(vb(q)), t) |-> dot(vb(r))$ è definita in
 maniera che valga
-$ dot(vb(r)) = [dv(vb(r), vb(q))] dot(vb(q)) + dv(vb(r), t). $
+$ dot(vb(r)) = [pdv(vb(r), vb(q))] dot(vb(q)) + dv(vb(r), t). $
 
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
-$ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([dv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [dv(vb(r), vb(q))]^TT) dot(vb(r))) dprod var(vb(q)). $ <all_together>
+$ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r))) dprod var(vb(q)). $ <all_together>
 
 #set math.equation(numbering: none)
 
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
-ossia $T(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
+ossia $𝒯(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
 
-$ dv(T, dot(q_j)) = sum_(i=1)^n dv(T, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [dv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)) $
-$ ==> grad_dot(vb(q)) T = m [dv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)) $
+$ ==> grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 
 Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
-$ grad_vb(q) T = m [dv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
+$ grad_vb(q) 𝒯 = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
 La @all_together diventa quindi
 $ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T) dprod var(vb(q)). $
 
 Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
-$ vb(G)(vb(q), dot(vb(q)), t)=[dv(vb(q), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
+$ vb(G)(vb(q), dot(vb(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
 
 Dall'ultima espressione trovata, si ha che
-$ (dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) [dv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod vb(q). $
+$ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) [pdv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod vb(q). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
-e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
-$ dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T = vb(G). $
+e dunque in ques𝒯ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
+$ dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯 = vb(G). $
 
-Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
-allora si può esprimere l'energia come $U(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
+Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) 𝒰(vb(r),t)$,
+allora si può esprimere l'energia come $𝒰(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
 osservare che
-$ grad_vb(q) U = [dv(vb(r), vb(q))]^TT grad_vb(r) U = -[dv(vb(r), vb(q))] vb(F) = -vb(G). $
+$ grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT grad_vb(r) 𝒰 = -[pdv(vb(r), vb(q))] vb(F) = -vb(G). $
 
-Si ha llora che, per $L = T- U$,
-$ dv(, t) grad_dot(vb(q)) L - grad_vb(q) L = 0. $
+Si ha allora che, per $ℒ = 𝒯- 𝒰$,
+$ dv(, t) grad_dot(vb(q)) ℒ - grad_vb(q) ℒ = 0. $
+
+Si noti che se il problema ammette un potenziale generalizzato $U(vb(r), vb(v), t)$,
+cioè
+$ vb(F)(vb(r), dot(vb(r)), t) = dv(, t) grad_dot(vb(r)) U - grad_vb(r) U, $
+ciò non implica le equazioni di Eulero-Lagrange per la lagrangiana $ℒ = 𝒯-𝒰$,
+ove
+$ 𝒰(vb(q), dot(vb(q)),t) = U(vb(r)(vb(q),t), [pdv(vb(r), vb(q))(vb(q),t)]dot(vb(q))+pdv(vb(r), t),t), $
+perché non è detto che
+$ dv(, t) grad_dot(vb(q)) 𝒰 - grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT vb(F). $
+
+#example[
+  Si considera l'esempio della particella vincolata da un filo metallico (@ring),
+  di forma data da $G(psi)$ (il grafico della funzione $psi$), nel piano $(x,z)$,
+  soggetta alla forza di gravità ($U = m g z$, $T = m/2 (dot(x)^2+dot(z)^2)$).
+
+  Si vuole mappare la varietà data dal grafico di $psi$ (il vincolo è scleronomo),
+  in modo da poter esprimere la lagrangiana nella coordinata generalizzata $q$:
+  $ cases(x=q, z=psi(q)) ==> vb(r)(q)=(q, psi(q)). $
+
+  $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = 𝒯(vb(q), dot(vb(q))) $
+  $ U(z) = m g z = m g phi(q) = 𝒰(q) $
+  $ ==> ℒ = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
+  $ pdv(ℒ, dot(q)) = m dot(q)(1+(psi'(q))^2) $
+  $ ==> dv(, t) pdv(ℒ, dot(q)) = m dot.double(q) (1+(psi'(q))^2) + 2m dot(q)^2 psi'(q) psi''(q) $
+  $ pdv(ℒ, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
+  Si può scrivere quindi l'equazione di Eulero-Lagrange (la massa si semplifica):
+  $ (1+(psi'(q))^2) dot.double(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
+
+  Si considera, per esempio, il caso di un piano inclinato, per cui $psi(q) = a q$.
+  In tal caso, l'equazione di Eulero-Lagrange si riscrive
+  $ (1+a^2) dot.double(q) + g a = 0 <==> dot.double(q) = -a/(1+a^2) g. $
+  siccome $a = tan theta$, con $theta$ angolo del piano inclinato, allora,
+  riscrivendo l'equazione rispetto alla costante $theta$,
+  $ dot.double(q) = -g sin theta cos theta. $
+  Scegliendo, al posto di $q$ una variabile $rho$ lungo il piano inclinato: $rho = q/(cos theta)$,
+  si ottiene
+  $ dot.double(rho) = - g sin theta $
+  che è esattamente la consueta equazione del piano inclinato.
+
+]
