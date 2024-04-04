@@ -222,6 +222,9 @@ $ 𝒰(vb(q), dot(vb(q)),t) = U(vb(r)(vb(q),t), [pdv(vb(r), vb(q))(vb(q),t)]dot(
 perché non è detto che
 $ dv(, t) grad_dot(vb(q)) 𝒰 - grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT vb(F). $
 
+Si presenta una serie di esempi di sistemi vincolati, in cui si vogliono trovare
+le espressioni delle equazioni di Eulero-Lagrange.
+
 #example[
   Si considera l'esempio della particella vincolata da un filo metallico (@ring),
   di forma data da $G(psi)$ (il grafico della funzione $psi$), nel piano $(x,z)$,
@@ -250,5 +253,71 @@ $ dv(, t) grad_dot(vb(q)) 𝒰 - grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT vb(F).
   si ottiene
   $ dot.double(rho) = - g sin theta $
   che è esattamente la consueta equazione del piano inclinato.
+]
 
+#example[
+  Si considera una particella vincolata ad un filo inclinato di equazione (al
+  tempo $t=0$) $z=a x + c$ che si muove verso l'alto con accelerazione costante $b$ (vincolo
+  reonomo), non soggetta a forze esterne ($U = 0$).
+
+  $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
+  $ ==> dot(vb(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
+  $ ==> abs(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
+  Allora, dato che $ℒ=𝒯$,
+  $ pdv(ℒ, dot(q)) = m(1+a^2)dot(q) + m a b t $
+  $ ==> dv(, t)pdv(ℒ, dot(q)) = m((1+a^2)dot.double(q)+a b) $
+  $ pdv(ℒ, q)=0. $
+  L'equazione di Eulero-Lagrange è allora
+  $ (1+a^2)dot.double(q)+a b=0 <==> dot.double(q) = -a/(1+a^2) b. $
+
+  Facendo riferimento a quanto detto alla fine dell'esempio precedente, si può
+  riscrivere l'espressione in funzione dell'angolo $theta$:
+  $ dot.double(q) = -b sin theta cos theta. $
+
+  Quindi il caso in cui il vincolo accelera verso l'alto è equivalente al caso in
+  cui la particella è accelerata verso il basso.
+]
+
+#example[
+  Si considera una particella vincolata ad una superficie di rotazione attorno
+  all'asse $z$ (data dalla rotazione completa di una curva rispetto all'asse $z$),
+  non soggetta a forze esterne.
+
+  Si introducono le coordinate cilindriche, che hanno simmetria rotazionale
+  attorno all'asse $z$:
+  $ cases(x=r cos phi, y = r sin phi, z = z). $
+
+  Si assume che la superficie sia data dall'equazione $r=r(z)$ (non viene trattato
+  il caso in cui la superficie di rotazione è data dalla rotazione di una curva
+  del tipo $z=z(x)$).
+
+  Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora $(z,phi) |-> (r(z) cos phi, r(z) sin phi, z)$.
+
+  // "Facciamo come si fa da grandi, utilizando sempre T senza cambiare carattere"
+  $ ==> dot(vb(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
+  Il resto dei calcoli è lasciato come esercizio. Si ha Infine
+  $ T = 1/2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1/2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T(z, dot(z), dot(phi)) = L(z, dot(z), dot(phi)). $
+  L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
+  una coordinata ciclica, e quindi ci si aspetta che
+  $ pdv(L, dot(phi)) = "costante". $
+
+  $ pdv(L, dot(z)) = (1+(r'(z))^2) dot(z) $
+  $ ==> dv(, t) pdv(L, dot(z)) = (1+(r'(z))^2) dot.double(z) + 2 r'(z) r''(z) dot(z)^2 $
+  $ pdv(L, z) = r'(z) r''(z) dot(z)^2+r(z) r'(z) dot(phi)^2. $
+
+  L'equazione di Eulero-Lagrange nella prima coordinata (in $(z, dot(z))$) è
+  $ (1+(r'(z))^2) dot.double(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
+
+  $ pdv(L, dot(phi)) = (r(z))^2 dot(phi) = L_0 $
+  che è quindi una costante, come ci si aspettava.
+]
+
+#exercise[
+  Mostrare che, in relazione all'esempio precedente, tutti i meridiani (curve a $phi$ costante)
+  sono geodetiche (ossia soluzioni delle equazioni di Eulero-Lagrange), i
+  paralleli (curve a $z$ costante) sono geodetiche se corrispondono a una $z$ per
+  cui $r'(z) = 0$.
+
+  Rifare poi tutti i conti dell'esempio precedente nel caso non trattato in cui si
+  fa ruotare una curva del tipo $z=z(x)$.
 ]
