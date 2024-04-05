@@ -309,6 +309,8 @@ le espressioni delle equazioni di Eulero-Lagrange.
   L'equazione di Eulero-Lagrange nella prima coordinata (in $(z, dot(z))$) è
   $ (1+(r'(z))^2) dot.double(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
 
+  Per quanto riguarda l'equazione di Eulero-Lagrange nella seconda coordinata,
+  invece,
   $ pdv(L, dot(phi)) = (r(z))^2 dot(phi) = L_0 $
   che è quindi una costante, come ci si aspettava.
 ]
