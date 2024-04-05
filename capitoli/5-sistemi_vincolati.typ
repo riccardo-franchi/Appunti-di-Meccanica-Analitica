@@ -204,7 +204,7 @@ Dall'ultima espressione trovata, si ha che
 $ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) [pdv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod vb(q). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
-e dunque in ques𝒯ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
+e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
 $ dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯 = vb(G). $
 
 Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) 𝒰(vb(r),t)$,
