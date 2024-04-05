@@ -187,8 +187,10 @@ $ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
 ossia $𝒯(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
 
-$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)) $
-$ ==> grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)) $
+dove stiamo considerando lo jacobiano con l'indice $j$ fissato (abbiamo un vettore).\
+Da ciò consegue che
+$ grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 
 Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
 $ grad_vb(q) 𝒯 = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
