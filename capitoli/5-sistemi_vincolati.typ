@@ -99,7 +99,7 @@ Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
   si considera un punto vincolato a muoversi su un filo di ferro sul piano $(x,z)$,
   riprendendo l'@ring, descritto dall'equazione
   $ z = 10 + sin x, x in [0, 6 pi]. $
-
+  
   Si può usare la mappatura $vb(r)(q) = (q, 0, 10 + sin q)$, con $q in (0, 6 pi)$.
   Si vede che allora il vincolo è scleronomo.
 ]
@@ -187,8 +187,10 @@ $ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
 ossia $𝒯(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
 
-$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)) $
-$ ==> grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)) $
+dove si considera lo jacobiano con l'indice $j$ fissato (si ha un vettore). Da
+ciò consegue che
+$ grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 
 Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
 $ grad_vb(q) 𝒯 = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
@@ -199,16 +201,16 @@ Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
 $ vb(G)(vb(q), dot(vb(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
 
 Dall'ultima espressione trovata, si ha che
-$ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) [pdv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod vb(q). $
+$ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = [pdv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod var(vb(q)). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
-e dunque in ques𝒯ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
+e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
 $ dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯 = vb(G). $
 
-Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) 𝒰(vb(r),t)$,
+Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
 allora si può esprimere l'energia come $𝒰(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
 osservare che
-$ grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT grad_vb(r) 𝒰 = -[pdv(vb(r), vb(q))] vb(F) = -vb(G). $
+$ grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $
 
 Si ha allora che, per $ℒ = 𝒯- 𝒰$,
 $ dv(, t) grad_dot(vb(q)) ℒ - grad_vb(q) ℒ = 0. $
@@ -229,11 +231,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si considera l'esempio della particella vincolata da un filo metallico (@ring),
   di forma data da $G(psi)$ (il grafico della funzione $psi$), nel piano $(x,z)$,
   soggetta alla forza di gravità ($U = m g z$, $T = m/2 (dot(x)^2+dot(z)^2)$).
-
+  
   Si vuole mappare la varietà data dal grafico di $psi$ (il vincolo è scleronomo),
   in modo da poter esprimere la lagrangiana nella coordinata generalizzata $q$:
   $ cases(x=q, z=psi(q)) ==> vb(r)(q)=(q, psi(q)). $
-
+  
   $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = 𝒯(vb(q), dot(vb(q))) $
   $ U(z) = m g z = m g phi(q) = 𝒰(q) $
   $ ==> ℒ = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
@@ -242,7 +244,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(ℒ, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
   Si può scrivere quindi l'equazione di Eulero-Lagrange (la massa si semplifica):
   $ (1+(psi'(q))^2) dot.double(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
-
+  
   Si considera, per esempio, il caso di un piano inclinato, per cui $psi(q) = a q$.
   In tal caso, l'equazione di Eulero-Lagrange si riscrive
   $ (1+a^2) dot.double(q) + g a = 0 <==> dot.double(q) = -a/(1+a^2) g. $
@@ -259,7 +261,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si considera una particella vincolata ad un filo inclinato di equazione (al
   tempo $t=0$) $z=a x + c$ che si muove verso l'alto con accelerazione costante $b$ (vincolo
   reonomo), non soggetta a forze esterne ($U = 0$).
-
+  
   $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
   $ ==> dot(vb(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
   $ ==> abs(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
@@ -269,11 +271,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(ℒ, q)=0. $
   L'equazione di Eulero-Lagrange è allora
   $ (1+a^2)dot.double(q)+a b=0 <==> dot.double(q) = -a/(1+a^2) b. $
-
+  
   Facendo riferimento a quanto detto alla fine dell'esempio precedente, si può
   riscrivere l'espressione in funzione dell'angolo $theta$:
   $ dot.double(q) = -b sin theta cos theta. $
-
+  
   Quindi il caso in cui il vincolo accelera verso l'alto è equivalente al caso in
   cui la particella è accelerata verso il basso.
 ]
@@ -282,18 +284,18 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si considera una particella vincolata ad una superficie di rotazione attorno
   all'asse $z$ (data dalla rotazione completa di una curva rispetto all'asse $z$),
   non soggetta a forze esterne.
-
+  
   Si introducono le coordinate cilindriche, che hanno simmetria rotazionale
   attorno all'asse $z$:
   $ cases(x=r cos phi, y = r sin phi, z = z). $
-
+  
   Si assume che la superficie sia data dall'equazione $r=r(z)$ (non viene trattato
   il caso in cui la superficie di rotazione è data dalla rotazione di una curva
   del tipo $z=z(x)$).
-
+  
   Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora
   $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
-
+  
   // "Facciamo come si fa da grandi, utilizando sempre T senza cambiare carattere"
   $ ==> dot(vb(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
   Il resto dei calcoli è lasciato come esercizio. Si ha infine
@@ -301,14 +303,14 @@ le espressioni delle equazioni di Eulero-Lagrange.
   L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
   una coordinata ciclica, e quindi ci si aspetta che
   $ pdv(L, dot(phi)) = "costante". $
-
+  
   $ pdv(L, dot(z)) = (1+(r'(z))^2) dot(z) $
   $ ==> dv(, t) pdv(L, dot(z)) = (1+(r'(z))^2) dot.double(z) + 2 r'(z) r''(z) dot(z)^2 $
   $ pdv(L, z) = r'(z) r''(z) dot(z)^2+r(z) r'(z) dot(phi)^2. $
-
+  
   L'equazione di Eulero-Lagrange nella prima coordinata (in $(z, dot(z))$) è
   $ (1+(r'(z))^2) dot.double(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
-
+  
   Per quanto riguarda l'equazione di Eulero-Lagrange nella seconda coordinata,
   invece,
   $ pdv(L, dot(phi)) = (r(z))^2 dot(phi) = L_0 $
@@ -320,7 +322,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   sono geodetiche (ossia soluzioni delle equazioni di Eulero-Lagrange), i
   paralleli (curve a $z$ costante) sono geodetiche se corrispondono a una $z$ per
   cui $r'(z) = 0$.
-
+  
   Rifare poi tutti i conti dell'esempio precedente nel caso non trattato in cui si
   fa ruotare una curva del tipo $z=z(x)$.
 ]
