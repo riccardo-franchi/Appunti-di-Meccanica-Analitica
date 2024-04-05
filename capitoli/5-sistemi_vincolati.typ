@@ -207,10 +207,10 @@ Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
 $ dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯 = vb(G). $
 
-Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) 𝒰(vb(r),t)$,
+Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
 allora si può esprimere l'energia come $𝒰(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
 osservare che
-$ grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT grad_vb(r) 𝒰 = -[pdv(vb(r), vb(q))] vb(F) = -vb(G). $
+$ grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $
 
 Si ha allora che, per $ℒ = 𝒯- 𝒰$,
 $ dv(, t) grad_dot(vb(q)) ℒ - grad_vb(q) ℒ = 0. $
