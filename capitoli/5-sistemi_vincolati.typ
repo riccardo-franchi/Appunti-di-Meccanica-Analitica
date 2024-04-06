@@ -99,7 +99,7 @@ Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
   si considera un punto vincolato a muoversi su un filo di ferro sul piano $(x,z)$,
   riprendendo l'@ring, descritto dall'equazione
   $ z = 10 + sin x, x in [0, 6 pi]. $
-  
+   
   Si può usare la mappatura $vb(r)(q) = (q, 0, 10 + sin q)$, con $q in (0, 6 pi)$.
   Si vede che allora il vincolo è scleronomo.
 ]
@@ -133,20 +133,25 @@ Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
 == Principio di D'Alembert
 
 D'ora in avanti, non si utilizzerà più la notazione $gvec(r)$ e $gmat(M)$ per
-indicare le posizioni e le masse dei sistemi di particelle, ma si utilizzerà $vb(r) in RR^n$ e $m in RR$.
-Si tratta in realtà di un cambio di notazione, perché i calcoli sono analoghi.
+indicare le posizioni e le masse dei sistemi di particelle, ma si utilizzerà $vb(r) in RR^n$ e $m in RR$,
+supponendo di lavorare con una sola particella. Si tratta in realtà di un cambio
+di notazione, perché i calcoli sono analoghi.
 
 I vincoli sono sempre dovuti a forze. Si può esprimere il secondo principio
 della meccanica distinguendo tra _forze attive_ $vb(F)$ e _reazioni vincolari_ $vb(R)$:
 $ m dot.double(vb(r)) = vb(F) + vb(R). $
 
-Si vuole trovare $vb(F)$ senza conoscere necessariamente $vb(R)$.
+L'obiettivo è trovare $vb(F)$ senza conoscere necessariamente $vb(R)$. Questo è
+possibile a partire dal _principio di D'Alembert_.
 
 #def[
   uno _spostamento virtuale_ $var(vb(r)) = (var(r_1), ..., var(r_2))$ è un "cambiamento
   infinitesimo" della configurazione $vb(r)$ del sistema, compatibile con i
   vincoli del sistema ad un dato tempo $t$.
 ]
+
+Questi spostamenti infinitesimi vanno pensati in una situazione idealizzata di
+tempo "congelato", e con esso lo sono tutte le quantità dipendenti dal tempo.
 
 #principle(
   "di D'Alembert",
@@ -155,11 +160,22 @@ Si vuole trovare $vb(F)$ senza conoscere necessariamente $vb(R)$.
   $ vb(R) dprod var(vb(r)) = 0. $
 ]
 
+Si può riflettere sulla ragionevolezza di questo principio: la reazione
+vincolare può fare lavoro, ma non lungo gli spostamenti virtuali, che sono
+quelli che coinvolgono il moto "all'interno del vincolo". La reazione vincolare
+ha l'unico effetto di tenere la particella vincolata, non di fornirle o
+toglierle energia per il moto entro il vincolo.
+
 Come conseguenza del principio di D'Alembert, $forall var(vb(r))$,
 
 #set math.equation(numbering: "(1)")
 
 $ m dot.double(vb(r)) dprod var(vb(r)) = vb(F) dprod var(vb(r)). $
+
+Si utilizzano le carte e i concetti definiti nel capitolo precedente, che
+consentono di descrivere il moto (e quindi gli spostamenti infinitesimi)
+vincolato nelle $vb(r)$ tramite il moto nelle $vb(q)$, perché in molti casi gli
+spostamenti infinitesimi nelle $vb(q)$ saranno _liberi_.
 
 Vale che, indicando tra parentesi quadre la matrice Jacobiana,
 $ var(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] var(vb(q)). $
@@ -187,25 +203,33 @@ $ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
 ossia $𝒯(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
 
-$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m [pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)) $
-dove si considera lo jacobiano con l'indice $j$ fissato (si ha un vettore). Da
-ciò consegue che
-$ grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m ([pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)))_j $
+$ ==> grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 
 Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
 $ grad_vb(q) 𝒯 = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
 La @all_together diventa quindi
-$ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) T) - grad_vb(q) T) dprod var(vb(q)). $
+$ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)). $
 
 Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
 $ vb(G)(vb(q), dot(vb(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
 
 Dall'ultima espressione trovata, si ha che
-$ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = [pdv(vb(r), vb(q))]^TT vb(F) dprod var(vb(q)) = vb(G) dprod var(vb(q)). $
+$ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))]^TT var(vb(q)) = vb(G) dprod var(vb(q)). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
 $ dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯 = vb(G). $
+L'ipotesi di avere vincoli olonomi equivale a dire che l'unico vincolo è
+appartenere alla varietà $M_t$ nello spazio delle configurazioni $RR^n$, data
+dalle carte $vb(q) |-> vb(r)(vb(q),t)$.
+
+Nel caso olonomo, quindi, gli spostamenti virtuali $var(vb(r))$ sono i vettori
+tangenti a $M_t$ in $vb(r)$, ovvero la posizione del sistema al tempo $t$ "di
+congelamento". Questa è una definizione ben posta, differentemente dalla
+precedente, in cui si parlava di spostamenti infinitesimi. Inoltre, gli
+spostamenti virtuali sono mappati da vettori liberi $var(vb(q))$ di $RR^d$ (non
+ci sono cioè restrizioni per $var(vb(q))$) secondo l'equazione già vista $var(vb(r)) = [pdv(vb(r), vb(q))] var(vb(q))$.
 
 Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
 allora si può esprimere l'energia come $𝒰(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
@@ -231,11 +255,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si considera l'esempio della particella vincolata da un filo metallico (@ring),
   di forma data da $G(psi)$ (il grafico della funzione $psi$), nel piano $(x,z)$,
   soggetta alla forza di gravità ($U = m g z$, $T = m/2 (dot(x)^2+dot(z)^2)$).
-  
+   
   Si vuole mappare la varietà data dal grafico di $psi$ (il vincolo è scleronomo),
   in modo da poter esprimere la lagrangiana nella coordinata generalizzata $q$:
   $ cases(x=q, z=psi(q)) ==> vb(r)(q)=(q, psi(q)). $
-  
+   
   $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = 𝒯(vb(q), dot(vb(q))) $
   $ U(z) = m g z = m g phi(q) = 𝒰(q) $
   $ ==> ℒ = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
@@ -244,7 +268,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(ℒ, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
   Si può scrivere quindi l'equazione di Eulero-Lagrange (la massa si semplifica):
   $ (1+(psi'(q))^2) dot.double(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
-  
+   
   Si considera, per esempio, il caso di un piano inclinato, per cui $psi(q) = a q$.
   In tal caso, l'equazione di Eulero-Lagrange si riscrive
   $ (1+a^2) dot.double(q) + g a = 0 <==> dot.double(q) = -a/(1+a^2) g. $
@@ -261,7 +285,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si considera una particella vincolata ad un filo inclinato di equazione (al
   tempo $t=0$) $z=a x + c$ che si muove verso l'alto con accelerazione costante $b$ (vincolo
   reonomo), non soggetta a forze esterne ($U = 0$).
-  
+   
   $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
   $ ==> dot(vb(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
   $ ==> abs(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
@@ -271,11 +295,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(ℒ, q)=0. $
   L'equazione di Eulero-Lagrange è allora
   $ (1+a^2)dot.double(q)+a b=0 <==> dot.double(q) = -a/(1+a^2) b. $
-  
+   
   Facendo riferimento a quanto detto alla fine dell'esempio precedente, si può
   riscrivere l'espressione in funzione dell'angolo $theta$:
   $ dot.double(q) = -b sin theta cos theta. $
-  
+   
   Quindi il caso in cui il vincolo accelera verso l'alto è equivalente al caso in
   cui la particella è accelerata verso il basso.
 ]
@@ -284,18 +308,18 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si considera una particella vincolata ad una superficie di rotazione attorno
   all'asse $z$ (data dalla rotazione completa di una curva rispetto all'asse $z$),
   non soggetta a forze esterne.
-  
+   
   Si introducono le coordinate cilindriche, che hanno simmetria rotazionale
   attorno all'asse $z$:
   $ cases(x=r cos phi, y = r sin phi, z = z). $
-  
+   
   Si assume che la superficie sia data dall'equazione $r=r(z)$ (non viene trattato
   il caso in cui la superficie di rotazione è data dalla rotazione di una curva
   del tipo $z=z(x)$).
-  
+   
   Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora
   $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
-  
+   
   // "Facciamo come si fa da grandi, utilizando sempre T senza cambiare carattere"
   $ ==> dot(vb(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
   Il resto dei calcoli è lasciato come esercizio. Si ha infine
@@ -303,14 +327,14 @@ le espressioni delle equazioni di Eulero-Lagrange.
   L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
   una coordinata ciclica, e quindi ci si aspetta che
   $ pdv(L, dot(phi)) = "costante". $
-  
+   
   $ pdv(L, dot(z)) = (1+(r'(z))^2) dot(z) $
   $ ==> dv(, t) pdv(L, dot(z)) = (1+(r'(z))^2) dot.double(z) + 2 r'(z) r''(z) dot(z)^2 $
   $ pdv(L, z) = r'(z) r''(z) dot(z)^2+r(z) r'(z) dot(phi)^2. $
-  
+   
   L'equazione di Eulero-Lagrange nella prima coordinata (in $(z, dot(z))$) è
   $ (1+(r'(z))^2) dot.double(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
-  
+   
   Per quanto riguarda l'equazione di Eulero-Lagrange nella seconda coordinata,
   invece,
   $ pdv(L, dot(phi)) = (r(z))^2 dot(phi) = L_0 $
@@ -322,7 +346,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   sono geodetiche (ossia soluzioni delle equazioni di Eulero-Lagrange), i
   paralleli (curve a $z$ costante) sono geodetiche se corrispondono a una $z$ per
   cui $r'(z) = 0$.
-  
+   
   Rifare poi tutti i conti dell'esempio precedente nel caso non trattato in cui si
   fa ruotare una curva del tipo $z=z(x)$.
 ]
