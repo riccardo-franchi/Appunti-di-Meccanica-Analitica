@@ -3,6 +3,10 @@
 #let gvec(content) = $underline(vb(content))$
 #let gmat(content) = $underline(underline(vb(content)))$
 
+#let scriptL = "ℒ"
+#let scriptT = "𝒯"
+#let scriptU = "𝒰"
+
 // ctheorems setup
 #import "@preview/ctheorems:1.1.2": *
 

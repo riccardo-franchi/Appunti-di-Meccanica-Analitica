@@ -276,23 +276,23 @@ Vale il seguente principio:
 #def[
   in seguito ad un cambio di coordinate $vb(r) |-> vb(q)$ nello spazio delle
   configurazioni, la funzione lagrangiana nelle $vb(q)$ diventa
-  $ ℒ(vb(q), dot(vb(q)), t) = L(vb(r(q)), [pdv(vb(q), vb(r))(vb(r))] dot(vb(r)), t). $
+  $ scriptL(vb(q), dot(vb(q)), t) = L(vb(r(q)), [pdv(vb(q), vb(r))(vb(r))] dot(vb(r)), t). $
 ]
 
 Un corollario al principio di minima azione di Hamilton è il seguente:
 
 #corollary[
   sia $vb(q)$ un (altro) sistema di coordinate sullo spazio delle configurazioni $RR^d$,
-  rispetto al quale la funzione lagrangiana sia $ℒ$ come sopra definito. In queste
-  coordinate le leggi del moto soddisfano
-  $ dv(, t) pdv(ℒ, dot(q_i)) - pdv(ℒ, q_i) = 0 $
+  rispetto al quale la funzione lagrangiana sia $scriptL$ come sopra definito. In
+  queste coordinate le leggi del moto soddisfano
+  $ dv(, t) pdv(scriptL, dot(q_i)) - pdv(scriptL, q_i) = 0 $
 ]
 
 #dim[
   Si nota che, per costruzione,
-  $ integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) = integral_(t_0)^(t_1) ℒ(vb(q)(t), dot(vb(q))(t), t) dd(t) $
+  $ integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) = integral_(t_0)^(t_1) scriptL(vb(q)(t), dot(vb(q))(t), t) dd(t) $
   si conclude con il fatto che, per il principio di minima azione di Hamilton, se
-  l'integrale è un estremale, allora valgono le equazioni di Eulero-Lagrange per $ℒ$.
+  l'integrale è un estremale, allora valgono le equazioni di Eulero-Lagrange per $scriptL$.
   Per definizione di estremale,
   $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = o(norm(vb(h))_(C^1)) $
   $ tilde(Phi)(vb(q)+vb(l)) - tilde(Phi)(vb(q)) = o(norm(vb(l))_(C_1)) $
@@ -309,17 +309,17 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
   tramite il formalismo lagrangiano nelle coordinate polari $vb(q) = (r,phi)$. Si
   esprime $L = T-U$ nelle coordinate $(r,phi)$. In coordinate polari, l'energia
   potenziale vale $u(r)$, mentre l'energia cinetica vale
-  $ T'(r, phi, dot(r), dot(phi)) = m/2 (dot(r)^2 + r^2 dot(phi)^2) = T'(r, dot(r), dot(phi)) $
-  $ ==> ℒ(r, phi, dot(r), dot(phi)) = m/2 (dot(r)^2 + r^2 dot(phi)^2) - u(r) = ℒ(r, dot(r), dot(phi)) $
+  $ scriptT(r, phi, dot(r), dot(phi)) = m/2 (dot(r)^2 + r^2 dot(phi)^2) = scriptT(r, dot(r), dot(phi)) $
+  $ ==> scriptL(r, phi, dot(r), dot(phi)) = m/2 (dot(r)^2 + r^2 dot(phi)^2) - u(r) = scriptL(r, dot(r), dot(phi)) $
   e quindi la funzione lagrangiana non dipende esplicitamente da $phi$.
 
   Per trovare le leggi del moto, si impostano le equazioni di Eulero-Lagrange:
-  $ dv(, t) pdv(ℒ, dot(r)) - pdv(ℒ, r) = 0 $
+  $ dv(, t) pdv(scriptL, dot(r)) - pdv(scriptL, r) = 0 $
   $ ==> dv((m dot(r)), t) - m r dot(phi)^2 + dv(u(r), r) = 0 $
   $ <==> m dot.double(r) = m r dot(phi)^2 - dv(u(r), r). $
   La seconda equazione invece esprime il principio di conservazione del momento
   angolare:
-  $ dv(, t) pdv(ℒ, dot(phi)) - pdv(ℒ, phi) = 0 $
+  $ dv(, t) pdv(scriptL, dot(phi)) - pdv(scriptL, phi) = 0 $
   $ ==> dv(, t)(m r^2 dot(phi)) = 0. $
 ]
 
@@ -328,9 +328,10 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
 Si illustra ora la terminologia generale per alcune grandezze studiate in questo
 capitolo:
 
-- un oggetto del tipo $pdv(L, q_i)$ è detto _impulso_ (o _momento_) _generalizzato_;
+- un oggetto del tipo $pdv(scriptL, q_i)$ è detto _impulso_ (o _momento_) _generalizzato_;
 - una variabile $q_i$ da cui $L$ non dipende è detta _variabile ciclica_. In
-  questo caso, l'impulso generalizzato $pdv(L, dot(q_i))$ si conserva, perché $dv(, t) pdv(L, dot(q_i)) = pdv(L, q_i) = 0$.
+  questo caso, l'impulso generalizzato $pdv(scriptL, dot(q_i))$ si conserva,
+  perché $dv(, t) pdv(scriptL, dot(q_i)) = pdv(scriptL, q_i) = 0$.
 
 // "Sono una persona molto sola... *ridacchia* no, no, c'è anche troppa gente attorno a me [...] dovete arrivare a un punto in cui le equazioni di Lagrange ve le sognate la notte"
 
@@ -385,6 +386,4 @@ elettromagnetico.
   l'espressione vettoriale della forza di Lorentz generalizzata.
 ]
 
-// snoooo mimimi snooooo mimimi
-// Lenci fa una specie di ci scì
 // "Faccio come i dottori ultimamente, che vi spaventano sulle prognosi di una malattia così voi non gli fate causa"

@@ -91,7 +91,7 @@ $ gvec(r) = gvec(r)(q_1, ..., q_d, t) = gvec(r)_t (vb(q)) $
 dove $vb(q)$ è un vettore libero in $RR^d$, può variare in un aperto $U subset.eq RR^d$,
 e le $gvec(r)_t : U -> V subset.eq M_t$ sono funzioni biettive e
 sufficientemente lisce. Per $vb(r)$ fuori da $V$ si applicheranno altre funzioni $gvec(r)_t$:
-$ r = gvec(r)_t (vb(q')), vb(q') in 𝒰, vb(r) in V'. $
+$ r = gvec(r)_t (vb(q')), vb(q') in scriptU, vb(r) in V'. $
 
 Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
 
@@ -201,25 +201,25 @@ $ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(
 #set math.equation(numbering: none)
 
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
-ossia $𝒯(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
+ossia $scriptT(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
 
-$ dv(𝒯, dot(q_j)) = sum_(i=1)^n dv(𝒯, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m ([pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)))_j $
-$ ==> grad_dot(vb(q)) 𝒯 = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+$ dv(scriptT, dot(q_j)) = sum_(i=1)^n dv(scriptT, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m ([pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)))_j $
+$ ==> grad_dot(vb(q)) scriptT = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 
 Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
-$ grad_vb(q) 𝒯 = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
+$ grad_vb(q) scriptT = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
 La @all_together diventa quindi
-$ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)). $
+$ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)). $
 
 Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
 $ vb(G)(vb(q), dot(vb(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
 
 Dall'ultima espressione trovata, si ha che
-$ (dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))]^TT var(vb(q)) = vb(G) dprod var(vb(q)). $
+$ (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))]^TT var(vb(q)) = vb(G) dprod var(vb(q)). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
-$ dv(, t) (grad_dot(vb(q)) 𝒯) - grad_vb(q) 𝒯 = vb(G). $
+$ dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT = vb(G). $
 L'ipotesi di avere vincoli olonomi equivale a dire che l'unico vincolo è
 appartenere alla varietà $M_t$ nello spazio delle configurazioni $RR^n$, data
 dalle carte $vb(q) |-> vb(r)(vb(q),t)$.
@@ -232,21 +232,21 @@ spostamenti virtuali sono mappati da vettori liberi $var(vb(q))$ di $RR^d$ (non
 ci sono cioè restrizioni per $var(vb(q))$) secondo l'equazione già vista $var(vb(r)) = [pdv(vb(r), vb(q))] var(vb(q))$.
 
 Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
-allora si può esprimere l'energia come $𝒰(vb(q),t) = U(vb(r)(vb(q),t),t)$ e
+allora si può esprimere l'energia come $scriptU(vb(q), t) = U(vb(r)(vb(q),t),t)$ e
 osservare che
-$ grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $
+$ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $
 
-Si ha allora che, per $ℒ = 𝒯- 𝒰$,
-$ dv(, t) grad_dot(vb(q)) ℒ - grad_vb(q) ℒ = 0. $
+Si ha allora che, per $scriptL = scriptT- scriptU$,
+$ dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL = 0. $
 
 Si noti che se il problema ammette un potenziale generalizzato $U(vb(r), vb(v), t)$,
 cioè
 $ vb(F)(vb(r), dot(vb(r)), t) = dv(, t) grad_dot(vb(r)) U - grad_vb(r) U, $
-ciò non implica le equazioni di Eulero-Lagrange per la lagrangiana $ℒ = 𝒯-𝒰$,
+ciò non implica le equazioni di Eulero-Lagrange per la lagrangiana $scriptL = scriptT-scriptU$,
 ove
-$ 𝒰(vb(q), dot(vb(q)),t) = U(vb(r)(vb(q),t), [pdv(vb(r), vb(q))(vb(q),t)]dot(vb(q))+pdv(vb(r), t),t), $
+$ scriptU(vb(q), dot(vb(q)), t) = U(vb(r)(vb(q),t), [pdv(vb(r), vb(q))(vb(q),t)]dot(vb(q))+pdv(vb(r), t),t), $
 perché non è detto che
-$ dv(, t) grad_dot(vb(q)) 𝒰 - grad_vb(q) 𝒰 = [pdv(vb(r), vb(q))]^TT vb(F). $
+$ dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT vb(F). $
 
 Si presenta una serie di esempi di sistemi vincolati, in cui si vogliono trovare
 le espressioni delle equazioni di Eulero-Lagrange.
@@ -260,12 +260,12 @@ le espressioni delle equazioni di Eulero-Lagrange.
   in modo da poter esprimere la lagrangiana nella coordinata generalizzata $q$:
   $ cases(x=q, z=psi(q)) ==> vb(r)(q)=(q, psi(q)). $
    
-  $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = 𝒯(vb(q), dot(vb(q))) $
-  $ U(z) = m g z = m g phi(q) = 𝒰(q) $
-  $ ==> ℒ = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
-  $ pdv(ℒ, dot(q)) = m dot(q)(1+(psi'(q))^2) $
-  $ ==> dv(, t) pdv(ℒ, dot(q)) = m dot.double(q) (1+(psi'(q))^2) + 2m dot(q)^2 psi'(q) psi''(q) $
-  $ pdv(ℒ, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
+  $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = scriptT(vb(q), dot(vb(q))) $
+  $ U(z) = m g z = m g phi(q) = scriptU(q) $
+  $ ==> scriptL = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
+  $ pdv(scriptL, dot(q)) = m dot(q)(1+(psi'(q))^2) $
+  $ ==> dv(, t) pdv(scriptL, dot(q)) = m dot.double(q) (1+(psi'(q))^2) + 2m dot(q)^2 psi'(q) psi''(q) $
+  $ pdv(scriptL, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
   Si può scrivere quindi l'equazione di Eulero-Lagrange (la massa si semplifica):
   $ (1+(psi'(q))^2) dot.double(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
    
@@ -289,10 +289,10 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
   $ ==> dot(vb(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
   $ ==> abs(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
-  Allora, dato che $ℒ=𝒯$,
-  $ pdv(ℒ, dot(q)) = m(1+a^2)dot(q) + m a b t $
-  $ ==> dv(, t)pdv(ℒ, dot(q)) = m((1+a^2)dot.double(q)+a b) $
-  $ pdv(ℒ, q)=0. $
+  Allora, dato che $scriptL=scriptT$,
+  $ pdv(scriptL, dot(q)) = m(1+a^2)dot(q) + m a b t $
+  $ ==> dv(, t)pdv(scriptL, dot(q)) = m((1+a^2)dot.double(q)+a b) $
+  $ pdv(scriptL, q)=0. $
   L'equazione di Eulero-Lagrange è allora
   $ (1+a^2)dot.double(q)+a b=0 <==> dot.double(q) = -a/(1+a^2) b. $
    
