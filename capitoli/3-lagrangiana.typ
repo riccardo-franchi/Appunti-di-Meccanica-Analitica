@@ -76,7 +76,7 @@ dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
   con $vb(vb(h))(t) = (vb(h)_1 (t), ..., vb(h)_d (t)) in C^1([t_0,t_1])$, dove la
   norma $C^1$, che era stata definita per funzioni a valori scalari, è definita in
   maniera simile:
-  $ norm(vb(h))_(C^1) = max_(t in [t_0,t_1] \ i in {1,...,d}) {abs(vb(h_i))(t), abs(vb(dot(h)_i)(t))}. $
+  $ norm(vb(h))_(C^1) = max_(t in [t_0,t_1] \ i in {1,...,d}) {norm(vb(h_i))(t), norm(vb(dot(h)_i)(t))}. $
 ]
 
 In forma abbreviata, si può scrivere
@@ -232,7 +232,7 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
   $ <==> norm(dot(vb(r)))^2 vb(dot.double(r)) - (vb(dot(r)) dprod vb(dot.double(r)))dot(vb(r)) = 0 $
   applicando a tutti i termini il prodotto scalare per $dot.double(vb(r))$,
   $ norm(dot(vb(r)))^2 norm(dot.double(vb(r)))^2 = (dot(vb(r)) dprod dot.double(vb(r)))^2 $
-  $ ==> norm(dot(vb(r))) norm(dot.double(vb(r))) = abs(dot(vb(r)) dprod dot.double(vb(r))) $
+  $ ==> norm(dot(vb(r))) norm(dot.double(vb(r))) = norm(dot(vb(r)) dprod dot.double(vb(r))) $
   e dunque $dot(vb(r))$ e $dot.double(vb(r))$ sono collineari. Si ha quindi un
   cammino lineare. Nota: attenzione ai punti di non differenziabilità di $L$!
 ]
