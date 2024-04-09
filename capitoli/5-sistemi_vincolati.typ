@@ -239,20 +239,39 @@ $ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))
 Si ha allora che, per $scriptL = scriptT- scriptU$,
 $ dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL = 0. $
 
-Si noti che se il problema ammette un potenziale generalizzato $U(vb(r), vb(v), t)$,
-cioè
-$ vb(F)(vb(r), dot(vb(r)), t) = dv(, t) grad_dot(vb(r)) U - grad_vb(r) U, $
-ciò non implica le equazioni di Eulero-Lagrange per la lagrangiana $scriptL = scriptT-scriptU$,
-ove
-$ scriptU(vb(q), dot(vb(q)), t) = U(vb(r)(vb(q),t), [pdv(vb(r), vb(q))(vb(q),t)]dot(vb(q))+pdv(vb(r), t),t), $
-perché non è detto che
-$ dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT vb(F). $
+Si noti che le equazioni del moto nel caso di soli vincoli olonomi solo le
+equazioni di Eulero-Lagrange per $scriptL(vb(q), dot(vb(q)), t) = L(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t)),$ data
+dal potenziale generalizzato.
+
+Infatti, si dimostra che 
+$ vb(G)=[pdv(vb(r), vb(q))]^TT vb(F) = dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU $
+con $scriptU(vb(q), dot(vb(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t))$.
+
+$ ==> vb(G)(vb(q), dot(vb(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_dot(vb(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
+\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(r) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
+\                               &= dv(, t) ([pdv(dot(vb(r)), dot(vb(q)))]^TT grad_vb(r) U)- [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U. $
+
+#lemma[
+  data una funzione $f: RR^(2n+1) -> RR$, $f(vb(r), dot(vb(r)), t)$, e una
+  funzione $phi: RR^(2d +1) -> RR^(2n+1)$, $phi(vb(q), dot(vb(q)), t)$, si pone
+  $ tilde(f) = f compose phi: RR^(2n+1) -> RR. $
+  Vale che
+  $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) tilde(f) + [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) tilde(f) $
+  $ grad_dot(vb(q)) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) tilde(f) + [pdv(dot(vb(r)), dot(vb(q)))]^TT grad_dot(vb(r)) tilde(f) $
+]
+
+La dimostrazione è lasciata come esercizio. Utilizzando questo lemma, osservando
+che $vb(r) = vb(r)(vb(q), t)$ (che implica che $[pdv(vb(r), dot(vb(q)))]=0$),
+$ vb(G)(vb(q), dot(vb(q)), t) = dv(, t) grad_vb(q) scriptU(vb(q), dot(vb(q)), t)-grad_vb(q) scriptU(vb(q), dot(vb(q)), t) $
+che era quanto si voleva mostrare.
+
+// "Vi meritate una birra o una qualunque altra sostanza psicotropa. Ci vediamo domani"
 
 Si presenta una serie di esempi di sistemi vincolati, in cui si vogliono trovare
 le espressioni delle equazioni di Eulero-Lagrange.
 
 #example[
-  Si considera l'esempio della particella vincolata da un filo metallico (@ring),
+  si considera l'esempio della particella vincolata da un filo metallico (@ring),
   di forma data da $G(psi)$ (il grafico della funzione $psi$), nel piano $(x,z)$,
   soggetta alla forza di gravità ($U = m g z$, $T = m/2 (dot(x)^2+dot(z)^2)$).
    
@@ -282,13 +301,13 @@ le espressioni delle equazioni di Eulero-Lagrange.
 ]
 
 #example[
-  Si considera una particella vincolata ad un filo inclinato di equazione (al
+  si considera una particella vincolata ad un filo inclinato di equazione (al
   tempo $t=0$) $z=a x + c$ che si muove verso l'alto con accelerazione costante $b$ (vincolo
   reonomo), non soggetta a forze esterne ($U = 0$).
    
   $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
   $ ==> dot(vb(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
-  $ ==> abs(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
+  $ ==> norm(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
   Allora, dato che $scriptL=scriptT$,
   $ pdv(scriptL, dot(q)) = m(1+a^2)dot(q) + m a b t $
   $ ==> dv(, t)pdv(scriptL, dot(q)) = m((1+a^2)dot.double(q)+a b) $
@@ -305,7 +324,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
 ]
 
 #example[
-  Si considera una particella vincolata ad una superficie di rotazione attorno
+  si considera una particella vincolata ad una superficie di rotazione attorno
   all'asse $z$ (data dalla rotazione completa di una curva rispetto all'asse $z$),
   non soggetta a forze esterne.
    
@@ -341,12 +360,41 @@ le espressioni delle equazioni di Eulero-Lagrange.
   che è quindi una costante, come ci si aspettava.
 ]
 
+#def[
+  // Integrare con le dispense del prof
+  una _geodetica_ è una soluzione fisica di equazioni vincolate con forze attive
+  nulle.
+]
+
 #exercise[
-  Mostrare che, in relazione all'esempio precedente, tutti i meridiani (curve a $phi$ costante)
-  sono geodetiche (ossia soluzioni delle equazioni di Eulero-Lagrange), i
-  paralleli (curve a $z$ costante) sono geodetiche se corrispondono a una $z$ per
-  cui $r'(z) = 0$.
+  mostrare che, in relazione all'esempio precedente, tutti i meridiani (curve a $phi$ costante)
+  sono geodetiche, i paralleli (curve a $z$ costante) sono geodetiche se
+  corrispondono a una $z$ per cui $r'(z) = 0$.
    
   Rifare poi tutti i conti dell'esempio precedente nel caso non trattato in cui si
   fa ruotare una curva del tipo $z=z(x)$.
 ]
+
+Si noti che in quest'ultimo esempio $norm(dot(vb(r)))$ è una costante del moto.
+Infatti, 
++ La reazione vincolare non compie lavoro, quindi la conservazione dell'energia
+  vale anche se si esclude la parte di sistema che genera la reazione vincolare.
+  Dunque, per la particella considerata, si conserva $T+U=T$. Ma allora si
+  conserva $norm(vb(dot(r)))^2$ e dunque $norm(vb(dot(r)))$.
++ Per il principio di D'Alembert, la reazione vincolare è perpendicolare a $T_(vb(r)(t))M$.
+  Quindi 
+$ dv(, t) norm(dot(vb(r)))^2 = 2 dot(vb(r)) dprod dot.double(vb(r)) = 2 dot(vb(r)) dprod vb(F_"tot") = 2 dot(vb(r)) dprod vb(R) = 0. $
+
+Per una traiettoria qualsiasi, detto $alpha$ l'angolo formato con
+l'orrizzontale, dato che $norm(dot(vb(r))) = "costante"$,
+$ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(dot(vb(r))) abs(sin alpha) = "costante" $
+$ ==> r abs(sin alpha) = "costante". $
+Questa relazione è detta _Teorema di Clairaut_.
+
+Si fanno alcune osservazioni:
++ $r$ e $abs(sin alpha)$ hanno correlazione negativa (sono inversamente
+  proporzionali).
++ Se $r_0$ e $alpha_0$ sono le condizioni iniziali di $r(t)$ e $alpha(t)$, allora
+  $ r(t) = (r_0 abs(sin alpha_0))/abs(sin alpha(t)) >= r_0 abs(sin alpha_0). $
+  Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo.
+
