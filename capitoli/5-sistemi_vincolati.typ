@@ -239,17 +239,19 @@ $ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))
 Si ha allora che, per $scriptL = scriptT- scriptU$,
 $ dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL = 0. $
 
-Si noti che le equazioni del moto nel caso di soli vincoli olonomi solo le
-equazioni di Eulero-Lagrange per $scriptL(vb(q), dot(vb(q)), t) = L(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t)),$ data
+Si noti che le equazioni del moto in un sistema con soli vincoli olonomi e con
+forze date da un potenziale generalizzato sono le equazioni di Eulero-Lagrange
+per $scriptL(vb(q), dot(vb(q)), t) = L(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t)),$ data
 dal potenziale generalizzato.
 
 Infatti, si dimostra che 
 $ vb(G)=[pdv(vb(r), vb(q))]^TT vb(F) = dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU $
-con $scriptU(vb(q), dot(vb(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t))$.
+con $scriptU(vb(q), dot(vb(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t), t)$.
 
 $ ==> vb(G)(vb(q), dot(vb(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_dot(vb(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
-\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(r) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
-\                               &= dv(, t) ([pdv(dot(vb(r)), dot(vb(q)))]^TT grad_vb(r) U)- [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U. $
+\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
+\                               &= dv(, t) ([pdv(dot(vb(r)), dot(vb(q)))]^TT grad_dot(vb(r)) U)- [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U = dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU $
+dove, nell'ultimo passaggio, si è applicato il seguente lemma.
 
 #lemma[
   data una funzione $f: RR^(2n+1) -> RR$, $f(vb(r), dot(vb(r)), t)$, e una
@@ -257,7 +259,7 @@ $ ==> vb(G)(vb(q), dot(vb(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), 
   $ tilde(f) = f compose phi: RR^(2n+1) -> RR. $
   Vale che
   $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) tilde(f) + [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) tilde(f) $
-  $ grad_dot(vb(q)) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) tilde(f) + [pdv(dot(vb(r)), dot(vb(q)))]^TT grad_dot(vb(r)) tilde(f) $
+  $ grad_dot(vb(q)) tilde(f) = [pdv(vb(r), dot(vb(q)))]^TT grad_vb(r) tilde(f) + [pdv(dot(vb(r)), dot(vb(q)))]^TT grad_dot(vb(r)) tilde(f) $
 ]
 
 La dimostrazione è lasciata come esercizio. Utilizzando questo lemma, osservando
@@ -361,9 +363,8 @@ le espressioni delle equazioni di Eulero-Lagrange.
 ]
 
 #def[
-  // Integrare con le dispense del prof
-  una _geodetica_ è una soluzione fisica di equazioni vincolate con forze attive
-  nulle.
+  una _geodetica_ è una soluzione fisica (una legge oraria) di equazioni vincolate
+  in assenza di forze esterne.
 ]
 
 #exercise[
@@ -385,11 +386,12 @@ Infatti,
   Quindi 
 $ dv(, t) norm(dot(vb(r)))^2 = 2 dot(vb(r)) dprod dot.double(vb(r)) = 2 dot(vb(r)) dprod vb(F_"tot") = 2 dot(vb(r)) dprod vb(R) = 0. $
 
-Per una traiettoria qualsiasi, detto $alpha$ l'angolo formato con
-l'orrizzontale, dato che $norm(dot(vb(r))) = "costante"$,
+Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria ($dot(vb(r))$)
+forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(dot(vb(r))) = "costante"$,
 $ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(dot(vb(r))) abs(sin alpha) = "costante" $
 $ ==> r abs(sin alpha) = "costante". $
-Questa relazione è detta _Teorema di Clairaut_.
+Questa relazione è detta _teorema di Clairaut_, e mostra che, quando $r$ cresce
+o descresce, il vettore velocità diventa rispettivamente meno o più orizzontale.
 
 Si fanno alcune osservazioni:
 + $r$ e $abs(sin alpha)$ hanno correlazione negativa (sono inversamente
@@ -398,3 +400,75 @@ Si fanno alcune osservazioni:
   $ r(t) = (r_0 abs(sin alpha_0))/abs(sin alpha(t)) >= r_0 abs(sin alpha_0). $
   Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo.
 
+#example[
+  un esempio di applicazione del teorema di Clairaut è dato dalla superficie
+  laterale di un cono. Naturalmente, essa è una superficie di rotazione.
+  Considerata una particella su un parallelo generico, con velocità iniziale $vb(v_0)$.
+  Poiché si ha
+  $ r abs(sin alpha) = "costante" = r_0 abs(sin alpha_0) = r_0 $
+  $ ==> r >= r_0 abs(sin alpha_0) = r_0, $
+  la particella tende allora ad andare verso la base del cono.
+]
+
+== Il principio di minima azione vincolata
+
+Si assume di avere solo vincoli scleronomi, dati da $M$ (il vincolo è dato da un
+sottoinsieme $RR^n$ che è anche una varietà differenziabile). Si considera
+$ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
+ma con $vb(r): [t_0,t_1] -> M$ e non in $RR^n$.
+
+#def[
+  si dice che $vb(r)$ è un _estremale vincolato_ ad $M$ del funzionale $Phi$ come
+  sopra, se 
+  $ Phi(vb(r)+vb(h))-Phi(vb(r)) = o(norm(vb(h))_(C^1)) $
+  $forall vb(h) : vb(r)(t) + vb(h)(t) in M, forall t in [t_0,t_1], vb(h)(t_0)=vb(h)(t_1)$.
+]
+
+#theorem[
+  dato un vincolo scleronomo rappresentato dalla varietà $M$, una legge oraria $vb(r): [t_0,t_1]->M$ è
+  un estremale vincolato ad $M$ se e solo se, per essa vale il principio di
+  D'Alembert:
+  $ (m dot.double(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r_t))=0 $
+  $forall t in [t_0,t_1], forall var(vb(r_t)) in T_(vb(r)(t))M$.
+]
+
+Si danno due dimostrazioni del teorema, di cui una è più generale.
+
+#dim(
+  "meno generale",
+)[
+  Si assume, oltre alle ipotesi del teorema, che $vb(r)([t_0,t_1])$ sia contenuta
+  nell'immagine di una sola carta.
+   
+  Per il principio di D'Alembert, le leggi orarie fisiche sono tutte e sole quelle
+  che in coordinate locali $vb(q)$ soddisfano le equazioni di Eulero-Lagrange
+  $ dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL = 0, $
+  che corrisponde a un problema libero in $RR^d$ per $scriptL(vb(q), dot(vb(q)), t)$,
+  cioè è equivalente ad essere un estremale libero di 
+  $ Phi_0(vb(q)) = integral_(t_0)^(t_1) scriptL(vb(q)(t), dot(vb(q))(t), t) dd(t) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
+  che è quindi equivalente al fatto che la $vb(r)(t)$ corrisponde a $vb(q)(t)$ è
+  estremale vincolato di $Phi(vb(r))$.
+   
+  Si noti che, chiamando $vb(q)(t) + vb(g)(t)$ la funzione in coordinate locali
+  corrispondente a $vb(r)(t)+vb(h)(t)$, allora $o(vb(g)) = o(vb(h))$. È "ovvio" se
+  la carta è differenziabile.
+   
+  Viceversa, se vale il principio di minima azione vincolata in $M$ (per la legge
+  oraria $vb(r)$), allora vale il principio di minima azione libera in $RR^d$ per $scriptL$ e
+  per la legge oraria $vb(q)$. Questo vale se e solo se valgono le equazioni di
+  Eulero-Lagrange per $vb(q)$
+  $ (dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL) dprod var(vb(q)) = 0 $
+  $forall var(vb(q)) in RR^d$.
+]
+
+#dim[
+  Dato $vb(h)(t)$ come in figura, esiste un vettore in $T_vb(r)(t) M$ detto $var(vb(r)(t))$,
+  tale che sostituendo $var(vb(r)(t))$ a $vb(h)(t)$ nelle formule a venire si
+  commette un errore $o(norm(vb(h)(t))) = o(norm(var(vb(r)(t))))$.
+   
+  Quindi, ricordando la sezione sul funzionale d'azione libero,
+  $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_dot(vb(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
+  Il principio di D'Alembert implica che l'integrale è nullo.
+   
+  Viceversa,
+]
