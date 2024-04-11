@@ -412,8 +412,9 @@ Si fanno alcune osservazioni:
 
 == Il principio di minima azione vincolata
 
-Si assume di avere solo vincoli scleronomi, dati da $M$ (il vincolo è dato da un
-sottoinsieme $RR^n$ che è anche una varietà differenziabile). Si considera
+Si assume di avere solo vincoli scleronomi, dati dalla condizione che $vb(r) in M$ (il
+vincolo è dato da un sottoinsieme $RR^n$ che è anche una varietà
+differenziabile). Si considera il funzionale d'azione
 $ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
 ma con $vb(r): [t_0,t_1] -> M$ e non in $RR^n$.
 
@@ -423,6 +424,12 @@ ma con $vb(r): [t_0,t_1] -> M$ e non in $RR^n$.
   $ Phi(vb(r)+vb(h))-Phi(vb(r)) = o(norm(vb(h))_(C^1)) $
   $forall vb(h) : vb(r)(t) + vb(h)(t) in M, forall t in [t_0,t_1], vb(h)(t_0)=vb(h)(t_1)$.
 ]
+
+Per le lagrangiane viste finora (date dalla differenza tra energia cinetica ed
+energia potenziale generalizzata) vale che una legge oraria è un estremale
+vincolato a $M$ se e solo se vale per essa il principio di D'Alembert. Questo
+corrobora sia quest'ultimo sia il fatto che la legge oraria fisica, in presenza
+di un vincolo scleronomo sia proprio un estremale vincolato.
 
 #theorem[
   dato un vincolo scleronomo rappresentato dalla varietà $M$, una legge oraria $vb(r): [t_0,t_1]->M$ è
@@ -447,7 +454,8 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
   cioè è equivalente ad essere un estremale libero di 
   $ Phi_0(vb(q)) = integral_(t_0)^(t_1) scriptL(vb(q)(t), dot(vb(q))(t), t) dd(t) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
   che è quindi equivalente al fatto che la $vb(r)(t)$ corrisponde a $vb(q)(t)$ è
-  estremale vincolato di $Phi(vb(r))$.
+  estremale vincolato di $Phi(vb(r))$, dato che i due funzionali descrivono la
+  stessa quantità fisica (l'azione, cioè l'integrale della lagrangiana).
    
   Si noti che, chiamando $vb(q)(t) + vb(g)(t)$ la funzione in coordinate locali
   corrispondente a $vb(r)(t)+vb(h)(t)$, allora $o(vb(g)) = o(vb(h))$. È "ovvio" se
@@ -468,7 +476,8 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
    
   Quindi, ricordando la sezione sul funzionale d'azione libero,
   $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_dot(vb(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
-  Il principio di D'Alembert implica che l'integrale è nullo.
+  Il principio di D'Alembert implica che l'integrale è nullo e quindi $vb(r)$ è un
+  estremale condizionato.
    
   Viceversa,
 ]
