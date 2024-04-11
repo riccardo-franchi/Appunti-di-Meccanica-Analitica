@@ -469,15 +469,95 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
   $forall var(vb(q)) in RR^d$.
 ]
 
+Per la seconda dimostrazione del teorema, è utile il seguente lemma.
+
+#lemma[
+  sia $vb(r): [t_0,t_1]->M$ una legge oraria e $vb(f): [t_0,t_1]->RR^n$ una
+  funzione continua. Se, per ogni funzione contiuna $vb(xi): [t_0,t_1]->RR^n$ tale
+  che $vb(xi)(t) in T_vb(r) M$, vale 
+  $ integral_(t_0)^(t_1) vb(f)(t) dprod vb(xi)(t) dd(t) = 0, $
+  allora $vb(f)(t)$ è perpendicolare a $T_vb(r) M, forall t in [t_0,t_1]$.
+]
+
+La dimostrazione del lemma, equivalente al lemma già fatto nel caso libero, è
+lasciata come esercizio.
+
 #dim[
-  Dato $vb(h)(t)$ come in figura, esiste un vettore in $T_vb(r)(t) M$ detto $var(vb(r)(t))$,
+  dato $vb(h)(t)$ come in figura, esiste un vettore in $T_vb(r)(t) M$ detto $var(vb(r)(t))$,
   tale che sostituendo $var(vb(r)(t))$ a $vb(h)(t)$ nelle formule a venire si
   commette un errore $o(norm(vb(h)(t))) = o(norm(var(vb(r)(t))))$.
    
   Quindi, ricordando la sezione sul funzionale d'azione libero,
   $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_dot(vb(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
   Il principio di D'Alembert implica che l'integrale è nullo e quindi $vb(r)$ è un
-  estremale condizionato.
+  estremale condizionato (vincolato).
    
-  Viceversa,
+  Viceversa, se $vb(r)$ è un estremale condizionato,
+  $ integral_(t_0)^(t_1) (m dot.double(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
+  per ogni variazione $vb(h)(t)$. Ciò implica il principio di D'Alembert per il
+  lemma precedente.
+]
+
+#example[
+  si mostra che le leggi orarie soluzioni di un sistema lagrangiano vincolato non
+  dipendono dalla carta (dalle coordinate locali).
+   
+  Considerata una legge oraria con le caratteristiche appena elencate, su una
+  certa varietà differenziabile, si considerano due carte distinte $phi_alpha$ e $phi_beta$.
+  Dalla parte della carta $phi_alpha$ (a cui corrisponde la coordinata locale $vb(q)$),
+  si scrive la lagrangiana $L(vb(q), dot(vb(q)), t)$. Dalla parte della carta $phi_beta$ (a
+  cui corrisponde la coordinata locale $vb(Q)$, invece, si scrive la lagrangiana $scriptL(vb(Q), dot(vb(Q)), t)$.
+  Il cambio di coordinate è dato da 
+  $ vb(Q) = (phi_beta^(-1) compose phi_alpha)(vb(q)) = psi(vb(q)). $
+  Si dimostra che chiamando $vb(Q)(t) = psi(vb(q)(t))$, vale
+  $ dv(, t) grad_dot(vb(Q)) scriptL - grad_vb(Q) scriptL = 0 <==> dv(, t) grad_dot(vb(q)) L - grad_vb(q) L = 0. $
+  Si ha che, nel caso considerato, sostituendo $(vb(q)(t), dot(vb(q))(t))$ al
+  posto delle variabili libere $(vb(q), dot(vb(q)))$
+  $ grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) scriptL + [pdv(dot(vb(Q)), vb(q))]^TT grad_dot(vb(Q)) scriptL = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) scriptL + (dv(, t)[pdv(vb(Q), vb(q))]^TT grad_dot(vb(Q)) scriptL) $
+  $ grad_dot(vb(q)) L = [pdv(vb(Q), dot(vb(q)))]^TT grad_vb(Q) scriptL + [pdv(dot(vb(Q)), dot(vb(q)))]^TT grad_dot(vb(Q)) scriptL = [pdv(vb(Q), vb(q))]^TT grad_dot(vb(Q)) scriptL. $
+  $ L(vb(q), dot(vb(q)),t) = scriptL(vb(Q(q)), dot(vb(Q))(vb(q), dot(vb(q))), t) $
+  $ dv(, t) grad_dot(vb(q)) L = (dv(, t)[pdv(vb(Q), vb(q))]^TT) grad_dot(vb(Q)) scriptL + [pdv(vb(Q), vb(q))]^TT dv(, t) grad_vb(Q) scriptL $
+  $ ==> dv(, t) grad_dot(vb(q)) L - grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT (dv(, t) grad_dot(vb(Q)) scriptL - grad_vb(Q) scriptL) $
+  dunque il membro di sinistra è nullo se e solo se è nullo quello di destra,
+  essendo $[pdv(vb(Q), vb(q))]^TT$ non degenere.
+]
+
+== Il teorema di Noether
+
+Si assume anche in questo paragrafo di avere soltanto vincoli scleronomi. Si può
+generalizzare il fatto che se la lagrangiana non dipende da una coordinata
+puntata (coordinata ciclica), allora si ha una quantità che si conserva, avendo
+una derivata nulla.
+
+#def[
+  si dice che la funzione differenziabile $h: M->M$ _conserva_ la lagrangiana $L$ se $forall (vb(q), dot(vb(q)), t)$,
+  vale che 
+  $ L(vb(q),dot(vb(q)),t)=L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) $
+  dove $h(vb(q))$ è la notazione contratta per indicare $(phi_beta^(-1) compose h compose phi_alpha)(vb(q))$ con $alpha, beta$ variabili.
+]
+
+Sarebbe più proprio dire che il differenziale di $h$, visto come funzione sul
+fibrato tangente conserva la lagrangiana, perché essa è funzione non solo dei
+punti, ma dei punti e delle tangenti ai punti.
+
+// "Non so se fare la considerazione sociologica o politica. Tutti i teoremi nell'Arnold sono chiamati con i cognomi, tranne questo che è chiamato 'di Emmy Noether', magari voleva specificare che non è il fratello"
+
+#theorem(
+  "di Noether",
+)[
+  nel caso di un vincolo scleronomo dato da $M$, se esiste una famiglia di
+  trasformazioni $h^s : M->M, s in (-epsilon, epsilon), h_0 = "id"$,
+  sufficientemente regolari, che conservano $L$, allora il corrispondente sistema
+  lagrangiano ammette una costante del moto che in coordinate locali è data da
+  $ I(vb(q), dot(vb(q)),t) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0). $
+]
+
+#example[
+  si considera una coordinata ciclica $q_macron(i)$, cioè $q_macron(i) |-> L(vb(q), dot(vb(q)),t) $ è
+  costante. Si considera $h^s (vb(q)) = (q_1, ..., q_macron(i) + s, ..., q_d)$ (detta
+  anche traslazione sulla $i$-esima coordinata). Si tratta di trasformazioni da $M$ in $M$.
+  Il differenziale, visto nel fibrato tangente, è dato da
+  $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_macron(i) + s, ...,q_d, dot(q_1), ..., dot(q_d)) $
+  $ ==> L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) = L(vb(q), dot(vb(q)),t). $
+  $ grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_macron(i)) $
 ]
