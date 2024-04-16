@@ -546,7 +546,7 @@ punti, ma dei punti e delle tangenti ai punti.
   "di Noether",
 )[
   nel caso di un vincolo scleronomo dato da $M$, se esiste una famiglia di
-  trasformazioni $h^s : M->M, s in (-epsilon, epsilon), h_0 = "id"$,
+  trasformazioni $h^s : M->M, s in (-epsilon, epsilon), h^0 = "id"$,
   sufficientemente regolari, che conservano $L$, allora il corrispondente sistema
   lagrangiano ammette una costante del moto che in coordinate locali è data da
   $ I(vb(q), dot(vb(q)),t) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0). $
@@ -560,4 +560,64 @@ punti, ma dei punti e delle tangenti ai punti.
   $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_macron(i) + s, ...,q_d, dot(q_1), ..., dot(q_d)) $
   $ ==> L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) = L(vb(q), dot(vb(q)),t). $
   $ grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_macron(i)) $
+]
+
+#example[
+  si considera un sistema di $N$ particelle di massa $m_i$ e posizione $vb(r_i) = (r_(i x), r_(i y), r_(i z))$,
+  con forze conservative date dall'energia potenziale $U(vb(r_1), ..., vb(r_N))$.
+  Si suppone che $U$ non dipenda da nessuna delle variabili $r_(i x)$, con $i in {1,...,N}$.
+  Si ritornerà a utilizzare la notazione dei vettori globali: $gvec(r) = (vb(r_1), ..., vb(r_n)) in RR^(3N)$.
+  Si scrive allora la lagrangiana come
+  $ L(gvec(r), dot(gvec(r)),t) = 1/2 angle.l dot(gvec(r)), gmat(M) dot(gvec(r)) angle.r - U(gvec(r)). $
+   
+  Una possibilità per definire $h^s$ è questa, facendo variare soltanto la prima
+  coordinata:
+  $ h^s (gvec(r)) = (r_(1 x) + s, r_(1 y), r_(1 z), ..., r_(N x), r_(N y), r_(N z)) = gvec(r) + (s, 0, ..., 0) $
+  $ ==> U compose h^s (gvec(r)) = U(gvec(r)) $
+  $ (D h^s)_gvec(r) = "id" $
+  Bisogna allora mostrare l'uguaglianza
+  $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $
+  che è vera in quanto il differenziale di $h^s$ è l'identità. Sono allora
+  soddisfatte le ipotesi del teorema di Noether, e
+  $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (1,0,...,0), $
+  $ grad_dot(gvec(r)) L = gmat(M) gvec(dot(r)) $
+  $ ==> I(gvec(r), dot(gvec(r)), t) = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = m_1 dot(r)_(1 x) $
+  e dunque è conservata la componente $x$ della quantità di moto della prima
+  particella. Si può procedere in modo analogo per le componenti $x$ di tutte le
+  altre particelle, ottenendo che ciascuna delle componenti $x$ delle quantità di
+  moto si conservano.
+]
+
+#example[
+  si è nella stessa situazione dell'esempio precedente, ma ora l'ipotesi (molto
+  più debole) su $U$ è che sia invariabile per traslazione dello spazio fisico $RR^3$ nella
+  coordinata $x$, ossia
+  $ U(..., r_(i x) + s, r_(i y), r_(i z), ...) = U(gvec(r)). $
+  Si definisce allora $h^s$ come 
+  $ h^s (gvec(r)) = (..., r_(i x) + s, r_(i y), r_(i z), ...) = gvec(r) + (s,0,0,s,0,0,...) $
+  $ ==> (D h^s)_gvec(r) = "id" $
+  E allora, analogamente all'esempio precedente,
+  $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $ 
+  $ grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = sum_(i=1)^N m_i r_(i x) = P_x $
+  e dunque si conserva la somma delle componenti $x$ delle quantità di moto delle
+  particelle, ossia la componente $x$ della quantità di moto totale $P$.
+]
+
+#example[
+  si considera la lagrangiana di un sistema di particelle invariante per la
+  rotazione di ogni vettore $vb(r_i)$ di un medesimo angolo $alpha$ attorno
+  all'asse $z$.
+   
+  La famiglia di trasformazioni $h^s$ è data da
+  $ h^s (gvec(r)) = (vb(R_s) vb(r_1), ..., vb(R_s) vb(r_N)) $
+  dove $R_s$ è una matrice di rotazione di un angolo $s$ rispetto all'asse $z$.
+  Vale che
+  $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))). $
+  Si deve quindi trovare il _generatore_ $eval(pdv(h^s (gvec(r)), s))_(s=0)$.
+  Tramite considerazioni geometriche, si trova
+  $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
+  Quindi
+  $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 dot(vb(r_1)), ..., m_N dot(vb(r_N))) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
+  $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i dot(vb(r_i))) dprod vu(e_z) = L_z $
+  e dunque si conserva la componente $z$ del momento angolare totale $L$.
 ]
