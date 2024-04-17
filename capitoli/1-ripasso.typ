@@ -241,7 +241,7 @@ $ m_i II_3 = dmat(m_i, m_i, m_i, delim: "[") $
 
 #def[
   si definisce energia cinetica totale
-  $ T(gvec(v)) = 1/2 expval(gvec(v), gmat(M) space.hair gvec(v)). $
+  $ T(gvec(v)) = 1/2 iprod(gvec(v), gmat(M) space.hair gvec(v)). $
 ]
 
 Si mostra facilmente che, con questa definizione,

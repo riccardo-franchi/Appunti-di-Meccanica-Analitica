@@ -568,7 +568,7 @@ punti, ma dei punti e delle tangenti ai punti.
   Si suppone che $U$ non dipenda da nessuna delle variabili $r_(i x)$, con $i in {1,...,N}$.
   Si ritornerà a utilizzare la notazione dei vettori globali: $gvec(r) = (vb(r_1), ..., vb(r_n)) in RR^(3N)$.
   Si scrive allora la lagrangiana come
-  $ L(gvec(r), dot(gvec(r)),t) = 1/2 expval(dot(gvec(r)), gmat(M) space.hair dot(gvec(r))) - U(gvec(r)). $
+  $ L(gvec(r), dot(gvec(r)),t) = 1/2 iprod(dot(gvec(r)), gmat(M) space.hair dot(gvec(r))) - U(gvec(r)). $
    
   Una possibilità per definire $h^s$ è questa, facendo variare soltanto la prima
   coordinata:
