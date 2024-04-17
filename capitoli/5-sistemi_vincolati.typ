@@ -568,7 +568,7 @@ punti, ma dei punti e delle tangenti ai punti.
   Si suppone che $U$ non dipenda da nessuna delle variabili $r_(i x)$, con $i in {1,...,N}$.
   Si ritornerà a utilizzare la notazione dei vettori globali: $gvec(r) = (vb(r_1), ..., vb(r_n)) in RR^(3N)$.
   Si scrive allora la lagrangiana come
-  $ L(gvec(r), dot(gvec(r)),t) = 1/2 angle.l dot(gvec(r)), gmat(M) dot(gvec(r)) angle.r - U(gvec(r)). $
+  $ L(gvec(r), dot(gvec(r)),t) = 1/2 expval(dot(gvec(r)), gmat(M) space.hair dot(gvec(r))) - U(gvec(r)). $
    
   Una possibilità per definire $h^s$ è questa, facendo variare soltanto la prima
   coordinata:
@@ -600,7 +600,7 @@ punti, ma dei punti e delle tangenti ai punti.
   $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $ 
   $ grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = sum_(i=1)^N m_i r_(i x) = P_x $
   e dunque si conserva la somma delle componenti $x$ delle quantità di moto delle
-  particelle, ossia la componente $x$ della quantità di moto totale $P$.
+  particelle, ossia la componente $x$ della quantità di moto totale $vb(P)$.
 ]
 
 #example[
@@ -619,5 +619,52 @@ punti, ma dei punti e delle tangenti ai punti.
   Quindi
   $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 dot(vb(r_1)), ..., m_N dot(vb(r_N))) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
   $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i dot(vb(r_i))) dprod vu(e_z) = L_z $
-  e dunque si conserva la componente $z$ del momento angolare totale $L$.
+  e dunque si conserva la componente $z$ del momento angolare totale $vb(L)$.
 ]
+
+#dim(
+  "del teorema di Noether",
+)[
+  - Asserto 1: $forall s in (-epsilon, epsilon), vb(Q)(t) = h^s (vb(q)(t))$ soddisfa
+    le equazioni di Eulero-Lagrange.
+  Infatti, se $dot(vb(Q))(t) = D h^s_(vb(q)(t)) (dot(vb(q))(t))$, è immediato
+  verificare che il principio di minima azione per la legge oraria $vb(q)(t)$ si
+  traduce nel principio di minima azione per $vb(Q)(t)$.
+   
+  Data una soluzione $vb(q)(t)$ delle equazioni di Eulero-Lagrange, si definisce
+  $ Gamma(s, t) = h^s (vb(q)(t)). $
+  Si utilizza come notazione:
+  $ dot(Gamma) = pdv(Gamma, t), space.quad Gamma' = pdv(Gamma, s). $
+  Per ipotesi su $h^s$, vale 
+  $ L(h^s (vb(q)(t)), D h^s_(vb(q)(t)) (dot(vb(q))(t)), t) = L(vb(q)(t), dot(vb(q))(t), t), forall s, t $
+  $ ==> L(Gamma(s, t), dot(Gamma)(s,t), t) $
+  è costante in $s$. La sua derivata in $s$ (a $t$ fissato) è
+   
+  #set math.equation(numbering: "(1)")
+  $ 0 = grad_vb(q) L dprod Gamma' + grad_dot(vb(q)) L dprod (dot(Gamma))' $ <pdvLs>
+  #set math.equation(numbering: none) 
+   
+  - Asserto 2: $(dot(Gamma))' = dot(Gamma')$, cioè, $pdv(Gamma, s, t) = pdv(Gamma, t, s).$
+  Dall'asserto 1, $Gamma(s, dot)$ soddisfa le equazioni di Eulero-Lagrange.
+  Utilizzando quindi l'asserto 2 in @pdvLs,
+  $ 0 = pdv(, t) grad_dot(vb(q)) L dprod Gamma' + grad_dot(vb(q)) L dprod dot(Gamma') = pdv(, t)(grad_dot(vb(q)) L dprod Gamma'). $
+  Svolgendo il calcolo in $s=0$,
+  $ 0 = pdv(, t) grad_dot(vb(q)) L dprod eval(pdv(h^s, s))_(s=0) = dv(, t) grad_dot(vb(q)) L(vb(q)(t), dot(vb(q))(t), t) dprod eval(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), dot(vb(q)), t). $
+]
+
+#example[
+  dimostrare che la lagrangiana 
+  $ L'(vb(q), dot(vb(q)),t) = L(vb(q), dot(vb(q)),t) + sum_(i=1)^n F_i (vb(q),t) dot(q)_i + F_t (vb(q),t) $
+  dove $F_i (vb(q),t) = pdv(F, q_i) (vb(q),t)$ e $F_t (vb(q),t) = pdv(F, t) (vb(q),t)$,
+  per una qualche funzione $F(vb(q),t)$, dà luogo alle stesse equazioni del moto.
+   
+  $ pdv(L', q_k) = pdv(L, q_k) + sum_(i=1)^n pdv(F_i, q_k) dot(q)_i + pdv(F_t, q_k) $
+  $ pdv(L', dot(q)_k) = pdv(L, dot(q)_k) + F_k ==> dv(, t) pdv(L', dot(q)_k) = dv(, t) pdv(L, dot(q)_k) + sum_(i=1)^n pdv(F_k, q_i) dot(q)_i + pdv(F_k, t). $
+  Allora basta mostrare che
+  $ sum_(i=1)^n pdv(F_i, q_k) dot(q)_i + pdv(F_t, q_k) = sum_(i=1)^n pdv(F_k, q_i) dot(q)_i + pdv(F_k, t). $
+  Ma
+  $ pdv(F_i, q_k) = pdv(F, q_k, q_i) = pdv(F, q_i, q_k) = pdv(F_k, q_i), $
+  $ pdv(F_t, q_k) = pdv(F, q_k, t) = pdv(F, t, q_k) = pdv(F_k, t) $
+  e dunque è immediato verificare l'uguaglianza. Queste trasformazioni sono dette _di gauge_.
+]
+

@@ -34,3 +34,5 @@
 #include "capitoli/4-geometria_differenziale.typ"
 #pagebreak()
 #include "capitoli/5-sistemi_vincolati.typ"
+#pagebreak()
+#include "capitoli/6-hamiltoniana.typ"
