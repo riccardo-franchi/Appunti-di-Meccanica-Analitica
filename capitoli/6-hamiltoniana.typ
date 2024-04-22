@@ -54,9 +54,15 @@ Chiaramente $B' subset.eq B$. Quindi si escludono tutte le $vb(p) in B without B
 ]
 
 Si dà un'interpretazione geometrica della trasformata di Legendre nel caso in
-cui $n=1$. Si considera una funzione $f$ strettamente convessa.
+cui $n=1$.
 $ g(p) = sup_(x in RR) (p x - f(x)) $
-$g(p)$ è allora la più grande differenza tra la funzione lineare omogenea $y(x) = p x$ e $f$.
+$g(p)$ è allora la massima distanza verticale fra il grafo dell'iperpiano
+(passante per l'origine) $vb(x) |-> vb(p) dprod vb(x)$ e il grafico di $f$. Nel
+caso in cui $f$ è strettamente convessa, $vb(x(p))$ è il punto di tangenza
+dell'iperpiano parallelo all'iperpiano $vb(p) dprod vb(x)$ e tangente al grafico
+di $f$. Se, invece, $f: A subset RR -> RR$, ossia non è regolare e ha un dominio
+più ristretto di $RR$, occorre utilizzare la definizione generale di trasformata
+di Legendre.
 
 #lemma[
   con le ipotesi restrittive su $f$ dette sopra, vale
