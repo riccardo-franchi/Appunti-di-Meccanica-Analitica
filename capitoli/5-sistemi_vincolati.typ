@@ -553,13 +553,13 @@ punti, ma dei punti e delle tangenti ai punti.
 ]
 
 #example[
-  si considera una coordinata ciclica $q_macron(i)$, cioè $q_macron(i) |-> L(vb(q), dot(vb(q)),t) $ è
-  costante. Si considera $h^s (vb(q)) = (q_1, ..., q_macron(i) + s, ..., q_d)$ (detta
+  si considera una coordinata ciclica $q_overline(dotless.i)$, cioè $q_overline(dotless.i) |-> L(vb(q), dot(vb(q)),t) $ è
+  costante. Si considera $h^s (vb(q)) = (q_1, ..., q_overline(dotless.i) + s, ..., q_d)$ (detta
   anche traslazione sulla $i$-esima coordinata). Si tratta di trasformazioni da $M$ in $M$.
   Il differenziale, visto nel fibrato tangente, è dato da
-  $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_macron(i) + s, ...,q_d, dot(q_1), ..., dot(q_d)) $
+  $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q_1), ..., dot(q_d)) $
   $ ==> L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) = L(vb(q), dot(vb(q)),t). $
-  $ grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_macron(i)) $
+  $ grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)) $
 ]
 
 #example[

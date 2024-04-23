@@ -68,13 +68,13 @@ dell'energia
 $ Sigma_E = {(x,v) in RR^2 : v^2/2 + U(x) = E} $
 sono generalmente curve, e le curve di fase sono loro sottoinsiemi.
 
-I punti $macron(x)$ tali che $f(macron(x)) = 0$, (corrispondenti a punti critici
-dell'energia potenziale), sono detti _posizioni di equilibrio_.
+I punti $overline(x)$ tali che $f(overline(x)) = 0$, (corrispondenti a punti
+critici dell'energia potenziale), sono detti _posizioni di equilibrio_.
 
 #def[
   le posizioni di equilibrio sono dette stabili se dopo una piccola perturbazione
-  delle condizioni iniziali di equilibrio ($x(t)=macron(x), v(t)=0$) si ha che $x(t)$ rimane
-  vicino a $macron(x), forall t$.
+  delle condizioni iniziali di equilibrio ($x(t)=overline(x), v(t)=0$) si ha che $x(t)$ rimane
+  vicino a $overline(x), forall t$.
 ]
 
 #figure(
@@ -96,9 +96,9 @@ Si fanno ora alcune osservazioni.
 #set math.equation(numbering: none)
 
 + Gli unici punti del piano di fase per cui la traiettoria (di fase) rimane nel
-  punto sono quelli del tipo $(macron(x), 0)$, con $f(macron(x))=0$.
+  punto sono quelli del tipo $(overline(x), 0)$, con $f(overline(x))=0$.
 
-+ Al di fuori dei punti $(macron(x), 0)$, con $f(macron(x))=0$ (posizioni di
++ Al di fuori dei punti $(overline(x), 0)$, con $f(overline(x))=0$ (posizioni di
   equilibrio), le curve di livello dell'energia sono curve lisce, assumendo $U$ due
   volte differenziabile, con $U''$ continua. Dire $Sigma_E_0$ è liscia significa
   che per ogni punto $(hat(x), hat(y)) in Sigma_E_0$ esiste un intorno
@@ -212,49 +212,54 @@ Si dimostra ora rigorosamente il teorema:
 ]
 
 #prop[
-  se $macron(x)$ è un punto di massimo locale tale che $U''(macron(x)) <0$, allora
-  per ogni separatrice corrispondente a $(macron(x), 0)$ nel piano di fase, vale
-  $ lim_(t->plus.minus infinity) x(t) = macron(x) $
-  con $x(t) != macron(x), forall t$. Cioè, la traiettoria (fisica) converge a $macron(x)$ o
+  se $overline(x)$ è un punto di massimo locale tale che $U''(overline(x)) <0$,
+  allora per ogni separatrice corrispondente a $(overline(x), 0)$ nel piano di
+  fase, vale
+  $ lim_(t->plus.minus infinity) x(t) = overline(x) $
+  con $x(t) != overline(x), forall t$. Cioè, la traiettoria (fisica) converge a $overline(x)$ o
   nel futuro o nel passato (o in entrambi i casi), senza mai raggiungerlo.
 ]
 
-Imprecisamente, questa situazione è talvolta descritta come "$x(t)$ raggiunge $macron(x)$ in
+Imprecisamente, questa situazione è talvolta descritta come "$x(t)$ raggiunge $overline(x)$ in
 un tempo infinito".
 
 #dim[
-  per definizione, l'energia corrispondente alla separatrice è $E=U(macron(x))$.
-  Siccome $U''(macron(x))<0$, per ogni punto $(x,v)$ sulla separatrice, molto
-  vicino a, ma non coincidente con, $(macron(x), 0)$, vale
+  per definizione, l'energia corrispondente alla separatrice è $E=U(overline(x))$.
+  Siccome $U''(overline(x))<0$, per ogni punto $(x,v)$ sulla separatrice, molto
+  vicino a, ma non coincidente con, $(overline(x), 0)$, vale
   $ T(v) = E-U(x)>0 $
   $ ==> v != 0 $
   e quindi (o andando avanti o indietro nel tempo, a seconda dei casi) il punto
-  materiale non si può fermare in un punto $hat(x)$ vicino ma diverso da $macron(x)$.
+  materiale non si può fermare in un punto $hat(x)$ vicino ma diverso da $overline(x)$.
   Quindi è immediato che
-  $ lim_(t->plus.minus infinity) x(t) = macron(x). $
-  La parte non banale della proposizione è dimostrare che $macron(x)$ non è mai
+  $ lim_(t->plus.minus infinity) x(t) = overline(x). $
+  La parte non banale della proposizione è dimostrare che $overline(x)$ non è mai
   raggiunto. A riguardo si possono avere due argomenti, il primo è elegante ma
   poco intuitivo, mentre il secondo è più quantitativo.
 
   Assumendo che l'equazione differenziale che regola il moto
   $ dv(, t) (x,v) = G(x,v) = (v,f(x)) $
   abbia la proprietà di esistenza e unicità delle soluzioni (per cui basta
-  assumere che $G$ sia Lipschitziana in un intorno di $(macron(x), 0)$), allora
-  non può esistere una soluzione $x(t)$ non costante con $x(macron(t)) = macron(x)$ per
-  qualche $macron(t)$, perché altrimenti il problema di Cauchy considerato
-  $ cases(dot((x,v)) = G(x,v), (x(macron(t)), v(macron(t))) = (macron(x), 0)) $
-  avrebbe sia la soluzione $t |-> (x(t), dot(x)(t))$, che la soluzione $t |-> (macron(x), 0)$,
+  assumere che $G$ sia Lipschitziana in un intorno di $(overline(x), 0)$), allora
+  non può esistere una soluzione $x(t)$ non costante con $x(overline(t)) = overline(x)$ per
+  qualche $overline(t)$, perché altrimenti il problema di Cauchy considerato
+  $ cases(
+    dot((x,v)) = G(x,v),
+    (x(overline(t)), v(overline(t))) = (overline(x), 0),
+
+  ) $
+  avrebbe sia la soluzione $t |-> (x(t), dot(x)(t))$, che la soluzione $t |-> (overline(x), 0)$,
   e queste sono diverse tra loro.
 
-  Il secondo argomento è invece il seguente. Sia $-a = U''(macron(x))$ ($a>0$).
-  Essendo $macron(x)$ un punto di massimo locale, in un intorno di $macron(x)$,
-  $ U(x) tilde U(macron(x)) + U'(macron(x))(x-macron(x))+1/2 U''(macron(x)) (x-macron(x))^2 = E - a/2 (x-macron(x))^2 $
-  $ ==> sqrt(2(E-U(x))) tilde sqrt(a) abs(x-macron(x)). $
+  Il secondo argomento è invece il seguente. Sia $-a = U''(overline(x))$ ($a>0$).
+  Essendo $overline(x)$ un punto di massimo locale, in un intorno di $overline(x)$,
+  $ U(x) tilde U(overline(x)) + U'(overline(x))(x-overline(x))+1/2 U''(overline(x)) (x-overline(x))^2 = E - a/2 (x-overline(x))^2 $
+  $ ==> sqrt(2(E-U(x))) tilde sqrt(a) abs(x-overline(x)). $
   Quindi per un tempo $t_1$ tale che $x_1 = x(t)$ sia nell'intorno in cui vale
   l'approssimazione citata,
-  $ t-t_1 = integral_(x_1)^x plus.minus 1/sqrt(2(E-U(xi))) dd(xi) tilde plus.minus 1/sqrt(a) integral_(x_1)^x 1/abs(xi-macron(x)) dd(xi). $
-  La funzione $abs(xi-macron(x))^(-1)$ non è integrabile in $xi$ attorno a $macron(x)$ e
-  quindi, per $x->macron(x)$, l'integrale va a $plus.minus infinity$, a seconda
+  $ t-t_1 = integral_(x_1)^x plus.minus 1/sqrt(2(E-U(xi))) dd(xi) tilde plus.minus 1/sqrt(a) integral_(x_1)^x 1/abs(xi-overline(x)) dd(xi). $
+  La funzione $abs(xi-overline(x))^(-1)$ non è integrabile in $xi$ attorno a $overline(x)$ e
+  quindi, per $x->overline(x)$, l'integrale va a $plus.minus infinity$, a seconda
   dei casi, ovvero $t-t_1 -> plus.minus infinity$, e quindi anche $t->plus.minus infinity$.
 ]
 
@@ -310,21 +315,21 @@ un tempo infinito".
 #example(
   "limite di piccole oscillazioni",
 )[
-  sia $E gt.tilde U(macron(x))$, con $macron(x)$ un punto di equilibrio stabile,
-  tale che la traiettoria di fase corrispondente a $E$ è chiusa, di periodo $T(E)$.
-  Dimostrare che
-  $ lim_(E->U(macron(x))) T(E) = (2 pi)/sqrt(U''(macron(x))). $
+  sia $E gt.tilde U(overline(x))$, con $overline(x)$ un punto di equilibrio
+  stabile, tale che la traiettoria di fase corrispondente a $E$ è chiusa, di
+  periodo $T(E)$. Dimostrare che
+  $ lim_(E->U(overline(x))) T(E) = (2 pi)/sqrt(U''(overline(x))). $
 
   Si approssima
-  $ U(x) tilde.eq U(macron(x)) + 1/2 U''(macron(x))(x-macron(x))^2. $
-  Tale approssimazione migliora con $E->U(macron(x))^+$. Detta $E_0 = U(macron(x))$,
+  $ U(x) tilde.eq U(overline(x)) + 1/2 U''(overline(x))(x-overline(x))^2. $
+  Tale approssimazione migliora con $E->U(overline(x))^+$. Detta $E_0 = U(overline(x))$,
   la conservazione dell'energia implica che
-  $ E = v^2/2 + E_0 + a/2 (x-macron(x))^2 ==> epsilon = v^2/2+(x-macron(x))^2/(2/a) $
-  dove $epsilon = E-E_0$ e $a = U''(macron(x))$
-  $ ==> (x-macron(x))^2/(2 epsilon/a)+v^2/(2 epsilon) = 1 $
+  $ E = v^2/2 + E_0 + a/2 (x-overline(x))^2 ==> epsilon = v^2/2+(x-overline(x))^2/(2/a) $
+  dove $epsilon = E-E_0$ e $a = U''(overline(x))$
+  $ ==> (x-overline(x))^2/(2 epsilon/a)+v^2/(2 epsilon) = 1 $
   che corrisponde all'equazione di un'ellisse del piano di fase. Allora
   $ S(E) = 2 pi epsilon/sqrt(a) = 2 pi (E-E_0)/sqrt(a) $
-  $ ==> T = dv(S, E) = (2 pi)/(sqrt(U''(macron(x)))). $
+  $ ==> T = dv(S, E) = (2 pi)/(sqrt(U''(overline(x)))). $
 
   Questa proprietà vale per qualsiasi potenziale quadratico (_isocronia
   dell'oscillatore armonico_).

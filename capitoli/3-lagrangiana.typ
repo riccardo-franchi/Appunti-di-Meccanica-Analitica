@@ -10,8 +10,8 @@ esempio $C^1[t_0,t_1]$, cioè l'insieme di tutte le funzioni $f:[t_0,t_1]->RR$,
 derivabili e con derivate prime continue).
 
 #example[
-  $ Phi(f) = f(macron(t)) $
-  con $macron(t) in [t_0, t_1]$ fissato.
+  $ Phi(f) = f(overline(t)) $
+  con $overline(t) in [t_0, t_1]$ fissato.
 ]
 
 #example[
@@ -138,16 +138,16 @@ alla derivata di qualcosa.
 ]
 
 #dim[
-  Si procede per assurdo, supponendo $vb(f) != vb(0)$. Allora, $exists macron(i) : f_macron(i) != 0$,
-  $ exists macron(t) in [t_0,t_1] : f_macron(i) (macron(t)) != 0. $
-  Si può allora assumere che $macron(t) in (t_0,t_1)$ (per continuità di $vb(f)$).
-  Si suppone che $f_macron(i) (macron(t)) > 0$, e quindi
-  $ exists delta, c > 0 : (macron(t)-delta, macron(t)+delta) subset [t_0,t_1] : forall t in (macron(t)-delta, macron(t)+delta), f_macron(i) (t) >= c. $
-  Si sceglie $h_macron(i) > 0$ continua, nulla al di fuori dell'insieme $(macron(t)-delta, macron(t)+delta)$,
-  con $integral_(t_0)^(t_1) h_macron(i) (t) dd(t) > 0$, quindi
-  $ integral_(t_0)^(t_1) h_macron(i) (t) dd(t) = integral_(macron(t) - delta)^(macron(t) + delta) h_macron(i) (t) dd(t). $
-  Si prende poi $h_i = 0, forall i != macron(i)$. Infine,
-  $ 0 = integral_(t_0)^(t_1) sum_(i=1)^d f_i (t) h_i (t) dd(t) = integral_(macron(t) - delta)^(macron(t) + delta) f_macron(i) (t) h_macron(i) (t) dd(t) >= c integral_(macron(t) - delta)^(macron(t) + delta) h_macron(i) (t) > 0. $
+  Si procede per assurdo, supponendo $vb(f) != vb(0)$. Allora, $exists overline(dotless.i) : f_overline(dotless.i) != 0$,
+  $ exists overline(t) in [t_0,t_1] : f_overline(dotless.i) (overline(t)) != 0. $
+  Si può allora assumere che $overline(t) in (t_0,t_1)$ (per continuità di $vb(f)$).
+  Si suppone che $f_overline(dotless.i) (overline(t)) > 0$, e quindi
+  $ exists delta, c > 0 : (overline(t)-delta, overline(t)+delta) subset [t_0,t_1] : forall t in (overline(t)-delta, overline(t)+delta), f_overline(dotless.i) (t) >= c. $
+  Si sceglie $h_overline(dotless.i) > 0$ continua, nulla al di fuori dell'insieme $(overline(t)-delta, overline(t)+delta)$,
+  con $integral_(t_0)^(t_1) h_overline(dotless.i) (t) dd(t) > 0$, quindi
+  $ integral_(t_0)^(t_1) h_overline(dotless.i) (t) dd(t) = integral_(overline(t) - delta)^(overline(t) + delta) h_overline(dotless.i) (t) dd(t). $
+  Si prende poi $h_i = 0, forall i != overline(dotless.i)$. Infine,
+  $ 0 = integral_(t_0)^(t_1) sum_(i=1)^d f_i (t) h_i (t) dd(t) = integral_(overline(t) - delta)^(overline(t) + delta) f_overline(dotless.i) (t) h_overline(dotless.i) (t) dd(t) >= c integral_(overline(t) - delta)^(overline(t) + delta) h_overline(dotless.i) (t) > 0. $
 ]
 
 #dim(

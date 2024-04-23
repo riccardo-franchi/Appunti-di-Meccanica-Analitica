@@ -2,7 +2,7 @@
 
 #show: thmrules
 
-= Cenni di meccanica Hamiltoniana
+= Cenni di meccanica hamiltoniana
 
 Si tratta di un altro formalismo della meccanica, che ha un campo di
 applicazione leggermente più ristretto rispetto al formalismo lagrangiano, ma
@@ -124,3 +124,117 @@ funzione.
   $ ==> h(vb(y)) = vb(y) dprod vb(p(y)) - g(vb(p(y))) = vb(x(p(y))) dprod vb(p(y)) - [vb(p(y)) dprod vb(x(p(y))) - f(vb(x(p(y))))] $
   $ ==> h(vb(y)) = f(vb(y)). $
 ]
+
+#exercise[
+  mostrare che, se una forma quadratica $f(vb(x)) = vb(x) dprod A vb(x)$ è
+  definita positiva, allora anche la sua trasformata di Legendre $g(vb(p))$ è
+  definita positiva, e vale che
+  $ g(vb(p))=f(vb(x(p))). $
+]
+
+== Principi di meccanica hamiltoniana
+
+#def[
+  data la lagrangiana $L(vb(q), dot(vb(q)), t)$, convessa nelle $dot(vb(q)), forall vb(q),t$,
+  si definisce _funzione hamiltoniana_ relativa a $L$ la funzione $H(vb(q), vb(p), t)$ data
+  da
+  $ H(vb(q), vb(p), t) = (scriptL_dot(vb(q)) L(vb(q), dot, t))(vb(p)). $
+]
+
+Si assume che la funzione lagrangiana rispetto a $dot(vb(q))$ sia regolare e
+strettamente convessa $forall vb(q),t$, e quindi,
+$ H(vb(q), vb(p), t) = vb(p) dprod vb(dot(q))(vb(q), vb(p), t) - L(vb(q),vb(dot(q))(vb(q), vb(p), t), t) $
+ove $vb(dot(q))(vb(q), vb(p), t) = vb(dot(q))_(vb(q),t) (vb(p))$ è l'unica
+soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ fissati.
+
+#example[
+  $ L(vb(q), dot(vb(q)), t) = T - U = m/2 vb(dot(q)) dprod A(vb(q)) dot(vb(q)) - U(vb(q),t) $
+  In questo caso, l'energia cinetica potrebbe essere data da una forma quadratica,
+  a seconda della carta scelta. Allora, si ha, facendo il gradiente della
+  lagrangiana,
+  $ vb(p) = m vb(dot(q)) dprod A(vb(q)) dot(vb(q)) <==> dot(vb(q))=(A^(-1)(vb(q),t))/m vb(p). $
+  L'inversa della matrice $A$ esiste perché è definita positiva.
+  $ ==> H(vb(q), vb(p), t) = (vb(p) dprod A^(-1) vb(p))/m - m/2 1/m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p))/(2m) + U = T_vb(p) + U. $
+]
+
+#example[
+  utilizzando $vb(r)$ come variabile lagrangiana pensando ad un problema meccanico
+  non vincolato, si ottiene un caso analogo al precedente, ma semplificato:
+  $ L(vb(r), dot(vb(r))) = m/2 norm(vb(r))^2 - U(vb(r)) $
+  La matrice $A(vb(q))$ è la matrice identità, per ogni $vb(q)$, e
+  $ H(vb(r), vb(p)) = norm(vb(p))^2/(2m) + U(vb(r)). $
+  In questo caso particolare, la hamiltoniana equivale all'energia meccanica.
+]
+
+#theorem[
+  se $H$ è la funzione hamiltoniana corrispondente alla lagrangiana $L$ come sopra
+  (con tutte le ipotesi fatte), allora le $n$ equazioni (del secondo ordine) di
+  Eulero-Lagrange sono equivalenti alle $2n$ equazioni (del primo ordine)
+  seguenti, dette _equazioni di Hamilton_:
+  $ cases(
+    dot(vb(q))(t) = grad_vb(p) H(vb(q)(t), vb(p)(t),t),
+    dot(vb(p))(t) = - grad_vb(q) H(vb(q)(t), vb(p)(t),t),
+
+  ) $
+]
+#dim[
+  si considera una qualsiasi funzione $t |-> (vb(q)(t), vb(p)(t))$ (anche priva di
+  significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$.
+  $ grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod dot(vb(p)) + pdv(H, t) = -grad_vb(q) L dprod dot(vb(q)) + (vb(p) - grad_dot(vb(q)) L) dprod dot.double(vb(q)) + dot(vb(q)) dprod dot(vb(p)) - pdv(L, t). $
+  Tuttavia, $(vb(p) - grad_dot(vb(q)) L) dprod dot.double(vb(q)) = 0$, per
+  definizione di $vb(p)$.
+   
+  I coefficienti di $dot(vb(q))$ e $dot(vb(p))$, più il termine noto, devono
+  coincidere tra loro. Infatti, scegliendo $(vb(q)(t), vb(p)(t)) = (vb(q_0), vb(p_0))$,
+  identicamente costante, allora $(dot(vb(q))(t), dot(vb(p))(t)) = (0,0)$. Ma se
+  l'uguaglianza vale per ogni $vb(q)$ e $vb(p)$, allora deve valere quanto
+  affermato. // Integrare con le dispense del prof
+  Quindi 
+  $ grad_vb(q) H = -grad_vb(q) L, $
+  $ dot(vb(q)) = grad_vb(p) H $
+  $ pdv(H, t)=-pdv(L, t). $
+   
+  Ora, le equazioni di Eulero-Lagrange, nella notazione che si sta utilizzando, si
+  scrivono come
+  $ dot(vb(p)) = grad_vb(q) L = - grad_vb(q) H $
+  e dunque le equazioni di Hamilton valgono se e solo se valgono le equazioni di
+  Eulero-Lagrange nelle rispettive notazioni.
+]
+Si osservi che la prima equazione di Hamilton vale sempre, e non solo per
+soluzioni alle equazioni di Eulero-Lagrange.
+
+#corollary[
+  sulle soluzioni delle equazioni di Hamilton vale
+  $ dv(H, t)(vb(q)(t), vb(p)(t), t) = pdv(H, t)(vb(q)(t), vb(p)(t), t). $
+]
+#dim[
+  $ dv(H, t) = grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) $
+  $ = grad_vb(q) H dprod grad_vb(p) H - grad_vb(p) H dprod grad_vb(q) H + pdv(H, t) = pdv(H, t). $
+]
+
+#corollary[
+  se $H$ non dipende esplicitamente dal tempo, essa una costante del moto.
+]
+/* prendere dalle note del prof
+#exercise[
+
+]
+*/
+
+Si osserva che, se si ha una coordinata ciclica $q_overline(dotless.i)$ per la $L$,
+allora anche $H$ non dipende da $q_overline(dotless.i)$. Inoltre, in questo caso $p_overline(dotless.i)$ è
+conservato. Questo non solo riduce da $2n$ a $2n-1$ i gradi di libertà dello
+spazio delle fasi, ma anche da $n$ a $n-1$ i gradi di libertà nello spazio delle
+configurazioni nella seguente maniera: per semplicità, si suppone $overline(dotless.i) = n$,
+allora
+$ H(q_1, ..., q_(n-1), p_1, ..., p_n,t). $
+Si riscrivono le equazioni di Hamilton come, per $i in {1,...,n-1}$,
+$ cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
+Se, per $p_n = overline(p_n)$ si chiama 
+$ H' = H(q_1, ..., q_(n-1), p_1, ..., overline(p_n),t) $
+$ ==> cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
+Se si sa risolvere il sistema di sinistra, si ottiene la soluzione $(q_1 (t), ..., p_(n-1) (t))$.
+Ora, si chiama
+$ f(t) = pdv(H, p_n)(q_1 (t),..., overline(p_n),t). $
+Il sistema di destra si riscrive come
+$ dot(q)_n = f(t) ==> q_n(t) = q_n(t_0) + integral_(t_0)^t f(tau)dd(tau.) $
