@@ -235,6 +235,106 @@ $ H' = H(q_1, ..., q_(n-1), p_1, ..., overline(p_n),t) $
 $ ==> cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
 Se si sa risolvere il sistema di sinistra, si ottiene la soluzione $(q_1 (t), ..., p_(n-1) (t))$.
 Ora, si chiama
-$ f(t) = pdv(H, p_n)(q_1 (t),..., overline(p_n),t). $
+$ f(t) = pdv(H, p_n)(q_1 (t),..., overline(p_n)(t),t). $
 Il sistema di destra si riscrive come
-$ dot(q)_n = f(t) ==> q_n(t) = q_n(t_0) + integral_(t_0)^t f(tau)dd(tau.) $
+$ dot(q)_n = f(t) ==> q_n(t) = q_n(t_0) + integral_(t_0)^t f(tau)dd(tau). $
+
+== Alcuni risultati di base sulle equazioni differenziali
+
+Si considera un'equazione differenziale _autonoma_ (che non ha una dipendenza
+diretta dalla variabile libera, in questo caso $t$) $dot(vb(x))(t) = vb(f)(vb(x)(t))$,
+dove $vb(f)$ è un campo vettoriale. Si può dimostrare che, se valgono alcune
+proprietà in un intorno di $vb(x)$, allora si può trovare un'unica soluzione
+globale, come già visto. Si considera il problema di Cauchy
+$ cases(dot(vb(x))(t) = vb(f)(vb(x)(t)), vb(x)(0)=vb(x_0)) $
+Assumendo che esistano delle soluzioni globali, le si denotano con $vb(x_x_0)(t)$,
+tali soluzioni appartengono a $C^1$, se anche $vb(f) : Omega -> RR^n in C^1(Omega)$.
+
+#def[
+  il _flusso_ $Phi^t: Omega->Omega$ dell'equazione differenziale $dot(vb(x))(t) = vb(f)(vb(x)(t))$ è
+  la funzione $Phi^t (vb(x_0)) = vb(x_x_0)(t)$.
+]
+
+Si osserva che $Phi^0 = "id"$. Il flusso è una delle forme più semplici di _propagatori_ ossia
+funzioni che mostrano l'andamento di un'equazione differenziale.
+
+#prop[
+  il flusso ha la proprietà di gruppo, cioè $forall t, s in RR$,
+  $ Phi^(t+s) = Phi^t compose Phi^s. $
+]
+
+#dim[
+  per l'esistenza e l'unicità delle soluzioni dell'equazione differenziale, basta
+  mostrare che:
+  1. $s |-> Phi^s (Phi^t (vb(x)))$
+  2. $s |-> Phi^(s+t) (vb(x))$
+  sono entrambe soluzioni del problema di Cauchy, $forall vb(x) in Omega, forall t in RR$.
+  Si verificano facilmente le condizioni iniziali. Inoltre, soddisfano l'equazione
+  differenziale. Considerando la prima funzione:
+  $ dv(, t) Phi^s (Phi^t (vb(x))) = vb(f)(Phi^s (Phi^t (vb(x)))). $
+  Per la seconda funzione,
+  $ dv(, s) Phi^(t+s) (vb(x)) = dv((t+s), s) dv(, (t+s)) Phi^(t+s) = vb(f)(Phi^(t+s) (vb(x))). $
+]
+
+Come funzione $Omega times RR -> Omega$, ($(vb(x),t) |->Phi^t (vb(x))$) si
+assumerò sempre che $Phi$ sia sufficientemente regolare, tale almeno da far
+valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
+
+#theorem(
+  "della divergenza",
+)[
+  sotto le ipotesi date, $forall A$ misurabile in $Omega$ vale
+  $ dv(, t) "Vol"(Phi^t (vb(x))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
+]
+
+#corollary[
+  il flusso di un'equazione differenziale con campo vettoriale a divergenza nulla
+  conserva i volumi.
+]
+
+#example[
+  un esempio è un sistema hamiltoniano con $pdv(H, t) = 0$:
+  $ cases(dot(vb(q)) = grad_vb(p) H, dot(vb(q)) = grad_vb(q) H) $
+  Se si pone $vb(x)=(vb(q), vb(p))$, allora si possono scrivere le equazioni di
+  Hamilton nella forma
+  $ dot(vb(x)) = vb(f(x)) = JJ grad_vb(x) H(vb(x)) $
+  dove $JJ$ è una matrice $2n times 2n$, divisa in quattro blocchi quadrati, dati
+  da
+  $ JJ = mat(0, II_n;-II_n, 0), $
+  visto che
+  $ vb(f(x)) = (grad_vb(p) H(vb(x)), grad_vb(q) H(vb(x))). $
+   
+  Si mostra che si tratta di un sistema di equazioni differenziali a divergenza
+  nulla:
+  $ grad_vb(x) dprod vb(f) = sum_(i=1)^n pdv(f_i, x_i) + sum_(i=1)^n pdv(f_(i+n), x_(i+n)) $
+  $ = sum_(i=1)^n pdv(, q_i)pdv(H, p_i)- pdv(, p_i)pdv(H, q_i) = 0. $
+]
+
+#dim(
+  "del teorema della divergenza",
+)[
+  $ Phi^(t+s) = Phi^s compose Phi^t $
+  $ ==> D Phi^(t+s)_vb(x) = D Phi^s_(Phi^t) D Phi^t_vb(x), $
+  $ J Phi^(t+s) (vb(x)) = J Phi^s ((Phi^t)(vb(x))) J Phi^t (vb(x)) $
+  con $J = [pdv(Phi^t, vb(x))(vb(x))]$ (matrice jacobiana).
+  $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s ((Phi^t)(vb(x))) det J Phi^t (vb(x)). $
+  Il determinante della matrice jacobiana serve perché:
+  $ "Vol"(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]). $
+  Facendo un cambio di variabile, 
+  $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
+  $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
+  $ y in Phi^t (A) <==> vb(x) in A. $
+  Allora
+  $ "Vol"(Phi^t (vb(x))) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]). $
+   
+  Si asserisce che 
+  $ det J Phi^t (vb(x)) > 0 space forall vb(x), forall t $
+  ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
+  diventi negativo, deve esistere un tempo $overline(t)$ in cui il determinante è
+  nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
+  dato che sono biiettive, $J Phi^t$ è una matrice non singolare (a determinante
+  non nullo).
+  
+  Quindi,
+  $ "Vol"(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $
+]
