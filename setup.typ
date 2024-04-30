@@ -4,8 +4,11 @@
 #let gmat(content) = $underline(underline(vb(content)))$
 
 #let scriptL = "ℒ"
+#let scriptM = "ℳ"
 #let scriptT = "𝒯"
 #let scriptU = "𝒰"
+
+#let Vol = "Vol"
 
 // ctheorems setup
 #import "@preview/ctheorems:1.1.2": *

@@ -20,7 +20,7 @@ $ (H f)_(i j) = pdv(f, x_i, x_j) $
 
 #def[
   La _trasformata di Legendre_ di una funzione $f$ definita come sopra, è la
-  funzione $g = (scriptL f) : B subset.eq RR^n -> RR$ definita da 
+  funzione $g = (scriptL f) : B subset.eq RR^n -> RR$ definita da
   $ g(vb(p)) = sup_(x in A) (vb(p) dprod vb(x) - f(vb(x))) $
   dove si considera nel dominio $B$ solo quelle $vb(p)$ tali che l'estremo
   superiore sia reale.
@@ -33,7 +33,7 @@ Si indica con $vb(x(p))$ l'unico punto che soddisfa questa equazione, se esiste.
 Fra i casi considerati, c'è anche il caso in cui $f$ è strettamente convessa su
 tutto $RR^n$. Si assume d'ora in poi che $H f (vb(x)) > 0$, $forall x in RR^n$ (che
 implica che $f$ è strettamente convessa su tutto $RR^n$). In questo caso, si
-darà una versione restrittiva della trasformata di Legendre, corrispondente a 
+darà una versione restrittiva della trasformata di Legendre, corrispondente a
 $ g(vb(p)) = max_(vb(x) in A) (vb(p) dprod vb(x) - f(vb(x))) = vb(p) dprod vb(x(p)) - f(vb(x(p))). $
 
 Si osserva che, secondo questa definizione particolare, $g$ è definita su $B' = {vb(p) in RR^n : exists max}$.
@@ -86,7 +86,7 @@ funzione.
 ]
 
 #prop[
-  per una $f$ come sopra, 
+  per una $f$ come sopra,
   $ H f (vb(x)) > 0, forall vb(x) in RR^n => f "è strettamente convessa". $
 ]
 
@@ -116,7 +116,7 @@ funzione.
   $ scriptL^2 f = scriptL(scriptL f) = f. $
 ]
 #dim[
-  si definisce 
+  si definisce
   $ h(vb(y)) = (scriptL g)(vb(p)) = y dprod vb(p(y)) - g(vb(p(y))), $
   con $vb(p(y))$ unica soluzione di $vb(y) = grad_vb(p) g(vb(p))$, e vale che $vb(y) = grad_vb(p) g(vb(p(y)))$.
   Il lemma precedente afferma che $grad_vb(p) g(vb(p)) = vb(x(p))$. Allora
@@ -183,17 +183,17 @@ soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ 
   $ grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod dot(vb(p)) + pdv(H, t) = -grad_vb(q) L dprod dot(vb(q)) + (vb(p) - grad_dot(vb(q)) L) dprod dot.double(vb(q)) + dot(vb(q)) dprod dot(vb(p)) - pdv(L, t). $
   Tuttavia, $(vb(p) - grad_dot(vb(q)) L) dprod dot.double(vb(q)) = 0$, per
   definizione di $vb(p)$.
-   
+
   I coefficienti di $dot(vb(q))$ e $dot(vb(p))$, più il termine noto, devono
   coincidere tra loro. Infatti, scegliendo $(vb(q)(t), vb(p)(t)) = (vb(q_0), vb(p_0))$,
   identicamente costante, allora $(dot(vb(q))(t), dot(vb(p))(t)) = (0,0)$. Ma se
   l'uguaglianza vale per ogni $vb(q)$ e $vb(p)$, allora deve valere quanto
   affermato. // Integrare con le dispense del prof
-  Quindi 
+  Quindi
   $ grad_vb(q) H = -grad_vb(q) L, $
   $ dot(vb(q)) = grad_vb(p) H $
   $ pdv(H, t)=-pdv(L, t). $
-   
+
   Ora, le equazioni di Eulero-Lagrange, nella notazione che si sta utilizzando, si
   scrivono come
   $ dot(vb(p)) = grad_vb(q) L = - grad_vb(q) H $
@@ -230,7 +230,7 @@ allora
 $ H(q_1, ..., q_(n-1), p_1, ..., p_n,t). $
 Si riscrivono le equazioni di Hamilton come, per $i in {1,...,n-1}$,
 $ cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
-Se, per $p_n = overline(p_n)$ si chiama 
+Se, per $p_n = overline(p_n)$ si chiama
 $ H' = H(q_1, ..., q_(n-1), p_1, ..., overline(p_n),t) $
 $ ==> cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
 Se si sa risolvere il sistema di sinistra, si ottiene la soluzione $(q_1 (t), ..., p_(n-1) (t))$.
@@ -284,7 +284,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   "della divergenza",
 )[
   sotto le ipotesi date, $forall A$ misurabile in $Omega$ vale
-  $ dv(, t) "Vol"(Phi^t (vb(x))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
+  $ dv(, t) Vol(Phi^t (vb(x))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
 ]
 
 #corollary[
@@ -303,7 +303,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   $ JJ = mat(0, II_n;-II_n, 0), $
   visto che
   $ vb(f(x)) = (grad_vb(p) H(vb(x)), grad_vb(q) H(vb(x))). $
-   
+
   Si mostra che si tratta di un sistema di equazioni differenziali a divergenza
   nulla:
   $ grad_vb(x) dprod vb(f) = sum_(i=1)^n pdv(f_i, x_i) + sum_(i=1)^n pdv(f_(i+n), x_(i+n)) $
@@ -319,22 +319,89 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   con $J = [pdv(Phi^t, vb(x))(vb(x))]$ (matrice jacobiana).
   $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s ((Phi^t)(vb(x))) det J Phi^t (vb(x)). $
   Il determinante della matrice jacobiana serve perché:
-  $ "Vol"(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]). $
-  Facendo un cambio di variabile, 
+  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]). $
+  Facendo un cambio di variabile,
   $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
   $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
   $ y in Phi^t (A) <==> vb(x) in A. $
   Allora
-  $ "Vol"(Phi^t (vb(x))) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]). $
-   
-  Si asserisce che 
+  $ Vol(Phi^t (vb(x))) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]). $
+
+  Si asserisce che
   $ det J Phi^t (vb(x)) > 0 space forall vb(x), forall t $
   ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
   diventi negativo, deve esistere un tempo $overline(t)$ in cui il determinante è
   nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
   dato che sono biiettive, $J Phi^t$ è una matrice non singolare (a determinante
   non nullo).
-  
+
   Quindi,
-  $ "Vol"(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $
+  $ Vol(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $
+
+  Senza perdita di generalità, si assume che $A$ sia un insieme di volume finito
+  (nel caso in cui non lo fosse si potrebbe suddividerlo in una quantità
+  numerabile di insiemi di volume finito). Allora,
+  $ pdv(J Phi^t, t) = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)), $
+  per un corollario del teorema della convergenza dominata di Lebesgue, che vale
+  se $abs(pdv(, t) J Phi^t (vb(x))) <= g(vb(x))$, con $g$ sommabile in un intorno
+  di $t$ (nel caso che si sta considerando vale in quanto $Phi in C^2$),
+  $ dv(, t) Vol(Phi^t (A)) = integral_A pdv(, t) J Phi^t (vb(x)) dd(x, [n]) $
+  $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
+
+  Si verifica che
+  $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
+
+  Una dimostrazione sbagliata ma data da molti libri usa il fatto che
+  $ Phi^s (vb(x)) = Phi^0 (vb(x)) + s eval(pdv(Phi^s (vb(x)), s))_(s=0) + o(s) = vb(x) + s vb(f(x)) + o(s). $
+  Infatti, la derivata di un flusso rispetto al parametro $s$ è, per definizione
+  di flusso,
+  $ pdv(, s) Phi^s (vb(x)) = vb(f) (Phi^s (vb(x))) $
+  $ ==> eval(pdv(Phi^s (vb(x)), s))_(s=0) = vb(f(x)) = dot(vb(x)) $
+  $ ==> [J Phi^s (vb(x))]_(i j) = (Phi_i^s (vb(x)), x_j) = delta_(i j) + s pdv(f_i, x_j) + o(s). $
+  Quest'ultima equazione è vera, ma c'è un errore: infatti, in generale,
+  $ pdv(o(s), x_i) != o(s). $
+
+  Per una dimostrazione corretta, si usano comunque le proprietà del flusso, ma
+  direttamente sulla jacobiana:
+  $ J Phi^s (vb(x)) = J Phi^0 (vb(x)) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
+  Ora, $J Phi^0 (vb(x)) = II$ è la matrice identità, e
+  $ eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) (f_i (vb(x))). $
+  E dunque
+  $ [J Phi^s (vb(x))]_(i j) = delta_(i j) + s pdv(f_i, x_j)(vb(x)) + o(s). $
+  Si calcola il determinante utilizzando il teorema di Binet:
+  - Moltiplicando gli elementi diagonali, si ha
+  $ product_(i=1)^n (1+s pdv(f_i, x_i)+o(s)) = 1+ sum_(i=1)^n pdv(f_i, x_i) +o(s). $
+  - Per le altre permutazioni, si devono sempre prendere almeno due termini fuori
+    dalla diagolane (altrimenti si ripeterebbe almeno una riga o una colonna).
+    Quindi tutti gli altri termini sono $o(s)$, dato che gli elementi fuori
+    diagonale non hanno gli $1$. Allora,
+  $ det J Phi^s (vb(x)) = 1 + s sum_(i=1)^n pdv(f_i, x_j)(vb(x)) + o(s) $
+  $ ==> eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
+
+  Allora, si ha che, invertendo il cambio di variabile fatto a inizio
+  dimostrazione,
+  $ dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (A)) div vb(f(y)) dd(y, [n]). $
 ]
+
+Per i campi vettoriali che conservano i volumi vale un importante teorema, il _teorema di ricorrenza di Poincaré_,
+che fa utilizzo del concetto di _misura_, ossia una funzione $A |-> mu(A)$, con $A in scriptM_n$ (misurabile
+secondo Lebesgue), con
+$ mu(A) = integral_A f(vb(x)) dd(x, [n]) $
+per una certa funzione $f >= 0$. Ad esempio, nella misura di Lebesgue, si prende $f(vb(x)) = 1$.
+
+#def[
+  un flusso $Phi^t : Omega -> Omega$ preserva la misura $mu$ se, $forall t, forall A in scriptM_n$,
+  $ mu(Phi^t (A)) = mu(A). $
+]
+
+#theorem(
+  "di ricorrenza di Poincaré",
+)[
+  sia dato un flusso $Phi^t : Omega -> Omega$ che preserva una misura $mu$ su $Omega$,
+  con $mu(Omega) < +infinity$. Allora, preso $A$ misurabile e $T>0$, per quasi
+  ogni $vb(x) in A$,
+  $ exists t(vb(x)) >= T : Phi^t (vb(x)) in A. $
+]
+
+In altre parole, quasi ogni $vb(x) in A$ "tornerà" in $A$ dopo un intervallo di
+tempo $[0,t)$ abbastanza lungo.
