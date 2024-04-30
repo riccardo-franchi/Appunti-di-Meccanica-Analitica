@@ -404,4 +404,90 @@ per una certa funzione $f >= 0$. Ad esempio, nella misura di Lebesgue, si prende
 ]
 
 In altre parole, quasi ogni $vb(x) in A$ "tornerà" in $A$ dopo un intervallo di
-tempo $[0,t)$ abbastanza lungo.
+tempo $[0,t)$ abbastanza lungo. Se anche si hanno delle condizioni iniziali "strane",
+queste si ripeterano nell'evoluzione del sistema.
+
+#dim[
+  si definisce l'insime dei punti che non tornano in $A$ per multipli di $T$:
+  $ B = {vb(x) in A : Phi^(n T) (vb(x)) in.not A, forall n in NN^+}. $
+  Si mostra che $mu(B) = 0$ (in realtà si sta mostrando qualcosa di più forte,
+  ossia che il tempo a cui quasi ogni punto torna è multiplo di $T$).
+  Innanzitutto, essendo $Omega without A$ misurabile,
+  $ B = sect.big_(n=1)^infinity Phi^(-n T) (Omega without A) ==> B "è misurabile". $
+
+  Si osserva inoltre che
+  $ Phi^(-n T) (B) sect B = emptyset, forall n in NN^+. $
+  Infatti, se si avesse un punto nell'intersezione, cioè $vb(x) in B$ e $Phi^(n T) (vb(x)) in B$,
+  si otterrebbe un assurdo, dato che $B subset.eq A$.
+
+  Infine, si osserva che
+  $ Phi^(n T) (B) sect Phi^(m T) = emptyset, forall m,n in NN^+. $
+  Sia, senza perdita di generalità, $m>n$. Allora si ha che (applicando $Phi^(-m T)$,
+  essendo i flussi iniettivi e $Phi^(n T) = emptyset$)
+  $ Phi^(-m T + n T) sect B = emptyset. $
+  Da cui si ottiene l'enunciato, grazie all'osservazione precedente. In altre
+  parole, si è affermato che tutti i ${Phi^(n T)}_(n in NN^+)$ sono disgiunti.
+  Dalle ipotesi, si ha che, essendo i flussi disgiunti,
+  $ infinity > mu(Omega) >= mu(union.big_(n in ZZ^times) Phi^n (B)) = sum_(n in NN^+) mu(Phi^(n T) (B)) = sum_(n in NN^+) mu(B). $
+  L'ultima uguaglianza vale perché il flusso, per ipotesi, preserva la misura. Si
+  ha quindi una somma di infinite (numerabilmente) quantità positive tutte uguali
+  tra loro, che dà un risultato finito, dunque necessariamente $mu(B)=0$.
+]
+
+#corollary[
+  con le stesse ipotesi, quasi ogni $vb(x) in A$ "ritorna in $A$ infinite volte",
+  ovvero per quasi ogni $vb(x) in A$, $exists {t_j}_(j>=0)$, con $t_j -> infinity$,
+  dipendente da $vb(x)$, tale che $Phi^(t_j) (vb(x)) in A$.
+]
+La dimostrazione del corollario è lasciata come esercizio.
+
+#example[
+  Si considera un sistema formato da cento biglie disposte casualmente in una
+  scatola, divisa in due settori. Ogni secondo, le biglie sono ridistribuite
+  casualmente, ossia ogni pallina ha il $50%$ di probabilità di andare nel settore
+  destro o sinistro. Siccome la probabilità di avere tutte le palline nel settore
+  sinistro è di $(1/2)^100$, ci si aspetta allora che serva un tempo dell'ordine
+  di $2^100$ secondi per avere tutte le palline a sinistra (un tempo di molti
+  ordini di grandezza maggiore dell'età dell'universo).
+]
+
+== Applicazione ai sistemi hamiltoniani
+
+In molti casi si ha, per una particella
+$ H(vb(q), vb(p)) = norm(vb(p))^2/(2 m) + U(vb(q)) $
+o per $n$ particelle
+$ H(vb(q), vb(p)) = iprod(gvec(p), gmat(M)^(-1) gvec(p))/2 + U(vb(q)). $
+
+Si considera la _superficie isoenergetica_
+$ Sigma_E = {(vb(q), vb(p)) in RR^(2n) : H(vb(q), vb(p)) = E}. $
+Essa ha misura nulla, avendo due dimensioni in meno rispetto a $RR^(2n)$. Si
+definisce allora
+$ G_(E, difference(E)) = {(vb(q), vb(p)) in RR^(2n) : E - difference(E) <= H(vb(q), vb(p)) <= E + difference(E)}, $
+che non ha misura nulla. In questo caso si è limitati sia nelle $vb(q)$ ($U(vb(q)) <= E + difference(E)$)
+che nelle $vb(p)$ ($norm(vb(p)) <= sqrt(2 m (E + difference(E)))$).
+
+#exercise[
+  risolvere completamente (integrare) nel formalismo hamiltoniano il seguente
+  sistema: si ha un tubo di massa trascurabile, che vincola una massa $m$ al suo
+  interno, alla posizione $(x,y)$, collegata al centro della sbarra $(x_1,y_1)$ mediante
+  una molla di costante $k$.
+
+  Il sistema ha due gradi di libertà, infatti senza vincoli si avrebbero due punti
+  (alle due estremità della molla) e dunque quattro gradi di libertà.
+
+  _Principio di soluzione_: nelle coordinate libere (trascurando il vincolo), il
+  potenziale è
+  $ U(x,y,x_1,y_1) = k/2 abs(x-x_1)^2 + k/2 abs(y-y_2)^2 $
+  e l'energia cinetica è
+  $ T(dot(x), dot(y), dot(x)_1, dot(x)_2) = 1/2 m (dot(x)^2 + dot(y)^2) + 1/2 m_1 (dot(x)_1^2 + dot(y)_1^2). $
+  Passando ora alle coordinate locali $(x,y) = vb(q)$, si ha una carta che
+  riflette i vincoli del sistema:
+  $ vb(r(q)) = cases(x=x, y=y, x_1=0, y_1=y) $
+  $ ==> hat(U)(vb(r(q))) = k/2 x^2 $
+  $ hat(T)(dot(vb(x)), dot(vb(y))) = hat(T)(dot(vb(r)) (vb(q), dot(vb(q)))) = hat(T)([pdv(vb(r), vb(q))] vb(dot(q))) = m/2 (dot(x)^2 + dot(y)^2) $
+  dato che la massa del tubo è trascurabile. Si ha quindi $L = T-U$, ma si può
+  anche ottenere l'hamiltoniana (tramite la trasforma di Legendre della
+  lagrangiana)
+  $ H(x,y,p_x,p_y) = (p_x^2 + p_y^2)/(2m) + U(x) $
+  con $p_x = m dot(x)$ e $p_y = m dot(y)$. Dunque la $y$ è una coordinata ciclica.
+]
