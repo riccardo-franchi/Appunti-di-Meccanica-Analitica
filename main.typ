@@ -36,3 +36,5 @@
 #include "capitoli/5-sistemi_vincolati.typ"
 #pagebreak()
 #include "capitoli/6-hamiltoniana.typ"
+#pagebreak()
+#include "capitoli/7-piccole_oscillazioni.typ"

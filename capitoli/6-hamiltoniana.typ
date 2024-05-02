@@ -180,10 +180,10 @@ soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ 
 #dim[
   si considera una qualsiasi funzione $t |-> (vb(q)(t), vb(p)(t))$ (anche priva di
   significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$.
-  $ grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod dot(vb(p)) + pdv(H, t) = -grad_vb(q) L dprod dot(vb(q)) + (vb(p) - grad_dot(vb(q)) L) dprod dot.double(vb(q)) + dot(vb(q)) dprod dot(vb(p)) - pdv(L, t). $
-  Tuttavia, $(vb(p) - grad_dot(vb(q)) L) dprod dot.double(vb(q)) = 0$, per
-  definizione di $vb(p)$.
-
+  $ grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod dot(vb(p)) + pdv(H, t) = -grad_vb(q) L dprod dot(vb(q)) + (vb(p) - grad_dot(vb(q)) L) dprod diaer(vb(q)) + dot(vb(q)) dprod dot(vb(p)) - pdv(L, t). $
+  Tuttavia, $(vb(p) - grad_dot(vb(q)) L) dprod diaer(vb(q)) = 0$, per definizione
+  di $vb(p)$.
+   
   I coefficienti di $dot(vb(q))$ e $dot(vb(p))$, più il termine noto, devono
   coincidere tra loro. Infatti, scegliendo $(vb(q)(t), vb(p)(t)) = (vb(q_0), vb(p_0))$,
   identicamente costante, allora $(dot(vb(q))(t), dot(vb(p))(t)) = (0,0)$. Ma se
@@ -193,7 +193,7 @@ soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ 
   $ grad_vb(q) H = -grad_vb(q) L, $
   $ dot(vb(q)) = grad_vb(p) H $
   $ pdv(H, t)=-pdv(L, t). $
-
+   
   Ora, le equazioni di Eulero-Lagrange, nella notazione che si sta utilizzando, si
   scrivono come
   $ dot(vb(p)) = grad_vb(q) L = - grad_vb(q) H $
@@ -303,7 +303,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   $ JJ = mat(0, II_n;-II_n, 0), $
   visto che
   $ vb(f(x)) = (grad_vb(p) H(vb(x)), grad_vb(q) H(vb(x))). $
-
+   
   Si mostra che si tratta di un sistema di equazioni differenziali a divergenza
   nulla:
   $ grad_vb(x) dprod vb(f) = sum_(i=1)^n pdv(f_i, x_i) + sum_(i=1)^n pdv(f_(i+n), x_(i+n)) $
@@ -326,7 +326,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   $ y in Phi^t (A) <==> vb(x) in A. $
   Allora
   $ Vol(Phi^t (vb(x))) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]). $
-
+   
   Si asserisce che
   $ det J Phi^t (vb(x)) > 0 space forall vb(x), forall t $
   ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
@@ -334,10 +334,10 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
   dato che sono biiettive, $J Phi^t$ è una matrice non singolare (a determinante
   non nullo).
-
+   
   Quindi,
   $ Vol(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $
-
+   
   Senza perdita di generalità, si assume che $A$ sia un insieme di volume finito
   (nel caso in cui non lo fosse si potrebbe suddividerlo in una quantità
   numerabile di insiemi di volume finito). Allora,
@@ -347,10 +347,10 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   di $t$ (nel caso che si sta considerando vale in quanto $Phi in C^2$),
   $ dv(, t) Vol(Phi^t (A)) = integral_A pdv(, t) J Phi^t (vb(x)) dd(x, [n]) $
   $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
-
+   
   Si verifica che
   $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
-
+   
   Una dimostrazione sbagliata ma data da molti libri usa il fatto che
   $ Phi^s (vb(x)) = Phi^0 (vb(x)) + s eval(pdv(Phi^s (vb(x)), s))_(s=0) + o(s) = vb(x) + s vb(f(x)) + o(s). $
   Infatti, la derivata di un flusso rispetto al parametro $s$ è, per definizione
@@ -360,7 +360,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   $ ==> [J Phi^s (vb(x))]_(i j) = (Phi_i^s (vb(x)), x_j) = delta_(i j) + s pdv(f_i, x_j) + o(s). $
   Quest'ultima equazione è vera, ma c'è un errore: infatti, in generale,
   $ pdv(o(s), x_i) != o(s). $
-
+   
   Per una dimostrazione corretta, si usano comunque le proprietà del flusso, ma
   direttamente sulla jacobiana:
   $ J Phi^s (vb(x)) = J Phi^0 (vb(x)) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
@@ -377,7 +377,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
     diagonale non hanno gli $1$. Allora,
   $ det J Phi^s (vb(x)) = 1 + s sum_(i=1)^n pdv(f_i, x_j)(vb(x)) + o(s) $
   $ ==> eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
-
+   
   Allora, si ha che, invertendo il cambio di variabile fatto a inizio
   dimostrazione,
   $ dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (A)) div vb(f(y)) dd(y, [n]). $
@@ -414,12 +414,12 @@ queste si ripeterano nell'evoluzione del sistema.
   ossia che il tempo a cui quasi ogni punto torna è multiplo di $T$).
   Innanzitutto, essendo $Omega without A$ misurabile,
   $ B = sect.big_(n=1)^infinity Phi^(-n T) (Omega without A) ==> B "è misurabile". $
-
+   
   Si osserva inoltre che
   $ Phi^(-n T) (B) sect B = emptyset, forall n in NN^+. $
   Infatti, se si avesse un punto nell'intersezione, cioè $vb(x) in B$ e $Phi^(n T) (vb(x)) in B$,
   si otterrebbe un assurdo, dato che $B subset.eq A$.
-
+   
   Infine, si osserva che
   $ Phi^(n T) (B) sect Phi^(m T) = emptyset, forall m,n in NN^+. $
   Sia, senza perdita di generalità, $m>n$. Allora si ha che (applicando $Phi^(-m T)$,
@@ -469,12 +469,12 @@ che nelle $vb(p)$ ($norm(vb(p)) <= sqrt(2 m (E + difference(E)))$).
 #exercise[
   risolvere completamente (integrare) nel formalismo hamiltoniano il seguente
   sistema: si ha un tubo di massa trascurabile, che vincola una massa $m$ al suo
-  interno, alla posizione $(x,y)$, collegata al centro della sbarra $(x_1,y_1)$ mediante
+  interno, alla posizione $(x,y)$, collegata al centro del tubo $(x_1,y_1)$ mediante
   una molla di costante $k$.
-
+   
   Il sistema ha due gradi di libertà, infatti senza vincoli si avrebbero due punti
   (alle due estremità della molla) e dunque quattro gradi di libertà.
-
+   
   _Principio di soluzione_: nelle coordinate libere (trascurando il vincolo), il
   potenziale è
   $ U(x,y,x_1,y_1) = k/2 abs(x-x_1)^2 + k/2 abs(y-y_2)^2 $
@@ -491,3 +491,21 @@ che nelle $vb(p)$ ($norm(vb(p)) <= sqrt(2 m (E + difference(E)))$).
   $ H(x,y,p_x,p_y) = (p_x^2 + p_y^2)/(2m) + U(x) $
   con $p_x = m dot(x)$ e $p_y = m dot(y)$. Dunque la $y$ è una coordinata ciclica.
 ]
+
+#example[
+  in alcuni casi, $vb(p) = grad_dot(vb(q))L$ non rappresenta la quantità di moto.
+  Per esempio, per il campo elettromagnetico,
+  $ L(vb(r), dot(vb(r)), t) = T-U = m/2 norm(dot(vb(r)))^2 - hat(q)(V(vb(r),t)- vb(A)(vb(r),t) dprod dot(vb(r))). $
+  In questo caso,
+  $ vb(p) = grad_dot(vb(r)) L = m dot(vb(r)) + hat(q) vb(A)(vb(r),t) <==> dot(vb(r)) = (vb(p)-hat(q) vb(A))/m $
+  Da cui 
+  $ H(vb(r), dot(vb(r)),t)=vb(p) dprod dot(vb(r))(vb(p)) - L(vb(r), dot(vb(r)), t) = abs(vb(p) - hat(q) vb(A))/(2m) + hat(q)V. $
+  Nel caso speciale $pdv(V, t) = 0 = pdv(vb(A), t)$, neanche lagrangiana e
+  hamiltoniana dipendono dal tempo, e inoltre
+  $ pdv(H, t) = 0 ==> dv(H, t) = 0. $
+  Se $(vb(q)(t), vb(p)(t))$ è soluzione delle equazioni di Hamilton, allora 
+  $ dv(, t)H(vb(q)(t), vb(r)(t), t) = pdv(, t)H(vb(q)(t), vb(r)(t) ,t). $
+  Quindi $H$ è una costante del moto e la sua espressione è data da 
+  $ 1/2 "massa" times "velocità"^2 + "energia potenziale elettrica". $
+]
+

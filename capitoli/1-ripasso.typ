@@ -8,12 +8,12 @@ $ vb(r)(t) $
 che è una funzione da un sottoinsieme di $RR$ a un sottoinsieme di $RR^3$. Essa
 non deve essere confusa con la _traiettoria_ di un punto, che è l'immagine di $vb(r)(t)$.
 Si definisce poi $vb(v)(t) := vb(dot(r))(t)$ la velocità della legge oraria $vb(r)(t)$,
-e $vb(a)(t) := vb(dot.double(r))(t)$.
+e $vb(a)(t) := vb(diaer(r))(t)$.
 
 Si ha come equazione della _meccanica newtoniana_ di una particella
 $ vb(a)=vb(F_"tot")/m $
 che dà un'equazione differenziale (ordinaria):
-$ vb(dot.double(r))(t)=(vb(F_"tot")(vb(r)(t), vb(dot(r))(t), t))/m. $
+$ vb(diaer(r))(t)=(vb(F_"tot")(vb(r)(t), vb(dot(r))(t), t))/m. $
 
 Si assumerà sempre che esiste unica una soluzione di quest'ultima equazione
 differenziale, con condizioni iniziali "sensate"
@@ -117,7 +117,7 @@ ha come parametro un vettore e una funzione che prende uno scalare.
 ]
 
 #dim[
-  $ dv(, t)T(t) = dv(, t) m/2 vb(dot(r))(t) dprod vb(dot(r))(t) = m vb(dot(r))(t) dprod vb(dot.double(r))(t) = vb(F_"tot")(vb(r)(t), vb(dot(r))(t), t) dprod vb(dot(r))(t) $
+  $ dv(, t)T(t) = dv(, t) m/2 vb(dot(r))(t) dprod vb(dot(r))(t) = m vb(dot(r))(t) dprod vb(diaer(r))(t) = vb(F_"tot")(vb(r)(t), vb(dot(r))(t), t) dprod vb(dot(r))(t) $
   $ ==> W_"tot" = integral_(t_1)^(t_2) vb(F_"tot") dprod vb(dot(r))(t) dd(t) = integral_(t_1)^(t_2) dv(T(t), t) dd(t) = T(t_2)- T(t_1). $
 ]
 
@@ -180,7 +180,7 @@ $ vb(N) = (vb(r)-vb(r_0)) cprod vb(F) $
 _momento della forza_ $vb(F)$.
 
 Con $vb(L)(t) = vb(r)(t) cprod (m vb(dot(r))(t))$, ponendo $vb(r_0) = 0$,
-$ vb(dot(L))(t) = m vb(dot(r))(t) cprod vb(dot(r))(t) + m vb(r)(t) cprod vb(dot.double(r))(t) = vb(N_"tot" (r)) = vb(r) cprod vb(F_"tot") $
+$ vb(dot(L))(t) = m vb(dot(r))(t) cprod vb(dot(r))(t) + m vb(r)(t) cprod vb(diaer(r))(t) = vb(N_"tot" (r)) = vb(r) cprod vb(F_"tot") $
 
 Si lascia come esercizio rifare il conto per $vb(r_0) eq.not 0$.
 
@@ -307,7 +307,7 @@ conservativo.
 ]
 
 Spesso si indica $M = sum_(i=1)^N m_i$. Vale che, sotto l'ipotesi che $vb(F_(i j)) = -vb(F_(j i))$,
-$ M vb(dot.double(R)) = sum_i m_i vb(dot.double(r_i)) = sum_i vb(F_i) = sum_i vb(F_i)^"ext" + sum_(i != j) vb(F_(i j)) = sum_i vb(F_i)^"ext". $
+$ M vb(diaer(R)) = sum_i m_i vb(diaer(r_i)) = sum_i vb(F_i) = sum_i vb(F_i)^"ext" + sum_(i != j) vb(F_(i j)) = sum_i vb(F_i)^"ext". $
 Quindi è come se la forza esterna totale agente sul sistema agisse sul centro di
 massa.
 

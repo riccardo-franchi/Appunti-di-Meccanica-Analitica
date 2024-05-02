@@ -6,7 +6,7 @@
 
 Intendiamo sistemi di una particella soggetta ad una forza posizionale,
 descritti quindi da equazioni della forma:
-$ dot.double(x)(t) = f(x(t)), $
+$ diaer(x)(t) = f(x(t)), $
 ricordando che una forza posizionale in $RR$ è sempre conservativa (se la
 funzione forza è integrabile). Infatti,
 $ U(x)=-integral_(x_0)^x f(s) dd(s) $
@@ -15,7 +15,7 @@ $ (dot(x)(t))^2/2 + U(x(t)) = E(t) = "costante". $
 
 #example("oscillatore armonico")[
   posto
-  $ dot.double(x) = -x. $
+  $ diaer(x) = -x. $
   La soluzione generale è della forma
   $ x(t) = b sin t + a cos t, $
   per condizioni iniziali
@@ -32,7 +32,7 @@ $ (dot(x)(t))^2/2 + U(x(t)) = E(t) = "costante". $
 
 == Studio qualitativo delle equazioni del moto
 Si può trasformare l'equazione differenziale del secondo ordine
-$ dot.double(x)(t) = f(x(t)) $
+$ diaer(x)(t) = f(x(t)) $
 in due equazioni differenziali del primo ordine accoppiate tra loro,
 introducendo una nuova variabile:
 $ cases(dot(x)=v, dot(v)=f(x)) $
@@ -110,7 +110,7 @@ Si fanno ora alcune osservazioni.
 
 Possono esistere soluzioni non globali anche per le equazioni differenziali
 della meccanica. Infatti
-$ dot.double(x) = 2x^3 <==> dot(vec(x, v)) = vec(v, 2x^3) $
+$ diaer(x) = 2x^3 <==> dot(vec(x, v)) = vec(v, 2x^3) $
 ha come soluzione non globale
 $ x(t)= 1/(t-1) $
 che tende a $+infinity$ per $t->1$.
@@ -266,7 +266,7 @@ un tempo infinito".
 #let arctanh(content) = $"arctanh"(content)$
 
 #example[
-  risolvere il problema unidimensionale $dot.double(x) = -2x+2x^3$, con condizioni
+  risolvere il problema unidimensionale $diaer(x) = -2x+2x^3$, con condizioni
   iniziali $x(0) = 0$, $dot(x)(0)=1$, con il metodo delle quadrature.
 
   Si prende
@@ -340,13 +340,13 @@ un tempo infinito".
 Tutti quei sistemi che sono completamente separabili sono riconducibili a
 sistemi a un grado di libertà. Un esempio notevole è l'oscillatore armonico in $d$ dimensioni:
 $ vb(F(x)) = -k vb(x), space.quad k>0 $
-$ ==> m dot.double(vb(x))=-k vb(x) $
+$ ==> m diaer(vb(x))=-k vb(x) $
 che si può separare, componente per componente, in $d$ equazioni differenziali
-indipendenti tra loro $dot.double(x)_i=-k/m x_i$.
+indipendenti tra loro $diaer(x)_i=-k/m x_i$.
 
 #exercise[
   mostrare che se si sa risolvere (trovare la legge oraria per ogni condizione
-  iniziale) $dot.double(vb(r))=-vb(r)$, allora si sa risolvere $dot.double(vb(x))=-omega^2 vb(x)$.
+  iniziale) $diaer(vb(r))=-vb(r)$, allora si sa risolvere $diaer(vb(x))=-omega^2 vb(x)$.
 
   // L'idea è che se ho la soluzione $r(t)$, allora posso porre $r(t/omega)$: la costante è dovuta alla doppia derivazione
 ]
@@ -433,19 +433,19 @@ potenziale $U(vb(r))=u(r)$, con $u'(r) = -f(r)$. Si vuole trovare $vb(r)(t)=(r(t
 #dim[
   si deriva in $t$ la formula
   $ dot(vb(r)) = dot(r) vu(e_r) + r dot(phi) vu(e_phi). $
-  $ dot.double(vb(r)) = dot.double(r) vu(e_r) + dot(r) dot(phi) vu(e_phi) + dot(r) dot(phi) vu(e_phi) + r dot.double(phi) vu(e_phi) - r dot(phi)^2 vu(e_r) $
-  $ ==> dot.double(vb(r)) = (dot.double(r)-r dot(phi)^2) vu(e_r) + (2 dot(r) dot(phi) + r dot.double(phi)) vu(e_phi) $
-  Ma $dot.double(vb(r)) = -u'(r) vu(e_r)$, e dunque vale che
+  $ diaer(vb(r)) = diaer(r) vu(e_r) + dot(r) dot(phi) vu(e_phi) + dot(r) dot(phi) vu(e_phi) + r diaer(phi) vu(e_phi) - r dot(phi)^2 vu(e_r) $
+  $ ==> diaer(vb(r)) = (diaer(r)-r dot(phi)^2) vu(e_r) + (2 dot(r) dot(phi) + r diaer(phi)) vu(e_phi) $
+  Ma $diaer(vb(r)) = -u'(r) vu(e_r)$, e dunque vale che
 
   #set math.equation(numbering: "(1)")
 
-  $ dot.double(r) - r dot(phi)^2 = -u'(r) $ <acceleration>
-  $ 2 dot(r) dot(phi) + r dot.double(phi) = 0 $ <angular>
+  $ diaer(r) - r dot(phi)^2 = -u'(r) $ <acceleration>
+  $ 2 dot(r) dot(phi) + r diaer(phi) = 0 $ <angular>
 
   #set math.equation(numbering: none)
 
   Allora, da @acceleration,
-  $ dot.double(r) = -u'(r) + r L^2/r^4 = -dv(, r)(u(r)+L^2/(2 r^2)) $
+  $ diaer(r) = -u'(r) + r L^2/r^4 = -dv(, r)(u(r)+L^2/(2 r^2)) $
   Ma $u(r)+L^2/(2 r^2)$ è proprio $V(r)$.
 ]
 
@@ -465,7 +465,7 @@ chiamando $r(phi)$ la funzione inversa di $phi(t)$, $r(phi) = r(t(phi))$.
 Dall'equazione @angular si risale nuovamente al principio di conservazione del
 momento angolare:
 $ L = r^2 dot(phi) $
-$ ==> 0 = dot(L) = r(2 dot(r) dot(phi) + r dot.double(phi)). $
+$ ==> 0 = dot(L) = r(2 dot(r) dot(phi) + r diaer(phi)). $
 
 Si osserva anche che l'energia totale $E_V$ del nuovo problema unidimensionale
 in $r$, che vale

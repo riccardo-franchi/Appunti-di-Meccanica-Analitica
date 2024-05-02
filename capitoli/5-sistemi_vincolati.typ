@@ -139,7 +139,7 @@ di notazione, perché i calcoli sono analoghi.
 
 I vincoli sono sempre dovuti a forze. Si può esprimere il secondo principio
 della meccanica distinguendo tra _forze attive_ $vb(F)$ e _reazioni vincolari_ $vb(R)$:
-$ m dot.double(vb(r)) = vb(F) + vb(R). $
+$ m diaer(vb(r)) = vb(F) + vb(R). $
 
 L'obiettivo è trovare $vb(F)$ senza conoscere necessariamente $vb(R)$. Questo è
 possibile a partire dal _principio di D'Alembert_.
@@ -170,7 +170,7 @@ Come conseguenza del principio di D'Alembert, $forall var(vb(r))$,
 
 #set math.equation(numbering: "(1)")
 
-$ m dot.double(vb(r)) dprod var(vb(r)) = vb(F) dprod var(vb(r)). $
+$ m diaer(vb(r)) dprod var(vb(r)) = vb(F) dprod var(vb(r)). $
 
 Si utilizzano le carte e i concetti definiti nel capitolo precedente, che
 consentono di descrivere il moto (e quindi gli spostamenti infinitesimi)
@@ -180,9 +180,9 @@ spostamenti infinitesimi nelle $vb(q)$ saranno _liberi_.
 Vale che, indicando tra parentesi quadre la matrice Jacobiana,
 $ var(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] var(vb(q)). $
 Allora
-$ m dot.double(vb(r)) dprod var(vb(r)) = m dot.double(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [pdv(vb(r), vb(q))]^TT dot.double(vb(r)) dprod var(vb(q)). $ <transpose>
+$ m diaer(vb(r)) dprod var(vb(r)) = m diaer(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [pdv(vb(r), vb(q))]^TT diaer(vb(r)) dprod var(vb(q)). $ <transpose>
 Ma, si ha che
-$ [pdv(vb(r), vb(q))]^TT dot.double(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r)). $ <transpose_derivative>
+$ [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r)). $ <transpose_derivative>
 Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
 $ dv(, t) [pdv(vb(r), vb(q))] = dv(dot(vb(r)), vb(q)), $
 infatti,
@@ -196,7 +196,7 @@ maniera che valga
 $ dot(vb(r)) = [pdv(vb(r), vb(q))] dot(vb(q)) + dv(vb(r), t). $
 
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
-$ m dot.double(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r))) dprod var(vb(q)). $ <all_together>
+$ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r))) dprod var(vb(q)). $ <all_together>
 
 #set math.equation(numbering: none)
 
@@ -209,7 +209,7 @@ $ ==> grad_dot(vb(q)) scriptT = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
 $ grad_vb(q) scriptT = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
 La @all_together diventa quindi
-$ m dot.double(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)). $
+$ m diaer(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)). $
 
 Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
 $ vb(G)(vb(q), dot(vb(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
@@ -285,20 +285,20 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ U(z) = m g z = m g phi(q) = scriptU(q) $
   $ ==> scriptL = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
   $ pdv(scriptL, dot(q)) = m dot(q)(1+(psi'(q))^2) $
-  $ ==> dv(, t) pdv(scriptL, dot(q)) = m dot.double(q) (1+(psi'(q))^2) + 2m dot(q)^2 psi'(q) psi''(q) $
+  $ ==> dv(, t) pdv(scriptL, dot(q)) = m diaer(q) (1+(psi'(q))^2) + 2m dot(q)^2 psi'(q) psi''(q) $
   $ pdv(scriptL, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
   Si può scrivere quindi l'equazione di Eulero-Lagrange (la massa si semplifica):
-  $ (1+(psi'(q))^2) dot.double(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
+  $ (1+(psi'(q))^2) diaer(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
    
   Si considera, per esempio, il caso di un piano inclinato, per cui $psi(q) = a q$.
   In tal caso, l'equazione di Eulero-Lagrange si riscrive
-  $ (1+a^2) dot.double(q) + g a = 0 <==> dot.double(q) = -a/(1+a^2) g. $
+  $ (1+a^2) diaer(q) + g a = 0 <==> diaer(q) = -a/(1+a^2) g. $
   siccome $a = tan theta$, con $theta$ angolo del piano inclinato, allora,
   riscrivendo l'equazione rispetto alla costante $theta$,
-  $ dot.double(q) = -g sin theta cos theta. $
+  $ diaer(q) = -g sin theta cos theta. $
   Scegliendo, al posto di $q$ una variabile $rho$ lungo il piano inclinato: $rho = q/(cos theta)$,
   si ottiene
-  $ dot.double(rho) = - g sin theta $
+  $ diaer(rho) = - g sin theta $
   che è esattamente la consueta equazione del piano inclinato.
 ]
 
@@ -312,14 +312,14 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ ==> norm(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
   Allora, dato che $scriptL=scriptT$,
   $ pdv(scriptL, dot(q)) = m(1+a^2)dot(q) + m a b t $
-  $ ==> dv(, t)pdv(scriptL, dot(q)) = m((1+a^2)dot.double(q)+a b) $
+  $ ==> dv(, t)pdv(scriptL, dot(q)) = m((1+a^2)diaer(q)+a b) $
   $ pdv(scriptL, q)=0. $
   L'equazione di Eulero-Lagrange è allora
-  $ (1+a^2)dot.double(q)+a b=0 <==> dot.double(q) = -a/(1+a^2) b. $
+  $ (1+a^2)diaer(q)+a b=0 <==> diaer(q) = -a/(1+a^2) b. $
    
   Facendo riferimento a quanto detto alla fine dell'esempio precedente, si può
   riscrivere l'espressione in funzione dell'angolo $theta$:
-  $ dot.double(q) = -b sin theta cos theta. $
+  $ diaer(q) = -b sin theta cos theta. $
    
   Quindi il caso in cui il vincolo accelera verso l'alto è equivalente al caso in
   cui la particella è accelerata verso il basso.
@@ -350,11 +350,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(L, dot(phi)) = "costante". $
    
   $ pdv(L, dot(z)) = (1+(r'(z))^2) dot(z) $
-  $ ==> dv(, t) pdv(L, dot(z)) = (1+(r'(z))^2) dot.double(z) + 2 r'(z) r''(z) dot(z)^2 $
+  $ ==> dv(, t) pdv(L, dot(z)) = (1+(r'(z))^2) diaer(z) + 2 r'(z) r''(z) dot(z)^2 $
   $ pdv(L, z) = r'(z) r''(z) dot(z)^2+r(z) r'(z) dot(phi)^2. $
    
   L'equazione di Eulero-Lagrange nella prima coordinata (in $(z, dot(z))$) è
-  $ (1+(r'(z))^2) dot.double(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
+  $ (1+(r'(z))^2) diaer(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
    
   Per quanto riguarda l'equazione di Eulero-Lagrange nella seconda coordinata,
   invece,
@@ -384,7 +384,7 @@ Infatti,
   conserva $norm(vb(dot(r)))^2$ e dunque $norm(vb(dot(r)))$.
 + Per il principio di D'Alembert, la reazione vincolare è perpendicolare a $T_(vb(r)(t))M$.
   Quindi 
-$ dv(, t) norm(dot(vb(r)))^2 = 2 dot(vb(r)) dprod dot.double(vb(r)) = 2 dot(vb(r)) dprod vb(F_"tot") = 2 dot(vb(r)) dprod vb(R) = 0. $
+$ dv(, t) norm(dot(vb(r)))^2 = 2 dot(vb(r)) dprod diaer(vb(r)) = 2 dot(vb(r)) dprod vb(F_"tot") = 2 dot(vb(r)) dprod vb(R) = 0. $
 
 Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria ($dot(vb(r))$)
 forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(dot(vb(r))) = "costante"$,
@@ -435,7 +435,7 @@ di un vincolo scleronomo sia proprio un estremale vincolato.
   dato un vincolo scleronomo rappresentato dalla varietà $M$, una legge oraria $vb(r): [t_0,t_1]->M$ è
   un estremale vincolato ad $M$ se e solo se, per essa vale il principio di
   D'Alembert:
-  $ (m dot.double(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r_t))=0 $
+  $ (m diaer(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r_t))=0 $
   $forall t in [t_0,t_1], forall var(vb(r_t)) in T_(vb(r)(t))M$.
 ]
 
@@ -493,7 +493,7 @@ lasciata come esercizio.
   estremale condizionato (vincolato).
    
   Viceversa, se $vb(r)$ è un estremale condizionato,
-  $ integral_(t_0)^(t_1) (m dot.double(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
+  $ integral_(t_0)^(t_1) (m diaer(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
   per ogni variazione $vb(h)(t)$. Ciò implica il principio di D'Alembert per il
   lemma precedente.
 ]

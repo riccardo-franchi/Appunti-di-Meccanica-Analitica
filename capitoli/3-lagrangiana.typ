@@ -183,7 +183,7 @@ alla derivata di qualcosa.
 == Applicazione alla meccanica
 
 Si hanno problemi del tipo
-$ m dot.double(vb(r)) (t) = - dv(, r) U(vb(r)(t)) $
+$ m diaer(vb(r)) (t) = - dv(, r) U(vb(r)(t)) $
 
 #theorem(
   "principio di minima azione di Hamilton",
@@ -199,9 +199,9 @@ $ m dot.double(vb(r)) (t) = - dv(, r) U(vb(r)(t)) $
 #dim[
   si scrive l'equazione (in forma vettoriale) di Eulero-Lagrange, per tale $L=L(vb(r), dot(vb(r)))$:
   $ grad_(dot(vb(r))) L = grad_(dot(vb(r))) T = m dot(vb(r)) $
-  $ ==> dv(, t) grad_(dot(vb(r))) L = m dot.double(vb(r)). $
+  $ ==> dv(, t) grad_(dot(vb(r))) L = m diaer(vb(r)). $
   $ grad_(vb(r)) L = -grad_vb(r) U $
-  $ ==> m dot.double(vb(r)) = -grad_vb(r) U. $
+  $ ==> m diaer(vb(r)) = -grad_vb(r) U. $
 ]
 
 Si osserva che la lagrangiana non è unica, ossia, la forma data non è l'unica
@@ -213,7 +213,7 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
   (con massa unitaria)
   $ L(dot(vb(r))) = T(dot(vb(r))) = norm(dot(vb(r)))^2/2 $
   $ ==> dv(, t) grad_vb(dot(r)) L = grad_vb(r) L = 0 $
-  $ <==> dot.double(vb(r)) = 0 <==> vb(r)(t) = vb(v_0) t + vb(r_0). $
+  $ <==> diaer(vb(r)) = 0 <==> vb(r)(t) = vb(v_0) t + vb(r_0). $
   Le variabili da cui non dipende la lagrangiana sono dette _cicliche_, e ad
   ognuna di esse è associato un principio di conservazione (in questo caso la
   velocità/quantità di moto).
@@ -228,13 +228,13 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
   Vale
   $ grad_vb(r) L = 0, $
   $ grad_dot(vb(r)) L = dot(vb(r))/norm(dot(vb(r))) $
-  $ ==> 0 = dv(, t) dot(vb(r))/norm(dot(vb(r))) = (norm(dot(vb(r)))^2 vb(dot.double(r)) - (vb(dot(r)) dprod vb(dot.double(r)))dot(vb(r)))/norm(dot(vb(r)))^3 $
-  $ <==> norm(dot(vb(r)))^2 vb(dot.double(r)) - (vb(dot(r)) dprod vb(dot.double(r)))dot(vb(r)) = 0 $
-  applicando a tutti i termini il prodotto scalare per $dot.double(vb(r))$,
-  $ norm(dot(vb(r)))^2 norm(dot.double(vb(r)))^2 = (dot(vb(r)) dprod dot.double(vb(r)))^2 $
-  $ ==> norm(dot(vb(r))) norm(dot.double(vb(r))) = norm(dot(vb(r)) dprod dot.double(vb(r))) $
-  e dunque $dot(vb(r))$ e $dot.double(vb(r))$ sono collineari. Si ha quindi un
-  cammino lineare. Nota: attenzione ai punti di non differenziabilità di $L$!
+  $ ==> 0 = dv(, t) dot(vb(r))/norm(dot(vb(r))) = (norm(dot(vb(r)))^2 vb(diaer(r)) - (vb(dot(r)) dprod vb(diaer(r)))dot(vb(r)))/norm(dot(vb(r)))^3 $
+  $ <==> norm(dot(vb(r)))^2 vb(diaer(r)) - (vb(dot(r)) dprod vb(diaer(r)))dot(vb(r)) = 0 $
+  applicando a tutti i termini il prodotto scalare per $diaer(vb(r))$,
+  $ norm(dot(vb(r)))^2 norm(diaer(vb(r)))^2 = (dot(vb(r)) dprod diaer(vb(r)))^2 $
+  $ ==> norm(dot(vb(r))) norm(diaer(vb(r))) = norm(dot(vb(r)) dprod diaer(vb(r))) $
+  e dunque $dot(vb(r))$ e $diaer(vb(r))$ sono collineari. Si ha quindi un cammino
+  lineare. Nota: attenzione ai punti di non differenziabilità di $L$!
 ]
 
 === Cambio di coordinate
@@ -316,7 +316,7 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
   Per trovare le leggi del moto, si impostano le equazioni di Eulero-Lagrange:
   $ dv(, t) pdv(scriptL, dot(r)) - pdv(scriptL, r) = 0 $
   $ ==> dv((m dot(r)), t) - m r dot(phi)^2 + dv(u(r), r) = 0 $
-  $ <==> m dot.double(r) = m r dot(phi)^2 - dv(u(r), r). $
+  $ <==> m diaer(r) = m r dot(phi)^2 - dv(u(r), r). $
   La seconda equazione invece esprime il principio di conservazione del momento
   angolare:
   $ dv(, t) pdv(scriptL, dot(phi)) - pdv(scriptL, phi) = 0 $
@@ -338,15 +338,15 @@ capitolo:
 === Lagrangiana per un potenziale generalizzato
 
 Si è "tradotto" in termini lagrangiani il problema
-$ m dot.double(vb(r)) = - grad_vb(r) U(vb(r)) $
+$ m diaer(vb(r)) = - grad_vb(r) U(vb(r)) $
 usando le seguenti
-+ $ dv(, t) grad_dot(vb(r)) T = m dot.double(vb(r)) $
++ $ dv(, t) grad_dot(vb(r)) T = m diaer(vb(r)) $
 + $ grad_vb(r) T = vb(0) $
 + $ grad_dot(vb(r)) U = vb(0) ==> dv(, t) grad_dot(vb(r)) U = vb(0) $
 + $ grad_vb(r) U = vb(F(r)) $
 
 Da cui
-$ (dv(, t) grad_dot(vb(r))- grad_vb(r)) T = m dot.double(vb(r)) $
+$ (dv(, t) grad_dot(vb(r))- grad_vb(r)) T = m diaer(vb(r)) $
 e
 $ (dv(, t) grad_dot(vb(r))- grad_vb(r)) U = vb(F) $
 se $L = T-U$,
