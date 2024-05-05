@@ -20,7 +20,7 @@ data una definizione formale di dimensione).
 #def[
   una _carta_ per $M$ è un omeomorfismo (funzione continua invertibile con inversa
   continua) $phi: U -> V$ fra un aperto di $RR^d$ e un aperto nella topologia di $M$.
-
+   
   L'argomento di $phi$ è detto _coordinata locale_ per $M$.
 ]
 
@@ -171,4 +171,3 @@ Più generalmente, $D f: T M -> T N$.
   $ D f : T M &-> T N \ (vb(r), vb(v)) &|-> (f(vb(r)), D(f compose phi_alpha)_(phi_alpha^(-1) (vb(r))) (vb(u))) $
   dove $vb(u)$ è l'unico vettore ($phi_alpha$ è biettiva) di $RR^d$ tale che $D(f compose phi_alpha)_(phi_alpha^(-1) (vb(r))) (vb(u)) = vb(v)$.
 ]
-
