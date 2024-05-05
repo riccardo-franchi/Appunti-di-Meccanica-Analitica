@@ -157,7 +157,7 @@ Si considerano due varietà differenziabili $M subset.eq RR^m$, $N subset.eq RR^
 dimensioni rispettivamente $d$ ed $e$. Si definisce una mappa $f: M->N$. Come si
 può definire la differenziabilità di $f$? Si vuole cioè definire un'applicazione
 lineare
-$ D f_vb(r) : T_vb(r) M -> T_f(vb(r)) M. $
+$ D f_vb(r) : T_vb(r) M -> T_f(vb(r)) N. $
 
 Più generalmente, $D f: T M -> T N$.
 
