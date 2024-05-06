@@ -1,0 +1,12 @@
+name: Compile Typst Documents
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Compile Typst Files
+      uses: ammar-ahmed22/compile-typst-action@v1
+      with:
+        source_paths: 'main.typ'
+        output_paths: 'Appunti-di-Meccanica-Analitica.pdf'
