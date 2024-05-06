@@ -13,8 +13,8 @@ jobs:
       uses: ammar-ahmed22/compile-typst-action@v1
       with:
         source_paths: 'main.typ'
-        output_paths: 'Appunti-di-Meccanica-Analitica.pdf'
-    - name: Commit compiled PDFs
+        output_paths: 'main.pdf'
+    - name: Commit compiled PDF
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: 'Compiled Typst to PDF'
