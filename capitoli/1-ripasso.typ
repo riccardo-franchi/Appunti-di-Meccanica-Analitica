@@ -234,10 +234,10 @@ $ gvec(F) = gmat(M) gvec(a) $
 dove $gvec(a)$ è il vettore globale delle accelerazioni e $gmat(M)$ è la matrice
 diagonale $3N times 3N$ delle masse:
 
-$ dmat(m_1 II_3, dots.down, m_n II_3, delim: "[") $
+$ dmat(m_1 II_3, dots.down, m_n II_3) $
 dove con $m_i II_3$ si indica la massa $i$-esima moltiplicata per la matrice
 identità $3 times 3$:
-$ m_i II_3 = dmat(m_i, m_i, m_i, delim: "[") $
+$ m_i II_3 = dmat(m_i, m_i, m_i) $
 
 #def[
   si definisce energia cinetica totale

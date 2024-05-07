@@ -71,4 +71,143 @@ con $vb(Q) = vb(q) - vb(q_e)$ ($=> dot(vb(Q)) = dot(vb(q))$).
 Si scrivono le equazioni di Eulero-Lagrange per $L=L_"quadratica"$:
 $ grad_dot(vb(Q)) L = A dot(vb(Q)) ==> dv(, t) grad_dot(vb(Q)) = A diaer(vb(Q)) $
 $ grad_vb(Q) L = -B vb(Q) $
-$ ==> A diaer(vb(Q)) + B vb(Q) = 0. $
+
+#set math.equation(numbering: "(1)")
+
+$ ==> A diaer(vb(Q)) + B vb(Q) = 0. $ <small_oscillations>
+
+#set math.equation(numbering: none)
+
+#theorem[
+  la soluzione generale di @small_oscillations, con le ipotesi date su $A$ e $B$,
+  è
+  $ vb(Q)(t) = sum_(i=1)^d vb(m_i) s_lambda_i (t) := sum_(i=1)^d vb(m_i) (c_(i 1) cos(sqrt(lambda) t) + c_(i 2) sin(sqrt(lambda) t)) $
+  dove $lambda_i>0$ e $vb(m_i) in RR^d$, per $i in {1,...,d}$, sono gli autovalori
+  con corrisondenti autovettori di $B$ rispetto ad $A$, ossia
+  $ B vb(m_i) = lambda_i A vb(m_i), space.quad vb(m_i) != 0. $
+]
+
+Tali autovettori sono le soluzioni dell'equazione caratteristica (in $lambda$)
+$ det(B-lambda A) = 0 $
+e sono $d$ (contando la molteplicità algebrica). Gli autovettori $vb(m_i)$ sono
+linearmente indipendenti: si è quindi nel caso di molteplicità geometrica sempre
+uguale alla molteplicità algebrica. Inoltre:
++ se $A = II$, allora gli $vb(m_i)$ sono ortogonali fra loro;
++ se la molteplicità di $lambda_i$ è $1$ allora $vb(m_i)$ è univocamente
+  determinato a meno di un fattore moltiplicativo.
+
+Si utilizza la seguente terminologia: i vettori $vb(m_i)$ (e talvolta anche le
+funzioni vettoriali $vb(m_i) s_lambda_i (t)$) sono detti _modi normali_ delle
+piccole oscillazioni intorno a $vb(q_e)$. Lo scalare $omega_i = sqrt(lambda_i)$ è
+detta _frequenza_ (o talvolta _pulsazione_) del corrispondente modo normale.
+
+Il fatto che gli autovettori di $B$ rispetto ad $A$ siano dati dall'equazione
+caratteristica è immediato dalla definizione di autovettore:
+$ exists vb(v) !=0 : (B-lambda A)vb(v) = 0 <=> B-lambda A "non invertibile" <=> det(B-lambda A)=0. $
+Anche il punto 2 è immediato, una volta che è noto che la molteplicità algebrica
+e geometrica di $lambda_i$ è $1$. Ciò significa per definizione che lo spazio
+lineare dei suoi autovettori è $1$-dimensionale, e quindi tutti gli autovettori
+di uno stesso autovalore sono multipli a due a due.
+
+== Funzioni di matrici diagonalizzabili
+
+se $g(x) = c_0+c_1 x +...+c_m x^m$ e $A$ è una matrice $n times n$, è sensato
+definire $g(A)$ come la seguente matrice $n times n$:
+$ g(A) = c_0 II_n + c_1 A +...+c_m A^m. $
+Si vorrebbe dare una definizione di $g(A)$ anche per funzioni $g(x)$ più
+complicate di un polinomio. Si potrebbe pensare di usare lo sviluppo in serie di
+Taylor, ma questo è in generale definito solo nell'intorno di un certo $x_0$.
+Inoltre, se si definisce una matrice come serie infinita di matrici, bisogna
+specificare che cosa significa quel limite. Tuttavia, se $A$ è una matrice
+diagonalizzabile (di gran lunga la maggioranza nello spazio $RR^(d times d)$ di
+tutte le matrici $d times d$), esiste una definizione allo stesso tempo semplice
+ed efficace.
+
+Sia data $g : D subset.eq RR -> RR$. Si specifica, innanzitutto, che cosa
+significa $g(Lambda)$ quando $Lambda$ è una matrice diagonale.
+
+#def[
+  se $Lambda$ è una matrice diagonale con elementi diagonali (ovvero autovalori) $lambda_i in D, forall i in {1,...,d}$,
+  allora si definisce 
+  $ g(Lambda) = dmat(g(lambda_i), g(lambda_2), dots.down, g(lambda_d)). $
+]
+
+#def[
+  se $A$ è una matrice diagonalizzabile con $Lambda = C^(-1) A C$ la sua
+  diagonalizzata (e quindi $A = C Lambda C^(-1)$), e se tutti gli autovalori $lambda_i$ di $A$ (ovvero
+  tutti gli elementi diagonali di $Lambda$) appartengono a $D$, allora si
+  definisce
+  $ g(A) = C g(Lambda) C^(-1). $
+]
+
+Si noti che se la relazione fra $A$ e $Lambda$ è $Lambda = C^(-1) A C$, allora $C$ è
+quella che si chiama matrice _cambio di base_, definita come
+$ C = mat(vec(vb(v_1)), ..., vec(vb(v_n))) $
+con $A vb(v_i) = lambda_i vb(v_i), vb(v_i != 0)$, ovvero, l'$i$-esima colonna di $C$ è
+un autovettore di $A$ relativo a $lambda_i$. Lo si può verificare velocemente:
+infatti,$forall i$, indicando con $vu(e_i)$ l'$i$-esimo vettore della base
+canonica di $RR^d$,
+$ C vu(e_i) = vb(v_i) $
+$ ==> A C vu(e_i) = A vb(v_i) = lambda_i vb(v_i) $
+$ ==> C^(-1) A C vu(e_i) = lambda_i C^(-1) vb(v_i) = lambda_i vu(e_i) $
+da cui discende che $C^(-1) A C$ è la matrice diagonale con elemsenti diagonali $lambda_i$,
+nell'ordine.
+
+La funzione $g$ definita sulle matrici diagonalizzabili ha proprietà algebriche
+simili alla $g$ definita sui reali.
+
+#example[
+  se $alpha, beta in RR$ e $A$ ha solo autovalori positivi,
+  $ A^alpha A^beta = C Lambda^alpha C^(-1) C Lambda^beta C^(-1) = C Lambda^alpha Lambda^beta C^(-1) = C Lambda^(alpha+beta) C^(-1) = A^(alpha + beta). $
+]
+
+#example[
+  Per ogni $A$ diagonalizzabile,
+  $ cos^2 A + sin^2 A = C cos^2 (Lambda) C^(-1) + C sin^2 (Lambda) C^(-1) = C II C^(-1) = II. $
+]
+
+
+#dim(
+  "del teorema precedente",
+)[
+  si considera una matrice $A >0$ diagonalizzabile. Dato che $A$ è definita
+  positiva, tutti i suoi autovalori sono positivi, dunque
+  $ exists A^(1/2) : A^(1/2)A^(1/2)=A. $
+  Nota: siccome $A$ è simmetrica, si può applicare il teorema spettrale, e dunque $exists R_A$ matrice
+  ortogonale (in fisica le matrici ortogonali sono spesso chiamate semplicemente
+  rotazioni) tale che
+  $ Lambda_A = R_A^(-1) A R_A = R_A^TT A R_A. $
+  Allora, si riscrive la @small_oscillations:
+  $ A diaer(vb(Q)) = - B vb(Q) <==> A^(1/2) diaer(vb(Q)) = -A^(-1/2) B A^(-1/2) A^(1/2) vb(Q). $
+  Adoperando il cambio di variabile
+  $ vb(x) = A^(1/2) vb(Q) $
+  (la funzione lineare che lega $vb(x)$ a $vb(Q)$ è biettiva perché $det A^1/2 >0$)
+  e chiamando $M = A^(-1/2) B A^(-1/2)$,
+  $ A diaer(vb(Q)) = - B vb(Q) <==> diaer(vb(x)) = M vb(x). $
+   
+  Si afferma che $M$ è definita positiva. Infatti:
+  + è simmetrica perché $M^TT = (A^(-1/2))^TT B^TT (A^(-1/2))^TT$, ma $(A^(-1/2))^TT = (R_A Lambda_A^(-1/2) R_A^TT)^TT = R_A (Lambda_A^(-1/2))^TT R_A^TT = A^(-1/2)$.
+    Quindi $M^TT = A^(-1/2)B A^(-1/2)=M$.
+  + $forall vb(v) != 0, vb(v) dprod M vb(v) = vb(v) dprod A^(-1/2) B A^(-1/2) vb(v) = (A^(-1/2))^TT vb(v) dprod B(A^(-1/2) vb(v)) = vb(w) dprod B vb(w)$.
+    $vb(w) != 0$ perché $A^(-1/2)$ è non singolare.
+   
+  Quindi, $exists R$ matrice ortogonale tale che
+  $ M = R Lambda R^TT, $
+  con tutti autovalori strettamente positivi.
+   
+  Si fa un altro cambio di variabile:
+  $ vb(y) = R^TT vb(x) = R^(-1) vb(x) $
+  Allora il punto 2 si riscrive come
+  $ R^(-1) diaer(vb(x)) = -Lambda R^(-1) vb(x) <==> diaer(vb(y)) = -Lambda vb(y). $
+  $ <==> diaer(y_i) = - lambda_i y_i space.quad forall i in {1,...,d} $
+  La cui soluzione generale è $y_i (t) = s_lambda_i (t)$. 
+   
+  In termini vettoriali, la soluzione generale è 
+  $ vb(y)(t) = sum_(i=1)^d vu(e_i) s_lambda_i (t). $
+  In $vb(x)$ è 
+  $ vb(x) (t) = R vb(y) (t) = sum_(i=1)^d R vu(e_i) s_lambda_i (t), $
+  e dunque nelle $vb(Q)$ è 
+  $ vb(Q) (t) = A^(-1/2) vb(x)(t) = sum_(i=1)^d A^(-1/2) R vu(e_i) s_lambda_i (t) = sum_(i=1)^d vb(m_i) s_lambda_i (t). $
+  Infine,
+  $ B vb(m_i) = B A^(-1/2) R vu(e_i) = - A^(1/2) A^(-1/2) B A^(-1/2) R vu(e_i) = A^(1/2) M R vu(e_i). $
+]
