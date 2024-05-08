@@ -210,4 +210,72 @@ simili alla $g$ definita sui reali.
   $ vb(Q) (t) = A^(-1/2) vb(x)(t) = sum_(i=1)^d A^(-1/2) R vu(e_i) s_lambda_i (t) = sum_(i=1)^d vb(m_i) s_lambda_i (t). $
   Infine,
   $ B vb(m_i) = B A^(-1/2) R vu(e_i) = - A^(1/2) A^(-1/2) B A^(-1/2) R vu(e_i) = A^(1/2) M R vu(e_i). $
+   
+  Si osserva che $Lambda vu(e_i) = lambda_i vu(e_i)$
+  $ ==> M(R vu(e_i)) = R Lambda R^TT R vu(e_i) = lambda_i R vu(e_i). $
+   
+  Dunque
+  $ B vb(m_i) = A^(1/2) lambda_i R vu(e_i) = lambda_i A A^(-1/2) R vu(e_i) = lambda_i A 
+  vb(m_i) $
+   
+  Gli ${vu(e_i)}$ sono una base ortonormale, per cui anche gli ${R vu(e_i)}$ lo
+  sono. Dato che $A^(-1/2)$ è una matrice non singolare, anche i ${vb(m_i) = A^(-1/2) R vu(e_i)}$ sono
+  una base.
+]
+
+#example(
+  "Pendoli accoppiati",
+)[
+  si considerano due pendoli di massa uguale, attaccati nello stesso punto,
+  accoppiati l'uno all'altro tramite una molla di costante $k$.
+   
+  Si chiamano $q_1$ e $q_2$ rispettivamente gli angoli che il primo e il secondo
+  pendolo formano con la verticale ($q_i in (- pi, pi]$), e si pongono le masse e
+  la lunghezza del pendolo uguali a $1$.
+   
+  Fissato un sistema di riferimento con l'asse $y$ verso il basso,
+  $ U= U_g (vb(r_1), vb(r_2)) + U_k (vb(r_1), vb(r_2)) = -g y_1 - g y_2 + k/2 norm(vb(r_1)-vb(r_2))^2 $
+   
+  Scrivendo $vb(r_1)$ e $vb(r_2)$ in funzione delle coordinate $q_1, q_2$,
+  $ vb(r_i) = (sin q_i, cos q_i) $
+  $ ==> U(q_1,q_2) = -g cos q_1 - g cos q_1 + k/2((sin q_1 - sin q_2)^2 + (cos q_1 - cos q_2)^2). $
+   
+  Per quanto riguarda l'energia cinetica,
+  $ T(dot(vb(r))_1, dot(vb(r))_2) = 1/2 (norm(vb(dot(q)_2))^2 + norm(vb(dot(q)_2))^2) $
+  $ vb(dot(r)_i) = (cos q_i, -sin q_i) dot(q_i) ==> norm(vb(dot(r)_i))^2 = dot(q_i)^2 $
+  $ ==> T(dot(q)_1, dot(q)_2) = 1/2 (dot(q)_1 + dot(q)_2). $
+   
+  Si vogliono trovare tutti i punti di equilibrio, determinare se sono stabili, e
+  per i punti di equilibrio stabile, studiare le piccole oscillazioni.
+   
+  $ grad U(vb(q)) = 0 <==> -grad U_g (vb(q)) = grad U_k (vb(q)) $
+  $ pdv(U_g, q_i)(vb(q)) = g sin q_i, $
+  $ pdv(U_k, q_i)(vb(q)) = k((sin q_1 - sin q_2)cos q_i - (cos q_1 - cos q_2) sin q_i) $
+   
+  Punti di equilibrio immediati:
+  + $q_1=q_2 = 0$
+  + $q_1 = q_2 = pi$
+  + $q_1 = 0, q_2= pi$ e viceversa
+   
+  Supponendo momentaneamente $sin q_i != 0$,
+  $ 1 = -pdv(U_g, q_i)/pdv(U_k, q_i) = k/g ((sin q_i - sin q_2)/(tan q_i) - cos(q_1 - cos q_2)) $
+  $ ==> tan q_2 = tan q_2 <==> q_1 = q_2 plus.minus pi. $
+  Gli altri punti di equilibrio sono lasciati come esercizio.
+   
+  Il primo punto di equilibrio è l'unico punto stabile, dato che corrisponde ad un
+  punto di minimo globale del potenziale, come si può notare osservando la sua
+  espressione. ALlora, si trovano le piccole oscillazioni per $vb(q) = (0,0)$:
+  $ T = 1/2 (dot(q)_1^2 + dot(q)_2^2) ==> A(vb(q)) = II. $
+  $ U(vb(q)) &= -g (1-q_1^2/2 - q_2^2/2 + o(q_1^2)+o(q_2^2)) \ 
+           &+ k/2((q_1-q_2 + o(q_1^2)+o(q_2^2))^2 + (q_1^2/2 - q_2^2/2 + o(q_1)+ o(q_2))^2) \
+           &tilde.eq -g/2 (q_1^2 + q_2^2) + k/2 (q_1-q_2)^2 = U_"quadratica" (vb(q)). $
+  $ ==> U_"quadratica" (vb(q)) = (q_1^2+ q_2^2)/2 (g+k) + q_1 q_2 k $
+  E, se $U_"quadratica" = 1/2 vb(q) dprod B vb(q)$,
+  $ B = mat(g+k, -k;-k, g+k). $
+  Occorre quindi trovare gli autovalori di $B$ rispetto ad $A$, cioè gli
+  autovalori di $B$, essendo $A=II$. Si trovano gli autovalori $lambda_1 = g$, $lambda_2 = g + 2k$
+  Considerando $lambda_1$, gli autovettori sono multipli di $vb(m_1) = (1,1)$, e
+  dunque gli autovettori relativi a $lambda_2$ sono multipli di $vb(m_2) = (-1, 1)$.
+  Si hanno quindi oscillazioni rispettivamente in fase e in antifase, con
+  frequenze date da $omega_i = sqrt(lambda_i)$.
 ]
