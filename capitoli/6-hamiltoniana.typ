@@ -300,7 +300,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   $ dot(vb(x)) = vb(f(x)) = JJ grad_vb(x) H(vb(x)) $
   dove $JJ$ è una matrice $2n times 2n$, divisa in quattro blocchi quadrati, dati
   da
-  $ JJ = mat(0, II_n;-II_n, 0), $
+  $ JJ = mat(0, II_n;-II_n, 0;delim: "["), $
   visto che
   $ vb(f(x)) = (grad_vb(p) H(vb(x)), grad_vb(q) H(vb(x))). $
    

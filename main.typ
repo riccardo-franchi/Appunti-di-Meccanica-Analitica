@@ -38,3 +38,5 @@
 #include "capitoli/6-hamiltoniana.typ"
 #pagebreak()
 #include "capitoli/7-piccole_oscillazioni.typ"
+#pagebreak()
+#include "capitoli/8-cinematica_relativa.typ"

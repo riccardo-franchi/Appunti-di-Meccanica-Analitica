@@ -129,7 +129,7 @@ significa $g(Lambda)$ quando $Lambda$ è una matrice diagonale.
 #def[
   se $Lambda$ è una matrice diagonale con elementi diagonali (ovvero autovalori) $lambda_i in D, forall i in {1,...,d}$,
   allora si definisce 
-  $ g(Lambda) = dmat(g(lambda_i), g(lambda_2), dots.down, g(lambda_d)). $
+  $ g(Lambda) = dmat(g(lambda_i), g(lambda_2), dots.down, g(lambda_d), delim: "["). $
 ]
 
 #def[
@@ -142,7 +142,7 @@ significa $g(Lambda)$ quando $Lambda$ è una matrice diagonale.
 
 Si noti che se la relazione fra $A$ e $Lambda$ è $Lambda = C^(-1) A C$, allora $C$ è
 quella che si chiama matrice _cambio di base_, definita come
-$ C = mat(vec(vb(v_1)), ..., vec(vb(v_n))) $
+$ C = mat(vec(vb(v_1)), ..., vec(vb(v_n));delim: "[") $
 con $A vb(v_i) = lambda_i vb(v_i), vb(v_i != 0)$, ovvero, l'$i$-esima colonna di $C$ è
 un autovettore di $A$ relativo a $lambda_i$. Lo si può verificare velocemente:
 infatti,$forall i$, indicando con $vu(e_i)$ l'$i$-esimo vettore della base
@@ -250,28 +250,34 @@ simili alla $g$ definita sui reali.
    
   $ grad U(vb(q)) = 0 <==> -grad U_g (vb(q)) = grad U_k (vb(q)) $
   $ pdv(U_g, q_i)(vb(q)) = g sin q_i, $
-  $ pdv(U_k, q_i)(vb(q)) = k((sin q_1 - sin q_2)cos q_i - (cos q_1 - cos q_2) sin q_i) $
+  $ pdv(U_k, q_1)(vb(q)) = k((sin q_1 - sin q_2)cos q_1 - (cos q_1 - cos q_2) sin q_1), $
+  $ pdv(U_k, q_2)(vb(q)) = k((sin q_2 - sin q_1)cos q_2 - (cos q_2 - cos q_1) sin q_2). $
    
   Punti di equilibrio immediati:
   + $q_1=q_2 = 0$
   + $q_1 = q_2 = pi$
   + $q_1 = 0, q_2= pi$ e viceversa
    
-  Supponendo momentaneamente $sin q_i != 0$,
-  $ 1 = -pdv(U_g, q_i)/pdv(U_k, q_i) = k/g ((sin q_i - sin q_2)/(tan q_i) - cos(q_1 - cos q_2)) $
+  Supponendo momentaneamente $sin q_i != 0$ e omettendo i calcoli,
+  $ 1 = -pdv(U_g, q_i)/pdv(U_k, q_i) $
   $ ==> tan q_2 = tan q_2 <==> q_1 = q_2 plus.minus pi. $
-  Gli altri punti di equilibrio sono lasciati come esercizio.
+   
+  Si trova poi, assumendo di avere una simmetria del tipo $q_2 = -q_1$,
+  $ cot q_1 = -g/(2 k sin q_1) <==> cos q_1 = -g/(2k) <==> q_1 plus.minus arccos(-g/(2k)) $
+   
+  Si può giustificare fisicamente che non ci sono altri punti di equilibrio,
+  considerando le forze che agiscono sui due punti.
    
   Il primo punto di equilibrio è l'unico punto stabile, dato che corrisponde ad un
   punto di minimo globale del potenziale, come si può notare osservando la sua
-  espressione. ALlora, si trovano le piccole oscillazioni per $vb(q) = (0,0)$:
+  espressione. Allora, si trovano le piccole oscillazioni per $vb(q) = (0,0)$:
   $ T = 1/2 (dot(q)_1^2 + dot(q)_2^2) ==> A(vb(q)) = II. $
   $ U(vb(q)) &= -g (1-q_1^2/2 - q_2^2/2 + o(q_1^2)+o(q_2^2)) \ 
            &+ k/2((q_1-q_2 + o(q_1^2)+o(q_2^2))^2 + (q_1^2/2 - q_2^2/2 + o(q_1)+ o(q_2))^2) \
            &tilde.eq -g/2 (q_1^2 + q_2^2) + k/2 (q_1-q_2)^2 = U_"quadratica" (vb(q)). $
   $ ==> U_"quadratica" (vb(q)) = (q_1^2+ q_2^2)/2 (g+k) + q_1 q_2 k $
   E, se $U_"quadratica" = 1/2 vb(q) dprod B vb(q)$,
-  $ B = mat(g+k, -k;-k, g+k). $
+  $ B = mat(g+k, -k;-k, g+k;delim: "["). $
   Occorre quindi trovare gli autovalori di $B$ rispetto ad $A$, cioè gli
   autovalori di $B$, essendo $A=II$. Si trovano gli autovalori $lambda_1 = g$, $lambda_2 = g + 2k$
   Considerando $lambda_1$, gli autovettori sono multipli di $vb(m_1) = (1,1)$, e
@@ -279,3 +285,4 @@ simili alla $g$ definita sui reali.
   Si hanno quindi oscillazioni rispettivamente in fase e in antifase, con
   frequenze date da $omega_i = sqrt(lambda_i)$.
 ]
+
