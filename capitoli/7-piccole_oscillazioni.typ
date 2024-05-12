@@ -238,7 +238,8 @@ simili alla $g$ definita sui reali.
    
   Scrivendo $vb(r_1)$ e $vb(r_2)$ in funzione delle coordinate $q_1, q_2$,
   $ vb(r_i) = (sin q_i, cos q_i) $
-  $ ==> U(q_1,q_2) = -g cos q_1 - g cos q_1 + k/2((sin q_1 - sin q_2)^2 + (cos q_1 - cos q_2)^2). $
+  $ ==> U(q_1,q_2) = -g cos q_1 - g cos q_2 + k/2((sin q_1 - sin q_2)^2 + (cos q_1 - cos q_2)^2) $
+  $ ==> U(q_1, q_2) = -g(cos q_1 +cos q_2) + k(1-cos(q_1-q_2)) $
    
   Per quanto riguarda l'energia cinetica,
   $ T(dot(vb(r))_1, dot(vb(r))_2) = 1/2 (norm(vb(dot(q)_2))^2 + norm(vb(dot(q)_2))^2) $
@@ -248,10 +249,10 @@ simili alla $g$ definita sui reali.
   Si vogliono trovare tutti i punti di equilibrio, determinare se sono stabili, e
   per i punti di equilibrio stabile, studiare le piccole oscillazioni.
    
-  $ grad U(vb(q)) = 0 <==> -grad U_g (vb(q)) = grad U_k (vb(q)) $
-  $ pdv(U_g, q_i)(vb(q)) = g sin q_i, $
-  $ pdv(U_k, q_1)(vb(q)) = k((sin q_1 - sin q_2)cos q_1 - (cos q_1 - cos q_2) sin q_1), $
-  $ pdv(U_k, q_2)(vb(q)) = k((sin q_2 - sin q_1)cos q_2 - (cos q_2 - cos q_1) sin q_2). $
+  $ grad U(vb(q)) = 0 <==> pdv(U(vb(q)), q_1) + pdv(U(vb(q)), q_2) =0 $
+  $ pdv(U(vb(q)), q_1) = g sin q_1 + k sin(q_1-q_2) $
+  $ pdv(U(vb(q)), q_2) = g sin q_2 - k sin(q_1-q_2). $
+   
    
   Punti di equilibrio immediati:
   + $q_1=q_2 = 0$
