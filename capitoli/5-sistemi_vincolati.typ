@@ -186,7 +186,7 @@ $ [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r
 Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
 $ dv(, t) [pdv(vb(r), vb(q))] = dv(dot(vb(r)), vb(q)), $
 infatti,
-$ dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q_k) + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q_k) + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
+$ dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q)_k + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q)_k + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
 
 Per definizione, vale anche che
 $ [pdv(vb(r), vb(q))]=[pdv(dot(vb(r)), dot(vb(q)))]. $ <jacobian_derivative>
@@ -203,10 +203,10 @@ $ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r)
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
 ossia $scriptT(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
 
-$ dv(scriptT, dot(q_j)) = sum_(i=1)^n dv(scriptT, dot(r_i)) dv(dot(r_i), dot(q_j)) = m sum_(i=1)^n dot(r_i) dv(dot(r_i), dot(q_j)) = m ([pdv(dot(vb(r)), dot(q_j))]^TT dot(vb(r)))_j $
+$ dv(scriptT, dot(q)_j) = sum_(i=1)^n dv(scriptT, dot(r)_i) dv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i dv(dot(r)_i, dot(q)_j) = m ([pdv(dot(vb(r)), dot(q)_j)]^TT dot(vb(r)))_j $
 $ ==> grad_dot(vb(q)) scriptT = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
 
-Analogamente, sostituendo $dot(q_j)$ con $q_j$, si ottiene
+Analogamente, sostituendo $dot(q)_j$ con $q_j$, si ottiene
 $ grad_vb(q) scriptT = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
 La @all_together diventa quindi
 $ m diaer(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)). $
@@ -557,7 +557,7 @@ punti, ma dei punti e delle tangenti ai punti.
   costante. Si considera $h^s (vb(q)) = (q_1, ..., q_overline(dotless.i) + s, ..., q_d)$ (detta
   anche traslazione sulla $i$-esima coordinata). Si tratta di trasformazioni da $M$ in $M$.
   Il differenziale, visto nel fibrato tangente, è dato da
-  $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q_1), ..., dot(q_d)) $
+  $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q)_1, ..., dot(q)_d) $
   $ ==> L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) = L(vb(q), dot(vb(q)),t). $
   $ grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)) $
 ]

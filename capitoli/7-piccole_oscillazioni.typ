@@ -199,7 +199,7 @@ simili alla $g$ definita sui reali.
   $ vb(y) = R^TT vb(x) = R^(-1) vb(x) $
   Allora il punto 2 si riscrive come
   $ R^(-1) diaer(vb(x)) = -Lambda R^(-1) vb(x) <==> diaer(vb(y)) = -Lambda vb(y). $
-  $ <==> diaer(y_i) = - lambda_i y_i space.quad forall i in {1,...,d} $
+  $ <==> diaer(y)_i = - lambda_i y_i space.quad forall i in {1,...,d} $
   La cui soluzione generale è $y_i (t) = s_lambda_i (t)$. 
    
   In termini vettoriali, la soluzione generale è 
@@ -243,7 +243,7 @@ simili alla $g$ definita sui reali.
    
   Per quanto riguarda l'energia cinetica,
   $ T(dot(vb(r))_1, dot(vb(r))_2) = 1/2 (norm(vb(dot(q)_2))^2 + norm(vb(dot(q)_2))^2) $
-  $ vb(dot(r)_i) = (cos q_i, -sin q_i) dot(q_i) ==> norm(vb(dot(r)_i))^2 = dot(q_i)^2 $
+  $ vb(dot(r)_i) = (cos q_i, -sin q_i) dot(q)_i ==> norm(vb(dot(r)_i))^2 = dot(q)_i^2 $
   $ ==> T(dot(q)_1, dot(q)_2) = 1/2 (dot(q)_1 + dot(q)_2). $
    
   Si vogliono trovare tutti i punti di equilibrio, determinare se sono stabili, e

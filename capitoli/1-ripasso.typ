@@ -307,7 +307,7 @@ conservativo.
 ]
 
 Spesso si indica $M = sum_(i=1)^N m_i$. Vale che, sotto l'ipotesi che $vb(F_(i j)) = -vb(F_(j i))$,
-$ M vb(diaer(R)) = sum_i m_i vb(diaer(r_i)) = sum_i vb(F_i) = sum_i vb(F_i)^"ext" + sum_(i != j) vb(F_(i j)) = sum_i vb(F_i)^"ext". $
+$ M vb(diaer(R)) = sum_i m_i vb(diaer(r)_i) = sum_i vb(F_i) = sum_i vb(F_i)^"ext" + sum_(i != j) vb(F_(i j)) = sum_i vb(F_i)^"ext". $
 Quindi è come se la forza esterna totale agente sul sistema agisse sul centro di
 massa.
 

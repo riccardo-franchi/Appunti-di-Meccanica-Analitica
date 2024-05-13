@@ -232,10 +232,10 @@ configurazioni nella seguente maniera: per semplicità, si suppone $overline(dot
 allora
 $ H(q_1, ..., q_(n-1), p_1, ..., p_n,t). $
 Si riscrivono le equazioni di Hamilton come, per $i in {1,...,n-1}$,
-$ cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
+$ cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p)_n = 0) $
 Se, per $p_n = overline(p_n)$ si chiama
 $ H' = H(q_1, ..., q_(n-1), p_1, ..., overline(p_n),t) $
-$ ==> cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p_n) = 0) $
+$ ==> cases(dot(q)_i = pdv(H, p_i), dot(p)_i = pdv(H, q_i)), space cases(dot(q)_n = pdv(H, p_n), dot(p)_n = 0) $
 Se si sa risolvere il sistema di sinistra, si ottiene la soluzione $(q_1 (t), ..., p_(n-1) (t))$.
 Ora, si chiama
 $ f(t) = pdv(H, p_n)(q_1 (t),..., overline(p_n)(t),t). $

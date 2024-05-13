@@ -128,7 +128,7 @@ $ dv(, t) grad_(vb(v)) L - grad_vb(x) L = vb(0). $
 Con una notazione impropria, si usa anche scrivere
 $ dv(, t) pdv(L, dot(x)_i)-pdv(L, x_i)=0; $
 è una notazione impropria perché, con $pdv(, v_i)$ si intende la derivata
-parziale rispetto al secondo parametro di $L$, mentre $dot(x_i)$ porta a pensare
+parziale rispetto al secondo parametro di $L$, mentre $dot(x)_i$ porta a pensare
 alla derivata di qualcosa.
 
 #lemma[
@@ -251,9 +251,9 @@ relativamente alle $vb(r)$. L'inversa, naturalmente, è indicata con $vb(r(q))$.
 Si suppone di conoscere una legge oraria $vb(r)(t)$ nelle coordinate $vb(r)$.
 Essa può essere espressa nelle coordinate $vb(q)$: $vb(q)(vb(r)(t))$. La
 velocità è espressa nelle $vb(q)$ come
-$ dot(vb(q))(t) = (dot(q_1)(t), ..., dot(q_d)(t)) $
+$ dot(vb(q))(t) = (dot(q)_1 (t), ..., dot(q)_d(t)) $
 con
-$ dot(q_i)(t) = dv(, t) q_i (r_1 (t), ..., r_d (t)) = sum_(j=1)^d pdv(q_i, r_j) (vb(r)(t)) dot(r_j)(t) = sum_(j=1)^d [pdv(vb(q), vb(r)) (vb(r)(t))]_(i j) dot(r_j)(t) $
+$ dot(q)_i (t) = dv(, t) q_i (r_1 (t), ..., r_d (t)) = sum_(j=1)^d pdv(q_i, r_j) (vb(r)(t)) dot(r)_j (t) = sum_(j=1)^d [pdv(vb(q), vb(r)) (vb(r)(t))]_(i j) dot(r)_j (t) $
 dove $[pdv(vb(q), vb(r))(vb(r)(t))]$ è la matrice Jacobiana $d times d$, dove
 l'elemento $(i, j)$-esimo è $pdv(q_i, r_j)$. Quindi
 $ dot(vb(q))(t) = [pdv(vb(q), vb(r))(vb(r)(t))] dot(vb(r))(t). $
@@ -285,7 +285,7 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
   sia $vb(q)$ un (altro) sistema di coordinate sullo spazio delle configurazioni $RR^d$,
   rispetto al quale la funzione lagrangiana sia $scriptL$ come sopra definito. In
   queste coordinate le leggi del moto soddisfano
-  $ dv(, t) pdv(scriptL, dot(q_i)) - pdv(scriptL, q_i) = 0 $
+  $ dv(, t) pdv(scriptL, dot(q)_i) - pdv(scriptL, q_i) = 0 $
 ]
 
 #dim[
@@ -330,8 +330,8 @@ capitolo:
 
 - un oggetto del tipo $pdv(scriptL, q_i)$ è detto _impulso_ (o _momento_) _generalizzato_;
 - una variabile $q_i$ da cui $L$ non dipende è detta _variabile ciclica_. In
-  questo caso, l'impulso generalizzato $pdv(scriptL, dot(q_i))$ si conserva,
-  perché $dv(, t) pdv(scriptL, dot(q_i)) = pdv(scriptL, q_i) = 0$.
+  questo caso, l'impulso generalizzato $pdv(scriptL, dot(q)_i)$ si conserva,
+  perché $dv(, t) pdv(scriptL, dot(q)_i) = pdv(scriptL, q_i) = 0$.
 
 // "Sono una persona molto sola... *ridacchia* no, no, c'è anche troppa gente attorno a me [...] dovete arrivare a un punto in cui le equazioni di Lagrange ve le sognate la notte"
 
