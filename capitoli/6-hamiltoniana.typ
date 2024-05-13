@@ -12,7 +12,7 @@ beneficia di una serie di teoremi più forti rispetto a quello lagrangiano.
 
 Una trasformata è in generale un'operazione tra funzioni (si è già vista in
 altri corsi la _trasformata di Fourier_). Considerando funzioni del tipo $f: A subset.eq RR^n -> RR$, $f in C^2(A)$,
-tali per cui la matrie hessiana di $f$, indicata come
+tali per cui la matrice hessiana di $f$, indicata come
 $ (H f)_(i j) = pdv(f, x_i, x_j) $
 è semidefinita positiva, ossia $vb(v) dprod H f vb(v) >= 0$, $forall vb(v) in RR^n$.
 
@@ -23,17 +23,16 @@ $ (H f)_(i j) = pdv(f, x_i, x_j) $
   funzione $g = (scriptL f) : B subset.eq RR^n -> RR$ definita da
   $ g(vb(p)) = sup_(x in A) (vb(p) dprod vb(x) - f(vb(x))) $
   dove si considera nel dominio $B$ solo quelle $vb(p)$ tali che l'estremo
-  superiore sia reale.
+  superiore è reale.
 ]
-
-In molti casi, tale estremo superiore è un punto di massimo, e il punto di
-massimo è al più uno, dato da
+ 
+In molti casi, se $f$ è strettamente convessa, tale estremo superiore è un punto
+di massimo, e il punto di massimo è al più uno, dato da
 $ grad_vb(x) (vb(p) dprod vb(x) - f(vb(x))) = 0 <==> vb(p) = grad_vb(x) f(vb(x)). $
 Si indica con $vb(x(p))$ l'unico punto che soddisfa questa equazione, se esiste.
-Fra i casi considerati, c'è anche il caso in cui $f$ è strettamente convessa su
-tutto $RR^n$. Si assume d'ora in poi che $H f (vb(x)) > 0$, $forall x in RR^n$ (che
-implica che $f$ è strettamente convessa su tutto $RR^n$). In questo caso, si
-darà una versione restrittiva della trasformata di Legendre, corrispondente a
+Si assume d'ora in poi che $H f (vb(x)) > 0$, $forall x in RR^n$ (che implica
+che $f$ è strettamente convessa su tutto $RR^n$). In questo caso, si darà una
+versione restrittiva della trasformata di Legendre, corrispondente a
 $ g(vb(p)) = max_(vb(x) in A) (vb(p) dprod vb(x) - f(vb(x))) = vb(p) dprod vb(x(p)) - f(vb(x(p))). $
 
 Si osserva che, secondo questa definizione particolare, $g$ è definita su $B' = {vb(p) in RR^n : exists max}$.
@@ -70,15 +69,15 @@ di Legendre.
 ]
 #dim[
   si deriva la $g(vb(p)) = vb(p) dprod vb(x(p)) - f(vb(x(p)))$:
-  $ pdv(g, p_i) (vb(p)) = x_i(vb(p)) + sum_(l=1)^n p_l pdv(x_l, p_i)(vb(p)) - sum_(l=1)^n pdv(L, x_l) (vb(x(p))) dprod pdv(x_l, p_i)(vb(p)) $
+  $ pdv(g, p_i) (vb(p)) = x_i (vb(p)) + sum_(l=1)^n p_l pdv(x_l, p_i)(vb(p)) - sum_(l=1)^n pdv(f, x_l) (vb(x(p))) dprod pdv(x_l, p_i)(vb(p)) $
   Inoltre, poiché
   $ vb(p) = grad_vb(x) f(vb(x(p))), $
   allora
-  $ pdv(L, x_l) (vb(x(p))) = p_l $
+  $ pdv(f, x_l) (vb(x(p))) = p_l $
   e la differenza si semplifica, ottenendo l'equazione cercata.
 ]
 
-Si hanno due proposizione sulla relazione tra convessità e hessiana di una
+Si danno due proposizioni sulla relazione tra convessità e hessiana di una
 funzione.
 
 #prop[
@@ -112,7 +111,7 @@ funzione.
 ]
 
 #theorem[
-  la trasformata di Legendre è un'_involuzione_:
+  per funzioni $f$ come sopra, la trasformata di Legendre è un'_involuzione_:
   $ scriptL^2 f = scriptL(scriptL f) = f. $
 ]
 #dim[
@@ -152,7 +151,7 @@ soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ 
   In questo caso, l'energia cinetica potrebbe essere data da una forma quadratica,
   a seconda della carta scelta. Allora, si ha, facendo il gradiente della
   lagrangiana,
-  $ vb(p) = m vb(dot(q)) dprod A(vb(q)) dot(vb(q)) <==> dot(vb(q))=(A^(-1)(vb(q),t))/m vb(p). $
+  $ vb(p) = m A(vb(q)) dot(vb(q)) <==> dot(vb(q))=(A^(-1)(vb(q),t))/m vb(p). $
   L'inversa della matrice $A$ esiste perché è definita positiva.
   $ ==> H(vb(q), vb(p), t) = (vb(p) dprod A^(-1) vb(p))/m - m/2 1/m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p))/(2m) + U = T_vb(p) + U. $
 ]
@@ -213,13 +212,17 @@ soluzioni alle equazioni di Eulero-Lagrange.
 ]
 
 #corollary[
-  se $H$ non dipende esplicitamente dal tempo, essa una costante del moto.
+  se $H$ non dipende esplicitamente dal tempo, essa è una costante del moto.
 ]
-/* prendere dalle note del prof
-#exercise[
 
+#exercise[
+  definendo 
+  $ F(vb(q), dot(vb(q)),t) = L(vb(q), dot(vb(q)),t) - grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod dot(vb(q)), $
+  mostrare che, sulle soluzioni del sistema lagrangiano,
+  $ dv(F, t) = pdv(L, t). $
+  In particolare, se $L = L(vb(q),dot(vb(q)))$, essa è una costante del moto.
 ]
-*/
+
 
 Si osserva che, se si ha una coordinata ciclica $q_overline(dotless.i)$ per la $L$,
 allora anche $H$ non dipende da $q_overline(dotless.i)$. Inoltre, in questo caso $p_overline(dotless.i)$ è
@@ -237,7 +240,7 @@ Se si sa risolvere il sistema di sinistra, si ottiene la soluzione $(q_1 (t), ..
 Ora, si chiama
 $ f(t) = pdv(H, p_n)(q_1 (t),..., overline(p_n)(t),t). $
 Il sistema di destra si riscrive come
-$ dot(q)_n = f(t) ==> q_n(t) = q_n(t_0) + integral_(t_0)^t f(tau)dd(tau). $
+$ dot(q)_n = f(t) ==> q_n (t) = q_n (t_0) + integral_(t_0)^t f(tau)dd(tau). $
 
 == Alcuni risultati di base sulle equazioni differenziali
 
@@ -277,7 +280,7 @@ funzioni che mostrano l'andamento di un'equazione differenziale.
 ]
 
 Come funzione $Omega times RR -> Omega$, ($(vb(x),t) |->Phi^t (vb(x))$) si
-assumerò sempre che $Phi$ sia sufficientemente regolare, tale almeno da far
+assumerà sempre che $Phi$ sia sufficientemente regolare, tale almeno da far
 valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
 
 #theorem(
@@ -315,16 +318,16 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
 )[
   $ Phi^(t+s) = Phi^s compose Phi^t $
   $ ==> D Phi^(t+s)_vb(x) = D Phi^s_(Phi^t) D Phi^t_vb(x), $
-  $ J Phi^(t+s) (vb(x)) = J Phi^s ((Phi^t)(vb(x))) J Phi^t (vb(x)) $
+  $ ==> J Phi^(t+s) (vb(x)) = J Phi^s ((Phi^t)(vb(x))) J Phi^t (vb(x)) $
   con $J = [pdv(Phi^t, vb(x))(vb(x))]$ (matrice jacobiana).
   $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s ((Phi^t)(vb(x))) det J Phi^t (vb(x)). $
   Il determinante della matrice jacobiana serve perché:
-  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]). $
-  Facendo un cambio di variabile,
+  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]), $
+  facendo un cambio di variabile,
   $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
   $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
-  $ y in Phi^t (A) <==> vb(x) in A. $
-  Allora
+  $ y in Phi^t (A) <==> vb(x) in A, $
+  e pertanto
   $ Vol(Phi^t (vb(x))) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]). $
    
   Si asserisce che
@@ -441,6 +444,34 @@ queste si ripeterano nell'evoluzione del sistema.
 ]
 La dimostrazione del corollario è lasciata come esercizio.
 
+== Applicazione ai sistemi hamiltoniani
+
+In molti casi si ha, per una particella
+$ H(vb(q), vb(p)) = norm(vb(p))^2/(2 m) + U(vb(q)) $
+o per $n$ particelle
+$ H(vb(q), vb(p)) = iprod(gvec(p), gmat(M)^(-1) gvec(p))/2 + U(vb(q)). $
+
+Si considera la _superficie equienergetica_
+$ Sigma_E = {(vb(q), vb(p)) in RR^(2n) : H(vb(q), vb(p)) = E}. $
+Essa ha misura nulla, avendo due dimensioni in meno rispetto a $RR^(2n)$. Si
+definisce allora il _guscio equienergetico_
+$ G_(E, difference(E)) = {(vb(q), vb(p)) in RR^(2n) : E - difference(E) <= H(vb(q), vb(p)) <= E + difference(E)}, $
+che non ha misura nulla. In questo caso si è limitati sia nelle $vb(q)$ ($U(vb(q)) <= E + difference(E)$)
+che nelle $vb(p)$ ($norm(vb(p)) <= sqrt(2 m (E + difference(E)))$). Facendo
+quindi un'assunzione più debole rispetto al fatto che l'hamiltoniana sia una
+costante del moto, e dunque che il moto avviene sulla superficie equienergetica,
+si può affermare che esso avvenga nel guscio equienergetico. In molti casi si ha
+che $Vol(G_(E, difference(E))) < infinity$ e quindi si può applicare il teorema
+di Poincaré. Pertanto, se valgono le leggi della meccanica classica (è un grande _se_,
+dato che spesso si parla di scale di tempo molto più che astronomiche), allora
+un sistema hamiltoniano ritornerà "quasi sicuramente" (a parte un insieme di
+volume nullo di condizioni iniziali "sfortunate", in realtà in fisica è come se
+essi non esistessero, perché in termini pratici non si possono selezionare,
+scegliere) in un intorno delle condizioni iniziali. Questa considerazione ha
+implicazioni filosofiche ed è stata la causa di grandi discussioni, in
+particolare sulla questione della distinzione tra reversibilità microscopica e
+l'irreversibilità macroscopica.
+
 #example[
   Si considera un sistema formato da cento biglie disposte casualmente in una
   scatola, divisa in due settori. Ogni secondo, le biglie sono ridistribuite
@@ -450,21 +481,6 @@ La dimostrazione del corollario è lasciata come esercizio.
   di $2^100$ secondi per avere tutte le palline a sinistra (un tempo di molti
   ordini di grandezza maggiore dell'età dell'universo).
 ]
-
-== Applicazione ai sistemi hamiltoniani
-
-In molti casi si ha, per una particella
-$ H(vb(q), vb(p)) = norm(vb(p))^2/(2 m) + U(vb(q)) $
-o per $n$ particelle
-$ H(vb(q), vb(p)) = iprod(gvec(p), gmat(M)^(-1) gvec(p))/2 + U(vb(q)). $
-
-Si considera la _superficie isoenergetica_
-$ Sigma_E = {(vb(q), vb(p)) in RR^(2n) : H(vb(q), vb(p)) = E}. $
-Essa ha misura nulla, avendo due dimensioni in meno rispetto a $RR^(2n)$. Si
-definisce allora
-$ G_(E, difference(E)) = {(vb(q), vb(p)) in RR^(2n) : E - difference(E) <= H(vb(q), vb(p)) <= E + difference(E)}, $
-che non ha misura nulla. In questo caso si è limitati sia nelle $vb(q)$ ($U(vb(q)) <= E + difference(E)$)
-che nelle $vb(p)$ ($norm(vb(p)) <= sqrt(2 m (E + difference(E)))$).
 
 #exercise[
   risolvere completamente (integrare) nel formalismo hamiltoniano il seguente
