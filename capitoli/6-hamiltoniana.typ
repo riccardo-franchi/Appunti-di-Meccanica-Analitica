@@ -391,6 +391,8 @@ che fa utilizzo del concetto di _misura_, ossia una funzione $A |-> mu(A)$, con 
 secondo Lebesgue), con
 $ mu(A) = integral_A f(vb(x)) dd(x, [n]) $
 per una certa funzione $f >= 0$. Ad esempio, nella misura di Lebesgue, si prende $f(vb(x)) = 1$.
+Il volume di un insieme, citato in precedenza, corrisponde alla sua misura di
+Lebesgue.
 
 #def[
   un flusso $Phi^t : Omega -> Omega$ preserva la misura $mu$ se, $forall t, forall A in scriptM_n$,
