@@ -52,7 +52,7 @@ dato che il gradiente del potenziale in $vb(q_e)$ è nullo. Nei calcoli si
 assumerà, senza perdita di generalità, che la costante additiva $U(vb(q_e))$ sia
 nulla.
 
-Si fanno due assunzioni matematiche:
+Si fanno due assunzioni matematiche, per semplificare i calcoli:
 + $A$ è simmetrica e definita positiva (assunzione praticamente sempre vera per
   sistemi fisici);
 + $B := H U(vb(q_e))$ è simmetrica e definita positiva.
@@ -69,7 +69,7 @@ $ L_"quadratica" (vb(Q), vb(dot(Q))) = 1/2 dot(vb(Q)) dprod A dot(vb(Q)) - 1/2 v
 con $vb(Q) = vb(q) - vb(q_e)$ ($=> dot(vb(Q)) = dot(vb(q))$).
 
 Si scrivono le equazioni di Eulero-Lagrange per $L=L_"quadratica"$:
-$ grad_dot(vb(Q)) L = A dot(vb(Q)) ==> dv(, t) grad_dot(vb(Q)) = A diaer(vb(Q)) $
+$ grad_dot(vb(Q)) L = A dot(vb(Q)) ==> dv(, t) grad_dot(vb(Q)) L = A diaer(vb(Q)) $
 $ grad_vb(Q) L = -B vb(Q) $
 
 #set math.equation(numbering: "(1)")
@@ -78,12 +78,18 @@ $ ==> A diaer(vb(Q)) + B vb(Q) = 0. $ <small_oscillations>
 
 #set math.equation(numbering: none)
 
+Si è ottenuta una equazione differenziale ordinaria _lineare_. In un certo
+senso, che non verrà approfondito, questa è la migliore approssimazione lineare
+della lagrangiana originale, per questo si dice anche che l'approssimazione
+quadratica della lagrangiana dà origine al _linearizzato_ del sistema
+originario.
+
 #theorem[
   la soluzione generale di @small_oscillations, con le ipotesi date su $A$ e $B$,
   è
-  $ vb(Q)(t) = sum_(i=1)^d vb(m_i) s_lambda_i (t) := sum_(i=1)^d vb(m_i) (c_(i 1) cos(sqrt(lambda) t) + c_(i 2) sin(sqrt(lambda) t)) $
+  $ vb(Q)(t) = sum_(i=1)^d vb(m_i) s_lambda_i (t) := sum_(i=1)^d vb(m_i) (c_(i 1) cos(sqrt(lambda_i) t) + c_(i 2) sin(sqrt(lambda_i) t)) $
   dove $lambda_i>0$ e $vb(m_i) in RR^d$, per $i in {1,...,d}$, sono gli autovalori
-  con corrisondenti autovettori di $B$ rispetto ad $A$, ossia
+  con corrispondenti autovettori di $B$ rispetto ad $A$, ossia
   $ B vb(m_i) = lambda_i A vb(m_i), space.quad vb(m_i) != 0. $
 ]
 
@@ -142,7 +148,7 @@ significa $g(Lambda)$ quando $Lambda$ è una matrice diagonale.
 
 Si noti che se la relazione fra $A$ e $Lambda$ è $Lambda = C^(-1) A C$, allora $C$ è
 quella che si chiama matrice _cambio di base_, definita come
-$ C = mat(vec(vb(v_1)), ..., vec(vb(v_n));delim: "[") $
+$ C = mat((vb(v_1)), ..., (vb(v_n));delim: "[") $
 con $A vb(v_i) = lambda_i vb(v_i), vb(v_i != 0)$, ovvero, l'$i$-esima colonna di $C$ è
 un autovettore di $A$ relativo a $lambda_i$. Lo si può verificare velocemente:
 infatti,$forall i$, indicando con $vu(e_i)$ l'$i$-esimo vettore della base
@@ -150,7 +156,7 @@ canonica di $RR^d$,
 $ C vu(e_i) = vb(v_i) $
 $ ==> A C vu(e_i) = A vb(v_i) = lambda_i vb(v_i) $
 $ ==> C^(-1) A C vu(e_i) = lambda_i C^(-1) vb(v_i) = lambda_i vu(e_i) $
-da cui discende che $C^(-1) A C$ è la matrice diagonale con elemsenti diagonali $lambda_i$,
+da cui discende che $C^(-1) A C$ è la matrice diagonale con elementi diagonali $lambda_i$,
 nell'ordine.
 
 La funzione $g$ definita sulle matrici diagonalizzabili ha proprietà algebriche
@@ -177,17 +183,18 @@ simili alla $g$ definita sui reali.
   ortogonale (in fisica le matrici ortogonali sono spesso chiamate semplicemente
   rotazioni) tale che
   $ Lambda_A = R_A^(-1) A R_A = R_A^TT A R_A. $
+  $ ==> A = R_A Lambda_A R_A^TT $
   Allora, si riscrive la @small_oscillations:
   $ A diaer(vb(Q)) = - B vb(Q) <==> A^(1/2) diaer(vb(Q)) = -A^(-1/2) B A^(-1/2) A^(1/2) vb(Q). $
   Adoperando il cambio di variabile
   $ vb(x) = A^(1/2) vb(Q) $
-  (la funzione lineare che lega $vb(x)$ a $vb(Q)$ è biettiva perché $det A^1/2 >0$)
+  (la funzione lineare che lega $vb(x)$ a $vb(Q)$ è biettiva perché $det(A^(1/2)) >0$)
   e chiamando $M = A^(-1/2) B A^(-1/2)$,
-  $ A diaer(vb(Q)) = - B vb(Q) <==> diaer(vb(x)) = M vb(x). $
+  $ A diaer(vb(Q)) = - B vb(Q) <==> diaer(vb(x)) = -M vb(x). $
    
   Si afferma che $M$ è definita positiva. Infatti:
   + è simmetrica perché $M^TT = (A^(-1/2))^TT B^TT (A^(-1/2))^TT$, ma $(A^(-1/2))^TT = (R_A Lambda_A^(-1/2) R_A^TT)^TT = R_A (Lambda_A^(-1/2))^TT R_A^TT = A^(-1/2)$.
-    Quindi $M^TT = A^(-1/2)B A^(-1/2)=M$.
+    Quindi, dato che $B = B^TT$, $M^TT = A^(-1/2)B A^(-1/2)=M$.
   + $forall vb(v) != 0, vb(v) dprod M vb(v) = vb(v) dprod A^(-1/2) B A^(-1/2) vb(v) = (A^(-1/2))^TT vb(v) dprod B(A^(-1/2) vb(v)) = vb(w) dprod B vb(w)$.
     $vb(w) != 0$ perché $A^(-1/2)$ è non singolare.
    
@@ -197,7 +204,7 @@ simili alla $g$ definita sui reali.
    
   Si fa un altro cambio di variabile:
   $ vb(y) = R^TT vb(x) = R^(-1) vb(x) $
-  Allora il punto 2 si riscrive come
+  Allora la @small_oscillations si riscrive come
   $ R^(-1) diaer(vb(x)) = -Lambda R^(-1) vb(x) <==> diaer(vb(y)) = -Lambda vb(y). $
   $ <==> diaer(y)_i = - lambda_i y_i space.quad forall i in {1,...,d} $
   La cui soluzione generale è $y_i (t) = s_lambda_i (t)$. 
