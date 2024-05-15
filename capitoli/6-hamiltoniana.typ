@@ -134,24 +134,24 @@ funzione.
 == Principi di meccanica hamiltoniana
 
 #def[
-  data la lagrangiana $L(vb(q), dot(vb(q)), t)$, convessa nelle $dot(vb(q)), forall vb(q),t$,
+  data la lagrangiana $L(vb(q), vb(dot(q)), t)$, convessa nelle $vb(dot(q)), forall vb(q),t$,
   si definisce _funzione hamiltoniana_ relativa a $L$ la funzione $H(vb(q), vb(p), t)$ data
   da
-  $ H(vb(q), vb(p), t) = (scriptL_dot(vb(q)) L(vb(q), dot, t))(vb(p)). $
+  $ H(vb(q), vb(p), t) = (scriptL_vb(dot(q)) L(vb(q), dot, t))(vb(p)). $
 ]
 
-Si assume che la funzione lagrangiana rispetto a $dot(vb(q))$ sia regolare e
+Si assume che la funzione lagrangiana rispetto a $vb(dot(q))$ sia regolare e
 strettamente convessa $forall vb(q),t$, e quindi,
 $ H(vb(q), vb(p), t) = vb(p) dprod vb(dot(q))(vb(q), vb(p), t) - L(vb(q),vb(dot(q))(vb(q), vb(p), t), t) $
 ove $vb(dot(q))(vb(q), vb(p), t) = vb(dot(q))_(vb(q),t) (vb(p))$ è l'unica
-soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ fissati.
+soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ fissati.
 
 #example[
-  $ L(vb(q), dot(vb(q)), t) = T - U = m/2 vb(dot(q)) dprod A(vb(q)) dot(vb(q)) - U(vb(q),t) $
+  $ L(vb(q), vb(dot(q)), t) = T - U = m/2 vb(dot(q)) dprod A(vb(q)) vb(dot(q)) - U(vb(q),t) $
   In questo caso, l'energia cinetica potrebbe essere data da una forma quadratica,
   a seconda della carta scelta. Allora, si ha, facendo il gradiente della
   lagrangiana,
-  $ vb(p) = m A(vb(q)) dot(vb(q)) <==> dot(vb(q))=(A^(-1)(vb(q),t))/m vb(p). $
+  $ vb(p) = m A(vb(q)) vb(dot(q)) <==> vb(dot(q))=(A^(-1)(vb(q),t))/m vb(p). $
   L'inversa della matrice $A$ esiste perché è definita positiva.
   $ ==> H(vb(q), vb(p), t) = (vb(p) dprod A^(-1) vb(p))/m - m/2 1/m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p))/(2m) + U = T_vb(p) + U. $
 ]
@@ -159,7 +159,7 @@ soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ 
 #example[
   utilizzando $vb(r)$ come variabile lagrangiana pensando ad un problema meccanico
   non vincolato, si ottiene un caso analogo al precedente, ma semplificato:
-  $ L(vb(r), dot(vb(r))) = m/2 norm(vb(r))^2 - U(vb(r)) $
+  $ L(vb(r), vb(dot(r))) = m/2 norm(vb(r))^2 - U(vb(r)) $
   La matrice $A(vb(q))$ è la matrice identità, per ogni $vb(q)$, e
   $ H(vb(r), vb(p)) = norm(vb(p))^2/(2m) + U(vb(r)). $
   In questo caso particolare, la hamiltoniana equivale all'energia meccanica.
@@ -171,31 +171,31 @@ soluzione di $vb(p) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t)$ per $vb(q)$ e $t$ 
   Eulero-Lagrange sono equivalenti alle $2n$ equazioni (del primo ordine)
   seguenti, dette _equazioni di Hamilton_:
   $ cases(
-    dot(vb(q))(t) = grad_vb(p) H(vb(q)(t), vb(p)(t),t),
-    dot(vb(p))(t) = - grad_vb(q) H(vb(q)(t), vb(p)(t),t),
+    vb(dot(q))(t) = grad_vb(p) H(vb(q)(t), vb(p)(t),t),
+    vb(dot(p))(t) = - grad_vb(q) H(vb(q)(t), vb(p)(t),t),
 
   ) $
 ]
 #dim[
   si considera una qualsiasi funzione $t |-> (vb(q)(t), vb(p)(t))$ (anche priva di
   significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$.
-  $ grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod dot(vb(p)) + pdv(H, t) = -grad_vb(q) L dprod dot(vb(q)) + (vb(p) - grad_dot(vb(q)) L) dprod diaer(vb(q)) + dot(vb(q)) dprod dot(vb(p)) - pdv(L, t). $
-  Tuttavia, $(vb(p) - grad_dot(vb(q)) L) dprod diaer(vb(q)) = 0$, per definizione
+  $ grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + (vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t). $
+  Tuttavia, $(vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) = 0$, per definizione
   di $vb(p)$.
    
-  I coefficienti di $dot(vb(q))$ e $dot(vb(p))$, più il termine noto, devono
+  I coefficienti di $vb(dot(q))$ e $vb(dot(p))$, più il termine noto, devono
   coincidere tra loro. Infatti, scegliendo $(vb(q)(t), vb(p)(t)) = (vb(q_0), vb(p_0))$,
-  identicamente costante, allora $(dot(vb(q))(t), dot(vb(p))(t)) = (0,0)$. Ma se
+  identicamente costante, allora $(vb(dot(q))(t), vb(dot(p))(t)) = (0,0)$. Ma se
   l'uguaglianza vale per ogni $vb(q)$ e $vb(p)$, allora deve valere quanto
   affermato. // Integrare con le dispense del prof
   Quindi
   $ grad_vb(q) H = -grad_vb(q) L, $
-  $ dot(vb(q)) = grad_vb(p) H $
+  $ vb(dot(q)) = grad_vb(p) H $
   $ pdv(H, t)=-pdv(L, t). $
    
   Ora, le equazioni di Eulero-Lagrange, nella notazione che si sta utilizzando, si
   scrivono come
-  $ dot(vb(p)) = grad_vb(q) L = - grad_vb(q) H $
+  $ vb(dot(p)) = grad_vb(q) L = - grad_vb(q) H $
   e dunque le equazioni di Hamilton valgono se e solo se valgono le equazioni di
   Eulero-Lagrange nelle rispettive notazioni.
 ]
@@ -207,7 +207,7 @@ soluzioni alle equazioni di Eulero-Lagrange.
   $ dv(H, t)(vb(q)(t), vb(p)(t), t) = pdv(H, t)(vb(q)(t), vb(p)(t), t). $
 ]
 #dim[
-  $ dv(H, t) = grad_vb(q) H dprod dot(vb(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) $
+  $ dv(H, t) = grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) $
   $ = grad_vb(q) H dprod grad_vb(p) H - grad_vb(p) H dprod grad_vb(q) H + pdv(H, t) = pdv(H, t). $
 ]
 
@@ -217,10 +217,10 @@ soluzioni alle equazioni di Eulero-Lagrange.
 
 #exercise[
   definendo 
-  $ F(vb(q), dot(vb(q)),t) = L(vb(q), dot(vb(q)),t) - grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod dot(vb(q)), $
+  $ F(vb(q), vb(dot(q)),t) = L(vb(q), vb(dot(q)),t) - grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod vb(dot(q)), $
   mostrare che, sulle soluzioni del sistema lagrangiano,
   $ dv(F, t) = pdv(L, t). $
-  In particolare, se $L = L(vb(q),dot(vb(q)))$, essa è una costante del moto.
+  In particolare, se $L = L(vb(q),vb(dot(q)))$, essa è una costante del moto.
 ]
 
 
@@ -245,16 +245,16 @@ $ dot(q)_n = f(t) ==> q_n (t) = q_n (t_0) + integral_(t_0)^t f(tau)dd(tau). $
 == Alcuni risultati di base sulle equazioni differenziali
 
 Si considera un'equazione differenziale _autonoma_ (che non ha una dipendenza
-diretta dalla variabile libera, in questo caso $t$) $dot(vb(x))(t) = vb(f)(vb(x)(t))$,
+diretta dalla variabile libera, in questo caso $t$) $vb(dot(x))(t) = vb(f)(vb(x)(t))$,
 dove $vb(f)$ è un campo vettoriale. Si può dimostrare che, se valgono alcune
 proprietà in un intorno di $vb(x)$, allora si può trovare un'unica soluzione
 globale, come già visto. Si considera il problema di Cauchy
-$ cases(dot(vb(x))(t) = vb(f)(vb(x)(t)), vb(x)(0)=vb(x_0)) $
+$ cases(vb(dot(x))(t) = vb(f)(vb(x)(t)), vb(x)(0)=vb(x_0)) $
 Assumendo che esistano delle soluzioni globali, le si denotano con $vb(x_x_0)(t)$,
 tali soluzioni appartengono a $C^1$, se anche $vb(f) : Omega -> RR^n in C^1(Omega)$.
 
 #def[
-  il _flusso_ $Phi^t: Omega->Omega$ dell'equazione differenziale $dot(vb(x))(t) = vb(f)(vb(x)(t))$ è
+  il _flusso_ $Phi^t: Omega->Omega$ dell'equazione differenziale $vb(dot(x))(t) = vb(f)(vb(x)(t))$ è
   la funzione $Phi^t (vb(x_0)) = vb(x_x_0)(t)$.
 ]
 
@@ -297,10 +297,10 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
 
 #example[
   un esempio è un sistema hamiltoniano con $pdv(H, t) = 0$:
-  $ cases(dot(vb(q)) = grad_vb(p) H, dot(vb(q)) = grad_vb(q) H) $
+  $ cases(vb(dot(q)) = grad_vb(p) H, vb(dot(q)) = grad_vb(q) H) $
   Se si pone $vb(x)=(vb(q), vb(p))$, allora si possono scrivere le equazioni di
   Hamilton nella forma
-  $ dot(vb(x)) = vb(f(x)) = JJ grad_vb(x) H(vb(x)) $
+  $ vb(dot(x)) = vb(f(x)) = JJ grad_vb(x) H(vb(x)) $
   dove $JJ$ è una matrice $2n times 2n$, divisa in quattro blocchi quadrati, dati
   da
   $ JJ = mat(0, II_n;-II_n, 0;delim: "["), $
@@ -359,7 +359,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   Infatti, la derivata di un flusso rispetto al parametro $s$ è, per definizione
   di flusso,
   $ pdv(, s) Phi^s (vb(x)) = vb(f) (Phi^s (vb(x))) $
-  $ ==> eval(pdv(Phi^s (vb(x)), s))_(s=0) = vb(f(x)) = dot(vb(x)) $
+  $ ==> eval(pdv(Phi^s (vb(x)), s))_(s=0) = vb(f(x)) = vb(dot(x)) $
   $ ==> [J Phi^s (vb(x))]_(i j) = (Phi_i^s (vb(x)), x_j) = delta_(i j) + s pdv(f_i, x_j) + o(s). $
   Quest'ultima equazione è vera, ma c'è un errore: infatti, in generale,
   $ pdv(o(s), x_i) != o(s). $
@@ -502,7 +502,7 @@ l'irreversibilità macroscopica.
   riflette i vincoli del sistema:
   $ vb(r(q)) = cases(x=x, y=y, x_1=0, y_1=y) $
   $ ==> hat(U)(vb(r(q))) = k/2 x^2 $
-  $ hat(T)(dot(vb(x)), dot(vb(y))) = hat(T)(dot(vb(r)) (vb(q), dot(vb(q)))) = hat(T)([pdv(vb(r), vb(q))] vb(dot(q))) = m/2 (dot(x)^2 + dot(y)^2) $
+  $ hat(T)(vb(dot(x)), vb(dot(y))) = hat(T)(vb(dot(r)) (vb(q), vb(dot(q)))) = hat(T)([pdv(vb(r), vb(q))] vb(dot(q))) = m/2 (dot(x)^2 + dot(y)^2) $
   dato che la massa del tubo è trascurabile. Si ha quindi $L = T-U$, ma si può
   anche ottenere l'hamiltoniana (tramite la trasforma di Legendre della
   lagrangiana)
@@ -511,13 +511,13 @@ l'irreversibilità macroscopica.
 ]
 
 #example[
-  in alcuni casi, $vb(p) = grad_dot(vb(q))L$ non rappresenta la quantità di moto.
+  in alcuni casi, $vb(p) = grad_vb(dot(q))L$ non rappresenta la quantità di moto.
   Per esempio, per il campo elettromagnetico,
-  $ L(vb(r), dot(vb(r)), t) = T-U = m/2 norm(dot(vb(r)))^2 - hat(q)(V(vb(r),t)- vb(A)(vb(r),t) dprod dot(vb(r))). $
+  $ L(vb(r), vb(dot(r)), t) = T-U = m/2 norm(vb(dot(r)))^2 - hat(q)(V(vb(r),t)- vb(A)(vb(r),t) dprod vb(dot(r))). $
   In questo caso,
-  $ vb(p) = grad_dot(vb(r)) L = m dot(vb(r)) + hat(q) vb(A)(vb(r),t) <==> dot(vb(r)) = (vb(p)-hat(q) vb(A))/m $
+  $ vb(p) = grad_vb(dot(r)) L = m vb(dot(r)) + hat(q) vb(A)(vb(r),t) <==> vb(dot(r)) = (vb(p)-hat(q) vb(A))/m $
   Da cui 
-  $ H(vb(r), dot(vb(r)),t)=vb(p) dprod dot(vb(r))(vb(p)) - L(vb(r), dot(vb(r)), t) = abs(vb(p) - hat(q) vb(A))/(2m) + hat(q)V. $
+  $ H(vb(r), vb(dot(r)),t)=vb(p) dprod vb(dot(r))(vb(p)) - L(vb(r), vb(dot(r)), t) = abs(vb(p) - hat(q) vb(A))/(2m) + hat(q)V. $
   Nel caso speciale $pdv(V, t) = 0 = pdv(vb(A), t)$, neanche lagrangiana e
   hamiltoniana dipendono dal tempo, e inoltre
   $ pdv(H, t) = 0 ==> dv(H, t) = 0. $

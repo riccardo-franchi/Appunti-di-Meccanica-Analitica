@@ -20,7 +20,7 @@
   soluzioni sono in quella forma.
 ]
 
-Si assume di limitarsi a sistemi lagrangiani con $T = 1/2 dot(vb(q)) dprod A(vb(q)) dot(vb(q))$ e $U=U(vb(q))$ in $C^2$,
+Si assume di limitarsi a sistemi lagrangiani con $T = 1/2 vb(dot(q)) dprod A(vb(q)) vb(dot(q))$ e $U=U(vb(q))$ in $C^2$,
 e con $A(vb(q))$ continua (in fisica, basterebbe dire di essere in condizioni "sufficientemente
 regolari").
 
@@ -35,7 +35,7 @@ soluzione delle equazioni di Eulero-Lagrange.
 #def[
   $vb(q_e)$ si dice _stabile_ se $forall V$ intorno (aperto) di $vb(q_e)$, $exists V'$ intorno
   (aperto) di $vb(q_e)$ e $exists epsilon>0$ tale che, presa una condizione
-  iniziale $vb(q_0) in V'$, $norm(dot(vb(q_0)))<epsilon$, allora l'orbita
+  iniziale $vb(q_0) in V'$, $norm(vb(dot(q_0)))<epsilon$, allora l'orbita
   corrispondente $vb(q)(t) in V, forall t in RR$.
 ]
 
@@ -45,7 +45,7 @@ conseguenza della costanza dell'hamiltoniana lungo le orbite.
 
 In questi casi (in cui si hanno piccole perturbazioni di condizioni iniziali di
 quiete), in un qualche senso che non viene mostrato,
-$ T approx 1/2 dot(vb(q)) dprod A dot(vb(q)) $
+$ T approx 1/2 vb(dot(q)) dprod A vb(dot(q)) $
 con $A = A(vb(q_e))$,
 $ U approx U(vb(q_e)) + 1/2 (vb(q)-vb(q_e)) dprod H U(vb(q_e))(vb(q)-vb(q_e)) $
 dato che il gradiente del potenziale in $vb(q_e)$ è nullo. Nei calcoli si
@@ -65,11 +65,11 @@ in quanto la parte antisimmetrica si annulla nel calcolo della forma quadratica
 per un generico vettore.
 
 Invece di $L$, si studia il sistema con
-$ L_"quadratica" (vb(Q), vb(dot(Q))) = 1/2 dot(vb(Q)) dprod A dot(vb(Q)) - 1/2 vb(Q) dprod B vb(Q) $
-con $vb(Q) = vb(q) - vb(q_e)$ ($=> dot(vb(Q)) = dot(vb(q))$).
+$ L_"quadratica" (vb(Q), vb(dot(Q))) = 1/2 vb(dot(Q)) dprod A vb(dot(Q)) - 1/2 vb(Q) dprod B vb(Q) $
+con $vb(Q) = vb(q) - vb(q_e)$ ($=> vb(dot(Q)) = vb(dot(q))$).
 
 Si scrivono le equazioni di Eulero-Lagrange per $L=L_"quadratica"$:
-$ grad_dot(vb(Q)) L = A dot(vb(Q)) ==> dv(, t) grad_dot(vb(Q)) L = A diaer(vb(Q)) $
+$ grad_vb(dot(Q)) L = A vb(dot(Q)) ==> dv(, t) grad_vb(dot(Q)) L = A diaer(vb(Q)) $
 $ grad_vb(Q) L = -B vb(Q) $
 
 #set math.equation(numbering: "(1)")
@@ -249,7 +249,7 @@ simili alla $g$ definita sui reali.
   $ ==> U(q_1, q_2) = -g(cos q_1 +cos q_2) + k(1-cos(q_1-q_2)) $
    
   Per quanto riguarda l'energia cinetica,
-  $ T(dot(vb(r))_1, dot(vb(r))_2) = 1/2 (norm(vb(dot(q)_2))^2 + norm(vb(dot(q)_2))^2) $
+  $ T(vb(dot(r))_1, vb(dot(r))_2) = 1/2 (norm(vb(dot(q)_2))^2 + norm(vb(dot(q)_2))^2) $
   $ vb(dot(r)_i) = (cos q_i, -sin q_i) dot(q)_i ==> norm(vb(dot(r)_i))^2 = dot(q)_i^2 $
   $ ==> T(dot(q)_1, dot(q)_2) = 1/2 (dot(q)_1 + dot(q)_2). $
    

@@ -4,15 +4,15 @@
 
 = Cinematica relativa
 
-Dato un sistema lagrangiano $L(vb(q), dot(vb(q)),t)$, alle volte è conveniente
+Dato un sistema lagrangiano $L(vb(q), vb(dot(q)),t)$, alle volte è conveniente
 fare un cambio di coordinate dipendente dal tempo
 $ vb(Q) = vb(Q)(vb(q),t) = vb(Q_t)(vb(q)) $
 con $vb(Q_t)$ biettiva, e con inversa $vb(q_t)(vb(Q))$.
 
 #prop[
-  se $scriptL(vb(Q), dot(vb(Q)), t)$ è la lagrangiana $L$ espressa nelle $vb(Q), dot(vb(Q)), t$,
+  se $scriptL(vb(Q), vb(dot(Q)), t)$ è la lagrangiana $L$ espressa nelle $vb(Q), vb(dot(Q)), t$,
   ovvero
-  $ scriptL(vb(Q), dot(vb(Q)), t)=L(vb(q)(vb(Q),t), [pdv(vb(q), vb(Q))(vb(Q),t)]dot(vb(Q)) + pdv(vb(q), t),t) $
+  $ scriptL(vb(Q), vb(dot(Q)), t)=L(vb(q)(vb(Q),t), [pdv(vb(q), vb(Q))(vb(Q),t)]vb(dot(Q)) + pdv(vb(q), t),t) $
   allora le soluzioni lagrangiane per $L$ sono le soluzioni lagrangiane per $scriptL$,
   espresse nelle $vb(q)$.
 ]
@@ -230,4 +230,4 @@ Si è già dimostrato questo lemma in passato.
   $ scriptU_"co" (vb(R), vb(dot(R)),t) = -m B vb(dot(R)) dprod dot(B) vb(R). $
 ]
 
-Gli ultimi due potenziali sono detti di _trascinamento_ e di _Coriolis_
+Gli ultimi due potenziali sono detti di _trascinamento_ e di _Coriolis_.

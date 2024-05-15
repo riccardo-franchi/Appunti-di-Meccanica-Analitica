@@ -182,44 +182,44 @@ $ var(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] var(vb(q)). $
 Allora
 $ m diaer(vb(r)) dprod var(vb(r)) = m diaer(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [pdv(vb(r), vb(q))]^TT diaer(vb(r)) dprod var(vb(q)). $ <transpose>
 Ma, si ha che
-$ [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r)). $ <transpose_derivative>
+$ [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) vb(dot(r)). $ <transpose_derivative>
 Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
-$ dv(, t) [pdv(vb(r), vb(q))] = dv(dot(vb(r)), vb(q)), $
+$ dv(, t) [pdv(vb(r), vb(q))] = dv(vb(dot(r)), vb(q)), $
 infatti,
 $ dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q)_k + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q)_k + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
 
 Per definizione, vale anche che
-$ [pdv(vb(r), vb(q))]=[pdv(dot(vb(r)), dot(vb(q)))]. $ <jacobian_derivative>
+$ [pdv(vb(r), vb(q))]=[pdv(vb(dot(r)), vb(dot(q)))]. $ <jacobian_derivative>
 
-Infatti la trasformazione $(vb(q), dot(vb(q)), t) |-> dot(vb(r))$ è definita in
+Infatti la trasformazione $(vb(q), vb(dot(q)), t) |-> vb(dot(r))$ è definita in
 maniera che valga
-$ dot(vb(r)) = [pdv(vb(r), vb(q))] dot(vb(q)) + dv(vb(r), t). $
+$ vb(dot(r)) = [pdv(vb(r), vb(q))] vb(dot(q)) + dv(vb(r), t). $
 
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
-$ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT dot(vb(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) dot(vb(r))) dprod var(vb(q)). $ <all_together>
+$ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) vb(dot(r))) dprod var(vb(q)). $ <all_together>
 
 #set math.equation(numbering: none)
 
-Si esprime ora l'energia cinetica nelle coordinate $(vb(q), dot(vb(q)), t)$,
-ossia $scriptT(vb(q), dot(vb(q)), t)=T(dot(vb(r))(vb(q), dot(vb(q)), t))$,
+Si esprime ora l'energia cinetica nelle coordinate $(vb(q), vb(dot(q)), t)$,
+ossia $scriptT(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,
 
-$ dv(scriptT, dot(q)_j) = sum_(i=1)^n dv(scriptT, dot(r)_i) dv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i dv(dot(r)_i, dot(q)_j) = m ([pdv(dot(vb(r)), dot(q)_j)]^TT dot(vb(r)))_j $
-$ ==> grad_dot(vb(q)) scriptT = m [pdv(dot(vb(r)), dot(vb(q)))]^TT dot(vb(r)). $
+$ dv(scriptT, dot(q)_j) = sum_(i=1)^n dv(scriptT, dot(r)_i) dv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i dv(dot(r)_i, dot(q)_j) = m ([pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r)))_j $
+$ ==> grad_vb(dot(q)) scriptT = m [pdv(vb(dot(r)), vb(dot(q)))]^TT vb(dot(r)). $
 
 Analogamente, sostituendo $dot(q)_j$ con $q_j$, si ottiene
-$ grad_vb(q) scriptT = m [pdv(dot(vb(r)), vb(q))]^TT dot(vb(r)). $
+$ grad_vb(q) scriptT = m [pdv(vb(dot(r)), vb(q))]^TT vb(dot(r)). $
 La @all_together diventa quindi
-$ m diaer(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)). $
+$ m diaer(vb(r)) dprod var(vb(r)) = (dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)). $
 
-Si introduce la _forza generalizzata_ $vb(G)(vb(q), dot(vb(q)), t)$
-$ vb(G)(vb(q), dot(vb(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), dot(vb(q)), t). $
+Si introduce la _forza generalizzata_ $vb(G)(vb(q), vb(dot(q)), t)$
+$ vb(G)(vb(q), vb(dot(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), vb(dot(q)), t). $
 
 Dall'ultima espressione trovata, si ha che
-$ (dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))]^TT var(vb(q)) = vb(G) dprod var(vb(q)). $
+$ (dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))]^TT var(vb(q)) = vb(G) dprod var(vb(q)). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
-$ dv(, t) (grad_dot(vb(q)) scriptT) - grad_vb(q) scriptT = vb(G). $
+$ dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT = vb(G). $
 L'ipotesi di avere vincoli olonomi equivale a dire che l'unico vincolo è
 appartenere alla varietà $M_t$ nello spazio delle configurazioni $RR^n$, data
 dalle carte $vb(q) |-> vb(r)(vb(q),t)$.
@@ -237,34 +237,34 @@ osservare che
 $ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $
 
 Si ha allora che, per $scriptL = scriptT- scriptU$,
-$ dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL = 0. $
+$ dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL = 0. $
 
 Si noti che le equazioni del moto in un sistema con soli vincoli olonomi e con
 forze date da un potenziale generalizzato sono le equazioni di Eulero-Lagrange
-per $scriptL(vb(q), dot(vb(q)), t) = L(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t)),$ data
+per $scriptL(vb(q), vb(dot(q)), t) = L(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] vb(dot(q)) + pdv(vb(r), t)(vb(q),t)),$ data
 dal potenziale generalizzato.
 
 Infatti, si dimostra che 
-$ vb(G)=[pdv(vb(r), vb(q))]^TT vb(F) = dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU $
-con $scriptU(vb(q), dot(vb(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] dot(vb(q)) + pdv(vb(r), t)(vb(q),t), t)$.
+$ vb(G)=[pdv(vb(r), vb(q))]^TT vb(F) = dv(, t) grad_vb(dot(q)) scriptU - grad_vb(q) scriptU $
+con $scriptU(vb(q), vb(dot(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] vb(dot(q)) + pdv(vb(r), t)(vb(q),t), t)$.
 
-$ ==> vb(G)(vb(q), dot(vb(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_dot(vb(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
-\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_dot(vb(r)) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
-\                               &= dv(, t) ([pdv(dot(vb(r)), dot(vb(q)))]^TT grad_dot(vb(r)) U)- [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U = dv(, t) grad_dot(vb(q)) scriptU - grad_vb(q) scriptU $
+$ ==> vb(G)(vb(q), vb(dot(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_vb(dot(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
+\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
+\                               &= dv(, t) ([pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) U)- [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U = dv(, t) grad_vb(dot(q)) scriptU - grad_vb(q) scriptU $
 dove, nell'ultimo passaggio, si è applicato il seguente lemma.
 
 #lemma[
-  data una funzione $f: RR^(2n+1) -> RR$, $f(vb(r), dot(vb(r)), t)$, e una
-  funzione $phi: RR^(2d +1) -> RR^(2n+1)$, $phi(vb(q), dot(vb(q)), t)$, si pone
+  data una funzione $f: RR^(2n+1) -> RR$, $f(vb(r), vb(dot(r)), t)$, e una
+  funzione $phi: RR^(2d +1) -> RR^(2n+1)$, $phi(vb(q), vb(dot(q)), t)$, si pone
   $ tilde(f) = f compose phi: RR^(2n+1) -> RR. $
   Vale che
-  $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) tilde(f) + [pdv(dot(vb(r)), vb(q))]^TT grad_dot(vb(r)) tilde(f) $
-  $ grad_dot(vb(q)) tilde(f) = [pdv(vb(r), dot(vb(q)))]^TT grad_vb(r) tilde(f) + [pdv(dot(vb(r)), dot(vb(q)))]^TT grad_dot(vb(r)) tilde(f) $
+  $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) tilde(f) + [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) tilde(f) $
+  $ grad_vb(dot(q)) tilde(f) = [pdv(vb(r), vb(dot(q)))]^TT grad_vb(r) tilde(f) + [pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) tilde(f) $
 ]
 
 La dimostrazione è lasciata come esercizio. Utilizzando questo lemma, osservando
-che $vb(r) = vb(r)(vb(q), t)$ (che implica che $[pdv(vb(r), dot(vb(q)))]=0$),
-$ vb(G)(vb(q), dot(vb(q)), t) = dv(, t) grad_vb(q) scriptU(vb(q), dot(vb(q)), t)-grad_vb(q) scriptU(vb(q), dot(vb(q)), t) $
+che $vb(r) = vb(r)(vb(q), t)$ (che implica che $[pdv(vb(r), vb(dot(q)))]=0$),
+$ vb(G)(vb(q), vb(dot(q)), t) = dv(, t) grad_vb(q) scriptU(vb(q), vb(dot(q)), t)-grad_vb(q) scriptU(vb(q), vb(dot(q)), t) $
 che era quanto si voleva mostrare.
 
 // "Vi meritate una birra o una qualunque altra sostanza psicotropa. Ci vediamo domani"
@@ -281,7 +281,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   in modo da poter esprimere la lagrangiana nella coordinata generalizzata $q$:
   $ cases(x=q, z=psi(q)) ==> vb(r)(q)=(q, psi(q)). $
    
-  $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = scriptT(vb(q), dot(vb(q))) $
+  $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = scriptT(vb(q), vb(dot(q))) $
   $ U(z) = m g z = m g phi(q) = scriptU(q) $
   $ ==> scriptL = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
   $ pdv(scriptL, dot(q)) = m dot(q)(1+(psi'(q))^2) $
@@ -308,8 +308,8 @@ le espressioni delle equazioni di Eulero-Lagrange.
   reonomo), non soggetta a forze esterne ($U = 0$).
    
   $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
-  $ ==> dot(vb(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
-  $ ==> norm(dot(vb(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
+  $ ==> vb(dot(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
+  $ ==> norm(vb(dot(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
   Allora, dato che $scriptL=scriptT$,
   $ pdv(scriptL, dot(q)) = m(1+a^2)dot(q) + m a b t $
   $ ==> dv(, t)pdv(scriptL, dot(q)) = m((1+a^2)diaer(q)+a b) $
@@ -342,7 +342,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
    
   // "Facciamo come si fa da grandi, utilizando sempre T senza cambiare carattere"
-  $ ==> dot(vb(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
+  $ ==> vb(dot(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
   Il resto dei calcoli è lasciato come esercizio. Si ha infine
   $ T = 1/2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1/2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T(z, dot(z), dot(phi)) = L(z, dot(z), dot(phi)). $
   L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
@@ -376,7 +376,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   fa ruotare una curva del tipo $z=z(x)$.
 ]
 
-Si noti che in quest'ultimo esempio $norm(dot(vb(r)))$ è una costante del moto.
+Si noti che in quest'ultimo esempio $norm(vb(dot(r)))$ è una costante del moto.
 Infatti, 
 + La reazione vincolare non compie lavoro, quindi la conservazione dell'energia
   vale anche se si esclude la parte di sistema che genera la reazione vincolare.
@@ -384,11 +384,11 @@ Infatti,
   conserva $norm(vb(dot(r)))^2$ e dunque $norm(vb(dot(r)))$.
 + Per il principio di D'Alembert, la reazione vincolare è perpendicolare a $T_(vb(r)(t))M$.
   Quindi 
-$ dv(, t) norm(dot(vb(r)))^2 = 2 dot(vb(r)) dprod diaer(vb(r)) = 2 dot(vb(r)) dprod vb(F_"tot") = 2 dot(vb(r)) dprod vb(R) = 0. $
+$ dv(, t) norm(vb(dot(r)))^2 = 2 vb(dot(r)) dprod diaer(vb(r)) = 2 vb(dot(r)) dprod vb(F_"tot") = 2 vb(dot(r)) dprod vb(R) = 0. $
 
-Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria ($dot(vb(r))$)
-forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(dot(vb(r))) = "costante"$,
-$ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(dot(vb(r))) abs(sin alpha) = "costante" $
+Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria ($vb(dot(r))$)
+forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(vb(dot(r))) = "costante"$,
+$ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(vb(dot(r))) abs(sin alpha) = "costante" $
 $ ==> r abs(sin alpha) = "costante". $
 Questa relazione è detta _teorema di Clairaut_, e mostra che, quando $r$ cresce
 o descresce, il vettore velocità diventa rispettivamente meno o più orizzontale.
@@ -415,7 +415,7 @@ Si fanno alcune osservazioni:
 Si assume di avere solo vincoli scleronomi, dati dalla condizione che $vb(r) in M$ (il
 vincolo è dato da un sottoinsieme $RR^n$ che è anche una varietà
 differenziabile). Si considera il funzionale d'azione
-$ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
+$ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), vb(dot(r))(t), t) dd(t) $
 ma con $vb(r): [t_0,t_1] -> M$ e non in $RR^n$.
 
 #def[
@@ -435,7 +435,7 @@ di un vincolo scleronomo sia proprio un estremale vincolato.
   dato un vincolo scleronomo rappresentato dalla varietà $M$, una legge oraria $vb(r): [t_0,t_1]->M$ è
   un estremale vincolato ad $M$ se e solo se, per essa vale il principio di
   D'Alembert:
-  $ (m diaer(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r_t))=0 $
+  $ (m diaer(vb(r)) - vb(F)(vb(r)(t), vb(dot(r))(t), t)) dprod var(vb(r_t))=0 $
   $forall t in [t_0,t_1], forall var(vb(r_t)) in T_(vb(r)(t))M$.
 ]
 
@@ -449,10 +449,10 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
    
   Per il principio di D'Alembert, le leggi orarie fisiche sono tutte e sole quelle
   che in coordinate locali $vb(q)$ soddisfano le equazioni di Eulero-Lagrange
-  $ dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL = 0, $
-  che corrisponde a un problema libero in $RR^d$ per $scriptL(vb(q), dot(vb(q)), t)$,
+  $ dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL = 0, $
+  che corrisponde a un problema libero in $RR^d$ per $scriptL(vb(q), vb(dot(q)), t)$,
   cioè è equivalente ad essere un estremale libero di 
-  $ Phi_0(vb(q)) = integral_(t_0)^(t_1) scriptL(vb(q)(t), dot(vb(q))(t), t) dd(t) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
+  $ Phi_0(vb(q)) = integral_(t_0)^(t_1) scriptL(vb(q)(t), vb(dot(q))(t), t) dd(t) = integral_(t_0)^(t_1) L(vb(r)(t), vb(dot(r))(t), t) dd(t) $
   che è quindi equivalente al fatto che la $vb(r)(t)$ corrisponde a $vb(q)(t)$ è
   estremale vincolato di $Phi(vb(r))$, dato che i due funzionali descrivono la
   stessa quantità fisica (l'azione, cioè l'integrale della lagrangiana).
@@ -465,7 +465,7 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
   oraria $vb(r)$), allora vale il principio di minima azione libera in $RR^d$ per $scriptL$ e
   per la legge oraria $vb(q)$. Questo vale se e solo se valgono le equazioni di
   Eulero-Lagrange per $vb(q)$
-  $ (dv(, t) grad_dot(vb(q)) scriptL - grad_vb(q) scriptL) dprod var(vb(q)) = 0 $
+  $ (dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL) dprod var(vb(q)) = 0 $
   $forall var(vb(q)) in RR^d$.
 ]
 
@@ -488,12 +488,12 @@ lasciata come esercizio.
   commette un errore $o(norm(vb(h)(t))) = o(norm(var(vb(r)(t))))$.
    
   Quindi, ricordando la sezione sul funzionale d'azione libero,
-  $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_dot(vb(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
+  $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_vb(dot(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
   Il principio di D'Alembert implica che l'integrale è nullo e quindi $vb(r)$ è un
   estremale condizionato (vincolato).
    
   Viceversa, se $vb(r)$ è un estremale condizionato,
-  $ integral_(t_0)^(t_1) (m diaer(vb(r)) - vb(F)(vb(r)(t), dot(vb(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
+  $ integral_(t_0)^(t_1) (m diaer(vb(r)) - vb(F)(vb(r)(t), vb(dot(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
   per ogni variazione $vb(h)(t)$. Ciò implica il principio di D'Alembert per il
   lemma precedente.
 ]
@@ -505,19 +505,19 @@ lasciata come esercizio.
   Considerata una legge oraria con le caratteristiche appena elencate, su una
   certa varietà differenziabile, si considerano due carte distinte $phi_alpha$ e $phi_beta$.
   Dalla parte della carta $phi_alpha$ (a cui corrisponde la coordinata locale $vb(q)$),
-  si scrive la lagrangiana $L(vb(q), dot(vb(q)), t)$. Dalla parte della carta $phi_beta$ (a
-  cui corrisponde la coordinata locale $vb(Q)$, invece, si scrive la lagrangiana $scriptL(vb(Q), dot(vb(Q)), t)$.
+  si scrive la lagrangiana $L(vb(q), vb(dot(q)), t)$. Dalla parte della carta $phi_beta$ (a
+  cui corrisponde la coordinata locale $vb(Q)$, invece, si scrive la lagrangiana $scriptL(vb(Q), vb(dot(Q)), t)$.
   Il cambio di coordinate è dato da 
   $ vb(Q) = (phi_beta^(-1) compose phi_alpha)(vb(q)) = psi(vb(q)). $
   Si dimostra che chiamando $vb(Q)(t) = psi(vb(q)(t))$, vale
-  $ dv(, t) grad_dot(vb(Q)) scriptL - grad_vb(Q) scriptL = 0 <==> dv(, t) grad_dot(vb(q)) L - grad_vb(q) L = 0. $
-  Si ha che, nel caso considerato, sostituendo $(vb(q)(t), dot(vb(q))(t))$ al
-  posto delle variabili libere $(vb(q), dot(vb(q)))$
-  $ grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) scriptL + [pdv(dot(vb(Q)), vb(q))]^TT grad_dot(vb(Q)) scriptL = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) scriptL + (dv(, t)[pdv(vb(Q), vb(q))]^TT grad_dot(vb(Q)) scriptL) $
-  $ grad_dot(vb(q)) L = [pdv(vb(Q), dot(vb(q)))]^TT grad_vb(Q) scriptL + [pdv(dot(vb(Q)), dot(vb(q)))]^TT grad_dot(vb(Q)) scriptL = [pdv(vb(Q), vb(q))]^TT grad_dot(vb(Q)) scriptL. $
-  $ L(vb(q), dot(vb(q)),t) = scriptL(vb(Q(q)), dot(vb(Q))(vb(q), dot(vb(q))), t) $
-  $ dv(, t) grad_dot(vb(q)) L = (dv(, t)[pdv(vb(Q), vb(q))]^TT) grad_dot(vb(Q)) scriptL + [pdv(vb(Q), vb(q))]^TT dv(, t) grad_vb(Q) scriptL $
-  $ ==> dv(, t) grad_dot(vb(q)) L - grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT (dv(, t) grad_dot(vb(Q)) scriptL - grad_vb(Q) scriptL) $
+  $ dv(, t) grad_vb(dot(Q)) scriptL - grad_vb(Q) scriptL = 0 <==> dv(, t) grad_vb(dot(q)) L - grad_vb(q) L = 0. $
+  Si ha che, nel caso considerato, sostituendo $(vb(q)(t), vb(dot(q))(t))$ al
+  posto delle variabili libere $(vb(q), vb(dot(q)))$
+  $ grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) scriptL + [pdv(vb(dot(Q)), vb(q))]^TT grad_vb(dot(Q)) scriptL = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) scriptL + (dv(, t)[pdv(vb(Q), vb(q))]^TT grad_vb(dot(Q)) scriptL) $
+  $ grad_vb(dot(q)) L = [pdv(vb(Q), vb(dot(q)))]^TT grad_vb(Q) scriptL + [pdv(vb(dot(Q)), vb(dot(q)))]^TT grad_vb(dot(Q)) scriptL = [pdv(vb(Q), vb(q))]^TT grad_vb(dot(Q)) scriptL. $
+  $ L(vb(q), vb(dot(q)),t) = scriptL(vb(Q(q)), vb(dot(Q))(vb(q), vb(dot(q))), t) $
+  $ dv(, t) grad_vb(dot(q)) L = (dv(, t)[pdv(vb(Q), vb(q))]^TT) grad_vb(dot(Q)) scriptL + [pdv(vb(Q), vb(q))]^TT dv(, t) grad_vb(Q) scriptL $
+  $ ==> dv(, t) grad_vb(dot(q)) L - grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT (dv(, t) grad_vb(dot(Q)) scriptL - grad_vb(Q) scriptL) $
   dunque il membro di sinistra è nullo se e solo se è nullo quello di destra,
   essendo $[pdv(vb(Q), vb(q))]^TT$ non degenere.
 ]
@@ -530,9 +530,9 @@ puntata (coordinata ciclica), allora si ha una quantità che si conserva, avendo
 una derivata nulla.
 
 #def[
-  si dice che la funzione differenziabile $h: M->M$ _conserva_ la lagrangiana $L$ se $forall (vb(q), dot(vb(q)), t)$,
+  si dice che la funzione differenziabile $h: M->M$ _conserva_ la lagrangiana $L$ se $forall (vb(q), vb(dot(q)), t)$,
   vale che 
-  $ L(vb(q),dot(vb(q)),t)=L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) $
+  $ L(vb(q),vb(dot(q)),t)=L(h(vb(q)), D h_vb(q) (vb(dot(q))), t) $
   dove $h(vb(q))$ è la notazione contratta per indicare $(phi_beta^(-1) compose h compose phi_alpha)(vb(q))$ con $alpha, beta$ variabili.
 ]
 
@@ -549,17 +549,17 @@ punti, ma dei punti e delle tangenti ai punti.
   trasformazioni $h^s : M->M, s in (-epsilon, epsilon), h^0 = "id"$,
   sufficientemente regolari, che conservano $L$, allora il corrispondente sistema
   lagrangiano ammette una costante del moto che in coordinate locali è data da
-  $ I(vb(q), dot(vb(q)),t) = grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0). $
+  $ I(vb(q), vb(dot(q)),t) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0). $
 ]
 
 #example[
-  si considera una coordinata ciclica $q_overline(dotless.i)$, cioè $q_overline(dotless.i) |-> L(vb(q), dot(vb(q)),t) $ è
+  si considera una coordinata ciclica $q_overline(dotless.i)$, cioè $q_overline(dotless.i) |-> L(vb(q), vb(dot(q)),t) $ è
   costante. Si considera $h^s (vb(q)) = (q_1, ..., q_overline(dotless.i) + s, ..., q_d)$ (detta
   anche traslazione sulla $i$-esima coordinata). Si tratta di trasformazioni da $M$ in $M$.
   Il differenziale, visto nel fibrato tangente, è dato da
-  $ D h^s (vb(q), dot(vb(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q)_1, ..., dot(q)_d) $
-  $ ==> L(h(vb(q)), D h_vb(q) (dot(vb(q))), t) = L(vb(q), dot(vb(q)),t). $
-  $ grad_dot(vb(q)) L(vb(q), dot(vb(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)) $
+  $ D h^s (vb(q), vb(dot(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q)_1, ..., dot(q)_d) $
+  $ ==> L(h(vb(q)), D h_vb(q) (vb(dot(q))), t) = L(vb(q), vb(dot(q)),t). $
+  $ grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)) $
 ]
 
 #example[
@@ -617,8 +617,8 @@ punti, ma dei punti e delle tangenti ai punti.
   Tramite considerazioni geometriche, si trova
   $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
   Quindi
-  $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 dot(vb(r_1)), ..., m_N dot(vb(r_N))) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
-  $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i dot(vb(r_i))) dprod vu(e_z) = L_z $
+  $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 vb(dot(r_1)), ..., m_N vb(dot(r_N))) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
+  $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i vb(dot(r_i))) dprod vu(e_z) = L_z $
   e dunque si conserva la componente $z$ del momento angolare totale $vb(L)$.
 ]
 
@@ -627,7 +627,7 @@ punti, ma dei punti e delle tangenti ai punti.
 )[
   - Asserto 1: $forall s in (-epsilon, epsilon), vb(Q)(t) = h^s (vb(q)(t))$ soddisfa
     le equazioni di Eulero-Lagrange.
-  Infatti, se $dot(vb(Q))(t) = D h^s_(vb(q)(t)) (dot(vb(q))(t))$, è immediato
+  Infatti, se $vb(dot(Q))(t) = D h^s_(vb(q)(t)) (vb(dot(q))(t))$, è immediato
   verificare che il principio di minima azione per la legge oraria $vb(q)(t)$ si
   traduce nel principio di minima azione per $vb(Q)(t)$.
    
@@ -636,25 +636,25 @@ punti, ma dei punti e delle tangenti ai punti.
   Si utilizza come notazione:
   $ dot(Gamma) = pdv(Gamma, t), space.quad Gamma' = pdv(Gamma, s). $
   Per ipotesi su $h^s$, vale 
-  $ L(h^s (vb(q)(t)), D h^s_(vb(q)(t)) (dot(vb(q))(t)), t) = L(vb(q)(t), dot(vb(q))(t), t), forall s, t $
+  $ L(h^s (vb(q)(t)), D h^s_(vb(q)(t)) (vb(dot(q))(t)), t) = L(vb(q)(t), vb(dot(q))(t), t), forall s, t $
   $ ==> L(Gamma(s, t), dot(Gamma)(s,t), t) $
   è costante in $s$. La sua derivata in $s$ (a $t$ fissato) è
    
   #set math.equation(numbering: "(1)")
-  $ 0 = grad_vb(q) L dprod Gamma' + grad_dot(vb(q)) L dprod (dot(Gamma))' $ <pdvLs>
+  $ 0 = grad_vb(q) L dprod Gamma' + grad_vb(dot(q)) L dprod (dot(Gamma))' $ <pdvLs>
   #set math.equation(numbering: none) 
    
   - Asserto 2: $(dot(Gamma))' = dot(Gamma')$, cioè, $pdv(Gamma, s, t) = pdv(Gamma, t, s).$
   Dall'asserto 1, $Gamma(s, dot)$ soddisfa le equazioni di Eulero-Lagrange.
   Utilizzando quindi l'asserto 2 in @pdvLs,
-  $ 0 = pdv(, t) grad_dot(vb(q)) L dprod Gamma' + grad_dot(vb(q)) L dprod dot(Gamma') = pdv(, t)(grad_dot(vb(q)) L dprod Gamma'). $
+  $ 0 = pdv(, t) grad_vb(dot(q)) L dprod Gamma' + grad_vb(dot(q)) L dprod dot(Gamma') = pdv(, t)(grad_vb(dot(q)) L dprod Gamma'). $
   Svolgendo il calcolo in $s=0$,
-  $ 0 = pdv(, t) grad_dot(vb(q)) L dprod eval(pdv(h^s, s))_(s=0) = dv(, t) grad_dot(vb(q)) L(vb(q)(t), dot(vb(q))(t), t) dprod eval(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), dot(vb(q)), t). $
+  $ 0 = pdv(, t) grad_vb(dot(q)) L dprod eval(pdv(h^s, s))_(s=0) = dv(, t) grad_vb(dot(q)) L(vb(q)(t), vb(dot(q))(t), t) dprod eval(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), vb(dot(q)), t). $
 ]
 
 #example[
   dimostrare che la lagrangiana 
-  $ L'(vb(q), dot(vb(q)),t) = L(vb(q), dot(vb(q)),t) + sum_(i=1)^n F_i (vb(q),t) dot(q)_i + F_t (vb(q),t) $
+  $ L'(vb(q), vb(dot(q)),t) = L(vb(q), vb(dot(q)),t) + sum_(i=1)^n F_i (vb(q),t) dot(q)_i + F_t (vb(q),t) $
   dove $F_i (vb(q),t) = pdv(F, q_i) (vb(q),t)$ e $F_t (vb(q),t) = pdv(F, t) (vb(q),t)$,
   per una qualche funzione $F(vb(q),t)$, dà luogo alle stesse equazioni del moto.
    

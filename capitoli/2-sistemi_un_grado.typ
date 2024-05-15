@@ -370,7 +370,7 @@ $ vu(e_phi) = vu(e_phi)(phi) = (-sin phi, cos phi). $
 #lemma[
   se $vb(r)(t)$ è la legge oraria del sistema espressa come $(r(t), phi(t))$,
   allora
-  $ dot(vb(r))(t)= dot(r)(t) vu(e_r)(phi(t))+r(t) dot(phi)(t) vu(e_phi)(phi(t)). $
+  $ vb(dot(r))(t)= dot(r)(t) vu(e_r)(phi(t))+r(t) dot(phi)(t) vu(e_phi)(phi(t)). $
 ] <lem:derivata_r>
 
 #dim[
@@ -380,18 +380,18 @@ $ vu(e_phi) = vu(e_phi)(phi) = (-sin phi, cos phi). $
 
   Vale che
   $ vb(r)(t) = r(t) vu(e_r)(phi(t)) $
-  $ ==> dot(vb(r))(t) = dot(r)(t) vu(e_r)(phi(t)) + r(t) dot(phi)(t) vu(e_phi)(phi(t)). $
+  $ ==> vb(dot(r))(t) = dot(r)(t) vu(e_r)(phi(t)) + r(t) dot(phi)(t) vu(e_phi)(phi(t)). $
 ]
 
 Come già fatto, si pone la massa $m=1$ e si trascurano le unità di misura.
 Dunque
-$ vb(L) = vb(r) cprod dot(vb(r)) = vb(r) cprod (dot(r) vu(e_r) + r dot(phi) vu(e_phi)) = r^2 dot(phi) vu(e_r) cprod vu(e_phi) = r^2 dot(phi) vu(e_z). $
+$ vb(L) = vb(r) cprod vb(dot(r)) = vb(r) cprod (dot(r) vu(e_r) + r dot(phi) vu(e_phi)) = r^2 dot(phi) vu(e_r) cprod vu(e_phi) = r^2 dot(phi) vu(e_z). $
 
 La conservazione del momento angolare in tre dimensioni corrisponde quindi, in
 realtà, a tre equazioni di conservazione, trattandosi di un'equazione
 vettoriale.
 
-Si giustifica geometricamente l'espressione di $dot(vb(r))(t)$. Considerato un
+Si giustifica geometricamente l'espressione di $vb(dot(r))(t)$. Considerato un
 punto in un piano con coordinate polari, in un piccolo intervallo di tempo $difference(t)$ il
 punto si sposta dalla posizione $vb(r)(t)$ a $vb(r)(t + difference(t))$. Quindi $difference(vb(r)) =vb(r)(t + difference(t)) - vb(r)(t)$ e $difference(phi) = phi(t+difference(t))-phi(t)$.
 
@@ -432,7 +432,7 @@ potenziale $U(vb(r))=u(r)$, con $u'(r) = -f(r)$. Si vuole trovare $vb(r)(t)=(r(t
 
 #dim[
   si deriva in $t$ la formula
-  $ dot(vb(r)) = dot(r) vu(e_r) + r dot(phi) vu(e_phi). $
+  $ vb(dot(r)) = dot(r) vu(e_r) + r dot(phi) vu(e_phi). $
   $ diaer(vb(r)) = diaer(r) vu(e_r) + dot(r) dot(phi) vu(e_phi) + dot(r) dot(phi) vu(e_phi) + r diaer(phi) vu(e_phi) - r dot(phi)^2 vu(e_r) $
   $ ==> diaer(vb(r)) = (diaer(r)-r dot(phi)^2) vu(e_r) + (2 dot(r) dot(phi) + r diaer(phi)) vu(e_phi) $
   Ma $diaer(vb(r)) = -u'(r) vu(e_r)$, e dunque vale che

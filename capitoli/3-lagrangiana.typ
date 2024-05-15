@@ -61,9 +61,9 @@ Considerando una funzione $L: RR^d times RR^d times RR -> RR$. Si assume $L$ dif
 e $C^1$ (tutte le derivate parziali prime sono continue). Gli argomenti di $L$ si
 indicano come $(vb(x), vb(v), t)$, con $vb(x) = (x_1,...,x_d), vb(v) = (v_1,...,v_d)$.
 Si definisce, con $vb(x): [t_0,t_1]->RR^d$,
-$ Phi(vb(x)) = integral_(x_0)^(x_1) L(vb(x), dot(vb(x)), t) dd(t), $
+$ Phi(vb(x)) = integral_(x_0)^(x_1) L(vb(x), vb(dot(x)), t) dd(t), $
 definito su $S = {vb(x): [t_0,t_1]-> RR^d, vb(x) in C^1}$ (ci si potrebbe dover
-restringere a funzioni $vb(x)$ tali che $(vb(x), dot(vb(x)), t)$ appartengano al
+restringere a funzioni $vb(x)$ tali che $(vb(x), vb(dot(x)), t)$ appartengano al
 dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
 
 // Prima si porta la macchina a velocità desiderata, poi si controlla se si è entro i limiti di velocità.
@@ -71,7 +71,7 @@ dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
 #theorem[
   il funzionale $Phi$, definito come sopra, è differenziabile $forall x in S$, e
   il suo differenziale è
-  $ D Phi_vb(x)(vb(h)) &= sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)(vb(x(t)), dot(vb(x))(t), t) - dv(, t)pdv(L, v_i)(vb(x)(t), dot(vb(x))(t),t)) vb(h)_i (t) dd(t) \ &+ [pdv(L, v_i)(vb(x)(t), dot(vb(x))(t), t) vb(h)_i (t)]_(t_0)^(t_1)} $
+  $ D Phi_vb(x)(vb(h)) &= sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)(vb(x(t)), vb(dot(x))(t), t) - dv(, t)pdv(L, v_i)(vb(x)(t), vb(dot(x))(t),t)) vb(h)_i (t) dd(t) \ &+ [pdv(L, v_i)(vb(x)(t), vb(dot(x))(t), t) vb(h)_i (t)]_(t_0)^(t_1)} $
 
   con $vb(vb(h))(t) = (vb(h)_1 (t), ..., vb(h)_d (t)) in C^1([t_0,t_1])$, dove la
   norma $C^1$, che era stata definita per funzioni a valori scalari, è definita in
@@ -86,10 +86,10 @@ $ D Phi_vb(x) (vb(h)) = integral_(t_0)^(t_1) (grad_vb(x) L - dv(, t) grad_vb(v) 
 
 #dim[
   dalla definizione di differenziale di $L$, si ha
-  $ L(vb(x) + difference(vb(x)), dot(vb(x))+ difference(vb(v)), t+ difference(t)) - L(vb(x), dot(vb(x)), t) &= sum_(i=1)^d {pdv(L, x_i) (vb(x), dot(vb(x)), t) difference(x_i) + pdv(L, v_i) (vb(x), dot(vb(x)), t) difference(v_i)} \ &+ pdv(L, t) (vb(x), vb(v), t) difference(t) + o(abs(difference(x_i, v_i, t))) $
+  $ L(vb(x) + difference(vb(x)), vb(dot(x))+ difference(vb(v)), t+ difference(t)) - L(vb(x), vb(dot(x)), t) &= sum_(i=1)^d {pdv(L, x_i) (vb(x), vb(dot(x)), t) difference(x_i) + pdv(L, v_i) (vb(x), vb(dot(x)), t) difference(v_i)} \ &+ pdv(L, t) (vb(x), vb(v), t) difference(t) + o(abs(difference(x_i, v_i, t))) $
 
-  $ ==> Phi(vb(x)+ vb(h)) - Phi(vb(x)) = integral_(t_0)^(t_1) L(vb(x) + vb(h), dot(vb(x)) + dot(vb(h)), t) - L(vb(x), vb(dot(x)), t) dd(t) $
-  $ = integral_(t_0)^(t_1) sum_(i=1)^d {pdv(L, x_i) (vb(x), dot(vb(x)), t) h_i (t) + pdv(L, v_i) (vb(x), dot(vb(x)), t) dot(h)_i (t)+ o(abs(h_i (t)), abs(dot(h)_i (t)))} dd(t), forall i in {1,...,d}. $
+  $ ==> Phi(vb(x)+ vb(h)) - Phi(vb(x)) = integral_(t_0)^(t_1) L(vb(x) + vb(h), vb(dot(x)) + vb(dot(h)), t) - L(vb(x), vb(dot(x)), t) dd(t) $
+  $ = integral_(t_0)^(t_1) sum_(i=1)^d {pdv(L, x_i) (vb(x), vb(dot(x)), t) h_i (t) + pdv(L, v_i) (vb(x), vb(dot(x)), t) dot(h)_i (t)+ o(abs(h_i (t)), abs(dot(h)_i (t)))} dd(t), forall i in {1,...,d}. $
 
   Si osserva che, tramite integrazione per parti,
   $ integral_(t_0)^(t_1) pdv(L, v_i) dot(h)_i dd(t) = [pdv(L, v_i) h_i]_(t_0)^(t_1) - integral_(t_0)^(t_1) dv(, t) pdv(L, v_i) h_i dd(t). $
@@ -111,7 +111,7 @@ non vale che $2 vb(x) in S_(vb(x_0), vb(x_1))$).
   una funzione $vb(x) in S_(vb(x_0), vb(x_1))$ è detta _estremale_ del funzionale $Phi$ ristretto
   a $S_(vb(x_0), vb(x_1))$, se vale
   $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = o(vb(h)) $
-  ogni volta che $vb(x) + vb(h)$ appartiene a $S_(vb(x_0), vb(x_1))$, cioè $vb(h)(t_0) = vb(h)(t_1) = vb(0)$.
+  ogni volta che $vb(x) + vb(h)$ appartiene a $S_(vb(x_0), vb(x_1))$, cioè $vb(h)(t_0) = vb(h)(t_1) = 0$.
 ]
 
 #theorem(
@@ -119,11 +119,11 @@ non vale che $2 vb(x) in S_(vb(x_0), vb(x_1))$).
 )[
   una funzione $vb(x) in S_(vb(x_0), vb(x_1))$ è estremale di $Phi$ ristretto a $S_(vb(x_0), vb(x_1))$ se
   e solo se, $forall i in {1,...,d}$,
-  $ dv(, t) pdv(L, v_i) (vb(x)(t), dot(vb(x))(t), t) - pdv(L, x_i)(vb(x)(t), dot(vb(x))(t), t) = 0. $
+  $ dv(, t) pdv(L, v_i) (vb(x)(t), vb(dot(x))(t), t) - pdv(L, x_i)(vb(x)(t), vb(dot(x))(t), t) = 0. $
 ]
 
 In forma vettoriale, le equazioni di Eulero-Lagrange si possono scrivere come
-$ dv(, t) grad_(vb(v)) L - grad_vb(x) L = vb(0). $
+$ dv(, t) grad_(vb(v)) L - grad_vb(x) L = 0. $
 
 Con una notazione impropria, si usa anche scrivere
 $ dv(, t) pdv(L, dot(x)_i)-pdv(L, x_i)=0; $
@@ -134,11 +134,11 @@ alla derivata di qualcosa.
 #lemma[
   sia $vb(f) : [t_0,t_1]->RR^d$ continua. Se vale che, $forall vb(h): [t_0,t_1]-> RR^d$ continua,
   $ integral_(t_0)^(t_1) vb(f)(t) dprod vb(h)(t) dd(t) = 0 $
-  Allora $vb(f) = vb(0)$.
+  Allora $vb(f) = 0$.
 ]
 
 #dim[
-  Si procede per assurdo, supponendo $vb(f) != vb(0)$. Allora, $exists overline(dotless.i) : f_overline(dotless.i) != 0$,
+  Si procede per assurdo, supponendo $vb(f) != 0$. Allora, $exists overline(dotless.i) : f_overline(dotless.i) != 0$,
   $ exists overline(t) in [t_0,t_1] : f_overline(dotless.i) (overline(t)) != 0. $
   Si può allora assumere che $overline(t) in (t_0,t_1)$ (per continuità di $vb(f)$).
   Si suppone che $f_overline(dotless.i) (overline(t)) > 0$, e quindi
@@ -162,7 +162,7 @@ alla derivata di qualcosa.
   quindi
   $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = o(vb(h)). $
 
-  Per quanto riguarda il caso ($=>$), si ha che, $forall vb(h) in C^1$, con $vb(h)(t_0)=vb(0)=vb(h)(t_1)$,
+  Per quanto riguarda il caso ($=>$), si ha che, $forall vb(h) in C^1$, con $vb(h)(t_0)=0=vb(h)(t_1)$,
   per il lemma precedente,
   $ integral_(t_0)^(t_1) sum_(i=1)^d (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) = 0. $
   $ ==> pdv(L, x_i)-dv(, t)pdv(L, v_i) = 0. $ ]
@@ -189,17 +189,17 @@ $ m diaer(vb(r)) (t) = - dv(, r) U(vb(r)(t)) $
   "principio di minima azione di Hamilton",
 )[
   le leggi orarie dell'equazione sopracitata coincidono con gli estremali di
-  $ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) $
+  $ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), vb(dot(r))(t), t) dd(t) $
   su $S_(vb(r_0), vb(r_1)) : [t_0,t_1] -> RR^d in C^1$, con $vb(r)(t_0) = vb(r_0), r(t_1)=vb(r_1)$,
   ove
-  $ L(vb(r), dot(vb(r))) = T(dot(vb(r))) - U(vb(r)). $
+  $ L(vb(r), vb(dot(r))) = T(vb(dot(r))) - U(vb(r)). $
   La funzione $L$ è detta _lagrangiana_, e non dipende esplicitamente da $t$.
 ]
 
 #dim[
-  si scrive l'equazione (in forma vettoriale) di Eulero-Lagrange, per tale $L=L(vb(r), dot(vb(r)))$:
-  $ grad_(dot(vb(r))) L = grad_(dot(vb(r))) T = m dot(vb(r)) $
-  $ ==> dv(, t) grad_(dot(vb(r))) L = m diaer(vb(r)). $
+  si scrive l'equazione (in forma vettoriale) di Eulero-Lagrange, per tale $L=L(vb(r), vb(dot(r)))$:
+  $ grad_(vb(dot(r))) L = grad_(vb(dot(r))) T = m vb(dot(r)) $
+  $ ==> dv(, t) grad_(vb(dot(r))) L = m diaer(vb(r)). $
   $ grad_(vb(r)) L = -grad_vb(r) U $
   $ ==> m diaer(vb(r)) = -grad_vb(r) U. $
 ]
@@ -211,7 +211,7 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
 #example[
   Un esempio banale è il moto libero, per cui ($U=0$). La lagrangiana vale allora
   (con massa unitaria)
-  $ L(dot(vb(r))) = T(dot(vb(r))) = norm(dot(vb(r)))^2/2 $
+  $ L(vb(dot(r))) = T(vb(dot(r))) = norm(vb(dot(r)))^2/2 $
   $ ==> dv(, t) grad_vb(dot(r)) L = grad_vb(r) L = 0 $
   $ <==> diaer(vb(r)) = 0 <==> vb(r)(t) = vb(v_0) t + vb(r_0). $
   Le variabili da cui non dipende la lagrangiana sono dette _cicliche_, e ad
@@ -221,19 +221,19 @@ vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
 
 #example[
   Si considera la lagrangiana
-  $ L(vb(r)) = norm(dot(vb(r))), $
+  $ L(vb(r)) = norm(vb(dot(r))), $
   essa non è differenziabile in tutto $RR^3$, dato che ha dei punti angolosi.
-  $ Phi(dot(vb(r))) = integral_(t_0)^(t_1) norm(dot(vb(r))(t)) dd(t). $
+  $ Phi(vb(dot(r))) = integral_(t_0)^(t_1) norm(vb(dot(r))(t)) dd(t). $
   Essa fornisce l'espressione della lunghezza del cammino parametrizzato $vb(r)(t)$.
   Vale
   $ grad_vb(r) L = 0, $
-  $ grad_dot(vb(r)) L = dot(vb(r))/norm(dot(vb(r))) $
-  $ ==> 0 = dv(, t) dot(vb(r))/norm(dot(vb(r))) = (norm(dot(vb(r)))^2 vb(diaer(r)) - (vb(dot(r)) dprod vb(diaer(r)))dot(vb(r)))/norm(dot(vb(r)))^3 $
-  $ <==> norm(dot(vb(r)))^2 vb(diaer(r)) - (vb(dot(r)) dprod vb(diaer(r)))dot(vb(r)) = 0 $
+  $ grad_vb(dot(r)) L = vb(dot(r))/norm(vb(dot(r))) $
+  $ ==> 0 = dv(, t) vb(dot(r))/norm(vb(dot(r))) = (norm(vb(dot(r)))^2 vb(diaer(r)) - (vb(dot(r)) dprod vb(diaer(r)))vb(dot(r)))/norm(vb(dot(r)))^3 $
+  $ <==> norm(vb(dot(r)))^2 vb(diaer(r)) - (vb(dot(r)) dprod vb(diaer(r)))vb(dot(r)) = 0 $
   applicando a tutti i termini il prodotto scalare per $diaer(vb(r))$,
-  $ norm(dot(vb(r)))^2 norm(diaer(vb(r)))^2 = (dot(vb(r)) dprod diaer(vb(r)))^2 $
-  $ ==> norm(dot(vb(r))) norm(diaer(vb(r))) = norm(dot(vb(r)) dprod diaer(vb(r))) $
-  e dunque $dot(vb(r))$ e $diaer(vb(r))$ sono collineari. Si ha quindi un cammino
+  $ norm(vb(dot(r)))^2 norm(diaer(vb(r)))^2 = (vb(dot(r)) dprod diaer(vb(r)))^2 $
+  $ ==> norm(vb(dot(r))) norm(diaer(vb(r))) = norm(vb(dot(r)) dprod diaer(vb(r))) $
+  e dunque $vb(dot(r))$ e $diaer(vb(r))$ sono collineari. Si ha quindi un cammino
   lineare. Nota: attenzione ai punti di non differenziabilità di $L$!
 ]
 
@@ -251,12 +251,12 @@ relativamente alle $vb(r)$. L'inversa, naturalmente, è indicata con $vb(r(q))$.
 Si suppone di conoscere una legge oraria $vb(r)(t)$ nelle coordinate $vb(r)$.
 Essa può essere espressa nelle coordinate $vb(q)$: $vb(q)(vb(r)(t))$. La
 velocità è espressa nelle $vb(q)$ come
-$ dot(vb(q))(t) = (dot(q)_1 (t), ..., dot(q)_d(t)) $
+$ vb(dot(q))(t) = (dot(q)_1 (t), ..., dot(q)_d(t)) $
 con
 $ dot(q)_i (t) = dv(, t) q_i (r_1 (t), ..., r_d (t)) = sum_(j=1)^d pdv(q_i, r_j) (vb(r)(t)) dot(r)_j (t) = sum_(j=1)^d [pdv(vb(q), vb(r)) (vb(r)(t))]_(i j) dot(r)_j (t) $
 dove $[pdv(vb(q), vb(r))(vb(r)(t))]$ è la matrice Jacobiana $d times d$, dove
 l'elemento $(i, j)$-esimo è $pdv(q_i, r_j)$. Quindi
-$ dot(vb(q))(t) = [pdv(vb(q), vb(r))(vb(r)(t))] dot(vb(r))(t). $
+$ vb(dot(q))(t) = [pdv(vb(q), vb(r))(vb(r)(t))] vb(dot(r))(t). $
 
 // Lenci dichiara di voler usare la notazione più diversa possibile da Guidetti, carissimo amico, oltre che collega di dipartimento fino a poco tempo fa.
 
@@ -276,7 +276,7 @@ Vale il seguente principio:
 #def[
   in seguito ad un cambio di coordinate $vb(r) |-> vb(q)$ nello spazio delle
   configurazioni, la funzione lagrangiana nelle $vb(q)$ diventa
-  $ scriptL(vb(q), dot(vb(q)), t) = L(vb(r(q)), [pdv(vb(q), vb(r))(vb(r))] dot(vb(r)), t). $
+  $ scriptL(vb(q), vb(dot(q)), t) = L(vb(r(q)), [pdv(vb(q), vb(r))(vb(r))] vb(dot(r)), t). $
 ]
 
 Un corollario al principio di minima azione di Hamilton è il seguente:
@@ -290,7 +290,7 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
 
 #dim[
   Si nota che, per costruzione,
-  $ integral_(t_0)^(t_1) L(vb(r)(t), dot(vb(r))(t), t) dd(t) = integral_(t_0)^(t_1) scriptL(vb(q)(t), dot(vb(q))(t), t) dd(t) $
+  $ integral_(t_0)^(t_1) L(vb(r)(t), vb(dot(r))(t), t) dd(t) = integral_(t_0)^(t_1) scriptL(vb(q)(t), vb(dot(q))(t), t) dd(t) $
   si conclude con il fatto che, per il principio di minima azione di Hamilton, se
   l'integrale è un estremale, allora valgono le equazioni di Eulero-Lagrange per $scriptL$.
   Per definizione di estremale,
@@ -340,21 +340,21 @@ capitolo:
 Si è "tradotto" in termini lagrangiani il problema
 $ m diaer(vb(r)) = - grad_vb(r) U(vb(r)) $
 usando le seguenti
-+ $ dv(, t) grad_dot(vb(r)) T = m diaer(vb(r)) $
-+ $ grad_vb(r) T = vb(0) $
-+ $ grad_dot(vb(r)) U = vb(0) ==> dv(, t) grad_dot(vb(r)) U = vb(0) $
++ $ dv(, t) grad_vb(dot(r)) T = m diaer(vb(r)) $
++ $ grad_vb(r) T = 0 $
++ $ grad_vb(dot(r)) U = 0 ==> dv(, t) grad_vb(dot(r)) U = 0 $
 + $ grad_vb(r) U = vb(F(r)) $
 
 Da cui
-$ (dv(, t) grad_dot(vb(r))- grad_vb(r)) T = m diaer(vb(r)) $
+$ (dv(, t) grad_vb(dot(r))- grad_vb(r)) T = m diaer(vb(r)) $
 e
-$ (dv(, t) grad_dot(vb(r))- grad_vb(r)) U = vb(F) $
+$ (dv(, t) grad_vb(dot(r))- grad_vb(r)) U = vb(F) $
 se $L = T-U$,
-$ ==> (dv(, t) grad_dot(vb(r))- grad_vb(r)) L = vb(0) $
+$ ==> (dv(, t) grad_vb(dot(r))- grad_vb(r)) L = 0 $
 
-Ma se ora si avesse un caso di forza dipendente anche da velocità e tempo $vb(F)(vb(r), dot(vb(r)), t)$ tale
-per cui esiste una funzione $U(vb(r), dot(vb(r)), t)$ con
-$ grad_dot(vb(r)) U(vb(r), dot(vb(r)), t) - grad_vb(r) U(vb(r), dot(vb(r)), t) = vb(F)(vb(r), dot(vb(r)), t), $
+Ma se ora si avesse un caso di forza dipendente anche da velocità e tempo $vb(F)(vb(r), vb(dot(r)), t)$ tale
+per cui esiste una funzione $U(vb(r), vb(dot(r)), t)$ con
+$ grad_vb(dot(r)) U(vb(r), vb(dot(r)), t) - grad_vb(r) U(vb(r), vb(dot(r)), t) = vb(F)(vb(r), vb(dot(r)), t), $
 allora, ugualmente a come appena mostrato, si risale alle equazioni di
 Eulero-Lagrange, per $L=T-U$. In questi casi, $U(vb(r), vb(v), t)$ è detto _potenziale generalizzato_.
 
@@ -371,7 +371,7 @@ elettromagnetico.
   $ vb(B) = grad_vb(r) cprod vb(A). $
 
   In questo caso, si può trovare un potenziale generalizzato, mostrando che
-  $ U(vb(r), dot(vb(r)),t) = q(Phi(vb(r), t) - vb(A)(vb(r),t) dprod dot(vb(r))) $
+  $ U(vb(r), vb(dot(r)),t) = q(Phi(vb(r), t) - vb(A)(vb(r),t) dprod vb(dot(r))) $
   è un potenziale generalizzato, cioè vale la relazione presentata in precedenza:
   $ dv(, t) pdv(U, v_x) - pdv(U, x) = F_x $
   con
