@@ -13,7 +13,7 @@ con $vb(Q_t)$ biettiva, e con inversa $vb(q_t)(vb(Q))$.
   se $scriptL(vb(Q), dot(vb(Q)), t)$ è la lagrangiana $L$ espressa nelle $vb(Q), dot(vb(Q)), t$,
   ovvero
   $ scriptL(vb(Q), dot(vb(Q)), t)=L(vb(q)(vb(Q),t), [pdv(vb(q), vb(Q))(vb(Q),t)]dot(vb(Q)) + pdv(vb(q), t),t) $
-  allora le soluzioni lagrangiane per $L$ sono le soluzioni lagragiane per $scriptL$,
+  allora le soluzioni lagrangiane per $L$ sono le soluzioni lagrangiane per $scriptL$,
   espresse nelle $vb(q)$.
 ]
 Sì è già data una dimostrazione di questa proposizione, utilizzando il lemma per
@@ -53,8 +53,8 @@ Si esaminano alcuni casi particolari:
 La @general_dot_r diventa
 $ vb(v) = vb(v') + vb(v_0) $
 dove $vb(v)$ è la _velocità assoluta_ di $vb(r)$, nel sistema di riferimento $S$,
-mentre $vb(v')$ è la _velocità relativa_, con $vb(v_0)$ velocità di $S'$ rispetto
-a $S$.
+mentre $vb(v')$ è la _velocità relativa_, con $vb(v_0)$ velocità del sistema $S'$ (rispetto
+a $S$).
  
 - *$S'$ non traslato rispetto a $S$, con origine coincidente:*
 Si ha quindi $vb(dot(R)) = 0$ e $vb(r_0) =0$. Si scrive in questo caso la
@@ -77,7 +77,7 @@ mentre la $vb(dot(r))$, nel caso che si sta considerando, è detta _velocità di
   se il sistema $S'$ ruota attorno all'origine $O'$ fisso in $S$, allora in ogni
   istante $t$, esiste un asse istantaneo di rotazione passante per $O'$ i cui
   punti hanno velocità nulla. Per tutti gli altri punti la velocità è
-  proporzionale alla distanza da $O'$.
+  proporzionale alla distanza da $O'$ e perpendicolare a tale asse.
 ]
  
 La dimostrazione del corollario è immediata considerando un terzo sistema $S''$,
@@ -143,3 +143,91 @@ Vale il _teorema di Mozzi_, che è un corollario alla formula appena scritta.
   $ vb(v) = vb(v_parallel) + vb(omega) cprod (vb(r) - (vb(r_0) - vb(r_1))). $
 ]
 
+== Formulazione newtoniana della dinamica relativa
+
+Si assumerà sempre che $S$ sia inerziale. Per un punto materiale di massa $m$ e
+posizione $vb(r)$,
+$ m vb(diaer(r)) = vb(f)(vb(r), vb(dot(r)), t). $
+Si indica con $vb(Omega) = B^TT vb(omega)$ la velocità angolare vista da $S'$.
+
+#theorem[
+  l'equazione del moto nel sistema $S'$ è
+  $ m vb(diaer(R)) = vb(F) + vb(F_I) + vb(F_"ir") + vb(F_"ce") + vb(F_"co") $
+  dove 
+  $ vb(F)(vb(R), vb(dot(R)), t) = B^TT vb(f)(vb(r), vb(dot(r)), t) = B^TT vb(f)(B vb(R), dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0), t), $
+  $ vb(F_I) = -m B vb(diaer(r)_0) $
+  che è detta _forza di inerzia_,
+  $ vb(F_"ir") = -m vb(dot(Omega)) cprod vb(R) $
+  che è detta _forza inerziale di rotazione_,
+  $ vb(F_"ce") = -m vb(Omega) cprod (vb(Omega) cprod vb(R)) $
+  che è detta _forza centrifuga_,
+  $ vb(F_"co") = -2 m vb(Omega) cprod vb(dot(R)) $
+  che è detta _forza di Coriolis_.
+]
+
+$vb(F_I), vb(F_"ir"), vb(F_"ce")$ sono anche dette forze di _trascinamento_,
+dato che un punto fermo rispetto a $S'$ è sottoposto ad esse.
+
+Si noti che la forza centrifuga è sempre diretta nella direzione di massimo
+allontanamento dall'"asse istantaneo" di rotazione, a distanza $rho$, e il suo
+modulo è $norm(vb(Omega))^2 rho$.
+
+Si antepone alla dimostrazione del teorema il seguente lemma.
+
+#lemma[
+  per ogni grandezza vettoriale espressa da $vb(X)$ in $S'$, vale
+  $ dot(B) vb(X) = B(vb(Omega) cprod vb(X)). $
+]
+#dim[
+  sia $vb(x)$ l'espressione in $S$ della grandezza vettoriale in questione, quindi $vb(x) = B vb(X)$. 
+  $ ==> dot(B) vb(X) = dot(B) B^TT vb(x) = vb(omega) cprod vb(x) = B vb(Omega) cprod B vb(X) = B(vb(Omega cprod vb(X))). $
+  Vale infatti la proprietà associativa per il prototto vettoriale per $B$,
+  essendo una matrice di rotazione.
+]
+
+Si noti che una posizone non è una grandezza fisica vettoriale, dato che non
+solo covaria con le rotazioni, ma viene anche traslata. Solo l'origine è una
+grandezza vettoriale. Le differenze tra posizioni, così come lo spostamento
+rispetto ad un punto dato, sono invece grandezze vettoriali. Questo lemma non
+vale quindi, in generale, per le posizioni. Applicandolo ad $vb(R)$, allora il
+suo corrispondente in $S$ non è $vb(r)$ ma $vb(r)-vb(r_0)$.
+
+#dim(
+  "del teorema",
+)[
+  si applica il lemma appena enunciato:
+  $ vb(dot(r)) = dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0) = B(vb(Omega) cprod vb(R) + vb(R) ) + vb(dot(r)_0) $
+  $ ==> vb(diaer(r)) &= vb(diaer(r)_0) + dot(B)(vb(dot(R)) + vb(Omega) cprod vb(R)) + B(vb(diaer(R)) + vb(dot(Omega)) cprod vb(R) + vb(Omega) cprod vb(dot(R))) \
+                   &= vb(diaer(r)_0) + B(vb(Omega) cprod vb(dot(R)) + vb(Omega) cprod (vb(Omega) cprod vb(R))) + vb(diaer(R)) + vb(dot(Omega)) cprod vb(R) + vb(Omega) cprod vb(dot(R)) \
+                   &= vb(diaer(r)_0) + B(vb(diaer(R)) + vb(dot(Omega)) cprod vb(R) + vb(Omega) cprod (vb(Omega) cprod vb(R)) + 2 vb(Omega) cprod vb(dot(R))). $
+   
+  Moltiplicando per $m B^TT$,
+  $ m B^TT vb(diaer(r)) = m B^TT vb(diaer(r)_0) + m vb(diaer(R)) + m vb(Omega) cprod vb(R) + m vb(Omega) cprod (vb(Omega) cprod vb(R)) + 2 m vb(Omega) cprod vb(dot(R)) $
+  $ ==> m vb(diaer(R)) = vb(F) + vb(F_I) + vb(F_"ir") + vb(F_"ce") + vb(F_"co"). $
+]
+
+== Formulazione lagrangiana della dinamica relativa
+
+#lemma[
+  se $L,L'$ sono due lagrangiane nelle stesse variabili $(vb(q), vb(dot(q)), t)$ tali
+  che, se calcolate su una qualsiasi legge oraria $vb(q)(t)$ danno 
+  $ L(vb(q)(t), vb(dot(q))(t),t) = L'(vb(q)(t), vb(dot(q))(t), t) + dv(, t) f(vb(q)(t),t) $
+  per una certa funzione $f(vb(q),t)$, allora le equazioni di Eulero-Lagrange per $L$ e $L'$ sono
+  equivalenti.
+]
+
+Si è già dimostrato questo lemma in passato.
+
+#theorem[
+  una $L(vb(r), vb(dot(r)),t) = m/2 norm(vb(dot(r)))^2 - U(vb(r), vb(dot(r)),t)$ nel
+  sistema $S$ si riscrive come 
+  $ L = scriptL + dv(, t)(m vb(dot(r)_0) dprod B vb(R)) $
+  nel sistema $S'$, dove
+  $ scriptL(vb(R), vb(dot(R)), t) = m/2 norm(vb(dot(R)))^2 - scriptU(vb(R), vb(dot(R)), t) - scriptU_"tr" (vb(R), vb(dot(R)),t) - scriptU_"co" (vb(R), vb(dot(R)),t) $
+  dove 
+  $ scriptU(vb(R), vb(dot(R)), t) = U(B vb(R) + vb(r_0), dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0), t), $
+  $ scriptU_"tr" (vb(R), vb(dot(R)),t) = m vb(diaer(r)_0) dprod B vb(R) - m/2 norm(vb(dot(r)_0))^2 - m/2 norm(dot(B) vb(R))^2, $
+  $ scriptU_"co" (vb(R), vb(dot(R)),t) = -m B vb(dot(R)) dprod dot(B) vb(R). $
+]
+
+Gli ultimi due potenziali sono detti di _trascinamento_ e di _Coriolis_
