@@ -3,6 +3,7 @@
 #let gvec(content) = $underline(vb(content))$
 #let gmat(content) = $underline(underline(vb(content)))$
 
+#let scriptE = "ℰ"
 #let scriptL = "ℒ"
 #let scriptM = "ℳ"
 #let scriptT = "𝒯"

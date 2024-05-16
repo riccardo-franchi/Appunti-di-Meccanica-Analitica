@@ -40,3 +40,5 @@
 #include "capitoli/7-piccole_oscillazioni.typ"
 #pagebreak()
 #include "capitoli/8-cinematica_relativa.typ"
+#pagebreak()
+#include "capitoli/9-corpo_rigido.typ"

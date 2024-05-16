@@ -226,8 +226,29 @@ Si è già dimostrato questo lemma in passato.
   $ scriptL(vb(R), vb(dot(R)), t) = m/2 norm(vb(dot(R)))^2 - scriptU(vb(R), vb(dot(R)), t) - scriptU_"tr" (vb(R), vb(dot(R)),t) - scriptU_"co" (vb(R), vb(dot(R)),t) $
   dove 
   $ scriptU(vb(R), vb(dot(R)), t) = U(B vb(R) + vb(r_0), dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0), t), $
-  $ scriptU_"tr" (vb(R), vb(dot(R)),t) = m vb(diaer(r)_0) dprod B vb(R) - m/2 norm(vb(dot(r)_0))^2 - m/2 norm(dot(B) vb(R))^2, $
+  $ scriptU_"tr" (vb(R), vb(dot(R)),t) = + m vb(diaer(r)_0) dprod B vb(R) - m/2 norm(vb(dot(r)_0))^2 - m/2 norm(dot(B) vb(R))^2, $
   $ scriptU_"co" (vb(R), vb(dot(R)),t) = -m B vb(dot(R)) dprod dot(B) vb(R). $
 ]
 
 Gli ultimi due potenziali sono detti di _trascinamento_ e di _Coriolis_.
+
+Si noti che, volendo, si potrebbe riscrivere $dot(B) vb(R) = vb(omega) cprod B vb(R)$.
+
+#dim[
+  dalle espressioni di $L$ e $scriptL$, si deve dimostrare che
+  $ m/2 norm(vb(dot(r)))^2 = m/2 (norm(vb(dot(R)))^2 - 2 vb(diaer(r)_0) dprod B vb(R) + norm(vb(dot(r)_0))^2 + norm(dot(B) vb(R))^2 + 2 B vb(dot(R)) dprod dot(B) vb(R) + 2 dv(, t) (vb(dot(r)_0) dprod B vb(R))). $
+   
+  Quest'equazione è equivalente a, svolgendo la derivata, 
+  $ norm(vb(dot(r)))^2 = norm(vb(dot(R)))^2 + norm(vb(dot(r)_0))^2 + norm(dot(B) vb(R))^2 + 2 B vb(dot(R)) dprod dot(B) vb(R) + 2 vb(dot(r)_0) dprod (dot(B) vb(R) + B vb(dot(R))). $
+   
+  Ma, dalle espressioni di $vb(r)$ e $vb(dot(r))$, elevando tutto al quadrato si
+  ottiene
+  $ norm(vb(dot(r)))^2 = norm(dot(B) vb(R))^2 + norm(B vb(dot(R)))^2 + norm(vb(dot(r)_0))^2 + 2 dot(B) vb(R) dprod B vb(dot(R)) + 2 dot(B) vb(R) dprod vb(dot(r)_0) + 2 B vb(dot(R)) dprod vb(dot(r)_0) $
+  dove $norm(B vb(dot(R)))^2 = norm(vb(dot(R)))^2$, essendo $B$ una rotazione.
+]
+
+#exercise[
+  ricavare la formulazione newtoniana delle equazioni del moto in $S'$ a partire
+  dalla formulazione lagrangiana; ovviamente nel caso di forze date da
+  $ vb(f) = dv(, t) grad_vb(dot(r)) U - grad_vb(r) U. $
+]
