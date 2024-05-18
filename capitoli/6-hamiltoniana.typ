@@ -303,7 +303,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   $ vb(dot(x)) = vb(f(x)) = JJ grad_vb(x) H(vb(x)) $
   dove $JJ$ è una matrice $2n times 2n$, divisa in quattro blocchi quadrati, dati
   da
-  $ JJ = mat(0, II_n;-II_n, 0;delim: "["), $
+  $ JJ = mat(0, bb(1)_n;-bb(1)_n, 0;delim: "["), $
   visto che
   $ vb(f(x)) = (grad_vb(p) H(vb(x)), grad_vb(q) H(vb(x))). $
    
@@ -335,8 +335,8 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
   diventi negativo, deve esistere un tempo $overline(t)$ in cui il determinante è
   nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
-  dato che sono biiettive, $J Phi^t$ è una matrice non singolare (a determinante
-  non nullo).
+  dato che sono bbb(1)ettive, $J Phi^t$ è una matrice non singolare (a
+  determinante non nullo).
    
   Quindi,
   $ Vol(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $
@@ -367,7 +367,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   Per una dimostrazione corretta, si usano comunque le proprietà del flusso, ma
   direttamente sulla jacobiana:
   $ J Phi^s (vb(x)) = J Phi^0 (vb(x)) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
-  Ora, $J Phi^0 (vb(x)) = II$ è la matrice identità, e
+  Ora, $J Phi^0 (vb(x)) = bb(1)$ è la matrice identità, e
   $ eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) (f_i (vb(x))). $
   E dunque
   $ [J Phi^s (vb(x))]_(i j) = delta_(i j) + s pdv(f_i, x_j)(vb(x)) + o(s). $

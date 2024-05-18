@@ -262,7 +262,7 @@ $ vb(dot(q))(t) = [pdv(vb(q), vb(r))(vb(r)(t))] vb(dot(r))(t). $
 
 #exercise[
   dimostrare che $forall vb(r)$,
-  $ [pdv(vb(r), vb(q))(vb(q)(vb(r)))][pdv(vb(q), vb(r))(vb(r)(vb(q)))] = II_d. $
+  $ [pdv(vb(r), vb(q))(vb(q)(vb(r)))][pdv(vb(q), vb(r))(vb(r)(vb(q)))] = bb(1)_d. $
 ]
 
 Vale il seguente principio:

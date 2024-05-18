@@ -89,7 +89,7 @@ con origine $O'$, e fermo rispetto a $S$.
   $ vb(dot(r)) = dot(B) vb(R) = dot(B) B^TT vb(r). $
    
   Si afferma che $A = dot(B) B^TT$ è una matrice antisimmetrica ($A^TT = -A$).
-  Infatti, $B B^TT = II$,
+  Infatti, $B B^TT = bb(1)$,
   $ ==> dot(B)B^TT + B dot(B)^TT = 0 ==> A+A^T = 0. $
    
   Si afferma inoltre che c'è una corrispondenza biunivoca (lineare) fra le matrici

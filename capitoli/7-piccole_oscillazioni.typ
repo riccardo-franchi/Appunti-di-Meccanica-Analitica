@@ -98,7 +98,7 @@ $ det(B-lambda A) = 0 $
 e sono $d$ (contando la molteplicità algebrica). Gli autovettori $vb(m_i)$ sono
 linearmente indipendenti: si è quindi nel caso di molteplicità geometrica sempre
 uguale alla molteplicità algebrica. Inoltre:
-+ se $A = II$, allora gli $vb(m_i)$ sono ortogonali fra loro;
++ se $A = bb(1)$, allora gli $vb(m_i)$ sono ortogonali fra loro;
 + se la molteplicità di $lambda_i$ è $1$ allora $vb(m_i)$ è univocamente
   determinato a meno di un fattore moltiplicativo.
 
@@ -119,7 +119,7 @@ di uno stesso autovalore sono multipli a due a due.
 
 se $g(x) = c_0+c_1 x +...+c_m x^m$ e $A$ è una matrice $n times n$, è sensato
 definire $g(A)$ come la seguente matrice $n times n$:
-$ g(A) = c_0 II_n + c_1 A +...+c_m A^m. $
+$ g(A) = c_0 bb(1)_n + c_1 A +...+c_m A^m. $
 Si vorrebbe dare una definizione di $g(A)$ anche per funzioni $g(x)$ più
 complicate di un polinomio. Si potrebbe pensare di usare lo sviluppo in serie di
 Taylor, ma questo è in generale definito solo nell'intorno di un certo $x_0$.
@@ -169,7 +169,7 @@ simili alla $g$ definita sui reali.
 
 #example[
   Per ogni $A$ diagonalizzabile,
-  $ cos^2 A + sin^2 A = C cos^2 (Lambda) C^(-1) + C sin^2 (Lambda) C^(-1) = C II C^(-1) = II. $
+  $ cos^2 A + sin^2 A = C cos^2 (Lambda) C^(-1) + C sin^2 (Lambda) C^(-1) = C bb(1) C^(-1) = bb(1). $
 ]
 
 
@@ -279,7 +279,7 @@ simili alla $g$ definita sui reali.
   Il primo punto di equilibrio è l'unico punto stabile, dato che corrisponde ad un
   punto di minimo globale del potenziale, come si può notare osservando la sua
   espressione. Allora, si trovano le piccole oscillazioni per $vb(q) = (0,0)$:
-  $ T = 1/2 (dot(q)_1^2 + dot(q)_2^2) ==> A(vb(q)) = II. $
+  $ T = 1/2 (dot(q)_1^2 + dot(q)_2^2) ==> A(vb(q)) = bb(1). $
   $ U(vb(q)) &= -g (1-q_1^2/2 - q_2^2/2 + o(q_1^2)+o(q_2^2)) \ 
            &+ k/2((q_1-q_2 + o(q_1^2)+o(q_2^2))^2 + (q_1^2/2 - q_2^2/2 + o(q_1)+ o(q_2))^2) \
            &tilde.eq -g/2 (q_1^2 + q_2^2) + k/2 (q_1-q_2)^2 = U_"quadratica" (vb(q)). $
@@ -287,7 +287,7 @@ simili alla $g$ definita sui reali.
   E, se $U_"quadratica" = 1/2 vb(q) dprod B vb(q)$,
   $ B = mat(g+k, -k;-k, g+k;delim: "["). $
   Occorre quindi trovare gli autovalori di $B$ rispetto ad $A$, cioè gli
-  autovalori di $B$, essendo $A=II$. Si trovano gli autovalori $lambda_1 = g$, $lambda_2 = g + 2k$
+  autovalori di $B$, essendo $A=bb(1)$. Si trovano gli autovalori $lambda_1 = g$, $lambda_2 = g + 2k$
   Considerando $lambda_1$, gli autovettori sono multipli di $vb(m_1) = (1,1)$, e
   dunque gli autovettori relativi a $lambda_2$ sono multipli di $vb(m_2) = (-1, 1)$.
   Si hanno quindi oscillazioni rispettivamente in fase e in antifase, con
