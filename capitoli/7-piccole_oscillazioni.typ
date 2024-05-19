@@ -1,6 +1,7 @@
 #import "../setup.typ": *
 
 #show: thmrules
+#set math.equation(numbering: "(1)")
 
 = Piccole oscillazioni
 
@@ -72,11 +73,7 @@ Si scrivono le equazioni di Eulero-Lagrange per $L=L_"quadratica"$:
 $ grad_vb(dot(Q)) L = A vb(dot(Q)) ==> dv(, t) grad_vb(dot(Q)) L = A diaer(vb(Q)) $
 $ grad_vb(Q) L = -B vb(Q) $
 
-#set math.equation(numbering: "(1)")
-
 $ ==> A diaer(vb(Q)) + B vb(Q) = 0. $ <small_oscillations>
-
-#set math.equation(numbering: none)
 
 Si è ottenuta una equazione differenziale ordinaria _lineare_. In un certo
 senso, che non verrà approfondito, questa è la migliore approssimazione lineare
@@ -257,21 +254,26 @@ simili alla $g$ definita sui reali.
   per i punti di equilibrio stabile, studiare le piccole oscillazioni.
    
   $ grad U(vb(q)) = 0 <==> pdv(U(vb(q)), q_1) + pdv(U(vb(q)), q_2) =0 $
-  $ pdv(U(vb(q)), q_1) = g sin q_1 + k sin(q_1-q_2) $
-  $ pdv(U(vb(q)), q_2) = g sin q_2 - k sin(q_1-q_2). $
+  $ pdv(U(vb(q)), q_1) = g sin q_1 + k sin(q_1-q_2) = 0, $ <deriv_1>
+  $ pdv(U(vb(q)), q_2) = g sin q_2 - k sin(q_1-q_2) = 0. $ <deriv_2>
    
-   
-  Punti di equilibrio immediati:
-  + $q_1=q_2 = 0$
-  + $q_1 = q_2 = pi$
-  + $q_1 = 0, q_2= pi$ e viceversa
-   
-  Supponendo momentaneamente $sin q_i != 0$ e omettendo i calcoli,
-  $ 1 = -pdv(U_g, q_i)/pdv(U_k, q_i) $
-  $ ==> tan q_2 = tan q_2 <==> q_1 = q_2 plus.minus pi. $
-   
-  Si trova poi, assumendo di avere una simmetria del tipo $q_2 = -q_1$,
-  $ cot q_1 = -g/(2 k sin q_1) <==> cos q_1 = -g/(2k) <==> q_1 plus.minus arccos(-g/(2k)) $
+  Sommando queste due equazioni, si ottiene che 
+  $ sin q_1 = - sin q_2 = sin(-q_2). $ <deriv_sum>
+  
+  Si assume per il momento che $q_1>=0$. Dato che il problema è simmetrico
+  rispetto al cambio di segno di entrambi $q_1,q_2$, ciò si può sempre fare. Da
+  @deriv_sum si ottengono due casi:
+  $ q_1 = -q_2 space.quad or space.quad q_1-q_2 = pi. $
+  Considerando il primo caso, l'equazione @deriv_1 diventa
+  $ sin q_1 = (g/(2k) + cos q_1) = 0. $
+  Si hanno due sottocasi:
+  + $sin q_1 = 0 ==> (q_1, q_2) = (0,0) or (q_1,q_2) = (pi, -pi)$
+  + se $g/(2k)<=1$ (quindi se la molla è abbastanza forte),
+    $ q_1 = arccos(-g/(2k)) $
+    con $q_2 = -q_1$.
+  
+  Considerando il secondo caso, invece, l'equazione @deriv_1 diventa
+  $ sin q_1 = 0 ==> (q_1, q_2) = (0,pi) or (q_1,q_2) = (pi, 0) $
    
   Si può giustificare fisicamente che non ci sono altri punti di equilibrio,
   considerando le forze che agiscono sui due punti.

@@ -10,6 +10,9 @@
   $ norm(vb(r_i) - vb(r_j)) = c_(i j). $
 ]
 
+Si osserva che, se il corpo rigido è composto da almeno tre punti non allineati,
+i suoi gradi di libertà sono sei (tre di traslazione e tre di rotazione).
+
 In assenza di forze esterne sul corpo, la quantità di moto totale
 $ vb(p_"tot") = sum_(i=1)^N m_i vb(dot(r)_i) $
 è conservata. Quindi il centro di massa

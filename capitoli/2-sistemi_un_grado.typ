@@ -1,6 +1,7 @@
 #import "../setup.typ": *
 
 #show: thmrules
+#set math.equation(numbering: "(1)")
 
 = Sistemi ad un grado di libertà
 
@@ -87,13 +88,9 @@ Si fanno ora alcune osservazioni.
 
 + Le curve di livello dell'energia sono simmetriche rispetto all'asse $x$, infatti $E(x,v)=E(x,-v)$.
 
-#set math.equation(numbering: "(1)")
-
 + Nel semipiano superiore del piano di fase le traiettorie vanno verso destra (nel
   verso positivo delle $x$), mentre nel semipiano inferiore vanno verso sinistra: $ abs(v(t)) = sqrt(2(E-U(x(t)))) $ <velocity> e
   il segno dipende dal semipiano in cui si trova il punto considerato.
-
-#set math.equation(numbering: none)
 
 + Gli unici punti del piano di fase per cui la traiettoria (di fase) rimane nel
   punto sono quelli del tipo $(overline(x), 0)$, con $f(overline(x))=0$.
@@ -437,12 +434,8 @@ potenziale $U(vb(r))=u(r)$, con $u'(r) = -f(r)$. Si vuole trovare $vb(r)(t)=(r(t
   $ ==> diaer(vb(r)) = (diaer(r)-r dot(phi)^2) vu(e_r) + (2 dot(r) dot(phi) + r diaer(phi)) vu(e_phi) $
   Ma $diaer(vb(r)) = -u'(r) vu(e_r)$, e dunque vale che
 
-  #set math.equation(numbering: "(1)")
-
   $ diaer(r) - r dot(phi)^2 = -u'(r) $ <acceleration>
   $ 2 dot(r) dot(phi) + r diaer(phi) = 0 $ <angular>
-
-  #set math.equation(numbering: none)
 
   Allora, da @acceleration,
   $ diaer(r) = -u'(r) + r L^2/r^4 = -dv(, r)(u(r)+L^2/(2 r^2)) $

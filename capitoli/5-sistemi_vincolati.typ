@@ -1,6 +1,7 @@
 #import "../setup.typ": *
 
 #show: thmrules
+#set math.equation(numbering: "(1)")
 
 = Meccanica lagrangiana per sistemi vincolati
 
@@ -168,8 +169,6 @@ toglierle energia per il moto entro il vincolo.
 
 Come conseguenza del principio di D'Alembert, $forall var(vb(r))$,
 
-#set math.equation(numbering: "(1)")
-
 $ m diaer(vb(r)) dprod var(vb(r)) = vb(F) dprod var(vb(r)). $
 
 Si utilizzano le carte e i concetti definiti nel capitolo precedente, che
@@ -197,8 +196,6 @@ $ vb(dot(r)) = [pdv(vb(r), vb(q))] vb(dot(q)) + dv(vb(r), t). $
 
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
 $ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) vb(dot(r))) dprod var(vb(q)). $ <all_together>
-
-#set math.equation(numbering: none)
 
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), vb(dot(q)), t)$,
 ossia $scriptT(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,
