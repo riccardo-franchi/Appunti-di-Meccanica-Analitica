@@ -253,13 +253,13 @@ simili alla $g$ definita sui reali.
   Si vogliono trovare tutti i punti di equilibrio, determinare se sono stabili, e
   per i punti di equilibrio stabile, studiare le piccole oscillazioni.
    
-  $ grad U(vb(q)) = 0 <==> pdv(U(vb(q)), q_1) + pdv(U(vb(q)), q_2) =0 $
+  $ grad U(vb(q)) = 0 <==> (pdv(U(vb(q)), q_1), pdv(U(vb(q)), q_2)) =0 $
   $ pdv(U(vb(q)), q_1) = g sin q_1 + k sin(q_1-q_2) = 0, $ <deriv_1>
   $ pdv(U(vb(q)), q_2) = g sin q_2 - k sin(q_1-q_2) = 0. $ <deriv_2>
    
   Sommando queste due equazioni, si ottiene che 
   $ sin q_1 = - sin q_2 = sin(-q_2). $ <deriv_sum>
-  
+   
   Si assume per il momento che $q_1>=0$. Dato che il problema è simmetrico
   rispetto al cambio di segno di entrambi $q_1,q_2$, ciò si può sempre fare. Da
   @deriv_sum si ottengono due casi:
@@ -271,7 +271,7 @@ simili alla $g$ definita sui reali.
   + se $g/(2k)<=1$ (quindi se la molla è abbastanza forte),
     $ q_1 = arccos(-g/(2k)) $
     con $q_2 = -q_1$.
-  
+   
   Considerando il secondo caso, invece, l'equazione @deriv_1 diventa
   $ sin q_1 = 0 ==> (q_1, q_2) = (0,pi) or (q_1,q_2) = (pi, 0) $
    
@@ -289,7 +289,9 @@ simili alla $g$ definita sui reali.
   E, se $U_"quadratica" = 1/2 vb(q) dprod B vb(q)$,
   $ B = mat(g+k, -k;-k, g+k;delim: "["). $
   Occorre quindi trovare gli autovalori di $B$ rispetto ad $A$, cioè gli
-  autovalori di $B$, essendo $A=bb(1)$. Si trovano gli autovalori $lambda_1 = g$, $lambda_2 = g + 2k$
+  autovalori di $B$, essendo $A=bb(1)$. Si trovano come autovalori $lambda_1 = g$, $lambda_2 = g + 2k$.
+  Gli autovettori si trovano risolvendo l'equazione
+  $ (B-lambda_i A) vb(m_i) = (B-lambda_i bb(1)) vb(m_i) = 0. $ 
   Considerando $lambda_1$, gli autovettori sono multipli di $vb(m_1) = (1,1)$, e
   dunque gli autovettori relativi a $lambda_2$ sono multipli di $vb(m_2) = (-1, 1)$.
   Si hanno quindi oscillazioni rispettivamente in fase e in antifase, con
