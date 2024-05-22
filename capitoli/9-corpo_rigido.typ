@@ -43,6 +43,8 @@ formulata.
 Il caso del corpo rigido vincolato copre anche il caso del corpo rigido libero
 (in assenza di forze esterne), perché basta mettersi nel sistema di riferimento
 fisso $S$ che ha origine nel centro di massa del corpo rigido (in questo caso $vb(r_1) = vb(r_"CM") = 0$).
+D'ora in avanti si tratterà quindi soltanto di corpi rigidi vincolati
+all'origine di un sistema di riferimento $S$, in assenza di altre forze esterne.
 
 Un corpo rigido vincolato ha soltanto tre gradi di libertà, potendo soltanto
 ruotare. Esiste un modo standard di parametrizzare i gradi di libertà tramite
@@ -72,10 +74,17 @@ condizioni iniziali.
   Nel caso che si considera, $L = T = sum_(i=1)^N m_i/2 norm(vb(dot(r)_i))^2$.
   Dopo la trasformazione, si ha che
   $ L = sum_(i=1)^N m_i/2 norm(R^((z))_s vb(dot(r)_i))^2 = sum_(i=1)^N m_i/2 norm(vb(dot(r)_i))^2 = L(vb(r_1), ..., vb(r_N), vb(dot(r)_1), ..., vb(dot(r)_N)). $
-   
-  $ eval(dv(R_s^((z)) (vb(r_1)), s))_(s=0) = vu(e_z) cprod vb(r_1). $
-  // integrare con le note
+  Si era già visto infatti che una $h^s$ come sopra conserva la lagrangiana, e
+  dunque per il teorema di Noether, $l_(z,"tot")$ è una costante del moto.
+  Analogamente per le altre componenti di $vb(l_"tot")$.
 ]
+
+Il teorema dimostra che dei sei gradi di libertà lagrangiani nello spazio di
+fase, solo due sono effettivi, infatti il moto avviene su una superficie
+bidimensionale determinata dalle condizioni iniziali. Si potrebbe dimostrare che
+tale superficie ha sempre la topologia di una superficie toroidale, sul quale il
+moto è quello del cosiddetto flusso di Kronecker, cioè un moto rettilineo
+uniforme nel quadrato con i lati opposti incollati a due a due.
 
 == Operatore di inerzia 
 
@@ -106,6 +115,10 @@ con $A$ matrice $3 times 3$.
   Da @quadratic,
   $ 1/2 vb(Omega) cprod A vb(Omega) = m/2 norm(vb(Omega) cprod vb(R))^2 = m/2 norm(vb(V))^2 = T_1. $
 ]
+
+Si osserva che l'energia cinetica di un punto non solo è la stessa quantità
+fisica, espressa tramite $vb(v)$ in $S$ e $vb(V)$ in $S'$, ma in questo caso ha
+la stessa forma funzionale.
 
 #def[
   $A$ è detta _operatore_ (o _matrice_ o _tensore_) _di inerzia del punto_ in
@@ -164,3 +177,75 @@ $ T=1/2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
   Per la @I_K, invece, dato che $vu(W_k)$ è un autovettore,
   $ I_vu(W_k) = vu(W_k) dprod hat(I) vu(W_k) = vu(W_k) dprod I_k vu(W_k) = I_k. $
 ]
+
+#exercise[
+  nel caso in cui gli assi di inerzia coincidano con gli assi coordinati $vu(E_X), vu(E_Y), vu(E_Z)$ del
+  sistema $S'$, esprimere $I_1, I_2, I_3$ in funzione di $X,Y,Z$.
+]
+#exercise[
+  Mostrare che valgono le seguenti relazioni
+  $ I_1 <= I_2+I_3 $
+  $ I_2 <= I_1+I_3 $
+  $ I_3 <= I_1+I_2 $
+  e che l'uguaglianza in una sola di queste implica il caso limite di corpo a
+  dimensione più bassa di tre (suggerimento: utilizzare l'esercizio precedente).
+]
+
+Se si ha un asse di simmetria discreta per un corpo rigido, allora uno degli
+assi d'inerzia del corpo rigido deve essere quell'asse, e se la simmetria è
+rispetto a $pi/n$ con $n$ intero, allora gli autovalori degli altri due assi
+devono essere uguali tra loro.
+
+#example(
+  "momento di inerzia di una sfera",
+)[
+  considerando una sfera omogenea di raggio $a>0$, il momento di inerzia rispetto
+  a un qualsiasi asse è
+  $ I_vu(E) = integral_S(0,a) rho d_vu(E)^2 (vb(R)) dd(R, 3). $
+  Utilizzando le coordinate sferiche $(r, theta, phi)$, con $vu(E) = vu(E_z)$,
+  $ I_vu(E) &= rho integral_0^(2pi) dd(phi) integral_0^pi dd(theta) integral_0^a dd(r) (r sin theta)^2 r^2 sin theta \ 
+          &= (3pi)/2 M/(pi a^3) integral_0^pi sin^3 theta dd(theta) integral_0^a r^4 dd(r) \
+          &= 2/5 M a^2. $
+]
+
+#theorem(
+  "di Huygens-Steiner",
+)[
+  se $a$ e $a_"CM"$ sono due assi paralleli, posti a distanza $D$ tra loro, il
+  secondo dei quali passa per il centro di massa di un corpo rigido, vale la
+  relazione
+  $ I_a = I_a_"CM" + M D^2 $
+  dove $I_a$ e $I_a_"CM"$ sono i momenti di inerzia rispetto ad $a$ e $a_"CM"$,
+  rispettivamente.
+]
+#corollary[
+  fra tutti gli assi paralleli, quello che dà il momento di inerzia minore (per un
+  dato corpo rigido) è quello passante per il centro di massa.
+]
+
+#example[
+  si considera uno yo-yo, con il filo e il cilindro interno di masse trascurabili,
+  e massa (concentrata quindi nei due cilindri esterni) $M$, con raggi per il
+  cilindretto interno e quelli esterni, rispettivamente $a$ e $A$. Si indica con $l$ la
+  lunghezza della parte arrotolata del filo. Detto P il punto dove lo yo-yo è
+  appeso, esso è istantaneamente fermo.
+  $ vb(N_p) = vb(dot(L)_P) = dv(, t)(hat(I) vb(Omega)) $
+  In termini scalari,
+  $ N_P = dot(L)_P = dv(, t)(hat(I)_P Omega_P) $
+  Intuitivamente, ma si può dimostrare, vale
+  $ N_P = a M g $
+  Infatti, (si tratta di un caso specifico del il teorema di König),
+  $ vb(N) = vb(N_"tot") = sum_i vb(N_i) = sum_i vb(r_i) cprod vb(F_i^"ext") = sum_i m_i vb(r_i) cprod vb(g) = M vb(r_"CM") cprod vb(g) = vb(r_"CM") cprod M vb(g). $
+   
+  Dato che $I = M/2 A^2$, per il teorema di Huygens-Steiner,
+  $ I_P = M(A^2/2 + a^2) $
+  $ ==> a M g = I_P dot(Omega)_P = M(A^2/2 + a^2) dot(Omega)_P $
+  Indicando con $vb(V)$ la velocità tangenziale,
+  $ a g = (A^2/2+a^2) dot(V)/a $
+  $ ==> b := dot(V) = g/(A^2/(2a^2) + 1) $
+  dove, per brevità, si è chiamata l'accelerazione dello yo-yo con $b$. Indicando
+  con $t_0=0$ il tempo in cui viene rilasciato il sistema, $y_0 = y(t_0)=0$, con
+  $ y = 1/2 b t^2 $
+  $ ==> t_l = sqrt((2 l)/b) = sqrt((2 l)/g (1+A^2/(2 a^2))). $
+]
+
