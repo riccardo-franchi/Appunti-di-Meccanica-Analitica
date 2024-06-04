@@ -504,7 +504,7 @@ l'irreversibilità macroscopica.
   $ ==> hat(U)(vb(r(q))) = k/2 x^2 $
   $ hat(T)(vb(dot(x)), vb(dot(y))) = hat(T)(vb(dot(r)) (vb(q), vb(dot(q)))) = hat(T)([pdv(vb(r), vb(q))] vb(dot(q))) = m/2 (dot(x)^2 + dot(y)^2) $
   dato che la massa del tubo è trascurabile. Si ha quindi $L = T-U$, ma si può
-  anche ottenere l'hamiltoniana (tramite la trasforma di Legendre della
+  anche ottenere l'hamiltoniana (tramite la trasformata di Legendre della
   lagrangiana)
   $ H(x,y,p_x,p_y) = (p_x^2 + p_y^2)/(2m) + U(x) $
   con $p_x = m dot(x)$ e $p_y = m dot(y)$. Dunque la $y$ è una coordinata ciclica.

@@ -262,9 +262,9 @@ allora il sistema di particelle si dice _conservativo_ e $U$ è detta _energia p
   Si dimostra che il sistema è conservativo per
   $ U(gvec(r)) = sum U_i (vb(r_i)), $
   infatti,
-  $ grad_gvec(r) U(gvec(r)) = (grad_vb(r_1) U(gvec(r))), ..., grad_(vb(r_N)) U(gvec(r))) $
+  $ grad_gvec(r) U(gvec(r)) = (grad_vb(r_1) U(gvec(r)), ..., grad_(vb(r_N)) U(gvec(r))) $
   con
-  $ grad_vb(r_i) U(gvec(r)) = grad_vb(r_i)(sum_(k=1)^N U_k (vb(r_k))) = grad_vb(r_i) U_i(vb(r_i)) = - vb(F_i (r_i)) $
+  $ grad_vb(r_i) U(gvec(r)) = grad_vb(r_i)(sum_(k=1)^N U_k (vb(r_k))) = grad_vb(r_i) U_i (vb(r_i)) = - vb(F_i (r_i)) $
 
   $ ==> -grad_gvec(r) U(gvec(r)) = (vb(F_1 (r_i)), ..., vb(F_N (r_N))) = gvec(F)(gvec(r)). $
 ]
@@ -293,7 +293,7 @@ $ vb(F_i)^"ext" = vb(F_i)^"ext" (vb(r_i), vb(v_i), t), $
 $ vb(F_(i j)) = vb(F_(i j)) (vb(r_i), vb(v_i), vb(r_j), vb(v_j)). $
 
 Inoltre, in molti casi,
-$ vb(F_(i j)) = vb(F_(i j))(norm(vb(r_i) - vb(r_j))) $
+$ vb(F_(i j)) = vb(F_(i j))(vb(r_i) - vb(r_j)) $
 e, in particolare,
 $ vb(F_(i j))= f_(i j)(norm(vb(r_i)- vb(r_j)))(vb(r_i)-vb(r_j))/norm(vb(r_i)- vb(r_j)) $
 con $f_(i j) = f_(j i), f_(i j): RR_0^+ -> RR$. Come conseguenza di
@@ -315,7 +315,7 @@ massa.
   $ vb(P) = sum_(i=1)^N vb(p_i). $
 ]
 
-Si ha che $vb(P)$ si conserva nel caso in cui $sum_i vb(F_i)^"tot"=0$.
+Si ha che $vb(P)$ si conserva nel caso in cui $sum_i vb(F_i)^"ext"=0$.
 #def("momento angolare totale e momento della forza totale")[
   si definisce, per un punto di riferimento $vb(r_0) in RR^3$,
   $ vb(L) = sum_i vb(L_i) = sum_i (vb(r_i)- vb(r_0)) cprod vb(p_i) $
@@ -326,9 +326,10 @@ Si ha che $vb(P)$ si conserva nel caso in cui $sum_i vb(F_i)^"tot"=0$.
 Vale che
 $ vb(dot(L)) = sum_i vb(dot(L)_i) = sum_i vb(N_i) $
 se $vb(F_i) = vb(F_i)^"tot"$, nell'ipotesi che $vb(F_(i j)) = -vb(F_(j i))$,
-$ vb(dot(L)) = sum_i (vb(r_i)-vb(r_0)) cprod vb(F_i)^"ext" + sum_(i != j) (vb(r_i) - vb(r_0)) cprod vb(F_(i j)). $
-Ora, si mostra che il secondo termine della somma è nullo:
-$ sum_(i != j) (vb(r_i) - vb(r_0)) cprod vb(F_(i j)) = sum_(i<j) (vb(r_i)-vb(r_0)-vb(r_j)+vb(r_0)) cprod vb(F_(i j)) = sum_(i<j) (vb(r_i)-vb(r_j)) cprod vb(F_(i j)) = 0 $
+$ vb(dot(L)) = sum_i (vb(r_i)-vb(r_0)) cprod vb(F_i)^"ext" + sum_i (vb(r_i) - vb(r_0)) cprod sum_(j!= i) vb(F_(i j)). $
+Ora, si mostra che il secondo termine della somma è nullo, dove nella seconda
+uguaglianza si sono scambiati gli indici $i$ e $j$:
+$ sum_i (vb(r_i) - vb(r_0)) cprod sum_(j!= i) vb(F_(i j)) = sum_(i<j) (vb(r_i) - vb(r_0)) cprod vb(F_(i j)) +sum_(i>j) (vb(r_i) - vb(r_0)) cprod vb(F_(i j)) = sum_(i<j) (vb(r_i)-vb(r_j)) cprod vb(F_(i j)) = 0 $
 dato che $vb(r_i)-vb(r_j)$ è parallelo a $vb(F_(i j))$.
 
 Si mostra che un sistema con forze interne del tipo
