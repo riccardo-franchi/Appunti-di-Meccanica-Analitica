@@ -425,7 +425,7 @@ potenziale $U(vb(r))=u(r)$, con $u'(r) = -f(r)$. Si vuole trovare $vb(r)(t)=(r(t
 #theorem[
   la "legge oraria" $r(t)$ è la stessa che si otterrebbe studiando il problema
   unidimensionale dato dal _potenziale efficace_
-  $ V(r) = u(r) + L/(2r^2), space.quad r>0 $
+  $ V(r) = u(r) + L^2/(2r^2), space.quad r>0 $
   dove $L$ è il modulo (conservato) di $vb(L)$.
 ]
 
@@ -456,8 +456,8 @@ $ ==> phi(t) = phi_0 + integral_(t_0)^t L/r^2 dd(t). $
 Spesso, però, $vb(r)(t)$ è difficile da trovare. In alcuni casi si è però
 interessati soltanto, ad esempio, a trovare l'immagine di $vb(r)(t)$ (cioè
 l'orbita), cercando allora $r(phi)$. Sotto le ipotesi in cui ci si trova, con $L!=0$,
-ciò è possibile, perché $phi(t)$ è monotona (e quindi invertibile). Allora,
-chiamando $r(phi)$ la funzione inversa di $phi(t)$, $r(phi) = r(t(phi))$.
+ciò è possibile, perché $phi(t)$ è monotona (e quindi invertibile con inversa $t(phi)$).
+Allora, chiamando $r(phi)$ la funzione inversa di $phi(r)$, $r(phi) = r(t(phi))$.
 
 Dall'equazione @angular si risale nuovamente al principio di conservazione del
 momento angolare:
@@ -468,9 +468,9 @@ Si osserva anche che l'energia totale $E_V$ del nuovo problema unidimensionale
 in $r$, che vale
 $ E_V = dot(r)^2/2 + V(r) $
 è uguale all'energia totale del problema originario in due dimensioni $E_U$:
-$ E_U = norm(vb(r))^2/2 + U(vb(r)). $
+$ E_U = norm(vb(dot(r)))^2/2 + U(vb(r)). $
 Infatti,
-$ norm(vb(r))^2/2 = 1/2 norm(dot(r) vu(e_r) + r dot(phi) vu(e_phi))^2 = (dot(r)^2 + r^2 dot(phi)^2)/2 = dot(r)^2/2 + L^2/(2 r^2). $
+$ norm(vb(dot(r)))^2/2 = 1/2 norm(dot(r) vu(e_r) + r dot(phi) vu(e_phi))^2 = (dot(r)^2 + r^2 dot(phi)^2)/2 = dot(r)^2/2 + L^2/(2 r^2). $
 E, per definizione, $u(r) = u(norm(vb(r))) = U(vb(r))$.
 
 Si può studiare, come visto, solo la traiettoria $r(phi) = r(t(phi))$, dove $t(phi)$ esiste

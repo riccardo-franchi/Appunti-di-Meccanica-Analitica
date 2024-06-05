@@ -71,12 +71,12 @@ dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
 #theorem[
   il funzionale $Phi$, definito come sopra, è differenziabile $forall x in S$, e
   il suo differenziale è
-  $ D Phi_vb(x)(vb(h)) &= sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)(vb(x(t)), vb(dot(x))(t), t) - dv(, t)pdv(L, v_i)(vb(x)(t), vb(dot(x))(t),t)) vb(h)_i (t) dd(t) \ &+ [pdv(L, v_i)(vb(x)(t), vb(dot(x))(t), t) vb(h)_i (t)]_(t_0)^(t_1)} $
+  $ D Phi_vb(x)(vb(h)) &= sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)(vb(x(t)), vb(dot(x))(t), t) - dv(, t)pdv(L, v_i)(vb(x)(t), vb(dot(x))(t),t)) h_i (t) dd(t) \ &+ [pdv(L, v_i)(vb(x)(t), vb(dot(x))(t), t) h_i (t)]_(t_0)^(t_1)} $
 
-  con $vb(vb(h))(t) = (vb(h)_1 (t), ..., vb(h)_d (t)) in C^1([t_0,t_1])$, dove la
-  norma $C^1$, che era stata definita per funzioni a valori scalari, è definita in
-  maniera simile:
-  $ norm(vb(h))_(C^1) = max_(t in [t_0,t_1] \ i in {1,...,d}) {norm(vb(h_i))(t), norm(vb(dot(h)_i)(t))}. $
+  con $vb(vb(h))(t) = (h_1 (t), ..., h_d (t)) in C^1([t_0,t_1])$, dove la norma $C^1$,
+  che era stata definita per funzioni a valori scalari, è definita in maniera
+  simile:
+  $ norm(vb(h))_(C^1) = max_(t in [t_0,t_1] \ i in {1,...,d}) {norm(h_i (t)), norm(h_i (t))}. $
 ]
 
 In forma abbreviata, si può scrivere
@@ -183,7 +183,7 @@ alla derivata di qualcosa.
 == Applicazione alla meccanica
 
 Si hanno problemi del tipo
-$ m diaer(vb(r)) (t) = - dv(, r) U(vb(r)(t)) $
+$ m diaer(vb(r)) (t) = - grad_vb(r) U(vb(r)(t)) $
 
 #theorem(
   "principio di minima azione di Hamilton",
@@ -296,10 +296,10 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
   Per definizione di estremale,
   $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = o(norm(vb(h))_(C^1)) $
   $ tilde(Phi)(vb(q)+vb(l)) - tilde(Phi)(vb(q)) = o(norm(vb(l))_(C_1)) $
-  ma
+  ma, definendo $vb(l)$ in modo che
   $ vb(q)(t) = vb(q)(vb(r)(t)) $
-  $ vb(l)(t) = vb(q)(vb(r) + vb(h)(t)) - vb(q)(vb(r)) $
-  e dunque $o_vb(r) (norm(vb(h))_(C^1))=o_vb(q) (norm(vb(l))_(C^1))$.
+  $ vb(l)(t) = vb(q)(vb(r) + vb(h)(t)) - vb(q)(vb(r)), $
+  allora dunque $o_vb(r) (norm(vb(h))_(C^1))=o_vb(q) (norm(vb(l))_(C^1))$.
 ]
 
 #example(
@@ -340,7 +340,7 @@ capitolo:
 Si è "tradotto" in termini lagrangiani il problema
 $ m diaer(vb(r)) = - grad_vb(r) U(vb(r)) $
 usando le seguenti
-+ $ dv(, t) grad_vb(dot(r)) T = m diaer(vb(r)) $
++ #box(width: 100%)[$ dv(, t) grad_vb(dot(r)) T = m diaer(vb(r)) $]
 + $ grad_vb(r) T = 0 $
 + $ grad_vb(dot(r)) U = 0 ==> dv(, t) grad_vb(dot(r)) U = 0 $
 + $ grad_vb(r) U = vb(F(r)) $
