@@ -1,7 +1,6 @@
 #import "../setup.typ": *
 
 #show: thmrules
-#set math.equation(numbering: "(1)")
 
 = Meccanica lagrangiana per sistemi vincolati
 
@@ -179,23 +178,31 @@ spostamenti infinitesimi nelle $vb(q)$ saranno _liberi_.
 Vale che, indicando tra parentesi quadre la matrice Jacobiana,
 $ var(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] var(vb(q)). $
 Allora
+
+#set math.equation(numbering: "(1)")
 $ m diaer(vb(r)) dprod var(vb(r)) = m diaer(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [pdv(vb(r), vb(q))]^TT diaer(vb(r)) dprod var(vb(q)). $ <transpose>
 Ma, si ha che
 $ [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) vb(dot(r)). $ <transpose_derivative>
+#set math.equation(numbering: none)
 Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
 $ dv(, t) [pdv(vb(r), vb(q))] = dv(vb(dot(r)), vb(q)), $
 infatti,
 $ dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q)_k + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q)_k + pdv(r_i, q_j, t) = pdv(, q_j) (dv(, t) r_i). $
 
 Per definizione, vale anche che
+#set math.equation(numbering: "(1)")
 $ [pdv(vb(r), vb(q))]=[pdv(vb(dot(r)), vb(dot(q)))]. $ <jacobian_derivative>
+#set math.equation(numbering: none)
 
 Infatti la trasformazione $(vb(q), vb(dot(q)), t) |-> vb(dot(r))$ è definita in
 maniera che valga
 $ vb(dot(r)) = [pdv(vb(r), vb(q))] vb(dot(q)) + dv(vb(r), t). $
 
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
+#set math.equation(numbering: "(1)")
 $ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) vb(dot(r))) dprod var(vb(q)). $ <all_together>
+#set math.equation(numbering: none)
+
 
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), vb(dot(q)), t)$,
 ossia $scriptT(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,

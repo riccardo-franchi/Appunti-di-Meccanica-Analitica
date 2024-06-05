@@ -1,7 +1,6 @@
 #import "../setup.typ": *
 
 #show: thmrules
-#set math.equation(numbering: "(1)")
 
 = Piccole oscillazioni
 
@@ -73,7 +72,9 @@ Si scrivono le equazioni di Eulero-Lagrange per $L=L_"quadratica"$:
 $ grad_vb(dot(Q)) L = A vb(dot(Q)) ==> dv(, t) grad_vb(dot(Q)) L = A diaer(vb(Q)) $
 $ grad_vb(Q) L = -B vb(Q) $
 
+#set math.equation(numbering: "(1)")
 $ ==> A diaer(vb(Q)) + B vb(Q) = 0. $ <small_oscillations>
+#set math.equation(numbering: none)
 
 Si è ottenuta una equazione differenziale ordinaria _lineare_. In un certo
 senso, che non verrà approfondito, questa è la migliore approssimazione lineare
@@ -254,11 +255,14 @@ simili alla $g$ definita sui reali.
   per i punti di equilibrio stabile, studiare le piccole oscillazioni.
    
   $ grad U(vb(q)) = 0 <==> (pdv(U(vb(q)), q_1), pdv(U(vb(q)), q_2)) =0 $
+  
+  #set math.equation(numbering: "(1)")
   $ pdv(U(vb(q)), q_1) = g sin q_1 + k sin(q_1-q_2) = 0, $ <deriv_1>
   $ pdv(U(vb(q)), q_2) = g sin q_2 - k sin(q_1-q_2) = 0. $ <deriv_2>
    
   Sommando queste due equazioni, si ottiene che 
   $ sin q_1 = - sin q_2 = sin(-q_2). $ <deriv_sum>
+  #set math.equation(numbering: none)
    
   Si assume per il momento che $q_1>=0$. Dato che il problema è simmetrico
   rispetto al cambio di segno di entrambi $q_1,q_2$, ciò si può sempre fare. Da

@@ -19,9 +19,6 @@
   }
 }
 
-#import "@preview/equate:0.1.0": equate
-#show: equate.with(number-mode: "label")
-
 #include "capitoli/1-ripasso.typ"
 #pagebreak()
 #include "capitoli/2-sistemi_un_grado.typ"

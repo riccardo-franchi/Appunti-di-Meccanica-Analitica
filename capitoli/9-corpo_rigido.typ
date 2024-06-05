@@ -1,7 +1,6 @@
 #import "../setup.typ": *
 
 #show: thmrules
-#set math.equation(numbering: "(1)")
 
 = Il corpo rigido
 
@@ -102,7 +101,11 @@ con $A$ matrice $3 times 3$.
 ]
 #dim[
   dati $vb(X), vb(Y)$, vale
+   
+  #set math.equation(numbering: "(1)")
   $ vb(X) dprod A vb(Y) = m vb(X) dprod vb(R) cprod vb(Y) cprod vb(R) = m (vb(Y) cprod vb(R)) dprod (vb(X) cprod vb(R)) = A vb(X) dprod vb(Y) $ <quadratic>
+  #set math.equation(numbering: none)
+   
   e dunque $A$ è simmetrica.
 ]
 
@@ -165,12 +168,17 @@ $ T=1/2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
   $ ==> T_i = 1/2 sum_(i=1)^N m_i d_i^2 Omega^2 = 1/2 I_vu(E) Omega^2. $
 ]
 
+#set math.equation(numbering: "(1)")
+
 #corollary[
   vale anche che
   $ I_vu(E) = vu(E) dprod hat(I) vu(E). $ <I_E>
   e quindi vale anche
   $ I_k = I_vu(W_k). $ <I_K>
 ]
+
+#set math.equation(numbering: none)
+
 #dim[
   per quanto riguarda @I_E, si ha
   $ 1/2 I_vu(E) Omega^2 = T = 1/2 (Omega vu(E)) dprod hat(I) (Omega vu(E)) = 1/2 Omega^2 vu(E) dprod hat(I) vu(E) ==> I_vu(E) = vu(E) dprod hat(I) vu(E). $

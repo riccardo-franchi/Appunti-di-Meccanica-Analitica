@@ -1,7 +1,6 @@
 #import "../setup.typ": *
 
 #show: thmrules
-#set math.equation(numbering: "(1)")
 
 = Cinematica relativa
 
@@ -42,7 +41,9 @@ $ vb(r) = B_t vb(R) + vb(r_0). $
 Supponendo di seguire un moto, indicandolo con $vb(r)(t)$ se visto da $S$, o con $vb(R)(t)$ se
 visto da $S'$, allora
 
+#set math.equation(numbering: "(1)")
 $ vb(dot(r)) = dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0). $ <general_dot_r>
+#set math.equation(numbering: none)
 
 Si esaminano alcuni casi particolari:
 
