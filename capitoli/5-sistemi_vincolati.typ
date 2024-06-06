@@ -69,7 +69,7 @@ esplicitamente dipendenti dal tempo, e _scleronomi_ gli altri.
     [equazioni che dipendono da posizione e tempo],
     [*scleronomi*],
     [equazioni che dipendono solo dalla posizione],
-  ) // In realtà non c'era bisogno di questa tabella ma volevo esercitarmi
+  )
 ]
 
 L'@ring nel caso in cui il filo è fisso è un vincolo scleronomo, mentre se si
@@ -91,7 +91,7 @@ $ gvec(r) = gvec(r)(q_1, ..., q_d, t) = gvec(r)_t (vb(q)) $
 dove $vb(q)$ è un vettore libero in $RR^d$, può variare in un aperto $U subset.eq RR^d$,
 e le $gvec(r)_t : U -> V subset.eq M_t$ sono funzioni biettive e
 sufficientemente lisce. Per $vb(r)$ fuori da $V$ si applicheranno altre funzioni $gvec(r)_t$:
-$ r = gvec(r)_t (vb(q')), vb(q') in scriptU, vb(r) in V'. $
+$ r = gvec(r)_t (vb(q')), vb(q') in U', vb(r) in V'. $
 
 Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
 
@@ -103,7 +103,6 @@ Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
   Si può usare la mappatura $vb(r)(q) = (q, 0, 10 + sin q)$, con $q in (0, 6 pi)$.
   Si vede che allora il vincolo è scleronomo.
 ]
-// "Non ha senso copiare, ha senso imparare"
 
 #example[
   considerando sempre la configurazione dell'@ring, si considera un filo di ferro
@@ -255,7 +254,7 @@ con $scriptU(vb(q), vb(dot(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q
 $ ==> vb(G)(vb(q), vb(dot(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_vb(dot(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
 \                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
 \                               &= dv(, t) ([pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) U)- [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U = dv(, t) grad_vb(dot(q)) scriptU - grad_vb(q) scriptU $
-dove, nell'ultimo passaggio, si è applicato il seguente lemma.
+dove, nell'ultimo passaggio, si è applicato il seguente lemma:
 
 #lemma[
   data una funzione $f: RR^(2n+1) -> RR$, $f(vb(r), vb(dot(r)), t)$, e una
@@ -270,8 +269,6 @@ La dimostrazione è lasciata come esercizio. Utilizzando questo lemma, osservand
 che $vb(r) = vb(r)(vb(q), t)$ (che implica che $[pdv(vb(r), vb(dot(q)))]=0$),
 $ vb(G)(vb(q), vb(dot(q)), t) = dv(, t) grad_vb(q) scriptU(vb(q), vb(dot(q)), t)-grad_vb(q) scriptU(vb(q), vb(dot(q)), t) $
 che era quanto si voleva mostrare.
-
-// "Vi meritate una birra o una qualunque altra sostanza psicotropa. Ci vediamo domani"
 
 Si presenta una serie di esempi di sistemi vincolati, in cui si vogliono trovare
 le espressioni delle equazioni di Eulero-Lagrange.
@@ -345,7 +342,6 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora
   $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
    
-  // "Facciamo come si fa da grandi, utilizando sempre T senza cambiare carattere"
   $ ==> vb(dot(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
   Il resto dei calcoli è lasciato come esercizio. Si ha infine
   $ T = 1/2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1/2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T(z, dot(z), dot(phi)) = L(z, dot(z), dot(phi)). $

@@ -354,7 +354,7 @@ $ ==> (dv(, t) grad_vb(dot(r))- grad_vb(r)) L = 0 $
 
 Ma se ora si avesse un caso di forza dipendente anche da velocità e tempo $vb(F)(vb(r), vb(dot(r)), t)$ tale
 per cui esiste una funzione $U(vb(r), vb(dot(r)), t)$ con
-$ grad_vb(dot(r)) U(vb(r), vb(dot(r)), t) - grad_vb(r) U(vb(r), vb(dot(r)), t) = vb(F)(vb(r), vb(dot(r)), t), $
+$ dv(, t) grad_vb(dot(r)) U(vb(r), vb(dot(r)), t) - grad_vb(r) U(vb(r), vb(dot(r)), t) = vb(F)(vb(r), vb(dot(r)), t), $
 allora, ugualmente a come appena mostrato, si risale alle equazioni di
 Eulero-Lagrange, per $L=T-U$. In questi casi, $U(vb(r), vb(v), t)$ è detto _potenziale generalizzato_.
 

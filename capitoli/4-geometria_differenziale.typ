@@ -116,7 +116,8 @@ tangente $T_phi(vb(q)) M$ sono tutti e soli i vettori del tipo $D phi_vb(q) (vb(
 con $vb(u) in RR^d$, dato che il differenziale è un'applicazione lineare
 biettiva. Quindi il differenziale indicizza tutti gli elementi di $T_vb(r) M$.
 Questa relazione, in fisica si scrive spesso come
-$ dd(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] dd(vb(q)). $
+$ dd(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] dd(vb(q)), $
+dove si pensa ai vettori tangenti come vettori "infinitesimi".
 
 Se si usa un'altra carta $phi': U'->V'$, con $vb(r) in V'$, la mappatura data
 sopra cambia e diventa

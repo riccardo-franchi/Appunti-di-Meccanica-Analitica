@@ -300,7 +300,7 @@ un tempo infinito".
 
   Avendo una funzione del tipo $F(x_1(E), x_2(E), E)$,
   $ dv(F, E) = diff_1 F dv(x_1, E) + diff_2 F dv(x_2, E) + diff_3 F $
-  // NOTA: Lenci ha detto che si cucca un sacco con le derivate parziali
+  // "si cucca un sacco con le derivate parziali"
 
   E dunque
   $ 1/2 dv(S, E) = -sqrt(2(E-U(x_1(E)))) dv(x_1, E) + sqrt(2(E-U(x_2(E)))) dv(x_2, E) + integral_(x_1)^(x_2) 1/sqrt(2(E-U(xi))) dd(xi) $

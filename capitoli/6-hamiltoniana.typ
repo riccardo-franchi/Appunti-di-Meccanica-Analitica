@@ -187,8 +187,7 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
   coincidere tra loro. Infatti, scegliendo $(vb(q)(t), vb(p)(t)) = (vb(q_0), vb(p_0))$,
   identicamente costante, allora $(vb(dot(q))(t), vb(dot(p))(t)) = (0,0)$. Ma se
   l'uguaglianza vale per ogni $vb(q)$ e $vb(p)$, allora deve valere quanto
-  affermato. // Integrare con le dispense del prof
-  Quindi
+  affermato. Quindi
   $ grad_vb(q) H = -grad_vb(q) L, $
   $ vb(dot(q)) = grad_vb(p) H $
   $ pdv(H, t)=-pdv(L, t). $
