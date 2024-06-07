@@ -178,7 +178,8 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
 ]
 #dim[
   si considera una qualsiasi funzione $t |-> (vb(q)(t), vb(p)(t))$ (anche priva di
-  significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$.
+  significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$, utilizzando
+  le relazioni $H = vb(p) dprod vb(dot(q)) - L(vb(q), vb(dot(q)),t)$ e $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$.
   $ grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + (vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t). $
   Tuttavia, $(vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) = 0$, per definizione
   di $vb(p)$.
@@ -286,7 +287,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   "della divergenza",
 )[
   sotto le ipotesi date, $forall A$ misurabile in $Omega$ vale
-  $ dv(, t) Vol(Phi^t (vb(x))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
+  $ dv(, t) Vol(Phi^t (vb(A))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
 ]
 
 #corollary[
@@ -296,7 +297,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
 
 #example[
   un esempio è un sistema hamiltoniano con $pdv(H, t) = 0$:
-  $ cases(vb(dot(q)) = grad_vb(p) H, vb(dot(q)) = grad_vb(q) H) $
+  $ cases(vb(dot(q)) = grad_vb(p) H, vb(dot(p)) = -grad_vb(q) H) $
   Se si pone $vb(x)=(vb(q), vb(p))$, allora si possono scrivere le equazioni di
   Hamilton nella forma
   $ vb(dot(x)) = vb(f(x)) = JJ grad_vb(x) H(vb(x)) $
@@ -334,8 +335,8 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
   diventi negativo, deve esistere un tempo $overline(t)$ in cui il determinante è
   nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
-  dato che sono bbb(1)ettive, $J Phi^t$ è una matrice non singolare (a
-  determinante non nullo).
+  dato che sono biiettive, $J Phi^t$ è una matrice non singolare (a determinante
+  non nullo).
    
   Quindi,
   $ Vol(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $

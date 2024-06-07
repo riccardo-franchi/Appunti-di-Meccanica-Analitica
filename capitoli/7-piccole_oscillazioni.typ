@@ -35,7 +35,7 @@ soluzione delle equazioni di Eulero-Lagrange.
 #def[
   $vb(q_e)$ si dice _stabile_ se $forall V$ intorno (aperto) di $vb(q_e)$, $exists V'$ intorno
   (aperto) di $vb(q_e)$ e $exists epsilon>0$ tale che, presa una condizione
-  iniziale $vb(q_0) in V'$, $norm(vb(dot(q_0)))<epsilon$, allora l'orbita
+  iniziale $vb(q_0) in V'$, $norm(vb(dot(q)_0))<epsilon$, allora l'orbita
   corrispondente $vb(q)(t) in V, forall t in RR$.
 ]
 
@@ -166,7 +166,8 @@ simili alla $g$ definita sui reali.
 ]
 
 #example[
-  Per ogni $A$ diagonalizzabile,
+  Per ogni $A$ diagonalizzabile, ricordando che il prodotto tra matrici gode della
+  proprietà distributiva per la somma,
   $ cos^2 A + sin^2 A = C cos^2 (Lambda) C^(-1) + C sin^2 (Lambda) C^(-1) = C bb(1) C^(-1) = bb(1). $
 ]
 
@@ -191,9 +192,13 @@ simili alla $g$ definita sui reali.
   $ A diaer(vb(Q)) = - B vb(Q) <==> diaer(vb(x)) = -M vb(x). $
    
   Si afferma che $M$ è definita positiva. Infatti:
-  + è simmetrica perché $M^TT = (A^(-1/2))^TT B^TT (A^(-1/2))^TT$, ma $(A^(-1/2))^TT = (R_A Lambda_A^(-1/2) R_A^TT)^TT = R_A (Lambda_A^(-1/2))^TT R_A^TT = A^(-1/2)$.
+  + è simmetrica perché $M^TT = (A^(-1/2))^TT B^TT (A^(-1/2))^TT$, ma 
+     
+    #box(
+      width: 100%,
+    )[$ (A^(-1/2))^TT = (R_A Lambda_A^(-1/2) R_A^TT)^TT = R_A (Lambda_A^(-1/2))^TT R_A^TT = A^(-1/2). $]
     Quindi, dato che $B = B^TT$, $M^TT = A^(-1/2)B A^(-1/2)=M$.
-  + $forall vb(v) != 0, vb(v) dprod M vb(v) = vb(v) dprod A^(-1/2) B A^(-1/2) vb(v) = (A^(-1/2))^TT vb(v) dprod B(A^(-1/2) vb(v)) = vb(w) dprod B vb(w)$.
+  + $ forall vb(v) != 0, vb(v) dprod M vb(v) = vb(v) dprod A^(-1/2) B A^(-1/2) vb(v) = (A^(-1/2))^TT vb(v) dprod B(A^(-1/2) vb(v)) = vb(w) dprod B vb(w). $
     $vb(w) != 0$ perché $A^(-1/2)$ è non singolare.
    
   Quindi, $exists R$ matrice ortogonale tale che
@@ -255,7 +260,7 @@ simili alla $g$ definita sui reali.
   per i punti di equilibrio stabile, studiare le piccole oscillazioni.
    
   $ grad U(vb(q)) = 0 <==> (pdv(U(vb(q)), q_1), pdv(U(vb(q)), q_2)) =0 $
-  
+   
   #set math.equation(numbering: "(1)")
   $ pdv(U(vb(q)), q_1) = g sin q_1 + k sin(q_1-q_2) = 0, $ <deriv_1>
   $ pdv(U(vb(q)), q_2) = g sin q_2 - k sin(q_1-q_2) = 0. $ <deriv_2>

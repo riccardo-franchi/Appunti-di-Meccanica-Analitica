@@ -490,9 +490,11 @@ La dimostrazione del lemma, equivalente al lemma già fatto nel caso libero, è
 lasciata come esercizio.
 
 #dim[
-  dato $vb(h)(t)$ come in figura, esiste un vettore in $T_vb(r)(t) M$ detto $var(vb(r)(t))$,
-  tale che sostituendo $var(vb(r)(t))$ a $vb(h)(t)$ nelle formule a venire si
-  commette un errore $o(norm(vb(h)(t))) = o(norm(var(vb(r)(t))))$.
+  dato $vb(h)(t)$ tale che $vb(h)(t_0) = vb(h)(t_1)=0$, pensato come "infinitesimo",
+  esiste un vettore in $T_(vb(r)(t)) M$ detto $var(vb(r)(t))$, tale che
+  sostituendo $var(vb(r)(t))$ a $vb(h)(t)$ nelle formule a venire si commette un
+  errore $o(norm(vb(h)(t))) = o(norm(var(vb(r)(t))))$ (ad esempio $var(vb(r))(t)$ può
+  essere pensato come la proiezione ortogonale di $vb(h)(t)$ su $T_(vb(r)(t))M$).
    
   Quindi, ricordando la sezione sul funzionale d'azione libero,
   $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_vb(dot(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
@@ -533,8 +535,8 @@ lasciata come esercizio.
 
 Si assume anche in questo paragrafo di avere soltanto vincoli scleronomi. Si può
 generalizzare il fatto che se la lagrangiana non dipende da una coordinata
-puntata (coordinata ciclica), allora si ha una quantità che si conserva, avendo
-una derivata nulla.
+(coordinata ciclica), allora si ha una quantità che si conserva, avendo una
+derivata nulla.
 
 #def[
   si dice che la funzione differenziabile $h: M->M$ _conserva_ la lagrangiana $L$ se $forall (vb(q), vb(dot(q)), t)$,
@@ -558,6 +560,34 @@ punti, ma dei punti e delle tangenti ai punti.
   lagrangiano ammette una costante del moto che in coordinate locali è data da
   $ I(vb(q), vb(dot(q)),t) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0). $
 ]
+#dim[
+  - Asserto 1: $forall s in (-epsilon, epsilon), vb(Q)(t) = h^s (vb(q)(t))$ soddisfa
+    le equazioni di Eulero-Lagrange.
+  Infatti, se $vb(dot(Q))(t) = D h^s_(vb(q)(t)) (vb(dot(q))(t))$, è immediato
+  verificare che il principio di minima azione per la legge oraria $vb(q)(t)$ si
+  traduce nel principio di minima azione per $vb(Q)(t)$.
+   
+  Data una soluzione $vb(q)(t)$ delle equazioni di Eulero-Lagrange, si definisce
+  $ Gamma(s, t) = h^s (vb(q)(t)). $
+  Si utilizza come notazione:
+  $ dot(Gamma) = pdv(Gamma, t), space.quad Gamma' = pdv(Gamma, s). $
+  Per ipotesi su $h^s$, vale 
+  $ L(h^s (vb(q)(t)), D h^s_(vb(q)(t)) (vb(dot(q))(t)), t) = L(vb(q)(t), vb(dot(q))(t), t), forall s, t $
+  $ ==> L(Gamma(s, t), dot(Gamma)(s,t), t) $
+  è costante in $s$. La sua derivata in $s$ (a $t$ fissato) è
+   
+  #set math.equation(numbering: "(1)")
+  $ 0 = grad_vb(q) L dprod Gamma' + grad_vb(dot(q)) L dprod (dot(Gamma))' $ <pdvLs>
+  #set math.equation(numbering: none) 
+   
+  - Asserto 2: $(dot(Gamma))' = dot(Gamma')$, cioè, $pdv(Gamma, s, t) = pdv(Gamma, t, s)$,
+    per il teorema di Schwarz.
+  Dall'asserto 1, $Gamma(s, dot)$ soddisfa le equazioni di Eulero-Lagrange.
+  Utilizzando quindi l'asserto 2 in @pdvLs,
+  $ 0 = pdv(, t) grad_vb(dot(q)) L dprod Gamma' + grad_vb(dot(q)) L dprod dot(Gamma') = pdv(, t)(grad_vb(dot(q)) L dprod Gamma'). $
+  Svolgendo il calcolo in $s=0$,
+  $ 0 = pdv(, t) grad_vb(dot(q)) L dprod eval(pdv(h^s, s))_(s=0) = dv(, t) grad_vb(dot(q)) L(vb(q)(t), vb(dot(q))(t), t) dprod eval(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), vb(dot(q)), t). $
+]
 
 #example[
   si considera una coordinata ciclica $q_overline(dotless.i)$, cioè $q_overline(dotless.i) |-> L(vb(q), vb(dot(q)),t) $ è
@@ -566,7 +596,8 @@ punti, ma dei punti e delle tangenti ai punti.
   Il differenziale, visto nel fibrato tangente, è dato da
   $ D h^s (vb(q), vb(dot(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q)_1, ..., dot(q)_d) $
   $ ==> L(h(vb(q)), D h_vb(q) (vb(dot(q))), t) = L(vb(q), vb(dot(q)),t). $
-  $ grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)) $
+  Applicando il teorema di Noether, si ha quindi
+  $ grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)). $
 ]
 
 #example[
@@ -624,45 +655,15 @@ punti, ma dei punti e delle tangenti ai punti.
   Tramite considerazioni geometriche, si trova
   $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
   Quindi
-  $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 vb(dot(r_1)), ..., m_N vb(dot(r_N))) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
+  $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 vb(dot(r)_1), ..., m_N vb(dot(r)_N)) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
   $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i vb(dot(r_i))) dprod vu(e_z) = L_z $
   e dunque si conserva la componente $z$ del momento angolare totale $vb(L)$.
-]
-
-#dim(
-  "del teorema di Noether",
-)[
-  - Asserto 1: $forall s in (-epsilon, epsilon), vb(Q)(t) = h^s (vb(q)(t))$ soddisfa
-    le equazioni di Eulero-Lagrange.
-  Infatti, se $vb(dot(Q))(t) = D h^s_(vb(q)(t)) (vb(dot(q))(t))$, è immediato
-  verificare che il principio di minima azione per la legge oraria $vb(q)(t)$ si
-  traduce nel principio di minima azione per $vb(Q)(t)$.
-   
-  Data una soluzione $vb(q)(t)$ delle equazioni di Eulero-Lagrange, si definisce
-  $ Gamma(s, t) = h^s (vb(q)(t)). $
-  Si utilizza come notazione:
-  $ dot(Gamma) = pdv(Gamma, t), space.quad Gamma' = pdv(Gamma, s). $
-  Per ipotesi su $h^s$, vale 
-  $ L(h^s (vb(q)(t)), D h^s_(vb(q)(t)) (vb(dot(q))(t)), t) = L(vb(q)(t), vb(dot(q))(t), t), forall s, t $
-  $ ==> L(Gamma(s, t), dot(Gamma)(s,t), t) $
-  è costante in $s$. La sua derivata in $s$ (a $t$ fissato) è
-   
-  #set math.equation(numbering: "(1)")
-  $ 0 = grad_vb(q) L dprod Gamma' + grad_vb(dot(q)) L dprod (dot(Gamma))' $ <pdvLs>
-  #set math.equation(numbering: none) 
-   
-  - Asserto 2: $(dot(Gamma))' = dot(Gamma')$, cioè, $pdv(Gamma, s, t) = pdv(Gamma, t, s).$
-  Dall'asserto 1, $Gamma(s, dot)$ soddisfa le equazioni di Eulero-Lagrange.
-  Utilizzando quindi l'asserto 2 in @pdvLs,
-  $ 0 = pdv(, t) grad_vb(dot(q)) L dprod Gamma' + grad_vb(dot(q)) L dprod dot(Gamma') = pdv(, t)(grad_vb(dot(q)) L dprod Gamma'). $
-  Svolgendo il calcolo in $s=0$,
-  $ 0 = pdv(, t) grad_vb(dot(q)) L dprod eval(pdv(h^s, s))_(s=0) = dv(, t) grad_vb(dot(q)) L(vb(q)(t), vb(dot(q))(t), t) dprod eval(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), vb(dot(q)), t). $
 ]
 
 #example[
   dimostrare che la lagrangiana 
   $ L'(vb(q), vb(dot(q)),t) = L(vb(q), vb(dot(q)),t) + sum_(i=1)^n F_i (vb(q),t) dot(q)_i + F_t (vb(q),t) $
-  dove $F_i (vb(q),t) = pdv(F, q_i) (vb(q),t)$ e $F_t (vb(q),t) = pdv(F, t) (vb(q),t)$,
+  con $F_i (vb(q),t) = pdv(F, q_i) (vb(q),t)$ e $F_t (vb(q),t) = pdv(F, t) (vb(q),t)$,
   per una qualche funzione $F(vb(q),t)$, dà luogo alle stesse equazioni del moto.
    
   $ pdv(L', q_k) = pdv(L, q_k) + sum_(i=1)^n pdv(F_i, q_k) dot(q)_i + pdv(F_t, q_k) $
@@ -674,4 +675,3 @@ punti, ma dei punti e delle tangenti ai punti.
   $ pdv(F_t, q_k) = pdv(F, q_k, t) = pdv(F, t, q_k) = pdv(F_k, t) $
   e dunque è immediato verificare l'uguaglianza. Queste trasformazioni sono dette _di gauge_.
 ]
-

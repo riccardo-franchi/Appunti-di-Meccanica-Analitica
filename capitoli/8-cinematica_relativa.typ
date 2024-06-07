@@ -27,16 +27,14 @@ dove con le lettere minuscole si denota la base canonica di $S$ e con le
 maiuscole quella di $S'$.
 
 #def[
-  se $tau_vb(a)$ denota la trasformazione di una quantità $vb(a)$ in $RR^3$, cioè $tau_vb(a) (vb(r)) = - vb(r) + vb(a)$,
-  si dice che la trasformazione
+  se $tau_vb(r_0)$ denota la trasformazione di una quantità $vb(r_0)$ in $RR^3$,
+  cioè $tau_vb(r_0) (vb(r)) = vb(r) + vb(r_0)$, si dice che la trasformazione
   $ D_t = tau_vb(r_0) compose B_t $
-  _porta_ $S$ in $S'$.
+  _porta_ $S$ in $S'$ se, detto $vb(r)$ il vettore nel sistema $S$
+  che indica un punto dello spazio, e $R$ è il vettore nel sistema $S'$ che indica
+  lo stesso punto, allora vale
+  $ vb(r) = D_t(vb(R)) = B_t vb(R) + vb(r_0). $
 ]
-
-Ciò significa (per definizione) che se $vb(r)$ è il vettore nel sistema $S$ e
-che indica un punto dello spazio, e $R$ è il vettore nel sistema $S'$ che indica
-lo stesso punto. Allora
-$ vb(r) = B_t vb(R) + vb(r_0). $
 
 Supponendo di seguire un moto, indicandolo con $vb(r)(t)$ se visto da $S$, o con $vb(R)(t)$ se
 visto da $S'$, allora
@@ -62,10 +60,15 @@ $ vb(dot(r)) = dot(B) vb(R) $
 #theorem[
   in ogni istante $t$ si può trovare un vettore $vb(omega)=vb(omega)(t)$ tale che, $forall vb(r)(t)$ dal
   sistema $S$, vale
-  $ vb(dot(r)) = vb(omega cprod vb(r)). $
+   
+  #set math.equation(numbering: "(1)")
+  $ vb(dot(r)) = vb(omega) cprod vb(r). $ <omega>
+  #set math.equation(numbering: none)
+   
 ]
 #exercise[
-  dimostrare che $vb(omega)$ è univocamente determinato.
+  dimostrare che $vb(omega)$ è univocamente determinato (cioè, dato un altro
+  vettore $vb(omega')$ che soddisfa la @omega, necessariamente $vb(omega')=vb(omega)$).
 ]
  
 Un $vb(omega)$ come nel teorema appena enunciato si denota come _velocità angolare_ (istantanea),
@@ -168,7 +171,7 @@ dato che un punto fermo rispetto a $S'$ è sottoposto ad esse.
 
 Si noti che la forza centrifuga è sempre diretta nella direzione di massimo
 allontanamento dall'"asse istantaneo" di rotazione, a distanza $rho$, e il suo
-modulo è $norm(vb(Omega))^2 rho$.
+modulo è $m norm(vb(Omega))^2 rho$.
 
 Si antepone alla dimostrazione del teorema il seguente lemma.
 
