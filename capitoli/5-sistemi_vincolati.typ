@@ -375,9 +375,13 @@ le espressioni delle equazioni di Eulero-Lagrange.
   Rifare poi tutti i conti dell'esempio precedente nel caso non trattato in cui si
   fa ruotare una curva del tipo $z=z(x)$.
 ]
+Riguardo alle geodetiche generali per questo problema, si potrebbe ricavare $dot(phi)$ dalla
+seconda equazione di Eulero-Lagrange e inserirla nella prima, ottenendo
+un'equazione differenziale in $z$, che si potrebbe ricondurre a un problema
+monodimensionale.
 
-Si noti che in quest'ultimo esempio $norm(vb(dot(r)))$ è una costante del moto.
-Infatti, 
+Tuttavia in questo caso è più semplice ragionare in maniera geometrica. Si noti
+innanzitutto che $norm(vb(dot(r)))$ è una costante del moto. Infatti, 
 + La reazione vincolare non compie lavoro, quindi la conservazione dell'energia
   vale anche se si esclude la parte di sistema che genera la reazione vincolare.
   Dunque, per la particella considerata, si conserva $T+U=T$. Ma allora si
@@ -386,7 +390,7 @@ Infatti,
   Quindi 
 $ dv(, t) norm(vb(dot(r)))^2 = 2 vb(dot(r)) dprod diaer(vb(r)) = 2 vb(dot(r)) dprod vb(F_"tot") = 2 vb(dot(r)) dprod vb(R) = 0. $
 
-Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria ($vb(dot(r))$)
+Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria $vb(dot(r))$
 forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(vb(dot(r))) = "costante"$,
 $ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(vb(dot(r))) abs(sin alpha) = "costante" $
 $ ==> r abs(sin alpha) = "costante". $
@@ -397,7 +401,10 @@ Si fanno alcune osservazioni:
 + $r$ e $abs(sin alpha)$ hanno correlazione negativa (sono inversamente
   proporzionali).
 + Se $r_0$ e $alpha_0$ sono le condizioni iniziali di $r(t)$ e $alpha(t)$, allora
-  $ r(t) = (r_0 abs(sin alpha_0))/abs(sin alpha(t)) >= r_0 abs(sin alpha_0). $
+   
+  #box(
+    width: 100%,
+  )[$ r(t) = (r_0 abs(sin alpha_0))/abs(sin alpha(t)) >= r_0 abs(sin alpha_0). $]
   Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo.
 
 #example[
@@ -422,7 +429,7 @@ ma con $vb(r): [t_0,t_1] -> M$ e non in $RR^n$.
   si dice che $vb(r)$ è un _estremale vincolato_ ad $M$ del funzionale $Phi$ come
   sopra, se 
   $ Phi(vb(r)+vb(h))-Phi(vb(r)) = o(norm(vb(h))_(C^1)) $
-  $forall vb(h) : vb(r)(t) + vb(h)(t) in M, forall t in [t_0,t_1], vb(h)(t_0)=vb(h)(t_1)$.
+  $forall vb(h) : vb(r)(t) + vb(h)(t) in M, forall t in [t_0,t_1], vb(h)(t_0)=vb(h)(t_1)=0$.
 ]
 
 Per le lagrangiane viste finora (date dalla differenza tra energia cinetica ed
