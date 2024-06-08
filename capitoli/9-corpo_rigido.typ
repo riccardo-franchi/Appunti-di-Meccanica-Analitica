@@ -54,7 +54,7 @@ condizioni iniziali.
 #theorem[
   il corpo rigido vincolato al punto fisso $O$, origine di $S$, in assenza di
   forze esterne, ammette quattro costanti del moto: $scriptE$ (energia totale,
-  coincidente con l'energia cinetica) e le tre componenti di $vb(l_"tot") = vb(l_(0, "tot"))$ (momento
+  coincidente con l'energia cinetica) e le tre componenti di $vb(l_"tot") = vb(l_(O, "tot"))$ (momento
   totale della quantità di moto rispetto a $O$). Entrambe le quantità si intendono
   riferite a $S$.
 ]
@@ -64,6 +64,8 @@ condizioni iniziali.
   non dipende dal tempo, e dunque la lagrangiana riscritta nelle coordinate
   generalizzate $vb(q)$ dipenderà da $vb(q)$ e da $vb(dot(q))$, ma non dal tempo.
   Allora, si ottiene una hamiltoniana $H(vb(q), vb(p))$ che non dipende dal tempo.
+  Essa è una costante del moto, che in questo caso particolare coincide con
+  l'energia totale (energia cinetica).
    
   Per quanto riguarda il momento della quantità di moto, se si considera
   $ h^s (vb(r_1), ..., vb(r_N)) = (R^((z))_s vb(r_1), ..., R^((z))_s vb(r_N)) $
@@ -85,7 +87,7 @@ tale superficie ha sempre la topologia di una superficie toroidale, sul quale il
 moto è quello del cosiddetto flusso di Kronecker, cioè un moto rettilineo
 uniforme nel quadrato con i lati opposti incollati a due a due.
 
-== Operatore di inerzia 
+== Operatore di inerzia e momenti di inerzia
 
 Si studia il moto di un singolo punto del corpo rigido, quindi solidale a (fermo
 in) $S'$, vincolato in $O=O'$. Vista da $S$, $vb(v) = vb(omega) cprod vb(r)$
@@ -112,11 +114,11 @@ con $A$ matrice $3 times 3$.
 #corollary[
   l'energia cinetica di un punto materiale del corpo rigido vincolato è una forma
   quadratica in $vb(Omega)$. In particolare,
-  $ T_1 = 1/2 vb(Omega) cprod A vb(Omega). $
+  $ T_1 = 1/2 vb(Omega) dprod A vb(Omega). $
 ]
 #dim[
   Da @quadratic,
-  $ 1/2 vb(Omega) cprod A vb(Omega) = m/2 norm(vb(Omega) cprod vb(R))^2 = m/2 norm(vb(V))^2 = T_1. $
+  $ 1/2 vb(Omega) dprod A vb(Omega) = m/2 norm(vb(Omega) cprod vb(R))^2 = m/2 norm(vb(V))^2 = T_1. $
 ]
 
 Si osserva che l'energia cinetica di un punto non solo è la stessa quantità
@@ -156,8 +158,8 @@ $ T=1/2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
 
 #prop[
   l'energia cinetica di un corpo rigido vincolato ad $O$ che, ad un determinato
-  tempo, ruota con velocità angolare $Omega = Omega vu(E)$ attorno all'asse
-  passante per $O$ con direzione $vb(E)$, è
+  tempo, ruota con velocità angolare $vb(Omega) = Omega vu(E)$ attorno all'asse
+  passante per $O$ con direzione $vu(E)$, è
   $ T = 1/2 I_vu(E) Omega^2 $
   con 
   $ I_vu(E) = sum_(i=1)^N m_i d_i^2 $
@@ -165,7 +167,7 @@ $ T=1/2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
 ]
 #dim[
   $ norm(vb(V_i)) = norm(vb(Omega) cprod vb(R_i)) = Omega d_i $
-  $ ==> T_i = 1/2 sum_(i=1)^N m_i d_i^2 Omega^2 = 1/2 I_vu(E) Omega^2. $
+  $ ==> T = 1/2 sum_(i=1)^N m_i d_i^2 Omega^2 = 1/2 I_vu(E) Omega^2. $
 ]
 
 #set math.equation(numbering: "(1)")
@@ -216,6 +218,14 @@ devono essere uguali tra loro.
           &= 2/5 M a^2. $
 ]
 
+Nota: Il momento di inerzia rispetto ad un asse è appunto rispetto ad un asse,
+non ad un vettore, anche se la notazione $I_vb(E)$ lascerebbe pensare alla
+seconda ipotesi. Quando il punto di vincolo è fissato e chiarito, non c'è
+confusione perché un vettore $vb(E)$ determina univocamente un asse passante per $O$ e
+diretto come $vb(E)$ (ma non il viceversa). Ma quando si cambia il punto di
+vincolo $O$, due assi paralleli hanno in generale momenti di inerzia diversi.
+Vale infatti, a questo proposito, il seguente teorema.
+
 #theorem(
   "di Huygens-Steiner",
 )[
@@ -224,7 +234,7 @@ devono essere uguali tra loro.
   relazione
   $ I_a = I_a_"CM" + M D^2 $
   dove $I_a$ e $I_a_"CM"$ sono i momenti di inerzia rispetto ad $a$ e $a_"CM"$,
-  rispettivamente.
+  rispettivamente, e $M$ è la massa del corpo rigido.
 ]
 #corollary[
   fra tutti gli assi paralleli, quello che dà il momento di inerzia minore (per un
@@ -235,14 +245,14 @@ devono essere uguali tra loro.
   si considera uno yo-yo, con il filo e il cilindro interno di masse trascurabili,
   e massa (concentrata quindi nei due cilindri esterni) $M$, con raggi per il
   cilindretto interno e quelli esterni, rispettivamente $a$ e $A$. Si indica con $l$ la
-  lunghezza della parte arrotolata del filo. Detto P il punto dove lo yo-yo è
+  lunghezza della parte arrotolata del filo. Detto $P$ il punto dove lo yo-yo è
   appeso, esso è istantaneamente fermo.
   $ vb(N_p) = vb(dot(L)_P) = dv(, t)(hat(I) vb(Omega)) $
   In termini scalari,
   $ N_P = dot(L)_P = dv(, t)(hat(I)_P Omega_P) $
   Intuitivamente, ma si può dimostrare, vale
   $ N_P = a M g $
-  Infatti, (si tratta di un caso specifico del il teorema di König),
+  Infatti (si tratta di un caso specifico del teorema di König),
   $ vb(N) = vb(N_"tot") = sum_i vb(N_i) = sum_i vb(r_i) cprod vb(F_i^"ext") = sum_i m_i vb(r_i) cprod vb(g) = M vb(r_"CM") cprod vb(g) = vb(r_"CM") cprod M vb(g). $
    
   Dato che $I = M/2 A^2$, per il teorema di Huygens-Steiner,

@@ -227,7 +227,7 @@ Si è già dimostrato questo lemma in passato.
   $ scriptL(vb(R), vb(dot(R)), t) = m/2 norm(vb(dot(R)))^2 - scriptU(vb(R), vb(dot(R)), t) - scriptU_"tr" (vb(R), vb(dot(R)),t) - scriptU_"co" (vb(R), vb(dot(R)),t) $
   dove 
   $ scriptU(vb(R), vb(dot(R)), t) = U(B vb(R) + vb(r_0), dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0), t), $
-  $ scriptU_"tr" (vb(R), vb(dot(R)),t) = + m vb(diaer(r)_0) dprod B vb(R) - m/2 norm(vb(dot(r)_0))^2 - m/2 norm(dot(B) vb(R))^2, $
+  $ scriptU_"tr" (vb(R), vb(dot(R)),t) = m vb(diaer(r)_0) dprod B vb(R) - m/2 norm(vb(dot(r)_0))^2 - m/2 norm(dot(B) vb(R))^2, $
   $ scriptU_"co" (vb(R), vb(dot(R)),t) = -m B vb(dot(R)) dprod dot(B) vb(R). $
 ]
 
