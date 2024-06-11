@@ -236,6 +236,23 @@ Vale infatti, a questo proposito, il seguente teorema.
   dove $I_a$ e $I_a_"CM"$ sono i momenti di inerzia rispetto ad $a$ e $a_"CM"$,
   rispettivamente, e $M$ è la massa del corpo rigido.
 ]
+#dim[
+  detta $vb(R_i)$ la posizione dell'$i$-esimo punto materiale (di massa $m_i$) del
+  corpo rigido, relativa ad un'origine (vincolo) us $a$, e detta $vb(R_i^perp) = Pi(vb(R_i))$ la
+  sua proiezione ortogonale su un piano normale agli assi $a$ e $a_"CM"$.
+  Indicando con $vb(D)$ il vettore su questo piano che va da $a$ ad $a_"CM"$, si
+  ha che
+  $ vb(r_i) = vb(D) + vb(R_i^perp). $
+  Per definizione di momento di inerzia rispetto ad un asse,
+  $ I_a_"CM" = sum_(i=1)^N m_i norm(vb(R_i^perp))^2 $
+  $ I_a = sum_(i=1)^N m_i norm(vb(r_i))^2 $
+  ma, essendo la proiezione ortogonale $Pi$ un operatore lineare, vale
+  $ I_a = sum_(i=1)^N m_i norm(vb(D) + vb(R_i^perp))^2 = M D^2 + I_a_"CM" + 2 vb(D) dprod Pi(sum_(i=1)^N m_i vb(R_i)). $
+  D'altra parte,
+  $ sum_(i=1)^N m_i vb(R_i) = M vb(R_"CM") ==> M Pi(vb(R_"CM")) = 0 $
+  perché il centro di massa appartiene all'asse $a_"CM"$ e dunque ha proiezione
+  nulla su un suo piano ortogonale.
+]
 #corollary[
   fra tutti gli assi paralleli, quello che dà il momento di inerzia minore (per un
   dato corpo rigido) è quello passante per il centro di massa.

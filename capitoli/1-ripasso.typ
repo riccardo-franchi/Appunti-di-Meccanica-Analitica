@@ -335,7 +335,7 @@ dato che $vb(r_i)-vb(r_j)$ è parallelo a $vb(F_(i j))$.
 Si mostra che un sistema con forze interne del tipo
 $ vb(F_(i j))=f_(i j)(norm(vb(r_k)-vb(r_j)))(vb(r_k)-vb(r_j))/norm(vb(r_k)-vb(r_j)) $
 è conservativo con energia potenziale
-$ U^"int" (gvec(r))-U(gvec(r)) = - sum_(i<j) g_(i j)(norm(vb(r_i)-vb(r_j))) $
+$ U^"int" (gvec(r)) = U(gvec(r)) = - sum_(i<j) g_(i j)(norm(vb(r_i)-vb(r_j))) $
 con
 $ g_(i j)(r) = integral_(r_0)^r f_(i j)(rho)dd(rho). $
 Si ha che
