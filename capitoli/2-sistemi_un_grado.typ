@@ -542,7 +542,7 @@ Assumendo di avere il segno positivo,
 $ phi(r) = arcsin((L/r - k/L)/(sqrt(2E + k^2/L^2))) + phi_0. $
 
 Chiamando, per convenienza, $p := L^2/k$, $e := sqrt(1+(2 E L^2)/k^2)$, e dunque
-si ottiene, moltiplicando a numeratore e denominatore per $r/k$,
+si ottiene, moltiplicando a numeratore e denominatore per $L/k$,
 $ phi(r) = arcsin((L^2/(k r) - 1)/sqrt(1+(2 E L^2)/k^2)) + phi_0 = arcsin((p/r -1)/e) + phi_0 $
 $ ==> sin (phi-phi_0) = (p/r-1)/e $
 $ ==> r = p/(1+e sin (phi-phi_0)). $

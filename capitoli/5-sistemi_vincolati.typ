@@ -199,14 +199,14 @@ $ vb(dot(r)) = [pdv(vb(r), vb(q))] vb(dot(q)) + dv(vb(r), t). $
 
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
 #set math.equation(numbering: "(1)")
-$ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (dv(, t) [pdv(vb(r), vb(q))]^TT) vb(dot(r))) dprod var(vb(q)). $ <all_together>
+$ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - dv(, t) [pdv(vb(r), vb(q))]^TT vb(dot(r))) dprod var(vb(q)). $ <all_together>
 #set math.equation(numbering: none)
 
 
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), vb(dot(q)), t)$,
 ossia $scriptT(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,
 
-$ dv(scriptT, dot(q)_j) = sum_(i=1)^n dv(scriptT, dot(r)_i) dv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i dv(dot(r)_i, dot(q)_j) = m ([pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r)))_j $
+$ dv(scriptT, dot(q)_j) = sum_(i=1)^n pdv(scriptT, dot(r)_i) pdv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i pdv(dot(r)_i, dot(q)_j) = m ([pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r)))_j $
 $ ==> grad_vb(dot(q)) scriptT = m [pdv(vb(dot(r)), vb(dot(q)))]^TT vb(dot(r)). $
 
 Analogamente, sostituendo $dot(q)_j$ con $q_j$, si ottiene
@@ -258,11 +258,12 @@ dove, nell'ultimo passaggio, si è applicato il seguente lemma:
 
 #lemma[
   data una funzione $f: RR^(2n+1) -> RR$, $f(vb(r), vb(dot(r)), t)$, e una
-  funzione $phi: RR^(2d +1) -> RR^(2n+1)$, $phi(vb(q), vb(dot(q)), t)$, si pone
+  funzione $phi: RR^(2d +1) -> RR^(2n+1)$, $phi(vb(q), vb(dot(q)), t) = (vb(r)(vb(q), vb(dot(q)), t), vb(dot(r))(vb(q), vb(dot(q)), t),t)$,
+  si pone
   $ tilde(f) = f compose phi: RR^(2n+1) -> RR. $
   Vale che
-  $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) tilde(f) + [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) tilde(f) $
-  $ grad_vb(dot(q)) tilde(f) = [pdv(vb(r), vb(dot(q)))]^TT grad_vb(r) tilde(f) + [pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) tilde(f) $
+  $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) f + [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) f $
+  $ grad_vb(dot(q)) tilde(f) = [pdv(vb(r), vb(dot(q)))]^TT grad_vb(r) f + [pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) f $
 ]
 
 La dimostrazione è lasciata come esercizio. Utilizzando questo lemma, osservando
