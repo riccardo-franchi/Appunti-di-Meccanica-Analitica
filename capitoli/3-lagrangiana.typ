@@ -113,7 +113,7 @@ $ (A - B) vb(h) = o(||vb(h)||_(C^1)) space space forall vb(h) wide => wide A = B
 
 Si considera l'insieme di funzioni
 $ S_(vb(x_0), vb(x_1)) = {vb(x): [t_0,t_1] -> RR^d, vb(x) in C^1, vb(x)(t_0) = vb(x_0), vb(x)(t_1) = vb(x_1)} $
-Che non è un insieme lineare (se $vb(x) in S_(vb(x_0), vb(x_1))$, generalmente
+che non è un insieme lineare (se $vb(x) in S_(vb(x_0), vb(x_1))$, generalmente
 non vale che $2 vb(x) in S_(vb(x_0), vb(x_1))$).
 
 #def[
