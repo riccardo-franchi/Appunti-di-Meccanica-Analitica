@@ -308,7 +308,7 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
   ma, definendo $vb(l)$ in modo che
   $ vb(q)(t) = vb(q)(vb(r)(t)) $
   $ vb(l)(t) = vb(q)(vb(r) + vb(h)(t)) - vb(q)(vb(r)), $
-  allora dunque $o_vb(r) (norm(vb(h))_(C^1))=o_vb(q) (norm(vb(l))_(C^1))$.
+  allora $o_vb(r) (norm(vb(h))_(C^1))=o_vb(q) (norm(vb(l))_(C^1))$.
 ]
 
 #example(
