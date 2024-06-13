@@ -215,7 +215,7 @@ $ m diaer(vb(r)) (t) = - grad_vb(r) U(vb(r)(t)) $
 
 Si osserva che la lagrangiana non è unica, ossia, la forma data non è l'unica
 per cui gli estremali di $Phi$ coincidono con le leggi della meccanica. Infatti,
-vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
+vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange, come $L' = alpha L$ ($alpha$ costante).
 
 #example[
   Un esempio banale è il moto libero, per cui ($U=0$). La lagrangiana vale allora
