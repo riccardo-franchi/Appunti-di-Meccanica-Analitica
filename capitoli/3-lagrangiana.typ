@@ -61,7 +61,7 @@ Considerando una funzione $L: RR^d times RR^d times RR -> RR$. Si assume $L$ dif
 e $C^1$ (tutte le derivate parziali prime sono continue). Gli argomenti di $L$ si
 indicano come $(vb(x), vb(v), t)$, con $vb(x) = (x_1,...,x_d), vb(v) = (v_1,...,v_d)$.
 Si definisce, con $vb(x): [t_0,t_1]->RR^d$,
-$ Phi(vb(x)) = integral_(x_0)^(x_1) L(vb(x), vb(dot(x)), t) dd(t), $
+$ Phi(vb(x)) = integral_(t_0)^(t_1) L(vb(x), vb(dot(x)), t) dd(t), $
 definito su $S = {vb(x): [t_0,t_1]-> RR^d, vb(x) in C^1}$ (ci si potrebbe dover
 restringere a funzioni $vb(x)$ tali che $(vb(x), vb(dot(x)), t)$ appartengano al
 dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
