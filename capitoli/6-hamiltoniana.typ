@@ -280,15 +280,86 @@ funzioni che mostrano l'andamento di un'equazione differenziale.
   $ dv(, s) Phi^(t+s) (vb(x)) = dv((t+s), s) dv(, (t+s)) Phi^(t+s) = vb(f)(Phi^(t+s) (vb(x))). $
 ]
 
+Mentre si studia spesso la questione della regolarità delle soluzioni delle
+equazioni differenziali come funzioni del tempo, si studia poco la questione
+della loro regolarità come funzioni della loro condizione iniziale, ossia la
+regolarità del flusso. Per esempio, esiste un teorema che afferma che se $f:Omega->RR^n$ è
+di classe $C^k$, allora, per $t$ fissato, $Phi^t$ è di classe $C^k$. Ancora meno
+si studia la regolarità del flusso $Phi^t(vb(x))$ come funzione di entrambe $vb(x)$ e $t$.
+
 Come funzione $Omega times RR -> Omega$, ($(vb(x),t) |->Phi^t (vb(x))$) si
 assumerà sempre che $Phi$ sia sufficientemente regolare, tale almeno da far
 valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
+
+Si considera ora un insieme "pieno" di condizioni iniziali. Ci si preoccupa di
+capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR^n$.
 
 #theorem(
   "della divergenza",
 )[
   sotto le ipotesi date, $forall A$ misurabile in $Omega$ vale
   $ dv(, t) Vol(Phi^t (vb(A))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
+]
+#dim[
+  Senza perdita di generalità, si assume che $A$ sia un insieme di volume finito
+  (nel caso in cui non lo fosse si potrebbe suddividerlo in una quantità
+  numerabile di insiemi di volume finito). Allora,
+  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]), $
+  dove si è fatto il cambio di variabile 
+  $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
+  $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
+  $ y in Phi^t (A) <==> vb(x) in A. $
+  Si asserisce che
+  $ det J Phi^t (vb(x)) > 0 space forall vb(x), forall t $
+  ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
+  diventi negativo, deve esistere un tempo $overline(t)$ in cui il determinante è
+  nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
+  dato che sono biettive, $J Phi^t$ è una matrice non singolare (a determinante
+  non nullo).
+   
+  Per un corollario del teorema della convergenza dominata di Lebesgue, che vale
+  se $abs(pdv(, t) J Phi^t (vb(x))) <= g(vb(x))$, con $g$ sommabile in un intorno
+  di $t$ (nel caso che si sta considerando vale in quanto $Phi in C^2$),
+  $ dv(, t) Vol(Phi^t (A)) = integral_A pdv(, t) J Phi^t (vb(x)) dd(x, [n]). $
+   
+  Ora, siccome 
+  $ Phi^(t+s) = Phi^s compose Phi^t $
+  $ ==> D Phi^(t+s)_vb(x) = D Phi^s_(Phi^t) D Phi^t_vb(x), $
+  $ ==> J Phi^(t+s) (vb(x)) = J Phi^s (Phi^t (vb(x))) J Phi^t (vb(x)) $
+  con $J = [pdv(Phi^t, vb(x))(vb(x))]$ (matrice jacobiana).
+  $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s (Phi^t (vb(x))) det J Phi^t (vb(x)). $
+   
+  Utilizzando il fatto che
+  $ pdv(, (t+s))eval(det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) $
+  $ ==> pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) $
+   
+  $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
+   
+  Si verifica che
+  $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
+   
+  Si nota innanzitutto che $Phi^0 = "id"$, $J Phi^0 (vb(x)) = bb(1)$, $forall vb(x)$.
+  Per ipotesi $s |-> J Phi^s$ è $C^1$, e quindi, per $s->0$,
+   
+  $ J Phi^s (vb(x)) = bb(1) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
+  Ma, utilizzando nell'ultima uguaglianza la definizione di flusso,
+  $ eval(pdv(, s) [J Phi^s (vb(x))]_(i j))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) f_i (vb(x)). $
+  E dunque
+  $ [J Phi^s (vb(x))]_(i j) = delta_(i j) + s pdv(f_i, x_j)(vb(x)) + o(s). $
+  Si calcola il determinante della matrice jacobiana:
+  - Moltiplicando gli elementi diagonali, si ha
+  $ product_(i=1)^n (1+s pdv(f_i, x_i)+o(s)) = 1+ sum_(i=1)^n pdv(f_i, x_i) +o(s). $
+  - Per le altre permutazioni, si devono sempre prendere almeno due termini fuori
+    dalla diagonale (altrimenti si ripeterebbe almeno una riga o una colonna).
+    Quindi tutti gli altri termini sono $o(s)$, dato che gli elementi fuori
+    diagonale non hanno gli $1$. 
+  Allora, il determinante è
+  $ det J Phi^s (vb(x)) = 1 + s sum_(i=1)^n pdv(f_i, x_j)(vb(x)) + o(s) $
+  $ ==> eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
+   
+  Allora, si ha che, invertendo il cambio di variabile fatto a inizio
+  dimostrazione,
+  $ dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (A)) div vb(f(y)) dd(y, [n]). $
 ]
 
 #corollary[
@@ -312,79 +383,6 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
   nulla:
   $ grad_vb(x) dprod vb(f) = sum_(i=1)^n pdv(f_i, x_i) + sum_(i=1)^n pdv(f_(i+n), x_(i+n)) $
   $ = sum_(i=1)^n pdv(, q_i)pdv(H, p_i)- pdv(, p_i)pdv(H, q_i) = 0. $
-]
-
-#dim(
-  "del teorema della divergenza",
-)[
-  $ Phi^(t+s) = Phi^s compose Phi^t $
-  $ ==> D Phi^(t+s)_vb(x) = D Phi^s_(Phi^t) D Phi^t_vb(x), $
-  $ ==> J Phi^(t+s) (vb(x)) = J Phi^s ((Phi^t)(vb(x))) J Phi^t (vb(x)) $
-  con $J = [pdv(Phi^t, vb(x))(vb(x))]$ (matrice jacobiana).
-  $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s ((Phi^t)(vb(x))) det J Phi^t (vb(x)). $
-  Il determinante della matrice jacobiana serve perché:
-  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]), $
-  facendo un cambio di variabile,
-  $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
-  $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
-  $ y in Phi^t (A) <==> vb(x) in A, $
-  e pertanto
-  $ Vol(Phi^t (vb(x))) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]). $
-   
-  Si asserisce che
-  $ det J Phi^t (vb(x)) > 0 space forall vb(x), forall t $
-  ed è continua in $t$. Infatti, $J Phi^0 (vb(x)) = 1$. Affinché il determinante
-  diventi negativo, deve esistere un tempo $overline(t)$ in cui il determinante è
-  nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
-  dato che sono biiettive, $J Phi^t$ è una matrice non singolare (a determinante
-  non nullo).
-   
-  Quindi,
-  $ Vol(Phi^t (vb(x))) = integral_A det J Phi^t (vb(x)) dd(x, [n]). $
-   
-  Senza perdita di generalità, si assume che $A$ sia un insieme di volume finito
-  (nel caso in cui non lo fosse si potrebbe suddividerlo in una quantità
-  numerabile di insiemi di volume finito). Allora,
-  $ pdv(J Phi^t, t) = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)), $
-  per un corollario del teorema della convergenza dominata di Lebesgue, che vale
-  se $abs(pdv(, t) J Phi^t (vb(x))) <= g(vb(x))$, con $g$ sommabile in un intorno
-  di $t$ (nel caso che si sta considerando vale in quanto $Phi in C^2$),
-  $ dv(, t) Vol(Phi^t (A)) = integral_A pdv(, t) J Phi^t (vb(x)) dd(x, [n]) $
-  $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
-   
-  Si verifica che
-  $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
-   
-  Una dimostrazione sbagliata ma data da molti libri usa il fatto che
-  $ Phi^s (vb(x)) = Phi^0 (vb(x)) + s eval(pdv(Phi^s (vb(x)), s))_(s=0) + o(s) = vb(x) + s vb(f(x)) + o(s). $
-  Infatti, la derivata di un flusso rispetto al parametro $s$ è, per definizione
-  di flusso,
-  $ pdv(, s) Phi^s (vb(x)) = vb(f) (Phi^s (vb(x))) $
-  $ ==> eval(pdv(Phi^s (vb(x)), s))_(s=0) = vb(f(x)) = vb(dot(x)) $
-  $ ==> [J Phi^s (vb(x))]_(i j) = (Phi_i^s (vb(x)), x_j) = delta_(i j) + s pdv(f_i, x_j) + o(s). $
-  Quest'ultima equazione è vera, ma c'è un errore: infatti, in generale,
-  $ pdv(o(s), x_i) != o(s). $
-   
-  Per una dimostrazione corretta, si usano comunque le proprietà del flusso, ma
-  direttamente sulla jacobiana:
-  $ J Phi^s (vb(x)) = J Phi^0 (vb(x)) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
-  Ora, $J Phi^0 (vb(x)) = bb(1)$ è la matrice identità, e
-  $ eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) (f_i (vb(x))). $
-  E dunque
-  $ [J Phi^s (vb(x))]_(i j) = delta_(i j) + s pdv(f_i, x_j)(vb(x)) + o(s). $
-  Si calcola il determinante utilizzando il teorema di Binet:
-  - Moltiplicando gli elementi diagonali, si ha
-  $ product_(i=1)^n (1+s pdv(f_i, x_i)+o(s)) = 1+ sum_(i=1)^n pdv(f_i, x_i) +o(s). $
-  - Per le altre permutazioni, si devono sempre prendere almeno due termini fuori
-    dalla diagolane (altrimenti si ripeterebbe almeno una riga o una colonna).
-    Quindi tutti gli altri termini sono $o(s)$, dato che gli elementi fuori
-    diagonale non hanno gli $1$. Allora,
-  $ det J Phi^s (vb(x)) = 1 + s sum_(i=1)^n pdv(f_i, x_j)(vb(x)) + o(s) $
-  $ ==> eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
-   
-  Allora, si ha che, invertendo il cambio di variabile fatto a inizio
-  dimostrazione,
-  $ dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (A)) div vb(f(y)) dd(y, [n]). $
 ]
 
 Per i campi vettoriali che conservano i volumi vale un importante teorema, il _teorema di ricorrenza di Poincaré_,
