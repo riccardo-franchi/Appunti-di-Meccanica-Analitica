@@ -61,7 +61,7 @@ Considerando una funzione $L: RR^d times RR^d times RR -> RR$. Si assume $L$ dif
 e $C^1$ (tutte le derivate parziali prime sono continue). Gli argomenti di $L$ si
 indicano come $(vb(x), vb(v), t)$, con $vb(x) = (x_1,...,x_d), vb(v) = (v_1,...,v_d)$.
 Si definisce, con $vb(x): [t_0,t_1]->RR^d$,
-$ Phi(vb(x)) = integral_(x_0)^(x_1) L(vb(x), vb(dot(x)), t) dd(t), $
+$ Phi(vb(x)) = integral_(t_0)^(t_1) L(vb(x), vb(dot(x)), t) dd(t), $
 definito su $S = {vb(x): [t_0,t_1]-> RR^d, vb(x) in C^1}$ (ci si potrebbe dover
 restringere a funzioni $vb(x)$ tali che $(vb(x), vb(dot(x)), t)$ appartengano al
 dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
@@ -98,13 +98,22 @@ $ D Phi_vb(x) (vb(h)) = integral_(t_0)^(t_1) (grad_vb(x) L - dv(, t) grad_vb(v) 
   $ ==> abs(integral_(t_0)^(t_1) R(vb(h))(t) dd(t)) <= integral_(t_0)^(t_1) R(vb(h))(t)dd(t) <= integral_(t_0)^(t_1) epsilon norm(vb(h))_(C^1) dd(t) = epsilon (t_1-t_0) norm(vb(h))_(C^1). $
 
   Infine, sostituendo,
-  $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + [pdv(L, v_i) h_i]_(t_0)^(t_1)} + o(norm(vb(h))_(C_1)) $
+  $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + [pdv(L, v_i) h_i]_(t_0)^(t_1)} + o(norm(vb(h))_(C^1)) $
   che è quanto si voleva dimostrare, per definizione di differenziale.
 ]
 
+Si può dimostrare facilmente anche l'unicità di questa applicazione lineare. Scrivo infatti
+$ cases(Phi(vb(x) + vb(h)) - Phi(vb(x)) = A vb(h) + o(||vb(h)||_(C^1)) \
+ Phi(vb(x) + vb(h)) - Phi(vb(x)) = B vb(h) + o(||vb(h)||_(C^1))) \
+$
+da cui, per linearità,
+$ (A - B) vb(h) + o(||vb(h)||_(C^1)) = 0 $
+e dunque
+$ (A - B) vb(h) = o(||vb(h)||_(C^1)) space space forall vb(h) wide => wide A = B $
+
 Si considera l'insieme di funzioni
 $ S_(vb(x_0), vb(x_1)) = {vb(x): [t_0,t_1] -> RR^d, vb(x) in C^1, vb(x)(t_0) = vb(x_0), vb(x)(t_1) = vb(x_1)} $
-Che non è un insieme lineare (se $vb(x) in S_(vb(x_0), vb(x_1))$, generalmente
+che non è un insieme lineare (se $vb(x) in S_(vb(x_0), vb(x_1))$, generalmente
 non vale che $2 vb(x) in S_(vb(x_0), vb(x_1))$).
 
 #def[
@@ -206,7 +215,7 @@ $ m diaer(vb(r)) (t) = - grad_vb(r) U(vb(r)(t)) $
 
 Si osserva che la lagrangiana non è unica, ossia, la forma data non è l'unica
 per cui gli estremali di $Phi$ coincidono con le leggi della meccanica. Infatti,
-vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange.
+vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange, come $L' = alpha L$ ($alpha$ costante).
 
 #example[
   Un esempio banale è il moto libero, per cui ($U=0$). La lagrangiana vale allora
