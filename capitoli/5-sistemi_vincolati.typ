@@ -498,14 +498,14 @@ lasciata come esercizio.
   essere pensato come la proiezione ortogonale di $vb(h)(t)$ su $T_(vb(r)(t))M$).
    
   Quindi, ricordando la sezione sul funzionale d'azione libero,
-  $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_vb(dot(r)) L - grad_vb(r) L) dprod vb(h) dd(t) + o(norm(vb(h))). $
+  $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_vb(dot(r)) L - grad_vb(r) L) dprod var(vb(r)) dd(t) + o(norm(vb(h))) = integral_(t_0)^(t_1) (m vb(diaer(r)) - vb(F)) dprod var(vb(r)) dd(t) + o(norm(vb(h))). $
   Il principio di D'Alembert implica che l'integrale è nullo e quindi $vb(r)$ è un
   estremale condizionato (vincolato).
    
   Viceversa, se $vb(r)$ è un estremale condizionato,
   $ integral_(t_0)^(t_1) (m diaer(vb(r)) - vb(F)(vb(r)(t), vb(dot(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
-  per ogni variazione $vb(h)(t)$. Ciò implica il principio di D'Alembert per il
-  lemma precedente.
+  per ogni variazione $var(vb(r))(t)$. Ciò implica il principio di D'Alembert per
+  il lemma precedente.
 ]
 
 #example[

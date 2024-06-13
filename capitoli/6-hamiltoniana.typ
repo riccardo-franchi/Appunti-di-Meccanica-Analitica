@@ -103,10 +103,10 @@ funzione.
   Si deve dimostrare che, $forall vb(v) = (v_1, ...,v_n) in RR^n$ vale che
   $ vb(v) dprod H g(vb(p)) vb(v) = sum_(i j) pdv(g(vb(p)), p_i, p_j) v_i v_j >= 0. $
   Ma,
-  $ pdv(g(vb(p)), p_i, p_j) = sum_(i j k l) pdv(x_k, p_j) v_j pdv(f, x_l, x_k) pdv(x_l, p_i) v_i. $
+  $ sum_(i j) pdv(g(vb(p)), p_i, p_j) v_i v_j = sum_(i j k l) pdv(x_k, p_j) v_j pdv(f, x_l, x_k) pdv(x_l, p_i) v_i. $
   Si definisce
   $ vb(w) = [pdv(vb(x), vb(p))] vb(v) $
-  $ ==> pdv(g(vb(p)), p_i, p_j) = sum_(k l) w_k pdv(f, x_l, x_k) w_l >=0 $
+  $ ==> sum_(i j) pdv(g(vb(p)), p_i, p_j) v_i v_j = sum_(k l) w_k pdv(f, x_l, x_k) w_l >=0 $
   dato che l'hessiana di $f$ è semidefinita positiva.
 ]
 
@@ -116,7 +116,7 @@ funzione.
 ]
 #dim[
   si definisce
-  $ h(vb(y)) = (scriptL g)(vb(p)) = y dprod vb(p(y)) - g(vb(p(y))), $
+  $ h(vb(y)) = (scriptL g)(vb(p)) = vb(y) dprod vb(p(y)) - g(vb(p(y))), $
   con $vb(p(y))$ unica soluzione di $vb(y) = grad_vb(p) g(vb(p))$, e vale che $vb(y) = grad_vb(p) g(vb(p(y)))$.
   Il lemma precedente afferma che $grad_vb(p) g(vb(p)) = vb(x(p))$. Allora
   $ vb(y) = vb(x(p(y))) $
@@ -271,10 +271,11 @@ funzioni che mostrano l'andamento di un'equazione differenziale.
   mostrare che:
   1. $s |-> Phi^s (Phi^t (vb(x)))$
   2. $s |-> Phi^(s+t) (vb(x))$
-  sono entrambe soluzioni del problema di Cauchy, $forall vb(x) in Omega, forall t in RR$.
-  Si verificano facilmente le condizioni iniziali. Inoltre, soddisfano l'equazione
+  sono entrambe soluzioni del problema di Cauchy, $forall vb(x) in Omega, forall t in RR$,
+  con la stessa condizione iniziale $vb(x)(0) = Phi^t (vb(x))$. Si verificano
+  facilmente le condizioni iniziali. Inoltre, soddisfano l'equazione
   differenziale. Considerando la prima funzione:
-  $ dv(, t) Phi^s (Phi^t (vb(x))) = vb(f)(Phi^s (Phi^t (vb(x)))). $
+  $ dv(, s) Phi^s (Phi^t (vb(x))) = vb(f)(Phi^s (Phi^t (vb(x)))). $
   Per la seconda funzione,
   $ dv(, s) Phi^(t+s) (vb(x)) = dv((t+s), s) dv(, (t+s)) Phi^(t+s) = vb(f)(Phi^(t+s) (vb(x))). $
 ]
@@ -426,10 +427,10 @@ queste si ripeterano nell'evoluzione del sistema.
   si otterrebbe un assurdo, dato che $B subset.eq A$.
    
   Infine, si osserva che
-  $ Phi^(n T) (B) sect Phi^(m T) = emptyset, forall m,n in NN^+. $
+  $ Phi^(n T) (B) sect Phi^(m T) (B) = emptyset, forall m,n in NN^+. $
   Sia, senza perdita di generalità, $m>n$. Allora si ha che (applicando $Phi^(-m T)$,
   essendo i flussi iniettivi e $Phi^(n T) = emptyset$)
-  $ Phi^(-m T + n T) sect B = emptyset. $
+  $ Phi^(-m T + n T) (B) sect B = emptyset. $
   Da cui si ottiene l'enunciato, grazie all'osservazione precedente. In altre
   parole, si è affermato che tutti i ${Phi^(n T)}_(n in NN^+)$ sono disgiunti.
   Dalle ipotesi, si ha che, essendo i flussi disgiunti,

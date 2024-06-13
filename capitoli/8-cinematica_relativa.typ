@@ -197,7 +197,7 @@ suo corrispondente in $S$ non è $vb(r)$ ma $vb(r)-vb(r_0)$.
   "del teorema",
 )[
   si applica il lemma appena enunciato:
-  $ vb(dot(r)) = dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0) = B(vb(Omega) cprod vb(R) + vb(R) ) + vb(dot(r)_0) $
+  $ vb(dot(r)) = dot(B) vb(R) + B vb(dot(R)) + vb(dot(r)_0) = B(vb(Omega) cprod vb(R) + vb(dot(R))) + vb(dot(r)_0) $
   $ ==> vb(diaer(r)) &= vb(diaer(r)_0) + dot(B)(vb(dot(R)) + vb(Omega) cprod vb(R)) + B(vb(diaer(R)) + vb(dot(Omega)) cprod vb(R) + vb(Omega) cprod vb(dot(R))) \
                    &= vb(diaer(r)_0) + B(vb(Omega) cprod vb(dot(R)) + vb(Omega) cprod (vb(Omega) cprod vb(R))) + vb(diaer(R)) + vb(dot(Omega)) cprod vb(R) + vb(Omega) cprod vb(dot(R)) \
                    &= vb(diaer(r)_0) + B(vb(diaer(R)) + vb(dot(Omega)) cprod vb(R) + vb(Omega) cprod (vb(Omega) cprod vb(R)) + 2 vb(Omega) cprod vb(dot(R))). $
