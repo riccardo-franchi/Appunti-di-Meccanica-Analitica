@@ -98,7 +98,7 @@ $ D Phi_vb(x) (vb(h)) = integral_(t_0)^(t_1) (grad_vb(x) L - dv(, t) grad_vb(v) 
   $ ==> abs(integral_(t_0)^(t_1) R(vb(h))(t) dd(t)) <= integral_(t_0)^(t_1) R(vb(h))(t)dd(t) <= integral_(t_0)^(t_1) epsilon norm(vb(h))_(C^1) dd(t) = epsilon (t_1-t_0) norm(vb(h))_(C^1). $
 
   Infine, sostituendo,
-  $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + [pdv(L, v_i) h_i]_(t_0)^(t_1)} + o(norm(vb(h))_(C_1)) $
+  $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + [pdv(L, v_i) h_i]_(t_0)^(t_1)} + o(norm(vb(h))_(C^1)) $
   che è quanto si voleva dimostrare, per definizione di differenziale.
 ]
 
