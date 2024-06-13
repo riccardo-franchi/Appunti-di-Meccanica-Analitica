@@ -304,7 +304,7 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   Senza perdita di generalità, si assume che $A$ sia un insieme di volume finito
   (nel caso in cui non lo fosse si potrebbe suddividerlo in una quantità
   numerabile di insiemi di volume finito). Allora,
-  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (vb(x))) dd(y, [n]) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]), $
+  $ Vol(Phi^t (vb(x))) = integral_(Phi^t (A)) dd(y, [n]) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]), $
   dove si è fatto il cambio di variabile 
   $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
   $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
@@ -330,7 +330,7 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s (Phi^t (vb(x))) det J Phi^t (vb(x)). $
    
   Utilizzando il fatto che
-  $ pdv(, (t+s))eval(det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) $
+  $ eval(pdv(, (t+s))det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) $
   $ ==> pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) $
    
   $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
