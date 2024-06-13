@@ -38,10 +38,10 @@ quarto).
   $ Phi(f + h) - Phi(f) = (D Phi_f)(h) + o(h), $
   per $h->0$, dove $D Phi_f$ è un'applicazione lineare da $S$ in $RR$, detta _differenziale_ di $Phi$ nel
   punto $f$.
-
+   
   Con $h->0$, si intende $norm(h)_(C^1) -> 0$, ove
   $ norm(h)_(C^1) = max_(t in [t_0,t_1]) {abs(h(t)), abs(h'(t))}. $
-
+   
   E infine, dire che $R(h) = o(h)$ equivale a dire che
   $ lim_(norm(h)_(C^1)->0) abs(R(h))/norm(h)_(C^1) = 0. $
 ]
@@ -72,7 +72,7 @@ dominio di $L$). Questo funzionale è detto _funzionale d'azione_.
   il funzionale $Phi$, definito come sopra, è differenziabile $forall x in S$, e
   il suo differenziale è
   $ D Phi_vb(x)(vb(h)) &= sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)(vb(x(t)), vb(dot(x))(t), t) - dv(, t)pdv(L, v_i)(vb(x)(t), vb(dot(x))(t),t)) h_i (t) dd(t) \ &+ [pdv(L, v_i)(vb(x)(t), vb(dot(x))(t), t) h_i (t)]_(t_0)^(t_1)} $
-
+   
   con $vb(vb(h))(t) = (h_1 (t), ..., h_d (t)) in C^1([t_0,t_1])$, dove la norma $C^1$,
   che era stata definita per funzioni a valori scalari, è definita in maniera
   simile:
@@ -87,29 +87,32 @@ $ D Phi_vb(x) (vb(h)) = integral_(t_0)^(t_1) (grad_vb(x) L - dv(, t) grad_vb(v) 
 #dim[
   dalla definizione di differenziale di $L$, si ha
   $ L(vb(x) + difference(vb(x)), vb(dot(x))+ difference(vb(v)), t+ difference(t)) - L(vb(x), vb(dot(x)), t) &= sum_(i=1)^d {pdv(L, x_i) (vb(x), vb(dot(x)), t) difference(x_i) + pdv(L, v_i) (vb(x), vb(dot(x)), t) difference(v_i)} \ &+ pdv(L, t) (vb(x), vb(v), t) difference(t) + o(abs(difference(x_i, v_i, t))) $
-
+   
   $ ==> Phi(vb(x)+ vb(h)) - Phi(vb(x)) = integral_(t_0)^(t_1) L(vb(x) + vb(h), vb(dot(x)) + vb(dot(h)), t) - L(vb(x), vb(dot(x)), t) dd(t) $
   $ = integral_(t_0)^(t_1) sum_(i=1)^d {pdv(L, x_i) (vb(x), vb(dot(x)), t) h_i (t) + pdv(L, v_i) (vb(x), vb(dot(x)), t) dot(h)_i (t)+ o(abs(h_i (t)), abs(dot(h)_i (t)))} dd(t), forall i in {1,...,d}. $
-
+   
   Si osserva che, tramite integrazione per parti,
   $ integral_(t_0)^(t_1) pdv(L, v_i) dot(h)_i dd(t) = [pdv(L, v_i) h_i]_(t_0)^(t_1) - integral_(t_0)^(t_1) dv(, t) pdv(L, v_i) h_i dd(t). $
-
+   
   Si considera $R(h) = o(norm(vb(h))_(C^1))$, che implica che $R(h)(t) <= epsilon norm(vb(h))_(C^1)$
   $ ==> abs(integral_(t_0)^(t_1) R(vb(h))(t) dd(t)) <= integral_(t_0)^(t_1) R(vb(h))(t)dd(t) <= integral_(t_0)^(t_1) epsilon norm(vb(h))_(C^1) dd(t) = epsilon (t_1-t_0) norm(vb(h))_(C^1). $
-
+   
   Infine, sostituendo,
   $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + [pdv(L, v_i) h_i]_(t_0)^(t_1)} + o(norm(vb(h))_(C^1)) $
   che è quanto si voleva dimostrare, per definizione di differenziale.
 ]
 
-Si può dimostrare facilmente anche l'unicità di questa applicazione lineare. Scrivo infatti
-$ cases(Phi(vb(x) + vb(h)) - Phi(vb(x)) = A vb(h) + o(||vb(h)||_(C^1)) \
- Phi(vb(x) + vb(h)) - Phi(vb(x)) = B vb(h) + o(||vb(h)||_(C^1))) \
-$
+Si può dimostrare facilmente anche l'unicità di questa applicazione lineare.
+Infatti,
+$ cases(
+  Phi(vb(x) + vb(h)) - Phi(vb(x)) = A vb(h) + o(||vb(h)||_(C^1)),
+  Phi(vb(x) + vb(h)) - Phi(vb(x)) = B vb(h) + o(||vb(h)||_(C^1)),
+
+) $
 da cui, per linearità,
 $ (A - B) vb(h) + o(||vb(h)||_(C^1)) = 0 $
 e dunque
-$ (A - B) vb(h) = o(||vb(h)||_(C^1)) space space forall vb(h) wide => wide A = B $
+$ (A - B) vb(h) = o(||vb(h)||_(C^1)), forall vb(h) ==> A = B. $
 
 Si considera l'insieme di funzioni
 $ S_(vb(x_0), vb(x_1)) = {vb(x): [t_0,t_1] -> RR^d, vb(x) in C^1, vb(x)(t_0) = vb(x_0), vb(x)(t_1) = vb(x_1)} $
@@ -166,11 +169,11 @@ alla derivata di qualcosa.
   $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d {integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + [pdv(L, v_i) h_i]_(t_0)^(t_1)} + o(vb(h)). $
   Ma, dato che $vb(h) in S_(vb(x_0), vb(x_1))$, si ha soltanto
   $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = sum_(i=1)^d integral_(t_0)^(t_1) (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) + o(vb(h)). $
-
+   
   Per ipotesi, nel caso ($arrow.l.double$) anche la funzione integranda è nulla, e
   quindi
   $ Phi(vb(x)+ vb(h)) - Phi(vb(x)) = o(vb(h)). $
-
+   
   Per quanto riguarda il caso ($=>$), si ha che, $forall vb(h) in C^1$, con $vb(h)(t_0)=0=vb(h)(t_1)$,
   per il lemma precedente,
   $ integral_(t_0)^(t_1) sum_(i=1)^d (pdv(L, x_i)-dv(, t)pdv(L, v_i)) h_i dd(t) = 0. $
@@ -215,7 +218,8 @@ $ m diaer(vb(r)) (t) = - grad_vb(r) U(vb(r)(t)) $
 
 Si osserva che la lagrangiana non è unica, ossia, la forma data non è l'unica
 per cui gli estremali di $Phi$ coincidono con le leggi della meccanica. Infatti,
-vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange, come $L' = alpha L$ ($alpha$ costante).
+vanno bene tutte quelle funzioni che soddisfano le equazioni di Eulero-Lagrange,
+come $L' = alpha L$ ($alpha$ costante).
 
 #example[
   Un esempio banale è il moto libero, per cui ($U=0$). La lagrangiana vale allora
@@ -321,7 +325,7 @@ Un corollario al principio di minima azione di Hamilton è il seguente:
   $ scriptT(r, phi, dot(r), dot(phi)) = m/2 (dot(r)^2 + r^2 dot(phi)^2) = scriptT(r, dot(r), dot(phi)) $
   $ ==> scriptL(r, phi, dot(r), dot(phi)) = m/2 (dot(r)^2 + r^2 dot(phi)^2) - u(r) = scriptL(r, dot(r), dot(phi)) $
   e quindi la funzione lagrangiana non dipende esplicitamente da $phi$.
-
+   
   Per trovare le leggi del moto, si impostano le equazioni di Eulero-Lagrange:
   $ dv(, t) pdv(scriptL, dot(r)) - pdv(scriptL, r) = 0 $
   $ ==> dv((m dot(r)), t) - m r dot(phi)^2 + dv(u(r), r) = 0 $
@@ -373,12 +377,12 @@ elettromagnetico.
 #example[
   la forza di Lorentz generalizzata è infatti, con $vb(E) = vb(E)(vb(r),t)$, $vb(B)=vb(B)(vb(r),t)$,
   $ vb(F) = q(vb(E) + vb(v) cprod vb(B)). $
-
+   
   Si sa che esistono due funzioni $Phi(vb(r), t)$ e $vb(A)(vb(r),t)$ dette,
   rispettivamente, potenziale elettrico e potenziale magnetico, tali per cui
   $ vb(E) = - grad_vb(r) Phi - pdv(vb(A), t) $
   $ vb(B) = grad_vb(r) cprod vb(A). $
-
+   
   In questo caso, si può trovare un potenziale generalizzato, mostrando che
   $ U(vb(r), vb(dot(r)),t) = q(Phi(vb(r), t) - vb(A)(vb(r),t) dprod vb(dot(r))) $
   è un potenziale generalizzato, cioè vale la relazione presentata in precedenza:
@@ -387,10 +391,10 @@ elettromagnetico.
   $ dv(, t) pdv(U, v_x) = -q dv(A_x, t) = -q (pdv(A_x, x) dot(x) + pdv(A_x, y) dot(y) + pdv(A_z, z) dot(z) + pdv(A_x, t)) $
   e
   $ pdv(U, x) = q(pdv(Phi, x)- pdv(A_x, x) v_x - pdv(A_y, x) v_y - pdv(A_z, x) v_z) $
-
+   
   $ ==> dv(, t) pdv(U, v_x) - pdv(U, x) = q(v_y (pdv(A_y, x)-pdv(A_x, y)) + v_z (pdv(A_z, x)-pdv(A_x, z)) - pdv(Phi, x) - pdv(A_x, t)) = $
   $ = q((vb(v) cprod vb(B))_x + E_x) = F_x $
-
+   
   Con un procedimento analogo per le altre componenti, si trova proprio
   l'espressione vettoriale della forza di Lorentz generalizzata.
 ]
