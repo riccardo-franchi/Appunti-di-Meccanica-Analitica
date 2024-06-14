@@ -124,6 +124,11 @@ Questa relazione, in fisica si scrive spesso come
 $ dd(vb(r)) = [pdv(vb(r), vb(q))(vb(q))] dd(vb(q)), $
 dove si pensa ai vettori tangenti come vettori "infinitesimi".
 
+#figure(
+  image("../immagini/differenzialeCarta.png", width: 80%),
+  caption: [Intuizione grafica: il differenziale della carta in un punto ha per immagine i vettori tangenti in quel punto]
+)
+
 Se si usa un'altra carta $phi': U'->V'$, con $vb(r) in V'$, la mappatura data
 sopra cambia e diventa
 $ D phi'_vb(q') (vb(u')) = vb(v) $
@@ -136,7 +141,7 @@ $ vb(q') = (phi')^(-1)(vb(r)) = ((phi')^(-1) compose phi)(vb(q)) $
 $ vb(u') = D((phi')^(-1) compose phi)_vb(q) (vb(u)). $
 
 In meccanica lagrangiana è utile lavorare con l'insieme di tutti i vettori
-tangenti a $M$, in un qualunque suo punto. Questo si chiama fibrato tangente di $M$.
+tangenti a $M$, in un qualunque suo punto. Questo si chiama *fibrato tangente* di $M$.
 
 #def[
   si definisce _fibrato tangente_
