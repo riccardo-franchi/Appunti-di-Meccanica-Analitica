@@ -37,6 +37,11 @@ Una carta spesso si indica $(U,phi)$, mettendo in evidenza anche il suo dominio.
     differenziabile).
 ]
 
+#figure(
+  image("../immagini/carte.png", width: 70%),
+  caption: [Azione di due carte $phi_1$ e $phi_2$ su $M$],
+)
+
 Una funzione del tipo $phi^(-1)_2 compose phi_(1 | phi_1^(-1)(V))$ è un cambio
 di coordinate. Se due carte sono compatibili, si deve necessariamente avere che $U_1$ e $U_2$ sono
 sottoinsiemi dello stesso spazio $RR^d$, dato che il cambio di coordinate è una
