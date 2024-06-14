@@ -201,7 +201,7 @@ $ m diaer(vb(r)) (t) = - grad_vb(r) U(vb(r)(t)) $
   "principio di minima azione di Hamilton",
 )[
   le leggi orarie dell'equazione sopracitata coincidono con gli estremali di
-  $ Phi(vb(r)) = integral_(t_0)^(t_1) L(vb(r)(t), vb(dot(r))(t), t) dd(t) $
+  $ Phi(vb(r)) = integral_(t_0)^(t) L(vb(r)(t), vb(dot(r))(t), t) dd(t) $
   su $S_(vb(r_0), vb(r_1)) : [t_0,t_1] -> RR^d in C^1$, con $vb(r)(t_0) = vb(r_0), r(t_1)=vb(r_1)$,
   ove
   $ L(vb(r), vb(dot(r))) = T(vb(dot(r))) - U(vb(r)). $
