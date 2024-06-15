@@ -226,7 +226,9 @@ $ (dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
-$ dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT = vb(G). $
+#set math.equation(numbering: "(1)")
+$ dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT = vb(G). $ <eq:cineticaQ>
+#set math.equation(numbering: none)
 L'ipotesi di avere vincoli olonomi equivale a dire che l'unico vincolo è
 appartenere alla varietà $M_t$ nello spazio delle configurazioni $RR^n$, data
 dalle carte $vb(q) |-> vb(r)(vb(q),t)$.
@@ -241,10 +243,12 @@ ci sono cioè restrizioni per $var(vb(q))$) secondo l'equazione già vista $var(
 Se, inoltre, $vb(F)$ è un campo di forze conservativo, $vb(F(r))=-grad_vb(r) U(vb(r),t)$,
 allora si può esprimere l'energia come $scriptU(vb(q), t) = U(vb(r)(vb(q),t),t)$ e
 osservare che
-$ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $
+#set math.equation(numbering: "(1)")
+$ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $ <eq:potenzialeQ>
+#set math.equation(numbering: none) 
 
-Si ha allora che, per $scriptL = scriptT- scriptU$,
-$ dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL = 0. $
+Si ha allora che, per $scriptL = scriptT- scriptU$, applicando le @eq:cineticaQ e @eq:potenzialeQ,
+$ dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL = vb(G)-vb(G) = 0 $
 
 Si noti che le equazioni del moto in un sistema con soli vincoli olonomi e con
 forze date da un potenziale generalizzato sono le equazioni di Eulero-Lagrange
