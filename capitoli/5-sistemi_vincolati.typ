@@ -209,6 +209,10 @@ ossia $scriptT(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,
 $ dv(scriptT, dot(q)_j) = sum_(i=1)^n pdv(T, dot(r)_i) pdv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i pdv(dot(r)_i, dot(q)_j) = m ([pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r)))_j $
 $ ==> grad_vb(dot(q)) scriptT = m [pdv(vb(dot(r)), vb(dot(q)))]^TT vb(dot(r)). $
 
+dove 
+$ [pdv(vb(dot(r)), dot(q)_j)]^TT $
+indica la $j$-esima colonna dello Jacobiano (non trasposto).
+
 Analogamente, sostituendo $dot(q)_j$ con $q_j$, si ottiene
 $ grad_vb(q) scriptT = m [pdv(vb(dot(r)), vb(q))]^TT vb(dot(r)). $
 La @all_together diventa quindi
