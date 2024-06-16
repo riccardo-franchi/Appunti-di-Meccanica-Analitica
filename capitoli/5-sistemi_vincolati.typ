@@ -415,7 +415,8 @@ Si fanno alcune osservazioni:
   #box(
     width: 100%,
   )[$ r(t) = (r_0 abs(sin alpha_0))/abs(sin alpha(t)) >= r_0 abs(sin alpha_0). $]
-  Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo.
+  Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo. In altre parole, quando la superficie si stringe troppo (ho $r$ minore del raggio minimo), la traiettoria non può diventare più orizzontale di quanto già non sia 
+  (ho $alpha = pi / 2$), e la particella torna verso la regione con $r$ maggiore.
 
 #example[
   un esempio di applicazione del teorema di Clairaut è dato dalla superficie
