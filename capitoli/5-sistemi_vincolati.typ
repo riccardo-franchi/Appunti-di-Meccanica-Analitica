@@ -99,7 +99,7 @@ Le $vb(q)$ sono spesso dette _coordinate generalizzate_.
   si considera un punto vincolato a muoversi su un filo di ferro sul piano $(x,z)$,
   riprendendo l'@ring, descritto dall'equazione
   $ z = 10 + sin x, x in [0, 6 pi]. $
-   
+
   Si può usare la mappatura $vb(r)(q) = (q, 0, 10 + sin q)$, con $q in (0, 6 pi)$.
   Si vede che allora il vincolo è scleronomo.
 ]
@@ -202,16 +202,14 @@ Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
 $ m diaer(vb(r)) dprod var(vb(r)) = m (dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - dv(, t) [pdv(vb(r), vb(q))]^TT vb(dot(r))) dprod var(vb(q)). $ <all_together>
 #set math.equation(numbering: none)
 
-
 Si esprime ora l'energia cinetica nelle coordinate $(vb(q), vb(dot(q)), t)$,
 ossia $scriptT(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,
 
 $ dv(scriptT, dot(q)_j) = sum_(i=1)^n pdv(T, dot(r)_i) pdv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i pdv(dot(r)_i, dot(q)_j) = m ([pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r)))_j $
-$ ==> grad_vb(dot(q)) scriptT = m [pdv(vb(dot(r)), vb(dot(q)))]^TT vb(dot(r)). $
+dove $[pdv(vb(dot(r)), dot(q)_j)]^TT$ indica la $j$-esima colonna della matrice
+Jacobiana. Quindi si può scrivere
 
-dove 
-$ [pdv(vb(dot(r)), dot(q)_j)]^TT $
-indica la $j$-esima colonna dello Jacobiano (non trasposto).
+$ grad_vb(dot(q)) scriptT = m [pdv(vb(dot(r)), vb(dot(q)))]^TT vb(dot(r)). $
 
 Analogamente, sostituendo $dot(q)_j$ con $q_j$, si ottiene
 $ grad_vb(q) scriptT = m [pdv(vb(dot(r)), vb(q))]^TT vb(dot(r)). $
@@ -227,7 +225,7 @@ $ (dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
 #set math.equation(numbering: "(1)")
-$ dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT = vb(G). $ <eq:cineticaQ>
+$ dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT = vb(G). $ <generalized_T>
 #set math.equation(numbering: none)
 L'ipotesi di avere vincoli olonomi equivale a dire che l'unico vincolo è
 appartenere alla varietà $M_t$ nello spazio delle configurazioni $RR^n$, data
@@ -245,9 +243,10 @@ allora si può esprimere l'energia come $scriptU(vb(q), t) = U(vb(r)(vb(q),t),t)
 osservare che
 #set math.equation(numbering: "(1)")
 $ grad_vb(q) scriptU = [pdv(vb(r), vb(q))]^TT grad_vb(r) U = -[pdv(vb(r), vb(q))]^TT vb(F) = -vb(G). $ <eq:potenzialeQ>
-#set math.equation(numbering: none) 
+#set math.equation(numbering: none)
 
-Si ha allora che, per $scriptL = scriptT- scriptU$, applicando le @eq:cineticaQ e @eq:potenzialeQ,
+Si ha allora che, per $scriptL = scriptT- scriptU$, applicando le @generalized_T
+e @eq:potenzialeQ,
 $ dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL = vb(G)-vb(G) = 0 $
 
 Si noti che le equazioni del moto in un sistema con soli vincoli olonomi e con
@@ -255,12 +254,12 @@ forze date da un potenziale generalizzato sono le equazioni di Eulero-Lagrange
 per $scriptL(vb(q), vb(dot(q)), t) = L(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] vb(dot(q)) + pdv(vb(r), t)(vb(q),t)),$ data
 dal potenziale generalizzato.
 
-Infatti, si dimostra che 
+Infatti, si dimostra che
 $ vb(G)=[pdv(vb(r), vb(q))]^TT vb(F) = dv(, t) grad_vb(dot(q)) scriptU - grad_vb(q) scriptU $
 con $scriptU(vb(q), vb(dot(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] vb(dot(q)) + pdv(vb(r), t)(vb(q),t), t)$.
 
-$ ==> vb(G)(vb(q), vb(dot(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_vb(dot(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
-\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U 
+$ ==> vb(G)(vb(q), vb(dot(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (dv(, t) grad_vb(dot(r)) U - grad_vb(r) U) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U
+\                               &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - [pdv(vb(r), vb(q))]^TT grad_vb(r) U
 \                               &= dv(, t) ([pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) U)- [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U = dv(, t) grad_vb(dot(q)) scriptU - grad_vb(q) scriptU $
 dove, nell'ultimo passaggio, si è applicato il seguente lemma:
 
@@ -286,11 +285,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   si considera l'esempio della particella vincolata da un filo metallico (@ring),
   di forma data da $G(psi)$ (il grafico della funzione $psi$), nel piano $(x,z)$,
   soggetta alla forza di gravità ($U = m g z$, $T = m/2 (dot(x)^2+dot(z)^2)$).
-   
+
   Si vuole mappare la varietà data dal grafico di $psi$ (il vincolo è scleronomo),
   in modo da poter esprimere la lagrangiana nella coordinata generalizzata $q$:
   $ cases(x=q, z=psi(q)) ==> vb(r)(q)=(q, psi(q)). $
-   
+
   $ ==> T = m/2 (dot(x)^2+dot(z)^2) = m/2(dot(q)^2 + (psi'(q)dot(q))^2) = scriptT(vb(q), vb(dot(q))) $
   $ U(z) = m g z = m g phi(q) = scriptU(q) $
   $ ==> scriptL = m/2 dot(q)^2(1 + (psi'(q))^2) - m g psi(q) $
@@ -299,7 +298,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(scriptL, q) = m dot(q) psi'(q) psi''(q) - m g psi'(q). $
   Si può scrivere quindi l'equazione di Eulero-Lagrange (la massa si semplifica):
   $ (1+(psi'(q))^2) diaer(q)+ psi'(q) psi''(q) dot(q)^2 + g psi'(q) = 0. $
-   
+
   Si considera, per esempio, il caso di un piano inclinato, per cui $psi(q) = a q$.
   In tal caso, l'equazione di Eulero-Lagrange si riscrive
   $ (1+a^2) diaer(q) + g a = 0 <==> diaer(q) = -a/(1+a^2) g. $
@@ -316,7 +315,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   si considera una particella vincolata ad un filo inclinato di equazione (al
   tempo $t=0$) $z=a x + c$ che si muove verso l'alto con accelerazione costante $b$ (vincolo
   reonomo), non soggetta a forze esterne ($U = 0$).
-   
+
   $ vb(r)(q(t),t) = (q, a q + c + b/2 t^2) $
   $ ==> vb(dot(r))(q(t),t) = (dot(q), a dot(q) + b t) = [pdv(vb(r), q)] dot(q) + pdv(vb(r), t) $
   $ ==> norm(vb(dot(r)))^2 = dot(q)^2 (1+ a^2) + 2a b t dot(q) + b^2 t^2. $
@@ -326,11 +325,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ pdv(scriptL, q)=0. $
   L'equazione di Eulero-Lagrange è allora
   $ (1+a^2)diaer(q)+a b=0 <==> diaer(q) = -a/(1+a^2) b. $
-   
+
   Facendo riferimento a quanto detto alla fine dell'esempio precedente, si può
   riscrivere l'espressione in funzione dell'angolo $theta$:
   $ diaer(q) = -b sin theta cos theta. $
-   
+
   Quindi il caso in cui il vincolo accelera verso l'alto è equivalente al caso in
   cui la particella è accelerata verso il basso.
 ]
@@ -339,32 +338,32 @@ le espressioni delle equazioni di Eulero-Lagrange.
   si considera una particella vincolata ad una superficie di rotazione attorno
   all'asse $z$ (data dalla rotazione completa di una curva rispetto all'asse $z$),
   non soggetta a forze esterne.
-   
+
   Si introducono le coordinate cilindriche, che hanno simmetria rotazionale
   attorno all'asse $z$:
   $ cases(x=r cos phi, y = r sin phi, z = z). $
-   
+
   Si assume che la superficie sia data dall'equazione $r=r(z)$ (non viene trattato
   il caso in cui la superficie di rotazione è data dalla rotazione di una curva
   del tipo $z=z(x)$).
-   
+
   Si prendono come variabili generalizzate $z$ e $phi$. La carta è allora
   $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
-   
+
   $ ==> vb(dot(r)) = (r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)). $
   Il resto dei calcoli è lasciato come esercizio. Si ha infine
   $ T = 1/2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1/2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T(z, dot(z), dot(phi)) = L(z, dot(z), dot(phi)). $
   L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
   una coordinata ciclica, e quindi ci si aspetta che
   $ pdv(L, dot(phi)) = "costante". $
-   
+
   $ pdv(L, dot(z)) = (1+(r'(z))^2) dot(z) $
   $ ==> dv(, t) pdv(L, dot(z)) = (1+(r'(z))^2) diaer(z) + 2 r'(z) r''(z) dot(z)^2 $
   $ pdv(L, z) = r'(z) r''(z) dot(z)^2+r(z) r'(z) dot(phi)^2. $
-   
+
   L'equazione di Eulero-Lagrange nella prima coordinata (in $(z, dot(z))$) è
   $ (1+(r'(z))^2) diaer(z) + r'(z) r''(z) dot(z)^2 - r(z) r'(z) dot(phi)^2 = 0. $
-   
+
   Per quanto riguarda l'equazione di Eulero-Lagrange nella seconda coordinata,
   invece,
   $ pdv(L, dot(phi)) = (r(z))^2 dot(phi) = L_0 $
@@ -380,7 +379,7 @@ le espressioni delle equazioni di Eulero-Lagrange.
   mostrare che, in relazione all'esempio precedente, tutti i meridiani (curve a $phi$ costante)
   sono geodetiche, i paralleli (curve a $z$ costante) sono geodetiche se
   corrispondono a una $z$ per cui $r'(z) = 0$.
-   
+
   Rifare poi tutti i conti dell'esempio precedente nel caso non trattato in cui si
   fa ruotare una curva del tipo $z=z(x)$.
 ]
@@ -390,13 +389,14 @@ un'equazione differenziale in $z$, che si potrebbe ricondurre a un problema
 monodimensionale.
 
 Tuttavia in questo caso è più semplice ragionare in maniera geometrica. Si noti
-innanzitutto che $norm(vb(dot(r)))$ è una costante del moto. Infatti #footnote[I due ragionamenti sono equivalenti; il secondo è più rigoroso.]:
+innanzitutto che $norm(vb(dot(r)))$ è una costante del moto. Si danno due
+giustificazioni di questo fatto:
 + La reazione vincolare non compie lavoro, quindi la conservazione dell'energia
   vale anche se si esclude la parte di sistema che genera la reazione vincolare.
   Dunque, per la particella considerata, si conserva $T+U=T$. Ma allora si
   conserva $norm(vb(dot(r)))^2$ e dunque $norm(vb(dot(r)))$.
 + Per il principio di D'Alembert, la reazione vincolare è perpendicolare a $T_(vb(r)(t))M$.
-  Quindi 
+  Quindi
 $ dv(, t) norm(vb(dot(r)))^2 = 2 vb(dot(r)) dprod diaer(vb(r)) = 2 vb(dot(r)) dprod vb(F_"tot") = 2 vb(dot(r)) dprod vb(R) = 0. $
 
 Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria $vb(dot(r))$
@@ -404,19 +404,22 @@ forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(vb(dot(r
 $ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(vb(dot(r))) abs(sin alpha) = "costante" $
 $ ==> r abs(sin alpha) = "costante". $
 Questa relazione è detta _teorema di Clairaut_, e mostra che:
-- se $r$ #underline[cresce], la velocità diventa più #underline[orizzontale];
-- se $r$ #underline[diminuisce], la velocità diventa più #underline[verticale].
+- se $r$ cresce, la velocità tende a diventare orizzontale;
+- se $r$ diminuisce, la velocità tende a diventare verticale.
 
 Si fanno alcune osservazioni:
 + $r$ e $abs(sin alpha)$ hanno correlazione negativa (sono inversamente
   proporzionali).
 + Se $r_0$ e $alpha_0$ sono le condizioni iniziali di $r(t)$ e $alpha(t)$, allora
-   
+
   #box(
     width: 100%,
   )[$ r(t) = (r_0 abs(sin alpha_0))/abs(sin alpha(t)) >= r_0 abs(sin alpha_0). $]
-  Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo. In altre parole, quando la superficie si stringe troppo (ho $r$ minore del raggio minimo), la traiettoria non può diventare più orizzontale di quanto già non sia 
-  (ho $alpha = pi / 2$), e la particella torna verso la regione con $r$ maggiore.
+
+  Quindi $r_0 abs(sin alpha_0)$ è il raggio minimo. In altre parole, quando la
+  superficie si stringe troppo (con $r$ minore del raggio minimo), la traiettoria
+  non può diventare più orizzontale di quanto già non sia (avendo $alpha = pi / 2$),
+  e la particella torna verso la regione con $r$ maggiore.
 
 #example[
   un esempio di applicazione del teorema di Clairaut è dato dalla superficie
@@ -438,7 +441,7 @@ ma con $vb(r): [t_0,t_1] -> M$ e non in $RR^n$.
 
 #def[
   si dice che $vb(r)$ è un _estremale vincolato_ ad $M$ del funzionale $Phi$ come
-  sopra, se 
+  sopra, se
   $ Phi(vb(r)+vb(h))-Phi(vb(r)) = o(norm(vb(h))_(C^1)) $
   $forall vb(h) : vb(r)(t) + vb(h)(t) in M, forall t in [t_0,t_1], vb(h)(t_0)=vb(h)(t_1)=0$.
 ]
@@ -464,21 +467,21 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
 )[
   Si assume, oltre alle ipotesi del teorema, che $vb(r)([t_0,t_1])$ sia contenuta
   nell'immagine di una sola carta.
-   
+
   Per il principio di D'Alembert, le leggi orarie fisiche sono tutte e sole quelle
   che in coordinate locali $vb(q)$ soddisfano le equazioni di Eulero-Lagrange
   $ dv(, t) grad_vb(dot(q)) scriptL - grad_vb(q) scriptL = 0, $
   che corrisponde a un problema libero in $RR^d$ per $scriptL(vb(q), vb(dot(q)), t)$,
-  cioè è equivalente ad essere un estremale libero di 
+  cioè è equivalente ad essere un estremale libero di
   $ Phi_0(vb(q)) = integral_(t_0)^(t_1) scriptL(vb(q)(t), vb(dot(q))(t), t) dd(t) = integral_(t_0)^(t_1) L(vb(r)(t), vb(dot(r))(t), t) dd(t) $
   che è quindi equivalente al fatto che la $vb(r)(t)$ corrisponde a $vb(q)(t)$ è
   estremale vincolato di $Phi(vb(r))$, dato che i due funzionali descrivono la
   stessa quantità fisica (l'azione, cioè l'integrale della lagrangiana).
-   
+
   Si noti che, chiamando $vb(q)(t) + vb(g)(t)$ la funzione in coordinate locali
   corrispondente a $vb(r)(t)+vb(h)(t)$, allora $o(vb(g)) = o(vb(h))$. È "ovvio" se
   la carta è differenziabile.
-   
+
   Viceversa, se vale il principio di minima azione vincolata in $M$ (per la legge
   oraria $vb(r)$), allora vale il principio di minima azione libera in $RR^d$ per $scriptL$ e
   per la legge oraria $vb(q)$. Questo vale se e solo se valgono le equazioni di
@@ -492,7 +495,7 @@ Per la seconda dimostrazione del teorema, è utile il seguente lemma.
 #lemma[
   sia $vb(r): [t_0,t_1]->M$ una legge oraria e $vb(f): [t_0,t_1]->RR^n$ una
   funzione continua. Se, per ogni funzione contiuna $vb(xi): [t_0,t_1]->RR^n$ tale
-  che $vb(xi)(t) in T_vb(r) M$, vale 
+  che $vb(xi)(t) in T_vb(r) M$, vale
   $ integral_(t_0)^(t_1) vb(f)(t) dprod vb(xi)(t) dd(t) = 0, $
   allora $vb(f)(t)$ è perpendicolare a $T_vb(r) M, forall t in [t_0,t_1]$.
 ]
@@ -506,12 +509,12 @@ lasciata come esercizio.
   sostituendo $var(vb(r)(t))$ a $vb(h)(t)$ nelle formule a venire si commette un
   errore $o(norm(vb(h)(t))) = o(norm(var(vb(r)(t))))$ (ad esempio $var(vb(r))(t)$ può
   essere pensato come la proiezione ortogonale di $vb(h)(t)$ su $T_(vb(r)(t))M$).
-   
+
   Quindi, ricordando la sezione sul funzionale d'azione libero,
   $ Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (dv(, t) grad_vb(dot(r)) L - grad_vb(r) L) dprod var(vb(r)) dd(t) + o(norm(vb(h))) = integral_(t_0)^(t_1) (m vb(diaer(r)) - vb(F)) dprod var(vb(r)) dd(t) + o(norm(vb(h))). $
   Il principio di D'Alembert implica che l'integrale è nullo e quindi $vb(r)$ è un
   estremale condizionato (vincolato).
-   
+
   Viceversa, se $vb(r)$ è un estremale condizionato,
   $ integral_(t_0)^(t_1) (m diaer(vb(r)) - vb(F)(vb(r)(t), vb(dot(r))(t), t)) dprod var(vb(r)(t)) dd(t) = 0 $
   per ogni variazione $var(vb(r))(t)$. Ciò implica il principio di D'Alembert per
@@ -521,13 +524,13 @@ lasciata come esercizio.
 #example[
   si mostra che le leggi orarie soluzioni di un sistema lagrangiano vincolato non
   dipendono dalla carta (dalle coordinate locali).
-   
+
   Considerata una legge oraria con le caratteristiche appena elencate, su una
   certa varietà differenziabile, si considerano due carte distinte $phi_alpha$ e $phi_beta$.
   Dalla parte della carta $phi_alpha$ (a cui corrisponde la coordinata locale $vb(q)$),
   si scrive la lagrangiana $L(vb(q), vb(dot(q)), t)$. Dalla parte della carta $phi_beta$ (a
   cui corrisponde la coordinata locale $vb(Q)$, invece, si scrive la lagrangiana $scriptL(vb(Q), vb(dot(Q)), t)$.
-  Il cambio di coordinate è dato da 
+  Il cambio di coordinate è dato da
   $ vb(Q) = (phi_beta^(-1) compose phi_alpha)(vb(q)) = psi(vb(q)). $
   Si dimostra che chiamando $vb(Q)(t) = psi(vb(q)(t))$, vale
   $ dv(, t) grad_vb(dot(Q)) scriptL - grad_vb(Q) scriptL = 0 <==> dv(, t) grad_vb(dot(q)) L - grad_vb(q) L = 0. $
@@ -551,7 +554,7 @@ derivata nulla.
 
 #def[
   si dice che la funzione differenziabile $h: M->M$ _conserva_ la lagrangiana $L$ se $forall (vb(q), vb(dot(q)), t)$,
-  vale che 
+  vale che
   $ L(vb(q),vb(dot(q)),t)=L(h(vb(q)), D h_vb(q) (vb(dot(q))), t) $
   dove $h(vb(q))$ è la notazione contratta per indicare $(phi_beta^(-1) compose h compose phi_alpha)(vb(q))$ con $alpha, beta$ variabili.
 ]
@@ -577,20 +580,20 @@ punti, ma dei punti e delle tangenti ai punti.
   Infatti, se $vb(dot(Q))(t) = D h^s_(vb(q)(t)) (vb(dot(q))(t))$, è immediato
   verificare che il principio di minima azione per la legge oraria $vb(q)(t)$ si
   traduce nel principio di minima azione per $vb(Q)(t)$.
-   
+
   Data una soluzione $vb(q)(t)$ delle equazioni di Eulero-Lagrange, si definisce
   $ Gamma(s, t) = h^s (vb(q)(t)). $
   Si utilizza come notazione:
   $ dot(Gamma) = pdv(Gamma, t), space.quad Gamma' = pdv(Gamma, s). $
-  Per ipotesi su $h^s$, vale 
+  Per ipotesi su $h^s$, vale
   $ L(h^s (vb(q)(t)), D h^s_(vb(q)(t)) (vb(dot(q))(t)), t) = L(vb(q)(t), vb(dot(q))(t), t), forall s, t $
   $ ==> L(Gamma(s, t), dot(Gamma)(s,t), t) $
   è costante in $s$. La sua derivata in $s$ (a $t$ fissato) è
-   
+
   #set math.equation(numbering: "(1)")
   $ 0 = grad_vb(q) L dprod Gamma' + grad_vb(dot(q)) L dprod (dot(Gamma))' $ <pdvLs>
-  #set math.equation(numbering: none) 
-   
+  #set math.equation(numbering: none)
+
   - Asserto 2: $(dot(Gamma))' = dot(Gamma')$, cioè, $pdv(Gamma, s, t) = pdv(Gamma, t, s)$,
     per il teorema di Schwarz.
   Dall'asserto 1, $Gamma(s, dot)$ soddisfa le equazioni di Eulero-Lagrange.
@@ -618,7 +621,7 @@ punti, ma dei punti e delle tangenti ai punti.
   Si ritornerà a utilizzare la notazione dei vettori globali: $gvec(r) = (vb(r_1), ..., vb(r_n)) in RR^(3N)$.
   Si scrive allora la lagrangiana come
   $ L(gvec(r), dot(gvec(r)),t) = 1/2 iprod(dot(gvec(r)), gmat(M) space.hair dot(gvec(r))) - U(gvec(r)). $
-   
+
   Una possibilità per definire $h^s$ è questa, facendo variare soltanto la prima
   coordinata:
   $ h^s (gvec(r)) = (r_(1 x) + s, r_(1 y), r_(1 z), ..., r_(N x), r_(N y), r_(N z)) = gvec(r) + (s, 0, ..., 0) $
@@ -642,11 +645,11 @@ punti, ma dei punti e delle tangenti ai punti.
   più debole) su $U$ è che sia invariabile per traslazione dello spazio fisico $RR^3$ nella
   coordinata $x$, ossia
   $ U(..., r_(i x) + s, r_(i y), r_(i z), ...) = U(gvec(r)). $
-  Si definisce allora $h^s$ come 
+  Si definisce allora $h^s$ come
   $ h^s (gvec(r)) = (..., r_(i x) + s, r_(i y), r_(i z), ...) = gvec(r) + (s,0,0,s,0,0,...) $
   $ ==> (D h^s)_gvec(r) = "id" $
   E allora, analogamente all'esempio precedente,
-  $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $ 
+  $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $
   $ grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = sum_(i=1)^N m_i r_(i x) = P_x $
   e dunque si conserva la somma delle componenti $x$ delle quantità di moto delle
   particelle, ossia la componente $x$ della quantità di moto totale $vb(P)$.
@@ -656,7 +659,7 @@ punti, ma dei punti e delle tangenti ai punti.
   si considera la lagrangiana di un sistema di particelle invariante per la
   rotazione di ogni vettore $vb(r_i)$ di un medesimo angolo $alpha$ attorno
   all'asse $z$.
-   
+
   La famiglia di trasformazioni $h^s$ è data da
   $ h^s (gvec(r)) = (vb(R_s) vb(r_1), ..., vb(R_s) vb(r_N)) $
   dove $R_s$ è una matrice di rotazione di un angolo $s$ rispetto all'asse $z$.
@@ -672,11 +675,11 @@ punti, ma dei punti e delle tangenti ai punti.
 ]
 
 #example[
-  dimostrare che la lagrangiana 
+  dimostrare che la lagrangiana
   $ L'(vb(q), vb(dot(q)),t) = L(vb(q), vb(dot(q)),t) + sum_(i=1)^n F_i (vb(q),t) dot(q)_i + F_t (vb(q),t) $
   con $F_i (vb(q),t) = pdv(F, q_i) (vb(q),t)$ e $F_t (vb(q),t) = pdv(F, t) (vb(q),t)$,
   per una qualche funzione $F(vb(q),t)$, dà luogo alle stesse equazioni del moto.
-   
+
   $ pdv(L', q_k) = pdv(L, q_k) + sum_(i=1)^n pdv(F_i, q_k) dot(q)_i + pdv(F_t, q_k) $
   $ pdv(L', dot(q)_k) = pdv(L, dot(q)_k) + F_k ==> dv(, t) pdv(L', dot(q)_k) = dv(, t) pdv(L, dot(q)_k) + sum_(i=1)^n pdv(F_k, q_i) dot(q)_i + pdv(F_k, t). $
   Allora basta mostrare che
