@@ -403,6 +403,12 @@ Per una traiettoria qualsiasi, detto $alpha$ l'angolo che la traiettoria $vb(dot
 forma con il meridiano passente per il punto $vb(r)(t)$, dato che $norm(vb(dot(r))) = "costante"$,
 $ abs(r^2 dot(phi)) = r abs(r dot(phi)) = r norm(vb(dot(r))) abs(sin alpha) = "costante" $
 $ ==> r abs(sin alpha) = "costante". $
+
+#figure(
+  image("../immagini/clairaut.png", width: 60%),
+  caption: [Traiettoria di una particella su una superficie di rotazione.]
+)
+
 Questa relazione è detta _teorema di Clairaut_, e mostra che:
 - se $r$ cresce, la velocità tende a diventare orizzontale;
 - se $r$ diminuisce, la velocità tende a diventare verticale.
@@ -668,6 +674,12 @@ punti, ma dei punti e delle tangenti ai punti.
   Si deve quindi trovare il _generatore_ $eval(pdv(h^s (gvec(r)), s))_(s=0)$.
   Tramite considerazioni geometriche, si trova
   $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
+
+  #figure(
+  image("../immagini/generatoreRotazioni.png", width: 60%),
+  caption: [Argomento geometrico che giustifica l'espressione del generatore: il vettore nero è tangente alla rotazione (ed è applicato in $vb(r_i)$ essendo la derivata in $s=0$).]
+)
+
   Quindi
   $ I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 vb(dot(r)_1), ..., m_N vb(dot(r)_N)) dprod (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
   $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i vb(dot(r_i))) dprod vu(e_z) = L_z $
