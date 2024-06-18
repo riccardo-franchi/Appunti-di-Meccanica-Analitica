@@ -295,7 +295,7 @@ equazioni differenziali come funzioni del tempo, si studia poco la questione
 della loro regolarità come funzioni della loro condizione iniziale, ossia la
 regolarità del flusso. Per esempio, esiste un teorema che afferma che se $f:Omega->RR^n$ è
 di classe $C^k$, allora, per $t$ fissato, $Phi^t$ è di classe $C^k$. Ancora meno
-si studia la regolarità del flusso $Phi^t(vb(x))$ come funzione di entrambe $vb(x)$ e $t$.
+si studia la regolarità del flusso $Phi^t (vb(x))$ come funzione di entrambe $vb(x)$ e $t$.
 
 Come funzione $Omega times RR -> Omega$, ($(vb(x),t) |->Phi^t (vb(x))$) si
 assumerà sempre che $Phi$ sia sufficientemente regolare, tale almeno da far
