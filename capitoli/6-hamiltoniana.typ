@@ -63,6 +63,11 @@ di $f$. Se, invece, $f: A subset RR -> RR$, ossia non è regolare e ha un domini
 più ristretto di $RR$, occorre utilizzare la definizione generale di trasformata
 di Legendre.
 
+#figure(
+image("../immagini/trasfLegendre.png", width: 70%),
+caption: [Interpretazione geometrica della trasformata di Legendre nel caso $n=1$.]
+)
+
 #lemma[
   con le ipotesi restrittive su $f$ dette sopra, vale
   $ grad_vb(p) g(vb(p)) = vb(x(p)). $
