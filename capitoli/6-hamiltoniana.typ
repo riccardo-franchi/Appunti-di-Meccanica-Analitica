@@ -258,6 +258,11 @@ $ cases(vb(dot(x))(t) = vb(f)(vb(x)(t)), vb(x)(0)=vb(x_0)) $
 Assumendo che esistano delle soluzioni globali, le si denotano con $vb(x_x_0)(t)$,
 tali soluzioni appartengono a $C^1$, se anche $vb(f) : Omega -> RR^n in C^1(Omega)$.
 
+#figure(
+image("../immagini/campoVettoriale.png", width: 70%),
+caption: [In viola, i valori del campo vettoriale $f(vb(x(t)))$ in alcuni punti. La soluzione $x(t)$, in rosso, è tangente al campo vettoriale in ogni punto.]
+)
+
 #def[
   il _flusso_ $Phi^t: Omega->Omega$ dell'equazione differenziale $vb(dot(x))(t) = vb(f)(vb(x)(t))$ è
   la funzione $Phi^t (vb(x_0)) = vb(x_x_0)(t)$.
