@@ -65,7 +65,7 @@ di Legendre.
 
 #figure(
 image("../immagini/trasfLegendre.png", width: 70%),
-caption: [Interpretazione geometrica della trasformata di Legendre nel caso $n=1$.]
+caption: [Interpretazione geometrica della trasformata di Legendre nel caso $n=1$. La lunghezza del segmento rosso è il valore di $g(p=1)$.]
 )
 
 #lemma[
