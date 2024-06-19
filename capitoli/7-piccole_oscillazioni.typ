@@ -48,7 +48,9 @@ quiete), in un qualche senso che non viene mostrato,
 $ T approx 1/2 vb(dot(q)) dprod A vb(dot(q)) $
 con $A = A(vb(q_e))$,
 $ U approx U(vb(q_e)) + 1/2 (vb(q)-vb(q_e)) dprod H U(vb(q_e))(vb(q)-vb(q_e)) $
-dato che il gradiente del potenziale in $vb(q_e)$ è nullo. Nei calcoli si
+dato che il gradiente del potenziale in $vb(q_e)$ è nullo. Con $H U(vb(q_e))$ si intende l'hessiana.
+
+Nei calcoli si
 assumerà, senza perdita di generalità, che la costante additiva $U(vb(q_e))$ sia
 nulla.
 
