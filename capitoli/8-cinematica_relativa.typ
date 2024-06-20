@@ -217,7 +217,7 @@ suo corrispondente in $S$ non è $vb(r)$ ma $vb(r)-vb(r_0)$.
   equivalenti.
 ]
 
-Si è già dimostrato questo lemma in passato.
+Si è già dimostrato questo lemma in passato, studiando le trasformazioni di gauge.
 
 #theorem[
   una $L(vb(r), vb(dot(r)),t) = m/2 norm(vb(dot(r)))^2 - U(vb(r), vb(dot(r)),t)$ nel
