@@ -33,7 +33,7 @@ maiuscole quella di $S'$.
   _porta_ $S$ in $S'$ se, detto $vb(r)$ il vettore nel sistema $S$
   che indica un punto dello spazio, e $R$ è il vettore nel sistema $S'$ che indica
   lo stesso punto, allora vale
-  $ vb(r) = D_t(vb(R)) = B_t vb(R) + vb(r_0). $
+  $ vb(r) = D_t (vb(R)) = B_t vb(R) + vb(r_0). $
 ]
 
 Supponendo di seguire un moto, indicandolo con $vb(r)(t)$ se visto da $S$, o con $vb(R)(t)$ se
