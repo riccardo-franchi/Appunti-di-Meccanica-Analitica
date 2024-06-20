@@ -22,7 +22,7 @@ la trasformazione dei gradienti.
 Si considerano due sistemi di riferimento $S$ e $S'$, la cui origine è a
 distanza $vb(r_0)$ dall'origine di $S$. Si chiama $B_t$ la matrice $3 times 3$ di
 rotazione, o semplicemente rotazione, tale che
-$ B_t vu(e_x) = vu(e_X), space.quad B_t vu(e_y) = vu(e_Y), space.quad B_t vu(e_z) = vu(e_Z) $
+$ B_t vu(e_X) = vu(e_x), space.quad B_t vu(e_Y) = vu(e_y), space.quad B_t vu(e_Z) = vu(e_z) $
 dove con le lettere minuscole si denota la base canonica di $S$ e con le
 maiuscole quella di $S'$.
 
