@@ -5,7 +5,7 @@
 = Il corpo rigido
 
 #def[
-  un corpo rigido è un sistema di $N$ punti materiali (di masse $m_i$ e porizioni $vb(r_i)$,
+  un corpo rigido è un sistema di $N$ punti materiali (di masse $m_i$ e posizioni $vb(r_i)$,
   dal sistema di riferimento $S$) con i vincoli costanti:
   $ norm(vb(r_i) - vb(r_j)) = c_(i j). $
 ]
