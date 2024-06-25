@@ -150,7 +150,7 @@ $U_c (vb(r))$ ha le stesse proprietà fisiche di $U(vb(r))$.
 
 #def[
   per una particella sottoposta (soltanto) ad un campo conservativo ($vb(F) = vb(F_"tot")$)
-  l'_energia totale_ è definita ome
+  l'_energia totale_ è definita come
   $ E(vb(r),vb(v)) := T(vb(v)) + U(vb(r)). $
 ]
 
