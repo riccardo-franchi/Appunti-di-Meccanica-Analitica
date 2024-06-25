@@ -182,7 +182,7 @@ _momento della forza_ $vb(F)$.
 Con $vb(L)(t) = vb(r)(t) cprod (m vb(dot(r))(t))$, ponendo $vb(r_0) = 0$,
 $ vb(dot(L))(t) = m vb(dot(r))(t) cprod vb(dot(r))(t) + m vb(r)(t) cprod vb(diaer(r))(t) = vb(N_"tot" (r)) = vb(r) cprod vb(F_"tot") $
 
-Si lascia come esercizio rifare il conto per $vb(r_0) eq.not 0$.
+Come esercizio, si ripeta il conto con $vb(r_0) eq.not 0$.
 
 #def[
   un campo di forze _centrale_ è un campo posizionale $vb(F(r))$ tale che
