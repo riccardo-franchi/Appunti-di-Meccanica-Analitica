@@ -107,8 +107,9 @@ con $A$ matrice $3 times 3$.
   #set math.equation(numbering: "(1)")
   $ vb(X) dprod A vb(Y) = m vb(X) dprod vb(R) cprod vb(Y) cprod vb(R) = m (vb(Y) cprod vb(R)) dprod (vb(X) cprod vb(R)) = A vb(X) dprod vb(Y) $ <quadratic>
   #set math.equation(numbering: none)
-   
-  e dunque $A$ è simmetrica.
+  dove si è usata l'identità vettoriale $vb(a) dprod (vb(b) cprod vb(c)) = vb(c) dprod (vb(a) cprod vb(b)) $.
+
+  Dunque, $A$ è simmetrica.
 ]
 
 #corollary[
@@ -117,7 +118,7 @@ con $A$ matrice $3 times 3$.
   $ T_1 = 1/2 vb(Omega) dprod A vb(Omega). $
 ]
 #dim[
-  Da @quadratic,
+  Da @quadratic, e utilizzando la stessa identità vettoriale di poco sopra, si ottiene
   $ 1/2 vb(Omega) dprod A vb(Omega) = m/2 norm(vb(Omega) cprod vb(R))^2 = m/2 norm(vb(V))^2 = T_1. $
 ]
 
