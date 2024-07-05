@@ -239,7 +239,7 @@ Vale infatti, a questo proposito, il seguente teorema.
 ]
 #dim[
   detta $vb(R_i)$ la posizione dell'$i$-esimo punto materiale (di massa $m_i$) del
-  corpo rigido, relativa ad un'origine (vincolo) us $a$, e detta $vb(R_i^perp) = Pi(vb(R_i))$ la
+  corpo rigido, relativa ad un'origine (vincolo) su $a$, e detta $vb(R_i^perp) = Pi(vb(R_i))$ la
   sua proiezione ortogonale su un piano normale agli assi $a$ e $a_"CM"$.
   Indicando con $vb(D)$ il vettore su questo piano che va da $a$ ad $a_"CM"$, si
   ha che
