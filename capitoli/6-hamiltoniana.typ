@@ -282,8 +282,12 @@ funzioni che mostrano l'andamento di un'equazione differenziale.
   1. $s |-> Phi^s (Phi^t (vb(x)))$
   2. $s |-> Phi^(s+t) (vb(x))$
   sono entrambe soluzioni del problema di Cauchy, $forall vb(x) in Omega, forall t in RR$,
-  con la stessa condizione iniziale $vb(x)(0) = Phi^t (vb(x))$. Si verificano
-  facilmente le condizioni iniziali. Inoltre, soddisfano l'equazione
+  con la stessa condizione iniziale $vb(x)(0) = Phi^t (vb(x))$.\
+  Si verificano facilmente le condizioni iniziali: se $s=0$ ho
+  + $Phi^0(Phi^t (vb(x))) = Phi^t (vb(x))$,
+  + $Phi^(0+t) (vb(x)) = Phi^t (vb(x))$.\
+  
+  Inoltre, soddisfano l'equazione
   differenziale. Considerando la prima funzione:
   $ dv(, s) Phi^s (Phi^t (vb(x))) = vb(f)(Phi^s (Phi^t (vb(x)))). $
   Per la seconda funzione,
