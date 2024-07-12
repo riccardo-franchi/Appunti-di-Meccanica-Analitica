@@ -25,7 +25,7 @@ $ (H f)_(i j) = pdv(f, x_i, x_j) $
   dove si considera nel dominio $B$ solo quelle $vb(p)$ tali che l'estremo
   superiore è reale.
 ]
- 
+
 In molti casi, se $f$ è strettamente convessa, tale estremo superiore è un punto
 di massimo, e il punto di massimo è al più uno, dato da
 $ grad_vb(x) (vb(p) dprod vb(x) - f(vb(x))) = 0 <==> vb(p) = grad_vb(x) f(vb(x)). $
@@ -64,8 +64,9 @@ più ristretto di $RR$, occorre utilizzare la definizione generale di trasformat
 di Legendre.
 
 #figure(
-image("../immagini/trasfLegendre.png", width: 70%),
-caption: [Interpretazione geometrica della trasformata di Legendre nel caso $n=1$. La lunghezza del segmento rosso è il valore di $g(p=1)$.]
+  image("../immagini/trasfLegendre.png", width: 70%),
+  caption: [Interpretazione geometrica della trasformata di Legendre nel caso $n=1$. La
+    lunghezza del segmento rosso è il valore di $g(p=1)$.],
 )
 
 #lemma[
@@ -188,7 +189,7 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
   $ grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + (vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t). $
   Tuttavia, $(vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) = 0$, per definizione
   di $vb(p)$.
-   
+
   I coefficienti di $vb(dot(q))$ e $vb(dot(p))$, più il termine noto, devono
   coincidere tra loro. Infatti, scegliendo $(vb(q)(t), vb(p)(t)) = (vb(q_0), vb(p_0))$,
   identicamente costante, allora $(vb(dot(q))(t), vb(dot(p))(t)) = (0,0)$. Ma se
@@ -197,7 +198,7 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
   $ grad_vb(q) H = -grad_vb(q) L, $
   $ vb(dot(q)) = grad_vb(p) H $
   $ pdv(H, t)=-pdv(L, t). $
-   
+
   Ora, le equazioni di Eulero-Lagrange, nella notazione che si sta utilizzando, si
   scrivono come
   $ vb(dot(p)) = grad_vb(q) L = - grad_vb(q) H $
@@ -221,13 +222,12 @@ soluzioni alle equazioni di Eulero-Lagrange.
 ]
 
 #exercise[
-  definendo 
+  definendo
   $ F(vb(q), vb(dot(q)),t) = L(vb(q), vb(dot(q)),t) - grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod vb(dot(q)), $
   mostrare che, sulle soluzioni del sistema lagrangiano,
   $ dv(F, t) = pdv(L, t). $
   In particolare, se $L = L(vb(q),vb(dot(q)))$, essa è una costante del moto.
 ]
-
 
 Si osserva che, se si ha una coordinata ciclica $q_overline(dotless.i)$ per la $L$,
 allora anche $H$ non dipende da $q_overline(dotless.i)$. Inoltre, in questo caso $p_overline(dotless.i)$ è
@@ -259,8 +259,9 @@ Assumendo che esistano delle soluzioni globali, le si denotano con $vb(x_x_0)(t)
 tali soluzioni appartengono a $C^1$, se anche $vb(f) : Omega -> RR^n in C^1(Omega)$.
 
 #figure(
-image("../immagini/campoVettoriale.png", width: 70%),
-caption: [In viola, i valori del campo vettoriale $f(vb(x(t)))$ in alcuni punti. La soluzione $x(t)$, in rosso, è tangente al campo vettoriale in ogni punto.]
+  image("../immagini/campoVettoriale.png", width: 70%),
+  caption: [In viola, i valori del campo vettoriale $f(vb(x(t)))$ in alcuni punti. La
+    soluzione $x(t)$, in rosso, è tangente al campo vettoriale in ogni punto.],
 )
 
 #def[
@@ -268,7 +269,9 @@ caption: [In viola, i valori del campo vettoriale $f(vb(x(t)))$ in alcuni punti.
   la funzione $Phi^t (vb(x_0)) = vb(x_x_0)(t)$.
 ]
 
-In altre parole, $Phi^t$ associa ad ogni punto $vb(x_0) in Omega$ il valore, all'istante $t$, della legge oraria (soluzione dell'eq. differenziale) con $vb(x_0)$ come condizione iniziale.
+In altre parole, $Phi^t$ associa ad ogni punto $vb(x_0) in Omega$ il valore,
+all'istante $t$, della legge oraria (soluzione dell'equazione differenziale) con $vb(x_0)$ come
+condizione iniziale.
 
 Si osserva che $Phi^0 = "id"$. Il flusso è una delle forme più semplici di _propagatori_ ossia
 funzioni che mostrano l'andamento di un'equazione differenziale.
@@ -284,13 +287,12 @@ funzioni che mostrano l'andamento di un'equazione differenziale.
   1. $s |-> Phi^s (Phi^t (vb(x)))$
   2. $s |-> Phi^(s+t) (vb(x))$
   sono entrambe soluzioni del problema di Cauchy, $forall vb(x) in Omega, forall t in RR$,
-  con la stessa condizione iniziale $vb(x)(0) = Phi^t (vb(x))$.\
-  Si verificano facilmente le condizioni iniziali: se $s=0$ ho
+  con la stessa condizione iniziale $vb(x)(0) = Phi^t (vb(x))$.
+
+  Si verificano facilmente le condizioni iniziali: se $s=0$ allora
   + $Phi^0(Phi^t (vb(x))) = Phi^t (vb(x))$,
-  + $Phi^(0+t) (vb(x)) = Phi^t (vb(x))$.\
-  
-  Inoltre, soddisfano l'equazione
-  differenziale. Considerando la prima funzione:
+  + $Phi^(0+t) (vb(x)) = Phi^t (vb(x))$.
+  Inoltre, soddisfano l'equazione differenziale. Considerando la prima funzione:
   $ dv(, s) Phi^s (Phi^t (vb(x))) = vb(f)(Phi^s (Phi^t (vb(x)))). $
   Per la seconda funzione,
   $ dv(, s) Phi^(t+s) (vb(x)) = dv((t+s), s) dv(, (t+s)) Phi^(t+s) = vb(f)(Phi^(t+s) (vb(x))). $
@@ -321,7 +323,7 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   (nel caso in cui non lo fosse si potrebbe suddividerlo in una quantità
   numerabile di insiemi di volume finito). Allora,
   $ Vol(Phi^t (vb(x))) = integral_(Phi^t (A)) dd(y, [n]) = integral_A abs(det J Phi^t (vb(x))) dd(x, [n]), $
-  dove si è fatto il cambio di variabile 
+  dove si è fatto il cambio di variabile
   $ vb(y) = Phi^t (vb(x)) <==> vb(x) = Phi^(-t) (vb(y)) $
   $ ==> dd(y, [n]) = abs(det [pdv(vb(y), vb(x))]) dd(x, [n]) = abs(det J Phi^t (vb(x))) $
   $ y in Phi^t (A) <==> vb(x) in A. $
@@ -332,31 +334,31 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   nullo. Siccome ogni $Phi^t$ (e la sua inversa $Phi^(-t)$) è differenziabile, e
   dato che sono biettive, $J Phi^t$ è una matrice non singolare (a determinante
   non nullo).
-   
+
   Per un corollario del teorema della convergenza dominata di Lebesgue, che vale
   se $abs(pdv(, t) J Phi^t (vb(x))) <= g(vb(x))$, con $g$ sommabile in un intorno
   di $t$ (nel caso che si sta considerando vale in quanto $Phi in C^2$),
   $ dv(, t) Vol(Phi^t (A)) = integral_A pdv(, t) J Phi^t (vb(x)) dd(x, [n]). $
-   
-  Ora, siccome 
+
+  Ora, siccome
   $ Phi^(t+s) = Phi^s compose Phi^t $
   $ ==> D Phi^(t+s)_vb(x) = D Phi^s_(Phi^t) D Phi^t_vb(x), $
   $ ==> J Phi^(t+s) (vb(x)) = J Phi^s (Phi^t (vb(x))) J Phi^t (vb(x)) $
   con $J = [pdv(Phi^t, vb(x))(vb(x))]$ (matrice jacobiana).
   $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s (Phi^t (vb(x))) det J Phi^t (vb(x)). $
-   
+
   Utilizzando il fatto che
   $ eval(pdv(, (t+s))det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) $
   $ ==> pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) $
-   
+
   $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
-   
+
   Si verifica che
   $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
-   
+
   Si nota innanzitutto che $Phi^0 = "id"$, $J Phi^0 (vb(x)) = bb(1)$, $forall vb(x)$.
   Per ipotesi $s |-> J Phi^s$ è $C^1$, e quindi, per $s->0$,
-   
+
   $ J Phi^s (vb(x)) = bb(1) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
   Ma, utilizzando nell'ultima uguaglianza la definizione di flusso,
   $ eval(pdv(, s) [J Phi^s (vb(x))]_(i j))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) f_i (vb(x)). $
@@ -368,11 +370,11 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   - Per le altre permutazioni, si devono sempre prendere almeno due termini fuori
     dalla diagonale (altrimenti si ripeterebbe almeno una riga o una colonna).
     Quindi tutti gli altri termini sono $o(s)$, dato che gli elementi fuori
-    diagonale non hanno gli $1$. 
+    diagonale non hanno gli $1$.
   Allora, il determinante è
   $ det J Phi^s (vb(x)) = 1 + s sum_(i=1)^n pdv(f_i, x_j)(vb(x)) + o(s) $
   $ ==> eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
-   
+
   Allora, si ha che, invertendo il cambio di variabile fatto a inizio
   dimostrazione,
   $ dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (A)) div vb(f(y)) dd(y, [n]). $
@@ -394,7 +396,7 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   $ JJ = mat(0, bb(1)_n;-bb(1)_n, 0;delim: "["), $
   visto che
   $ vb(f(x)) = (grad_vb(p) H(vb(x)), grad_vb(q) H(vb(x))). $
-   
+
   Si mostra che si tratta di un sistema di equazioni differenziali a divergenza
   nulla:
   $ grad_vb(x) dprod vb(f) = sum_(i=1)^n pdv(f_i, x_i) + sum_(i=1)^n pdv(f_(i+n), x_(i+n)) $
@@ -434,12 +436,12 @@ queste si ripeterano nell'evoluzione del sistema.
   ossia che il tempo a cui quasi ogni punto torna è multiplo di $T$).
   Innanzitutto, essendo $Omega without A$ misurabile,
   $ B = sect.big_(n=1)^infinity Phi^(-n T) (Omega without A) ==> B "è misurabile". $
-   
+
   Si osserva inoltre che
   $ Phi^(-n T) (B) sect B = emptyset, forall n in NN^+. $
   Infatti, se si avesse un punto nell'intersezione, cioè $vb(x) in B$ e $Phi^(n T) (vb(x)) in B$,
   si otterrebbe un assurdo, dato che $B subset.eq A$.
-   
+
   Infine, si osserva che
   $ Phi^(n T) (B) sect Phi^(m T) (B) = emptyset, forall m,n in NN^+. $
   Sia, senza perdita di generalità, $m>n$. Allora si ha che (applicando $Phi^(-m T)$,
@@ -504,10 +506,10 @@ l'irreversibilità macroscopica.
   sistema: si ha un tubo di massa trascurabile, che vincola una massa $m$ al suo
   interno, alla posizione $(x,y)$, collegata al centro del tubo $(x_1,y_1)$ mediante
   una molla di costante $k$.
-   
+
   Il sistema ha due gradi di libertà, infatti senza vincoli si avrebbero due punti
   (alle due estremità della molla) e dunque quattro gradi di libertà.
-   
+
   _Principio di soluzione_: nelle coordinate libere (trascurando il vincolo), il
   potenziale è
   $ U(x,y,x_1,y_1) = k/2 abs(x-x_1)^2 + k/2 abs(y-y_2)^2 $
@@ -531,14 +533,14 @@ l'irreversibilità macroscopica.
   $ L(vb(r), vb(dot(r)), t) = T-U = m/2 norm(vb(dot(r)))^2 - hat(q)(V(vb(r),t)- vb(A)(vb(r),t) dprod vb(dot(r))). $
   In questo caso,
   $ vb(p) = grad_vb(dot(r)) L = m vb(dot(r)) + hat(q) vb(A)(vb(r),t) <==> vb(dot(r)) = (vb(p)-hat(q) vb(A))/m $
-  Da cui 
+  Da cui
   $ H(vb(r), vb(dot(r)),t)=vb(p) dprod vb(dot(r))(vb(p)) - L(vb(r), vb(dot(r)), t) = abs(vb(p) - hat(q) vb(A))/(2m) + hat(q)V. $
   Nel caso speciale $pdv(V, t) = 0 = pdv(vb(A), t)$, neanche lagrangiana e
   hamiltoniana dipendono dal tempo, e inoltre
   $ pdv(H, t) = 0 ==> dv(H, t) = 0. $
-  Se $(vb(q)(t), vb(p)(t))$ è soluzione delle equazioni di Hamilton, allora 
+  Se $(vb(q)(t), vb(p)(t))$ è soluzione delle equazioni di Hamilton, allora
   $ dv(, t)H(vb(q)(t), vb(r)(t), t) = pdv(, t)H(vb(q)(t), vb(r)(t) ,t). $
-  Quindi $H$ è una costante del moto e la sua espressione è data da 
+  Quindi $H$ è una costante del moto e la sua espressione è data da
   $ 1/2 "massa" times "velocità"^2 + "energia potenziale elettrica". $
 ]
 
