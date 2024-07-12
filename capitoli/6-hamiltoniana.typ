@@ -268,6 +268,8 @@ caption: [In viola, i valori del campo vettoriale $f(vb(x(t)))$ in alcuni punti.
   la funzione $Phi^t (vb(x_0)) = vb(x_x_0)(t)$.
 ]
 
+In altre parole, $Phi^t$ associa ad ogni punto $vb(x_0) in Omega$ il valore, all'istante $t$, della legge oraria (soluzione dell'eq. differenziale) con $vb(x_0)$ come condizione iniziale.
+
 Si osserva che $Phi^0 = "id"$. Il flusso è una delle forme più semplici di _propagatori_ ossia
 funzioni che mostrano l'andamento di un'equazione differenziale.
 
