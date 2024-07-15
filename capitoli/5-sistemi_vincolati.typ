@@ -220,7 +220,7 @@ Si introduce la _forza generalizzata_ $vb(G)(vb(q), vb(dot(q)), t)$
 $ vb(G)(vb(q), vb(dot(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), vb(dot(q)), t). $
 
 Dall'ultima espressione trovata, si ha che
-$ (dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))]^TT var(vb(q)) = vb(G) dprod var(vb(q)). $
+$ (dv(, t) (grad_vb(dot(q)) scriptT) - grad_vb(q) scriptT) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [pdv(vb(r), vb(q))] var(vb(q)) = vb(G) dprod var(vb(q)). $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
 e dunque in quest'ultima equazione si può usare qualsiasi $var(vb(q)) in RR^d$:
