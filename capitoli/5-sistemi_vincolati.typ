@@ -676,7 +676,7 @@ punti, ma dei punti e delle tangenti ai punti.
   $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
 
   #figure(
-  image("../immagini/generatoreRotazioni.png", width: 60%),
+  image("../immagini/noetherL.png", width: 60%),
   caption: [Argomento geometrico che giustifica l'espressione del generatore: il vettore nero è tangente alla rotazione (ed è applicato in $vb(r_i)$ essendo la derivata in $s=0$).]
 )
 

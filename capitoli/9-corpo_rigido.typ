@@ -237,6 +237,12 @@ Vale infatti, a questo proposito, il seguente teorema.
   dove $I_a$ e $I_a_"CM"$ sono i momenti di inerzia rispetto ad $a$ e $a_"CM"$,
   rispettivamente, e $M$ è la massa del corpo rigido.
 ]
+
+#figure(
+  image("../immagini/huygensSteiner.png", width: 90%),
+  caption: [Dimostrazione del teorema di Huygens-Steiner.],
+)
+
 #dim[
   detta $vb(R_i)$ la posizione dell'$i$-esimo punto materiale (di massa $m_i$) del
   corpo rigido, relativa ad un'origine (vincolo) su $a$, e detta $vb(R_i^perp) = Pi(vb(R_i))$ la
