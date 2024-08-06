@@ -2,10 +2,16 @@
 
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
-#show: project.with(title: "Appunti di Meccanica Analitica", authors: ((
-  name: "Riccardo Franchi",
-  affiliation: "Collegio Superiore - Università di Bologna",
-),), date: "A.A. 2023-2024")
+#show: project.with(
+  title: "Appunti di Meccanica Analitica",
+  authors: (
+    (
+      name: "Riccardo Franchi",
+      affiliation: "Collegio Superiore - Università di Bologna",
+    ),
+  ),
+  date: "A.A. 2023-2024",
+)
 
 #show ref: it => {
   let eq = math.equation

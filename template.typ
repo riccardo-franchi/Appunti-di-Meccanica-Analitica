@@ -18,19 +18,17 @@
 
   // Set body font family.
   set text(font: body-font, lang: "it")
-  
+
   show heading: set text(font: sans-font)
   set heading(numbering: "1.1.")
-  
-  show heading.where(
-    level: 1
-  ): it => block[
+
+  show heading.where(level: 1): it => block[
     #set text(22pt)
     \ \ \
     #it
     \
   ]
-  
+
   // Title page.
   // The page can contain a logo if you pass one with `logo: "logo.png"`.
   v(0.6fr)
