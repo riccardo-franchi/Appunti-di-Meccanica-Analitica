@@ -20,7 +20,7 @@ $ (H f)_(i j) = pdv(f, x_i, x_j) $
 
 #def[
   La _trasformata di Legendre_ di una funzione $f$ definita come sopra, è la
-  funzione $g = (scriptL f) : B subset.eq RR^n -> RR$ definita da
+  funzione $g = (cal(L) f) : B subset.eq RR^n -> RR$ definita da
   $ g(vb(p)) = sup_(x in A) (vb(p) dprod vb(x) - f(vb(x))) $
   dove si considera nel dominio $B$ solo quelle $vb(p)$ tali che l'estremo
   superiore è reale.
@@ -41,15 +41,15 @@ Chiaramente $B' subset.eq B$. Quindi si escludono tutte le $vb(p) in B without B
 #example[
   data $f(x) = x^2$, considerando la funzione $x |-> p x - f(x) = p x - x^2$, per
   cui il massimo esiste $forall p in RR$, si trova $x(p)$:
-  $ p = 2 x ==> x = p/2 $
-  $ ==> (scriptL f)(p) = p p/2 - f(p/2) = p^2/4. $
+  $ p = 2 x ==> x = p / 2 $
+  $ ==> (cal(L) f)(p) = p p / 2 - f(p / 2) = p^2 / 4. $
 ]
 
 #example[
   data $f(vb(x)) = m/2 norm(vb(x))^2$, che è strettamente convessa, la funzione $x |-> p x - f(x)$ ha
   sempre un unico massimo dato da
-  $ vb(p) = grad_vb(x) f(vb(x)) = m vb(x) ==> vb(x(p)) = vb(p)/m $
-  $ ==> g(vb(p)) = vb(p) dprod vb(p)/m - m/2 norm(vb(p))^2/m^2 = norm(vb(p))^2/(2m). $
+  $ vb(p) = grad_vb(x) f(vb(x)) = m vb(x) ==> vb(x(p)) = vb(p) / m $
+  $ ==> g(vb(p)) = vb(p) dprod vb(p) / m - m / 2 norm(vb(p))^2 / m^2 = norm(vb(p))^2 / (2m). $
 ]
 
 Si dà un'interpretazione geometrica della trasformata di Legendre nel caso in
@@ -75,7 +75,11 @@ di Legendre.
 ]
 #dim[
   si deriva la $g(vb(p)) = vb(p) dprod vb(x(p)) - f(vb(x(p)))$:
-  $ pdv(g, p_i) (vb(p)) = x_i (vb(p)) + sum_(l=1)^n p_l pdv(x_l, p_i)(vb(p)) - sum_(l=1)^n pdv(f, x_l) (vb(x(p))) dprod pdv(x_l, p_i)(vb(p)) $
+  $
+    pdv(g, p_i) (vb(p)) = x_i (vb(p)) + sum_(l=1)^n p_l pdv(x_l, p_i)(vb(p)) - sum_(l=1)^n pdv(f, x_l) (
+      vb(x(p))
+    ) dprod pdv(x_l, p_i)(vb(p))
+  $
   Inoltre, poiché
   $ vb(p) = grad_vb(x) f(vb(x(p))), $
   allora
@@ -96,11 +100,15 @@ funzione.
 ]
 
 #prop[
-  la $g = scriptL f$ è convessa.
+  la $g = cal(L) f$ è convessa.
 ]
 #dim[
   si verifica che $(H g)(vb(p)) >=0$. Per il lemma precedente,
-  $ pdv(g(vb(p)), p_i, p_j) = pdv(x_j, p_i)(vb(p)) = pdv(x_j, p_i)(grad_vb(x) f(vb(x(p)))) = sum_(k=1)^n pdv(x_j, p_k)(grad_vb(x) f(vb(x(p)))) pdv(, p_i) pdv(f, x_k)(vb(x(p))) $
+  $
+    pdv(g(vb(p)), p_i, p_j) = pdv(x_j, p_i)(vb(p)) = pdv(x_j, p_i)(grad_vb(x) f(vb(x(p)))) = sum_(k=1)^n pdv(x_j, p_k)(
+      grad_vb(x) f(vb(x(p)))
+    ) pdv(, p_i) pdv(f, x_k)(vb(x(p)))
+  $
   $ =sum_(k=1)^n pdv(x_j, p_k) (vb(p)) sum_(l=1)^n pdv(f, x_l, x_k)(vb(x(p))) pdv(x_l, p_i) (vb(p)). $
   Ma
   $ pdv(x_j, p_k) (vb(p)) = pdv(x_k, p_j) (vb(p)), $
@@ -118,15 +126,19 @@ funzione.
 
 #theorem[
   per funzioni $f$ come sopra, la trasformata di Legendre è un'_involuzione_:
-  $ scriptL^2 f = scriptL(scriptL f) = f. $
+  $ cal(L)^2 f = cal(L)(cal(L) f) = f. $
 ]
 #dim[
   si definisce
-  $ h(vb(y)) = (scriptL g)(vb(p)) = vb(y) dprod vb(p(y)) - g(vb(p(y))), $
+  $ h(vb(y)) = (cal(L) g)(vb(p)) = vb(y) dprod vb(p(y)) - g(vb(p(y))), $
   con $vb(p(y))$ unica soluzione di $vb(y) = grad_vb(p) g(vb(p))$, e vale che $vb(y) = grad_vb(p) g(vb(p(y)))$.
   Il lemma precedente afferma che $grad_vb(p) g(vb(p)) = vb(x(p))$. Allora
   $ vb(y) = vb(x(p(y))) $
-  $ ==> h(vb(y)) = vb(y) dprod vb(p(y)) - g(vb(p(y))) = vb(x(p(y))) dprod vb(p(y)) - [vb(p(y)) dprod vb(x(p(y))) - f(vb(x(p(y))))] $
+  $
+    ==> h(vb(y)) = vb(y) dprod vb(p(y)) - g(vb(p(y))) = vb(x(p(y))) dprod vb(p(y)) - [
+      vb(p(y)) dprod vb(x(p(y))) - f(vb(x(p(y))))
+    ]
+  $
   $ ==> h(vb(y)) = f(vb(y)). $
 ]
 
@@ -143,7 +155,7 @@ funzione.
   data la lagrangiana $L(vb(q), vb(dot(q)), t)$, convessa nelle $vb(dot(q)), forall vb(q),t$,
   si definisce _funzione hamiltoniana_ relativa a $L$ la funzione $H(vb(q), vb(p), t)$ data
   da
-  $ H(vb(q), vb(p), t) = (scriptL_vb(dot(q)) L(vb(q), dot, t))(vb(p)). $
+  $ H(vb(q), vb(p), t) = (cal(L)_vb(dot(q)) L(vb(q), dot, t))(vb(p)). $
 ]
 
 Si assume che la funzione lagrangiana rispetto a $vb(dot(q))$ sia regolare e
@@ -153,21 +165,25 @@ ove $vb(dot(q))(vb(q), vb(p), t) = vb(dot(q))_(vb(q),t) (vb(p))$ è l'unica
 soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ fissati.
 
 #example[
-  $ L(vb(q), vb(dot(q)), t) = T - U = m/2 vb(dot(q)) dprod A(vb(q)) vb(dot(q)) - U(vb(q),t) $
+  $ L(vb(q), vb(dot(q)), t) = T - U = m / 2 vb(dot(q)) dprod A(vb(q)) vb(dot(q)) - U(vb(q),t) $
   In questo caso, l'energia cinetica potrebbe essere data da una forma quadratica,
   a seconda della carta scelta. Allora, si ha, facendo il gradiente della
   lagrangiana,
-  $ vb(p) = m A(vb(q)) vb(dot(q)) <==> vb(dot(q))=(A^(-1)(vb(q),t))/m vb(p). $
+  $ vb(p) = m A(vb(q)) vb(dot(q)) <==> vb(dot(q))=(A^(-1)(vb(q),t)) / m vb(p). $
   L'inversa della matrice $A$ esiste perché è definita positiva.
-  $ ==> H(vb(q), vb(p), t) = (vb(p) dprod A^(-1) vb(p))/m - m/2 1/m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p))/(2m) + U = T_vb(p) + U. $
+  $
+    ==> H(
+      vb(q), vb(p), t
+    ) = (vb(p) dprod A^(-1) vb(p)) / m - m / 2 1 / m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p)) / (2m) + U = T_vb(p) + U.
+  $
 ]
 
 #example[
   utilizzando $vb(r)$ come variabile lagrangiana pensando ad un problema meccanico
   non vincolato, si ottiene un caso analogo al precedente, ma semplificato:
-  $ L(vb(r), vb(dot(r))) = m/2 norm(vb(r))^2 - U(vb(r)) $
+  $ L(vb(r), vb(dot(r))) = m / 2 norm(vb(r))^2 - U(vb(r)) $
   La matrice $A(vb(q))$ è la matrice identità, per ogni $vb(q)$, e
-  $ H(vb(r), vb(p)) = norm(vb(p))^2/(2m) + U(vb(r)). $
+  $ H(vb(r), vb(p)) = norm(vb(p))^2 / (2m) + U(vb(r)). $
   In questo caso particolare, la hamiltoniana equivale all'energia meccanica.
 ]
 
@@ -176,17 +192,23 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
   (con tutte le ipotesi fatte), allora le $n$ equazioni (del secondo ordine) di
   Eulero-Lagrange sono equivalenti alle $2n$ equazioni (del primo ordine)
   seguenti, dette _equazioni di Hamilton_:
-  $ cases(
+  $
+    cases(
     vb(dot(q))(t) = grad_vb(p) H(vb(q)(t), vb(p)(t),t),
     vb(dot(p))(t) = - grad_vb(q) H(vb(q)(t), vb(p)(t),t),
 
-  ) $
+  )
+  $
 ]
 #dim[
   si considera una qualsiasi funzione $t |-> (vb(q)(t), vb(p)(t))$ (anche priva di
   significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$, utilizzando
   le relazioni $H = vb(p) dprod vb(dot(q)) - L(vb(q), vb(dot(q)),t)$ e $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$.
-  $ grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + (vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t). $
+  $
+    grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + (
+      vb(p) - grad_vb(dot(q)) L
+    ) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t).
+  $
   Tuttavia, $(vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) = 0$, per definizione
   di $vb(p)$.
 
@@ -312,9 +334,7 @@ valere il teorema di Schwarz sullo scambio delle derivate parziali seconde.
 Si considera ora un insieme "pieno" di condizioni iniziali. Ci si preoccupa di
 capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR^n$.
 
-#theorem(
-  "della divergenza",
-)[
+#theorem("della divergenza")[
   sotto le ipotesi date, $forall A$ misurabile in $Omega$ vale
   $ dv(, t) Vol(Phi^t (vb(A))) = integral_(Phi^t (A)) div vb(f(x)) dd(x, [n]). $
 ]
@@ -348,10 +368,16 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
   $ ==> det J Phi^(t+s) (vb(x)) = det J Phi^s (Phi^t (vb(x))) det J Phi^t (vb(x)). $
 
   Utilizzando il fatto che
-  $ eval(pdv(, (t+s))det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) $
+  $
+    eval(pdv(, (t+s))det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0)
+  $
   $ ==> pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) $
 
-  $ ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) dd(x, [n]). $
+  $
+    ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (
+      vb(x)
+    ) dd(x, [n]).
+  $
 
   Si verifica che
   $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
@@ -361,7 +387,11 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
 
   $ J Phi^s (vb(x)) = bb(1) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
   Ma, utilizzando nell'ultima uguaglianza la definizione di flusso,
-  $ eval(pdv(, s) [J Phi^s (vb(x))]_(i j))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) f_i (vb(x)). $
+  $
+    eval(pdv(, s) [J Phi^s (vb(x))]_(i j))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) f_i (
+      vb(x)
+    ).
+  $
   E dunque
   $ [J Phi^s (vb(x))]_(i j) = delta_(i j) + s pdv(f_i, x_j)(vb(x)) + o(s). $
   Si calcola il determinante della matrice jacobiana:
@@ -377,7 +407,11 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
 
   Allora, si ha che, invertendo il cambio di variabile fatto a inizio
   dimostrazione,
-  $ dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (A)) div vb(f(y)) dd(y, [n]). $
+  $
+    dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (
+      A
+    )) div vb(f(y)) dd(y, [n]).
+  $
 ]
 
 #corollary[
@@ -404,7 +438,7 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
 ]
 
 Per i campi vettoriali che conservano i volumi vale un importante teorema, il _teorema di ricorrenza di Poincaré_,
-che fa utilizzo del concetto di _misura_, ossia una funzione $A |-> mu(A)$, con $A in scriptM_n$ (misurabile
+che fa utilizzo del concetto di _misura_, ossia una funzione $A |-> mu(A)$, con $A in cal(M)_n$ (misurabile
 secondo Lebesgue), con
 $ mu(A) = integral_A f(vb(x)) dd(x, [n]) $
 per una certa funzione $f >= 0$. Ad esempio, nella misura di Lebesgue, si prende $f(vb(x)) = 1$.
@@ -412,13 +446,11 @@ Il volume di un insieme, citato in precedenza, corrisponde alla sua misura di
 Lebesgue.
 
 #def[
-  un flusso $Phi^t : Omega -> Omega$ preserva la misura $mu$ se, $forall t, forall A in scriptM_n$,
+  un flusso $Phi^t : Omega -> Omega$ preserva la misura $mu$ se, $forall t, forall A in cal(M)_n$,
   $ mu(Phi^t (A)) = mu(A). $
 ]
 
-#theorem(
-  "di ricorrenza di Poincaré",
-)[
+#theorem("di ricorrenza di Poincaré")[
   sia dato un flusso $Phi^t : Omega -> Omega$ che preserva una misura $mu$ su $Omega$,
   con $mu(Omega) < +infinity$. Allora, preso $A$ misurabile e $T>0$, per quasi
   ogni $vb(x) in A$,
@@ -450,7 +482,9 @@ queste si ripeterano nell'evoluzione del sistema.
   Da cui si ottiene l'enunciato, grazie all'osservazione precedente. In altre
   parole, si è affermato che tutti i ${Phi^(n T)}_(n in NN^+)$ sono disgiunti.
   Dalle ipotesi, si ha che, essendo i flussi disgiunti,
-  $ infinity > mu(Omega) >= mu(union.big_(n in ZZ^times) Phi^n (B)) = sum_(n in NN^+) mu(Phi^(n T) (B)) = sum_(n in NN^+) mu(B). $
+  $
+    infinity > mu(Omega) >= mu(union.big_(n in ZZ^times) Phi^n (B)) = sum_(n in NN^+) mu(Phi^(n T) (B)) = sum_(n in NN^+) mu(B).
+  $
   L'ultima uguaglianza vale perché il flusso, per ipotesi, preserva la misura. Si
   ha quindi una somma di infinite (numerabilmente) quantità positive tutte uguali
   tra loro, che dà un risultato finito, dunque necessariamente $mu(B)=0$.
@@ -466,9 +500,9 @@ La dimostrazione del corollario è lasciata come esercizio.
 == Applicazione ai sistemi hamiltoniani
 
 In molti casi si ha, per una particella
-$ H(vb(q), vb(p)) = norm(vb(p))^2/(2 m) + U(vb(q)) $
+$ H(vb(q), vb(p)) = norm(vb(p))^2 / (2 m) + U(vb(q)) $
 o per $n$ particelle
-$ H(vb(q), vb(p)) = iprod(gvec(p), gmat(M)^(-1) gvec(p))/2 + U(vb(q)). $
+$ H(vb(q), vb(p)) = iprod(gvec(p), gmat(M)^(-1) gvec(p)) / 2 + U(vb(q)). $
 
 Si considera la _superficie equienergetica_
 $ Sigma_E = {(vb(q), vb(p)) in RR^(2n) : H(vb(q), vb(p)) = E}. $
@@ -512,35 +546,43 @@ l'irreversibilità macroscopica.
 
   _Principio di soluzione_: nelle coordinate libere (trascurando il vincolo), il
   potenziale è
-  $ U(x,y,x_1,y_1) = k/2 abs(x-x_1)^2 + k/2 abs(y-y_2)^2 $
+  $ U(x,y,x_1,y_1) = k / 2 abs(x-x_1)^2 + k / 2 abs(y-y_2)^2 $
   e l'energia cinetica è
-  $ T(dot(x), dot(y), dot(x)_1, dot(x)_2) = 1/2 m (dot(x)^2 + dot(y)^2) + 1/2 m_1 (dot(x)_1^2 + dot(y)_1^2). $
+  $ T(dot(x), dot(y), dot(x)_1, dot(x)_2) = 1 / 2 m (dot(x)^2 + dot(y)^2) + 1 / 2 m_1 (dot(x)_1^2 + dot(y)_1^2). $
   Passando ora alle coordinate locali $(x,y) = vb(q)$, si ha una carta che
   riflette i vincoli del sistema:
   $ vb(r(q)) = cases(x=x, y=y, x_1=0, y_1=y) $
-  $ ==> hat(U)(vb(r(q))) = k/2 x^2 $
-  $ hat(T)(vb(dot(x)), vb(dot(y))) = hat(T)(vb(dot(r)) (vb(q), vb(dot(q)))) = hat(T)([pdv(vb(r), vb(q))] vb(dot(q))) = m/2 (dot(x)^2 + dot(y)^2) $
+  $ ==> hat(U)(vb(r(q))) = k / 2 x^2 $
+  $
+    hat(T)(vb(dot(x)), vb(dot(y))) = hat(T)(vb(dot(r)) (vb(q), vb(dot(q)))) = hat(T)(
+      [pdv(vb(r), vb(q))] vb(dot(q))
+    ) = m / 2 (dot(x)^2 + dot(y)^2)
+  $
   dato che la massa del tubo è trascurabile. Si ha quindi $L = T-U$, ma si può
   anche ottenere l'hamiltoniana (tramite la trasformata di Legendre della
   lagrangiana)
-  $ H(x,y,p_x,p_y) = (p_x^2 + p_y^2)/(2m) + U(x) $
+  $ H(x,y,p_x,p_y) = (p_x^2 + p_y^2) / (2m) + U(x) $
   con $p_x = m dot(x)$ e $p_y = m dot(y)$. Dunque la $y$ è una coordinata ciclica.
 ]
 
 #example[
   in alcuni casi, $vb(p) = grad_vb(dot(q))L$ non rappresenta la quantità di moto.
   Per esempio, per il campo elettromagnetico,
-  $ L(vb(r), vb(dot(r)), t) = T-U = m/2 norm(vb(dot(r)))^2 - hat(q)(V(vb(r),t)- vb(A)(vb(r),t) dprod vb(dot(r))). $
+  $ L(vb(r), vb(dot(r)), t) = T-U = m / 2 norm(vb(dot(r)))^2 - hat(q)(V(vb(r),t)- vb(A)(vb(r),t) dprod vb(dot(r))). $
   In questo caso,
-  $ vb(p) = grad_vb(dot(r)) L = m vb(dot(r)) + hat(q) vb(A)(vb(r),t) <==> vb(dot(r)) = (vb(p)-hat(q) vb(A))/m $
+  $ vb(p) = grad_vb(dot(r)) L = m vb(dot(r)) + hat(q) vb(A)(vb(r),t) <==> vb(dot(r)) = (vb(p)-hat(q) vb(A)) / m $
   Da cui
-  $ H(vb(r), vb(dot(r)),t)=vb(p) dprod vb(dot(r))(vb(p)) - L(vb(r), vb(dot(r)), t) = abs(vb(p) - hat(q) vb(A))/(2m) + hat(q)V. $
+  $
+    H(vb(r), vb(dot(r)),t)=vb(p) dprod vb(dot(r))(vb(p)) - L(
+      vb(r), vb(dot(r)), t
+    ) = abs(vb(p) - hat(q) vb(A)) / (2m) + hat(q)V.
+  $
   Nel caso speciale $pdv(V, t) = 0 = pdv(vb(A), t)$, neanche lagrangiana e
   hamiltoniana dipendono dal tempo, e inoltre
   $ pdv(H, t) = 0 ==> dv(H, t) = 0. $
   Se $(vb(q)(t), vb(p)(t))$ è soluzione delle equazioni di Hamilton, allora
   $ dv(, t)H(vb(q)(t), vb(r)(t), t) = pdv(, t)H(vb(q)(t), vb(r)(t) ,t). $
   Quindi $H$ è una costante del moto e la sua espressione è data da
-  $ 1/2 "massa" times "velocità"^2 + "energia potenziale elettrica". $
+  $ 1 / 2 "massa" times "velocità"^2 + "energia potenziale elettrica". $
 ]
 

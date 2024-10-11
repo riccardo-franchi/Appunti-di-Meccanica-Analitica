@@ -16,13 +16,13 @@ i suoi gradi di libertà sono sei (tre di traslazione e tre di rotazione).
 In assenza di forze esterne sul corpo, la quantità di moto totale
 $ vb(p_"tot") = sum_(i=1)^N m_i vb(dot(r)_i) $
 è conservata. Quindi il centro di massa
-$ vb(r_"CM") = (sum_(i=1)^N m_i vb(r_i))/(sum_(i=1)^N m_i) $
+$ vb(r_"CM") = (sum_(i=1)^N m_i vb(r_i)) / (sum_(i=1)^N m_i) $
 evolve di moto rettilineo uniforme. Se necessario, si può trovare un sistema di
 riferimento inerziale $S$ in cui $vb(r_"CM") = 0$ e in cui coincide con
 l'origine. Da un punto di vista pratico, nel caso in cui un corpo rigido viene
 visto come un continuo di materia, nella regione $C$ dello spazio, allora il
 centro di massa è definito come
-$ vb(r_"CM") = (integral_C rho(vb(r)) vb(r) dd(r, [n]))/(integral_C rho(vb(r)) dd(r, [n])) $
+$ vb(r_"CM") = (integral_C rho(vb(r)) vb(r) dd(r, [n])) / (integral_C rho(vb(r)) dd(r, [n])) $
 ove il denominatore è la massa totale $M$ del corpo rigido, e $rho(vb(r))$ è la
 densità (di massa) del corpo.
 
@@ -53,28 +53,36 @@ condizioni iniziali.
 
 #theorem[
   il corpo rigido vincolato al punto fisso $O$, origine di $S$, in assenza di
-  forze esterne, ammette quattro costanti del moto: $scriptE$ (energia totale,
+  forze esterne, ammette quattro costanti del moto: $cal(E)$ (energia totale,
   coincidente con l'energia cinetica) e le tre componenti di $vb(l_"tot") = vb(l_(O, "tot"))$ (momento
   totale della quantità di moto rispetto a $O$). Entrambe le quantità si intendono
   riferite a $S$.
 ]
 #dim[
-  Per quanto riguarda la costanza di $scriptE$:
+  Per quanto riguarda la costanza di $cal(E)$:
   $ L = T(gvec(dot(r))) = T(vb(dot(r)_1), ..., vb(dot(r)_N)) $
   non dipende dal tempo, e dunque la lagrangiana riscritta nelle coordinate
   generalizzate $vb(q)$ dipenderà da $vb(q)$ e da $vb(dot(q))$, ma non dal tempo.
   Allora, si ottiene una hamiltoniana $H(vb(q), vb(p))$ che non dipende dal tempo.
   Essa è una costante del moto, che in questo caso particolare coincide con
   l'energia totale (energia cinetica).
-   
+
   Per quanto riguarda il momento della quantità di moto, se si considera
   $ h^s (vb(r_1), ..., vb(r_N)) = (R^((z))_s vb(r_1), ..., R^((z))_s vb(r_N)) $
   dove $R^((z))_s$ indica una rotazione attorno l'asse $z$ di un angolo $s$,
   allora
-  $ D h^s_((vb(r_1),..., vb(r_N))) (vb(dot(r)_1), ..., vb(dot(r)_N)) = (R^((z))_s vb(dot(r)_1), ..., R^((z))_s vb(dot(r)_N)). $
+  $
+    D h^s_((vb(r_1),..., vb(r_N))) (vb(dot(r)_1), ..., vb(dot(r)_N)) = (
+      R^((z))_s vb(dot(r)_1), ..., R^((z))_s vb(dot(r)_N)
+    ).
+  $
   Nel caso che si considera, $L = T = sum_(i=1)^N m_i/2 norm(vb(dot(r)_i))^2$.
   Dopo la trasformazione, si ha che
-  $ L = sum_(i=1)^N m_i/2 norm(R^((z))_s vb(dot(r)_i))^2 = sum_(i=1)^N m_i/2 norm(vb(dot(r)_i))^2 = L(vb(r_1), ..., vb(r_N), vb(dot(r)_1), ..., vb(dot(r)_N)). $
+  $
+    L = sum_(i=1)^N m_i / 2 norm(R^((z))_s vb(dot(r)_i))^2 = sum_(i=1)^N m_i / 2 norm(vb(dot(r)_i))^2 = L(
+      vb(r_1), ..., vb(r_N), vb(dot(r)_1), ..., vb(dot(r)_N)
+    ).
+  $
   Si era già visto infatti che una $h^s$ come sopra conserva la lagrangiana, e
   dunque per il teorema di Noether, $l_(z,"tot")$ è una costante del moto.
   Analogamente per le altre componenti di $vb(l_"tot")$.
@@ -103,9 +111,13 @@ con $A$ matrice $3 times 3$.
 ]
 #dim[
   dati $vb(X), vb(Y)$, vale
-   
+
   #set math.equation(numbering: "(1)")
-  $ vb(X) dprod A vb(Y) = m vb(X) dprod vb(R) cprod vb(Y) cprod vb(R) = m (vb(Y) cprod vb(R)) dprod (vb(X) cprod vb(R)) = A vb(X) dprod vb(Y) $ <quadratic>
+  $
+    vb(X) dprod A vb(Y) = m vb(X) dprod vb(R) cprod vb(Y) cprod vb(R) = m (vb(Y) cprod vb(R)) dprod (
+      vb(X) cprod vb(R)
+    ) = A vb(X) dprod vb(Y)
+  $ <quadratic>
   #set math.equation(numbering: none)
   dove si è usata l'identità vettoriale $vb(a) dprod (vb(b) cprod vb(c)) = vb(c) dprod (vb(a) cprod vb(b)) $.
 
@@ -115,11 +127,11 @@ con $A$ matrice $3 times 3$.
 #corollary[
   l'energia cinetica di un punto materiale del corpo rigido vincolato è una forma
   quadratica in $vb(Omega)$. In particolare,
-  $ T_1 = 1/2 vb(Omega) dprod A vb(Omega). $
+  $ T_1 = 1 / 2 vb(Omega) dprod A vb(Omega). $
 ]
 #dim[
   Da @quadratic, e utilizzando la stessa identità vettoriale di poco sopra, si ottiene
-  $ 1/2 vb(Omega) dprod A vb(Omega) = m/2 norm(vb(Omega) cprod vb(R))^2 = m/2 norm(vb(V))^2 = T_1. $
+  $ 1 / 2 vb(Omega) dprod A vb(Omega) = m / 2 norm(vb(Omega) cprod vb(R))^2 = m / 2 norm(vb(V))^2 = T_1. $
 ]
 
 Si osserva che l'energia cinetica di un punto non solo è la stessa quantità
@@ -133,14 +145,14 @@ la stessa forma funzionale.
 
 Se il corpo è costituito da $N$ punti materiali di masse $m_i$ e posizione (in $S'$) $vb(r_i)$,
 allora l'energia cinetica totale è
-$ T = sum_(i=1)^N T_i = 1/2 sum_(i=1)^N vb(Omega) dprod A_i vb(Omega). $
+$ T = sum_(i=1)^N T_i = 1 / 2 sum_(i=1)^N vb(Omega) dprod A_i vb(Omega). $
 Si definisce l'operatore di inerzia del corpo rigido vincolato in $O$,
 $ hat(I) := sum_(i=1)^N A_i. $
 $hat(I)$ è simmetrica, in quanto somma di matrici simmetriche. Si osserva che si
 avrebbe potuto scrivere, per l'energia cinetica di una particella e dell'intero
 corpo,
-$ T_1 = 1/2 vb(Omega) dprod vb(L), $
-$ T = 1/2 vb(Omega) dprod vb(L_"tot"). $
+$ T_1 = 1 / 2 vb(Omega) dprod vb(L), $
+$ T = 1 / 2 vb(Omega) dprod vb(L_"tot"). $
 
 Il fatto che $hat(I)$ sia simmetrica implica che esiste una base ortonormale ${vu(W_k)}_(k in {1,2,3})$ tale
 che
@@ -152,23 +164,23 @@ perché è necessario anche che i tre assi abbiano tutti la stessa origine.
 
 In questi casi ha senso ricambiare l'orientazione di $S'$ affinché i suoi
 versori coordinati $vu(E_X), vu(E_Y), vu(E_Z)$ coincidano con $vu(W_1), vu(W_2), vu(W_3)$.
-In questa base, $hat(I)$ si esprime come 
+In questa base, $hat(I)$ si esprime come
 $ hat(I) = dmat(I_1, I_2, I_3, delim: "[") $
-cioè, $forall k in {1,2,3}$, $L_k = I_k Omega_k$, e anche 
-$ T=1/2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
+cioè, $forall k in {1,2,3}$, $L_k = I_k Omega_k$, e anche
+$ T=1 / 2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
 
 #prop[
   l'energia cinetica di un corpo rigido vincolato ad $O$ che, ad un determinato
   tempo, ruota con velocità angolare $vb(Omega) = Omega vu(E)$ attorno all'asse
   passante per $O$ con direzione $vu(E)$, è
-  $ T = 1/2 I_vu(E) Omega^2 $
-  con 
+  $ T = 1 / 2 I_vu(E) Omega^2 $
+  con
   $ I_vu(E) = sum_(i=1)^N m_i d_i^2 $
   dove $d_i$ è la distanza dell'$i$-esimo punto dall'asse in questione.
 ]
 #dim[
   $ norm(vb(V_i)) = norm(vb(Omega) cprod vb(R_i)) = Omega d_i $
-  $ ==> T = 1/2 sum_(i=1)^N m_i d_i^2 Omega^2 = 1/2 I_vu(E) Omega^2. $
+  $ ==> T = 1 / 2 sum_(i=1)^N m_i d_i^2 Omega^2 = 1 / 2 I_vu(E) Omega^2. $
 ]
 
 #set math.equation(numbering: "(1)")
@@ -184,7 +196,11 @@ $ T=1/2(I_1 Omega_1^2 + I_2 Omega_2^2 + I_3 Omega_3^2). $
 
 #dim[
   per quanto riguarda @I_E, si ha
-  $ 1/2 I_vu(E) Omega^2 = T = 1/2 (Omega vu(E)) dprod hat(I) (Omega vu(E)) = 1/2 Omega^2 vu(E) dprod hat(I) vu(E) ==> I_vu(E) = vu(E) dprod hat(I) vu(E). $
+  $
+    1 / 2 I_vu(E) Omega^2 = T = 1 / 2 (Omega vu(E)) dprod hat(I) (
+      Omega vu(E)
+    ) = 1 / 2 Omega^2 vu(E) dprod hat(I) vu(E) ==> I_vu(E) = vu(E) dprod hat(I) vu(E).
+  $
   Per la @I_K, invece, dato che $vu(W_k)$ è un autovettore,
   $ I_vu(W_k) = vu(W_k) dprod hat(I) vu(W_k) = vu(W_k) dprod I_k vu(W_k) = I_k. $
 ]
@@ -207,16 +223,16 @@ assi d'inerzia del corpo rigido deve essere quell'asse, e se la simmetria è
 rispetto a $pi/n$ con $n$ intero, allora gli autovalori degli altri due assi
 devono essere uguali tra loro.
 
-#example(
-  "momento di inerzia di una sfera",
-)[
+#example("momento di inerzia di una sfera")[
   considerando una sfera omogenea di raggio $a>0$, il momento di inerzia rispetto
   a un qualsiasi asse è
   $ I_vu(E) = integral_S(0,a) rho d_vu(E)^2 (vb(R)) dd(R, 3). $
   Utilizzando le coordinate sferiche $(r, theta, phi)$, con $vu(E) = vu(E_z)$,
-  $ I_vu(E) &= rho integral_0^(2pi) dd(phi) integral_0^pi dd(theta) integral_0^a dd(r) (r sin theta)^2 r^2 sin theta \ 
-          &= (3pi)/2 M/(pi a^3) integral_0^pi sin^3 theta dd(theta) integral_0^a r^4 dd(r) \
-          &= 2/5 M a^2. $
+  $
+    I_vu(E) &= rho integral_0^(2pi) dd(phi) integral_0^pi dd(theta) integral_0^a dd(r) (r sin theta)^2 r^2 sin theta \
+    &= (3pi) / 2 M / (pi a^3) integral_0^pi sin^3 theta dd(theta) integral_0^a r^4 dd(r) \
+    &= 2 / 5 M a^2.
+  $
 ]
 
 Nota: Il momento di inerzia rispetto ad un asse è appunto rispetto ad un asse,
@@ -227,9 +243,7 @@ diretto come $vb(E)$ (ma non il viceversa). Ma quando si cambia il punto di
 vincolo $O$, due assi paralleli hanno in generale momenti di inerzia diversi.
 Vale infatti, a questo proposito, il seguente teorema.
 
-#theorem(
-  "di Huygens-Steiner",
-)[
+#theorem("di Huygens-Steiner")[
   se $a$ e $a_"CM"$ sono due assi paralleli, posti a distanza $D$ tra loro, il
   secondo dei quali passa per il centro di massa di un corpo rigido, vale la
   relazione
@@ -277,17 +291,19 @@ Vale infatti, a questo proposito, il seguente teorema.
   Intuitivamente, ma si può dimostrare, vale
   $ N_P = a M g $
   Infatti (si tratta di un caso specifico del teorema di König),
-  $ vb(N) = vb(N_"tot") = sum_i vb(N_i) = sum_i vb(r_i) cprod vb(F_i^"ext") = sum_i m_i vb(r_i) cprod vb(g) = M vb(r_"CM") cprod vb(g) = vb(r_"CM") cprod M vb(g). $
-   
+  $
+    vb(N) = vb(N_"tot") = sum_i vb(N_i) = sum_i vb(r_i) cprod vb(F_i^"ext") = sum_i m_i vb(r_i) cprod vb(g) = M vb(r_"CM") cprod vb(g) = vb(r_"CM") cprod M vb(g).
+  $
+
   Dato che $I = M/2 A^2$, per il teorema di Huygens-Steiner,
-  $ I_P = M(A^2/2 + a^2) $
-  $ ==> a M g = I_P dot(Omega)_P = M(A^2/2 + a^2) dot(Omega)_P $
+  $ I_P = M(A^2 / 2 + a^2) $
+  $ ==> a M g = I_P dot(Omega)_P = M(A^2 / 2 + a^2) dot(Omega)_P $
   Indicando con $vb(V)$ la velocità tangenziale,
-  $ a g = (A^2/2+a^2) dot(V)/a $
-  $ ==> b := dot(V) = g/(A^2/(2a^2) + 1) $
+  $ a g = (A^2 / 2+a^2) dot(V) / a $
+  $ ==> b := dot(V) = g / (A^2 / (2a^2) + 1) $
   dove, per brevità, si è chiamata l'accelerazione dello yo-yo con $b$. Indicando
   con $t_0=0$ il tempo in cui viene rilasciato il sistema, $y_0 = y(t_0)=0$, con
-  $ y = 1/2 b t^2 $
+  $ y = 1 / 2 b t^2 $
   $ ==> t_l = sqrt((2 l)/b) = sqrt((2 l)/g (1+A^2/(2 a^2))). $
 ]
 
