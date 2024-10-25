@@ -13,7 +13,7 @@
   set page(numbering: "1", number-align: center)
 
   // Save heading and body font families in variables.
-  let body-font = "Linux Libertine"
+  let body-font = "Libertinus Serif"
   let sans-font = "Inria Sans"
 
   // Set body font family.

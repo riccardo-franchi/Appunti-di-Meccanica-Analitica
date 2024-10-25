@@ -7,7 +7,7 @@
 #let Vol = "Vol"
 
 // ctheorems setup
-#import "@preview/ctheorems:1.1.2": *
+#import "@preview/ctheorems:1.1.3": *
 
 #let def = thmbox("def", "Definizione", base_level: 1, fill: rgb("#EFE4CB"))
 
