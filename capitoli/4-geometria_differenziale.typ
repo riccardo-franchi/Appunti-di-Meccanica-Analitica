@@ -10,7 +10,7 @@ inferiore).
 #def[
   dato $A subset.eq M$ si dice aperto/chiuso in $M$ (tecnicamente si dice "nella
   topologia di $M$") se si può scrivere come
-  $ A = B sect M $
+  $ A = B inter M $
   con $B$ aperto/chiuso di $RR^N$.
 ]
 
@@ -31,7 +31,7 @@ Una carta spesso si indica $(U,phi)$, mettendo in evidenza anche il suo dominio.
 #def[
   due carte $phi_i: U_i -> V_i$, con $U_i$ e $V_i$ rispettivamente aperti di $RR^d$ e $M$,
   sono dette _compatibili_ se
-  + $ V = V_1 sect V_2 != emptyset $
+  + $ V = V_1 inter V_2 != emptyset $
   + $ phi^(-1)_2 compose phi_(1 | phi_1^(-1)(V)) : phi^(-1)_1 (V) -> phi_2^(-1)(V) $ è
     un diffeomorfismo (funzione differenziabile invertibile con inversa
     differenziabile).
@@ -49,7 +49,7 @@ funzione invertibile.
 
 #def[
   un _atlante_ per $M$ è una collezione di carte ${(U_alpha, phi_alpha)}$, che
-  devono essere a due a due compatibili se $V_alpha sect V_beta != emptyset$, tali
+  devono essere a due a due compatibili se $V_alpha inter V_beta != emptyset$, tali
   che
   $ union.big_alpha phi(U_alpha) = union.big_alpha V_alpha = M. $
 ]

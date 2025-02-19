@@ -101,7 +101,7 @@ Si fanno ora alcune osservazioni.
   equilibrio), le curve di livello dell'energia sono curve lisce, assumendo $U$ due
   volte differenziabile, con $U''$ continua. Dire $Sigma_E_0$ è liscia significa
   che per ogni punto $(hat(x), hat(y)) in Sigma_E_0$ esiste un intorno
-  rettangolare $Upsilon$ tale che $Sigma_E_0 sect Upsilon$ è il grafico di una
+  rettangolare $Upsilon$ tale che $Sigma_E_0 inter Upsilon$ è il grafico di una
   funzione $v=g(x)$ o $x=g(v)$ con $g$ differenziabile con derivata continua.
   Infatti, $ pdv(E, x) &= U'(x) = -f(x) \ pdv(E, v) &= v $ e, al di fuori delle
   posizioni di equilibrio, almeno una di queste due derivate parziali è non nulla.

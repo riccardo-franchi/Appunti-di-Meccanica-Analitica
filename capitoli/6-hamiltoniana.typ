@@ -467,18 +467,18 @@ queste si ripeterano nell'evoluzione del sistema.
   Si mostra che $mu(B) = 0$ (in realtà si sta mostrando qualcosa di più forte,
   ossia che il tempo a cui quasi ogni punto torna è multiplo di $T$).
   Innanzitutto, essendo $Omega without A$ misurabile,
-  $ B = sect.big_(n=1)^infinity Phi^(-n T) (Omega without A) ==> B "è misurabile". $
+  $ B = inter.big_(n=1)^infinity Phi^(-n T) (Omega without A) ==> B "è misurabile". $
 
   Si osserva inoltre che
-  $ Phi^(-n T) (B) sect B = emptyset, forall n in NN^+. $
+  $ Phi^(-n T) (B) inter B = emptyset, forall n in NN^+. $
   Infatti, se si avesse un punto nell'intersezione, cioè $vb(x) in B$ e $Phi^(n T) (vb(x)) in B$,
   si otterrebbe un assurdo, dato che $B subset.eq A$.
 
   Infine, si osserva che
-  $ Phi^(n T) (B) sect Phi^(m T) (B) = emptyset, forall m,n in NN^+. $
+  $ Phi^(n T) (B) inter Phi^(m T) (B) = emptyset, forall m,n in NN^+. $
   Sia, senza perdita di generalità, $m>n$. Allora si ha che (applicando $Phi^(-m T)$,
   essendo i flussi iniettivi e $Phi^(n T) = emptyset$)
-  $ Phi^(-m T + n T) (B) sect B = emptyset. $
+  $ Phi^(-m T + n T) (B) inter B = emptyset. $
   Da cui si ottiene l'enunciato, grazie all'osservazione precedente. In altre
   parole, si è affermato che tutti i ${Phi^(n T)}_(n in NN^+)$ sono disgiunti.
   Dalle ipotesi, si ha che, essendo i flussi disgiunti,

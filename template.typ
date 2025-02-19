@@ -1,3 +1,4 @@
+
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
 // Go ahead and customize it to your liking!
@@ -60,7 +61,7 @@
 
 
   // Table of contents.
-  outline(depth: 2, indent: true)
+  outline(depth: 2, indent: auto)
   pagebreak()
 
 
