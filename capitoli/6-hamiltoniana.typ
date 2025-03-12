@@ -76,9 +76,7 @@ di Legendre.
 #dim[
   si deriva la $g(vb(p)) = vb(p) dprod vb(x(p)) - f(vb(x(p)))$:
   $
-    pdv(g, p_i) (vb(p)) = x_i (vb(p)) + sum_(l=1)^n p_l pdv(x_l, p_i)(vb(p)) - sum_(l=1)^n pdv(f, x_l) (
-      vb(x(p))
-    ) dprod pdv(x_l, p_i)(vb(p))
+    pdv(g, p_i) (vb(p)) = x_i (vb(p)) + sum_(l=1)^n p_l pdv(x_l, p_i)(vb(p)) - sum_(l=1)^n pdv(f, x_l) ( vb(x(p)) ) dprod pdv(x_l, p_i)(vb(p))
   $
   Inoltre, poiché
   $ vb(p) = grad_vb(x) f(vb(x(p))), $
@@ -105,9 +103,7 @@ funzione.
 #dim[
   si verifica che $(H g)(vb(p)) >=0$. Per il lemma precedente,
   $
-    pdv(g(vb(p)), p_i, p_j) = pdv(x_j, p_i)(vb(p)) = pdv(x_j, p_i)(grad_vb(x) f(vb(x(p)))) = sum_(k=1)^n pdv(x_j, p_k)(
-      grad_vb(x) f(vb(x(p)))
-    ) pdv(, p_i) pdv(f, x_k)(vb(x(p)))
+    pdv(g(vb(p)), p_i, p_j) = pdv(x_j, p_i)(vb(p)) = pdv(x_j, p_i)(grad_vb(x) f(vb(x(p)))) = sum_(k=1)^n pdv(x_j, p_k)( grad_vb(x) f(vb(x(p))) ) pdv(, p_i) pdv(f, x_k)(vb(x(p)))
   $
   $ =sum_(k=1)^n pdv(x_j, p_k) (vb(p)) sum_(l=1)^n pdv(f, x_l, x_k)(vb(x(p))) pdv(x_l, p_i) (vb(p)). $
   Ma
@@ -135,9 +131,7 @@ funzione.
   Il lemma precedente afferma che $grad_vb(p) g(vb(p)) = vb(x(p))$. Allora
   $ vb(y) = vb(x(p(y))) $
   $
-    ==> h(vb(y)) = vb(y) dprod vb(p(y)) - g(vb(p(y))) = vb(x(p(y))) dprod vb(p(y)) - [
-      vb(p(y)) dprod vb(x(p(y))) - f(vb(x(p(y))))
-    ]
+    ==> h(vb(y)) = vb(y) dprod vb(p(y)) - g(vb(p(y))) = vb(x(p(y))) dprod vb(p(y)) - [ vb(p(y)) dprod vb(x(p(y))) - f(vb(x(p(y)))) ]
   $
   $ ==> h(vb(y)) = f(vb(y)). $
 ]
@@ -172,9 +166,7 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
   $ vb(p) = m A(vb(q)) vb(dot(q)) <==> vb(dot(q))=(A^(-1)(vb(q),t)) / m vb(p). $
   L'inversa della matrice $A$ esiste perché è definita positiva.
   $
-    ==> H(
-      vb(q), vb(p), t
-    ) = (vb(p) dprod A^(-1) vb(p)) / m - m / 2 1 / m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p)) / (2m) + U = T_vb(p) + U.
+    ==> H( vb(q), vb(p), t ) = (vb(p) dprod A^(-1) vb(p)) / m - m / 2 1 / m^2 A^(-1) vb(p) A A^(-1) vb(p)+U = (vb(p) dprod A^(-1) vb(p)) / (2m) + U = T_vb(p) + U.
   $
 ]
 
@@ -205,9 +197,7 @@ soluzione di $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$ per $vb(q)$ e $t$ 
   significato fisico). Si calcola $dv(, t) H(vb(q)(t), vb(p)(t), t)$, utilizzando
   le relazioni $H = vb(p) dprod vb(dot(q)) - L(vb(q), vb(dot(q)),t)$ e $vb(p) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t)$.
   $
-    grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + (
-      vb(p) - grad_vb(dot(q)) L
-    ) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t).
+    grad_vb(q) H dprod vb(dot(q)) + grad_vb(p) H dprod vb(dot(p)) + pdv(H, t) = -grad_vb(q) L dprod vb(dot(q)) + ( vb(p) - grad_vb(dot(q)) L ) dprod diaer(vb(q)) + vb(dot(q)) dprod vb(dot(p)) - pdv(L, t).
   $
   Tuttavia, $(vb(p) - grad_vb(dot(q)) L) dprod diaer(vb(q)) = 0$, per definizione
   di $vb(p)$.
@@ -369,28 +359,24 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
 
   Utilizzando il fatto che
   $
-    eval(pdv(, (t+s))det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0)
+    evaluated(pdv(, (t+s))det J Phi^(t+s) (vb(x)))_(s=0) =pdv(, t) det J Phi^t = evaluated(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0)
   $
-  $ ==> pdv(, t) det J Phi^t = eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) $
+  $ ==> pdv(, t) det J Phi^t = evaluated(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (vb(x)) $
 
   $
-    ==> dv(, t) Vol(Phi^t (A)) = integral_A eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t (
-      vb(x)
-    ) dd(x, [n]).
+    ==> dv(, t) Vol(Phi^t (A)) = integral_A evaluated(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) det J Phi^t ( vb(x) ) dd(x, [n]).
   $
 
   Si verifica che
-  $ eval(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
+  $ evaluated(pdv(, s) det J Phi^s (Phi^t (vb(x))))_(s=0) = div vb(f). $
 
   Si nota innanzitutto che $Phi^0 = "id"$, $J Phi^0 (vb(x)) = bb(1)$, $forall vb(x)$.
   Per ipotesi $s |-> J Phi^s$ è $C^1$, e quindi, per $s->0$,
 
-  $ J Phi^s (vb(x)) = bb(1) + s eval(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
+  $ J Phi^s (vb(x)) = bb(1) + s evaluated(pdv(, s) J Phi^s (vb(x)))_(s=0) + o(s). $
   Ma, utilizzando nell'ultima uguaglianza la definizione di flusso,
   $
-    eval(pdv(, s) [J Phi^s (vb(x))]_(i j))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) eval(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) f_i (
-      vb(x)
-    ).
+    evaluated(pdv(, s) [J Phi^s (vb(x))]_(i j))_(s=0) = pdv(, s) pdv(Phi_i^s (vb(x)), x_j) = pdv(, x_j) evaluated(pdv(Phi_i^s (vb(x)), s))_(s=0) = pdv(, x_i) f_i ( vb(x) ).
   $
   E dunque
   $ [J Phi^s (vb(x))]_(i j) = delta_(i j) + s pdv(f_i, x_j)(vb(x)) + o(s). $
@@ -403,14 +389,12 @@ capire come evolve la sua misura, e in particolare il suo volume $Vol(A)$ in $RR
     diagonale non hanno gli $1$.
   Allora, il determinante è
   $ det J Phi^s (vb(x)) = 1 + s sum_(i=1)^n pdv(f_i, x_j)(vb(x)) + o(s) $
-  $ ==> eval(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
+  $ ==> evaluated(pdv(, s) J Phi^s (vb(x)))_(s=0) = div vb(f(x)). $
 
   Allora, si ha che, invertendo il cambio di variabile fatto a inizio
   dimostrazione,
   $
-    dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t (
-      A
-    )) div vb(f(y)) dd(y, [n]).
+    dv(, t) Vol(Phi^t (A)) = integral_A div vb(f)(Phi^t (vb(x))) det J Phi^t (vb(x)) dd(x, [n]) = integral_(Phi^t ( A )) div vb(f(y)) dd(y, [n]).
   $
 ]
 
@@ -554,9 +538,7 @@ l'irreversibilità macroscopica.
   $ vb(r(q)) = cases(x=x, y=y, x_1=0, y_1=y) $
   $ ==> hat(U)(vb(r(q))) = k / 2 x^2 $
   $
-    hat(T)(vb(dot(x)), vb(dot(y))) = hat(T)(vb(dot(r)) (vb(q), vb(dot(q)))) = hat(T)(
-      [pdv(vb(r), vb(q))] vb(dot(q))
-    ) = m / 2 (dot(x)^2 + dot(y)^2)
+    hat(T)(vb(dot(x)), vb(dot(y))) = hat(T)(vb(dot(r)) (vb(q), vb(dot(q)))) = hat(T)( [pdv(vb(r), vb(q))] vb(dot(q)) ) = m / 2 (dot(x)^2 + dot(y)^2)
   $
   dato che la massa del tubo è trascurabile. Si ha quindi $L = T-U$, ma si può
   anche ottenere l'hamiltoniana (tramite la trasformata di Legendre della
@@ -573,9 +555,7 @@ l'irreversibilità macroscopica.
   $ vb(p) = grad_vb(dot(r)) L = m vb(dot(r)) + hat(q) vb(A)(vb(r),t) <==> vb(dot(r)) = (vb(p)-hat(q) vb(A)) / m $
   Da cui
   $
-    H(vb(r), vb(dot(r)),t)=vb(p) dprod vb(dot(r))(vb(p)) - L(
-      vb(r), vb(dot(r)), t
-    ) = abs(vb(p) - hat(q) vb(A)) / (2m) + hat(q)V.
+    H(vb(r), vb(dot(r)),t)=vb(p) dprod vb(dot(r))(vb(p)) - L( vb(r), vb(dot(r)), t ) = abs(vb(p) - hat(q) vb(A)) / (2m) + hat(q)V.
   $
   Nel caso speciale $pdv(V, t) = 0 = pdv(vb(A), t)$, neanche lagrangiana e
   hamiltoniana dipendono dal tempo, e inoltre

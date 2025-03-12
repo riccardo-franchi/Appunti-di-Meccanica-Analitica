@@ -1,4 +1,4 @@
-#import "@preview/physica:0.9.3": *
+#import "@preview/physica:0.9.5": *
 
 #let gvec(content) = $underline(vb(content))$
 #let gmat(content) = $underline(underline(vb(content)))$

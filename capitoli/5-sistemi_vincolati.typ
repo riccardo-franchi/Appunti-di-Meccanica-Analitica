@@ -176,24 +176,18 @@ Allora
 
 #set math.equation(numbering: "(1)")
 $
-  m diaer(vb(r)) dprod var(vb(r)) = m diaer(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [
-    pdv(vb(r), vb(q))
-  ]^TT diaer(vb(r)) dprod var(vb(q)).
+  m diaer(vb(r)) dprod var(vb(r)) = m diaer(vb(r)) dprod [pdv(vb(r), vb(q)) var(vb(q))] = m [ pdv(vb(r), vb(q)) ]^TT diaer(vb(r)) dprod var(vb(q)).
 $ <transpose>
 Ma, si ha che
 $
-  [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - (
-    dv(, t) [pdv(vb(r), vb(q))]^TT
-  ) vb(dot(r)).
+  [pdv(vb(r), vb(q))]^TT diaer(vb(r)) = dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - ( dv(, t) [pdv(vb(r), vb(q))]^TT ) vb(dot(r)).
 $ <transpose_derivative>
 #set math.equation(numbering: none)
 Se le $vb(r)(vb(q), t)$ sono funzioni lisce (regolari), allora
 $ dv(, t) [pdv(vb(r), vb(q))] = dv(vb(dot(r)), vb(q)), $
 infatti,
 $
-  dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q)_k + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q)_k + pdv(r_i, q_j, t) = pdv(, q_j) (
-    dv(, t) r_i
-  ).
+  dv(, t) pdv(r_i, q_j) = sum_(k=1)^d pdv(r_i, q_k, q_j) dot(q)_k + pdv(r_i, t, q_j) = sum_(k=1)^d pdv(r_i, q_j, q_k) dot(q)_k + pdv(r_i, q_j, t) = pdv(, q_j) ( dv(, t) r_i ).
 $
 
 Per definizione, vale anche che
@@ -208,9 +202,7 @@ $ vb(dot(r)) = [pdv(vb(r), vb(q))] vb(dot(q)) + dv(vb(r), t). $
 Utilizzando le @transpose_derivative, @jacobian_derivative in @transpose,
 #set math.equation(numbering: "(1)")
 $
-  m diaer(vb(r)) dprod var(vb(r)) = m (
-    dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - dv(, t) [pdv(vb(r), vb(q))]^TT vb(dot(r))
-  ) dprod var(vb(q)).
+  m diaer(vb(r)) dprod var(vb(r)) = m ( dv(, t) ([pdv(vb(r), vb(q))]^TT vb(dot(r))) - dv(, t) [pdv(vb(r), vb(q))]^TT vb(dot(r)) ) dprod var(vb(q)).
 $ <all_together>
 #set math.equation(numbering: none)
 
@@ -218,9 +210,7 @@ Si esprime ora l'energia cinetica nelle coordinate $(vb(q), vb(dot(q)), t)$,
 ossia $cal(T)(vb(q), vb(dot(q)), t)=T(vb(dot(r))(vb(q), vb(dot(q)), t))$,
 
 $
-  dv(cal(T), dot(q)_j) = sum_(i=1)^n pdv(T, dot(r)_i) pdv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i pdv(dot(r)_i, dot(q)_j) = m (
-    [pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r))
-  )_j
+  dv(cal(T), dot(q)_j) = sum_(i=1)^n pdv(T, dot(r)_i) pdv(dot(r)_i, dot(q)_j) = m sum_(i=1)^n dot(r)_i pdv(dot(r)_i, dot(q)_j) = m ( [pdv(vb(dot(r)), dot(q)_j)]^TT vb(dot(r)) )_j
 $
 dove $[pdv(vb(dot(r)), dot(q)_j)]^TT$ indica la $j$-esima colonna della matrice
 Jacobiana. Quindi si può scrivere
@@ -237,9 +227,7 @@ $ vb(G)(vb(q), vb(dot(q)), t)=[pdv(vb(r), vb(q))]^TT vb(F)(vb(q), vb(dot(q)), t)
 
 Dall'ultima espressione trovata, si ha che
 $
-  (dv(, t) (grad_vb(dot(q)) cal(T)) - grad_vb(q) cal(T)) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [
-    pdv(vb(r), vb(q))
-  ] var(vb(q)) = vb(G) dprod var(vb(q)).
+  (dv(, t) (grad_vb(dot(q)) cal(T)) - grad_vb(q) cal(T)) dprod var(vb(q)) = vb(F) dprod var(vb(r)) = vb(F) dprod [ pdv(vb(r), vb(q)) ] var(vb(q)) = vb(G) dprod var(vb(q)).
 $
 
 Se si hanno soltanto vincoli olonomi, allora i $var(vb(q))$ sono vettori liberi,
@@ -279,15 +267,9 @@ $ vb(G)=[pdv(vb(r), vb(q))]^TT vb(F) = dv(, t) grad_vb(dot(q)) cal(U) - grad_vb(
 con $cal(U)(vb(q), vb(dot(q)), t) = U(vb(r)(vb(q), t), [pdv(vb(r), vb(q)) (vb(q),t)] vb(dot(q)) + pdv(vb(r), t)(vb(q),t), t)$.
 
 $
-  ==> vb(G)(vb(q), vb(dot(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT (
-    dv(, t) grad_vb(dot(r)) U - grad_vb(r) U
-  ) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U
-  \ &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - [
-    pdv(vb(r), vb(q))
-  ]^TT grad_vb(r) U
-  \ &= dv(, t) ([pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) U)- [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) U - [
-    pdv(vb(r), vb(q))
-  ]^TT grad_vb(r) U = dv(, t) grad_vb(dot(q)) cal(U) - grad_vb(q) cal(U)
+  ==> vb(G)(vb(q), vb(dot(q)), t) &= [pdv(vb(r), vb(q))]^TT vb(F) = [pdv(vb(r), vb(q))]^TT ( dv(, t) grad_vb(dot(r)) U - grad_vb(r) U ) = [pdv(vb(r), vb(q))]^TT dv(, t) grad_vb(dot(r)) U - [pdv(vb(r), vb(q))]^TT grad_vb(r) U
+  \ &= dv(, t) ([pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - (dv(, t) [pdv(vb(r), vb(q))]^TT grad_vb(dot(r)) U) - [ pdv(vb(r), vb(q)) ]^TT grad_vb(r) U
+  \ &= dv(, t) ([pdv(vb(dot(r)), vb(dot(q)))]^TT grad_vb(dot(r)) U)- [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) U - [ pdv(vb(r), vb(q)) ]^TT grad_vb(r) U = dv(, t) grad_vb(dot(q)) cal(U) - grad_vb(q) cal(U)
 $
 dove, nell'ultimo passaggio, si è applicato il seguente lemma:
 
@@ -299,9 +281,7 @@ dove, nell'ultimo passaggio, si è applicato il seguente lemma:
   Vale che
   $ grad_vb(q) tilde(f) = [pdv(vb(r), vb(q))]^TT grad_vb(r) f + [pdv(vb(dot(r)), vb(q))]^TT grad_vb(dot(r)) f $
   $
-    grad_vb(dot(q)) tilde(f) = [pdv(vb(r), vb(dot(q)))]^TT grad_vb(r) f + [
-      pdv(vb(dot(r)), vb(dot(q)))
-    ]^TT grad_vb(dot(r)) f
+    grad_vb(dot(q)) tilde(f) = [pdv(vb(r), vb(dot(q)))]^TT grad_vb(r) f + [ pdv(vb(dot(r)), vb(dot(q))) ]^TT grad_vb(dot(r)) f
   $
 ]
 
@@ -385,15 +365,11 @@ le espressioni delle equazioni di Eulero-Lagrange.
   $ (z,phi) |-> (r(z) cos phi, r(z) sin phi, z) $
 
   $
-    ==> vb(dot(r)) = (
-      r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z)
-    ).
+    ==> vb(dot(r)) = ( r'(z) dot(z) cos phi - r(z) sin phi dot(phi), r'(z) dot(z) sin phi + r(z) cos phi dot(phi), dot(z) ).
   $
   Il resto dei calcoli è lasciato come esercizio. Si ha infine
   $
-    T = 1 / 2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1 / 2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T(
-      z, dot(z), dot(phi)
-    ) = L(z, dot(z), dot(phi)).
+    T = 1 / 2 (dot(r)^2 + r^2 dot(phi)^2 + dot(z)^2) = 1 / 2 ((r'(z) dot(z))^2 + (r(z) dot(phi))^2 + dot(z)^2) = T( z, dot(z), dot(phi) ) = L(z, dot(z), dot(phi)).
   $
   L'energia cinetica non dipende da $phi$, per la simmetria del sistema, e dunque $phi$ è
   una coordinata ciclica, e quindi ci si aspetta che
@@ -520,9 +496,7 @@ Si danno due dimostrazioni del teorema, di cui una è più generale.
   che corrisponde a un problema libero in $RR^d$ per $cal(L)(vb(q), vb(dot(q)), t)$,
   cioè è equivalente ad essere un estremale libero di
   $
-    Phi_0(vb(q)) = integral_(t_0)^(t_1) cal(L)(vb(q)(t), vb(dot(q))(t), t) dd(t) = integral_(t_0)^(t_1) L(
-      vb(r)(t), vb(dot(r))(t), t
-    ) dd(t)
+    Phi_0(vb(q)) = integral_(t_0)^(t_1) cal(L)(vb(q)(t), vb(dot(q))(t), t) dd(t) = integral_(t_0)^(t_1) L( vb(r)(t), vb(dot(r))(t), t ) dd(t)
   $
   che è quindi equivalente al fatto che la $vb(r)(t)$ corrisponde a $vb(q)(t)$ è
   estremale vincolato di $Phi(vb(r))$, dato che i due funzionali descrivono la
@@ -562,11 +536,7 @@ lasciata come esercizio.
 
   Quindi, ricordando la sezione sul funzionale d'azione libero,
   $
-    Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) (
-      dv(, t) grad_vb(dot(r)) L - grad_vb(r) L
-    ) dprod var(vb(r)) dd(t) + o(norm(vb(h))) = integral_(t_0)^(t_1) (
-      m vb(diaer(r)) - vb(F)
-    ) dprod var(vb(r)) dd(t) + o(norm(vb(h))).
+    Phi(vb(r)+vb(h)) - Phi(vb(r)) = integral_(t_0)^(t_1) ( dv(, t) grad_vb(dot(r)) L - grad_vb(r) L ) dprod var(vb(r)) dd(t) + o(norm(vb(h))) = integral_(t_0)^(t_1) ( m vb(diaer(r)) - vb(F) ) dprod var(vb(r)) dd(t) + o(norm(vb(h))).
   $
   Il principio di D'Alembert implica che l'integrale è nullo e quindi $vb(r)$ è un
   estremale condizionato (vincolato).
@@ -593,25 +563,17 @@ lasciata come esercizio.
   Si ha che, nel caso considerato, sostituendo $(vb(q)(t), vb(dot(q))(t))$ al
   posto delle variabili libere $(vb(q), vb(dot(q)))$
   $
-    grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) cal(L) + [pdv(vb(dot(Q)), vb(q))]^TT grad_vb(dot(Q)) cal(L) = [
-      pdv(vb(Q), vb(q))
-    ]^TT grad_vb(Q) cal(L) + (dv(, t)[pdv(vb(Q), vb(q))]^TT grad_vb(dot(Q)) cal(L))
+    grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT grad_vb(Q) cal(L) + [pdv(vb(dot(Q)), vb(q))]^TT grad_vb(dot(Q)) cal(L) = [ pdv(vb(Q), vb(q)) ]^TT grad_vb(Q) cal(L) + (dv(, t)[pdv(vb(Q), vb(q))]^TT grad_vb(dot(Q)) cal(L))
   $
   $
-    grad_vb(dot(q)) L = [pdv(vb(Q), vb(dot(q)))]^TT grad_vb(Q) cal(L) + [
-      pdv(vb(dot(Q)), vb(dot(q)))
-    ]^TT grad_vb(dot(Q)) cal(L) = [pdv(vb(Q), vb(q))]^TT grad_vb(dot(Q)) cal(L).
+    grad_vb(dot(q)) L = [pdv(vb(Q), vb(dot(q)))]^TT grad_vb(Q) cal(L) + [ pdv(vb(dot(Q)), vb(dot(q))) ]^TT grad_vb(dot(Q)) cal(L) = [pdv(vb(Q), vb(q))]^TT grad_vb(dot(Q)) cal(L).
   $
   $ L(vb(q), vb(dot(q)),t) = cal(L)(vb(Q(q)), vb(dot(Q))(vb(q), vb(dot(q))), t) $
   $
-    dv(, t) grad_vb(dot(q)) L = (dv(, t)[pdv(vb(Q), vb(q))]^TT) grad_vb(dot(Q)) cal(L) + [
-      pdv(vb(Q), vb(q))
-    ]^TT dv(, t) grad_vb(Q) cal(L)
+    dv(, t) grad_vb(dot(q)) L = (dv(, t)[pdv(vb(Q), vb(q))]^TT) grad_vb(dot(Q)) cal(L) + [ pdv(vb(Q), vb(q)) ]^TT dv(, t) grad_vb(Q) cal(L)
   $
   $
-    ==> dv(, t) grad_vb(dot(q)) L - grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT (
-      dv(, t) grad_vb(dot(Q)) cal(L) - grad_vb(Q) cal(L)
-    )
+    ==> dv(, t) grad_vb(dot(q)) L - grad_vb(q) L = [pdv(vb(Q), vb(q))]^TT ( dv(, t) grad_vb(dot(Q)) cal(L) - grad_vb(Q) cal(L) )
   $
   dunque il membro di sinistra è nullo se e solo se è nullo quello di destra,
   essendo $[pdv(vb(Q), vb(q))]^TT$ non degenere.
@@ -642,7 +604,7 @@ punti, ma dei punti e delle tangenti ai punti.
   trasformazioni $h^s : M->M, s in (-epsilon, epsilon), h^0 = "id"$,
   sufficientemente regolari, che conservano $L$, allora il corrispondente sistema
   lagrangiano ammette una costante del moto che in coordinate locali è data da
-  $ I(vb(q), vb(dot(q)),t) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0). $
+  $ I(vb(q), vb(dot(q)),t) = grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod evaluated(pdv(h^s (vb(q)), s))_(s=0). $
 ]
 #dim[
   - Asserto 1: $forall s in (-epsilon, epsilon), vb(Q)(t) = h^s (vb(q)(t))$ soddisfa
@@ -669,15 +631,11 @@ punti, ma dei punti e delle tangenti ai punti.
   Dall'asserto 1, $Gamma(s, dot)$ soddisfa le equazioni di Eulero-Lagrange.
   Utilizzando quindi l'asserto 2 in @pdvLs,
   $
-    0 = pdv(, t) grad_vb(dot(q)) L dprod Gamma' + grad_vb(dot(q)) L dprod dot(Gamma') = pdv(, t)(
-      grad_vb(dot(q)) L dprod Gamma'
-    ).
+    0 = pdv(, t) grad_vb(dot(q)) L dprod Gamma' + grad_vb(dot(q)) L dprod dot(Gamma') = pdv(, t)( grad_vb(dot(q)) L dprod Gamma' ).
   $
   Svolgendo il calcolo in $s=0$,
   $
-    0 = pdv(, t) grad_vb(dot(q)) L dprod eval(pdv(h^s, s))_(s=0) = dv(, t) grad_vb(dot(q)) L(
-      vb(q)(t), vb(dot(q))(t), t
-    ) dprod eval(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), vb(dot(q)), t).
+    0 = pdv(, t) grad_vb(dot(q)) L dprod evaluated(pdv(h^s, s))_(s=0) = dv(, t) grad_vb(dot(q)) L( vb(q)(t), vb(dot(q))(t), t ) dprod evaluated(pdv(h^s, s))_(s=0) = dv(, t) I(vb(q), vb(dot(q)), t).
   $
 ]
 
@@ -687,13 +645,11 @@ punti, ma dei punti e delle tangenti ai punti.
   anche traslazione sulla $i$-esima coordinata). Si tratta di trasformazioni da $M$ in $M$.
   Il differenziale, visto nel fibrato tangente, è dato da
   $
-    D h^s (vb(q), vb(dot(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = (
-      q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q)_1, ..., dot(q)_d
-    )
+    D h^s (vb(q), vb(dot(q))) = (h^s (vb(q)), D h^s_vb(q) (vb(dot(q)))) = ( q_1,..., q_overline(dotless.i) + s, ...,q_d, dot(q)_1, ..., dot(q)_d )
   $
   $ ==> L(h(vb(q)), D h_vb(q) (vb(dot(q))), t) = L(vb(q), vb(dot(q)),t). $
   Applicando il teorema di Noether, si ha quindi
-  $ grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod eval(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)). $
+  $ grad_vb(dot(q)) L(vb(q), vb(dot(q)),t) dprod evaluated(pdv(h^s (vb(q)), s))_(s=0) = pdv(L, q_overline(dotless.i)). $
 ]
 
 #example[
@@ -713,9 +669,11 @@ punti, ma dei punti e delle tangenti ai punti.
   $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $
   che è vera in quanto il differenziale di $h^s$ è l'identità. Sono allora
   soddisfatte le ipotesi del teorema di Noether, e
-  $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (1,0,...,0), $
+  $ evaluated(pdv(h^s (gvec(r)), s))_(s=0) = (1,0,...,0), $
   $ grad_dot(gvec(r)) L = gmat(M) gvec(dot(r)) $
-  $ ==> I(gvec(r), dot(gvec(r)), t) = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = m_1 dot(r)_(1 x) $
+  $
+    ==> I(gvec(r), dot(gvec(r)), t) = grad_dot(gvec(r)) L dprod evaluated(pdv(h^s (gvec(r)), s))_(s=0) = m_1 dot(r)_(1 x)
+  $
   e dunque è conservata la componente $x$ della quantità di moto della prima
   particella. Si può procedere in modo analogo per le componenti $x$ di tutte le
   altre particelle, ottenendo che ciascuna delle componenti $x$ delle quantità di
@@ -732,7 +690,7 @@ punti, ma dei punti e delle tangenti ai punti.
   $ ==> (D h^s)_gvec(r) = "id" $
   E allora, analogamente all'esempio precedente,
   $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))) $
-  $ grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = sum_(i=1)^N m_i r_(i x) = P_x $
+  $ grad_dot(gvec(r)) L dprod evaluated(pdv(h^s (gvec(r)), s))_(s=0) = sum_(i=1)^N m_i r_(i x) = P_x $
   e dunque si conserva la somma delle componenti $x$ delle quantità di moto delle
   particelle, ossia la componente $x$ della quantità di moto totale $vb(P)$.
 ]
@@ -747,9 +705,9 @@ punti, ma dei punti e delle tangenti ai punti.
   dove $R_s$ è una matrice di rotazione di un angolo $s$ rispetto all'asse $z$.
   Vale che
   $ L(h^s (gvec(r)), (D h^s)_gvec(r) (dot(gvec(r))), t) = L(gvec(r), dot(gvec(r))). $
-  Si deve quindi trovare il _generatore_ $eval(pdv(h^s (gvec(r)), s))_(s=0)$.
+  Si deve quindi trovare il _generatore_ $evaluated(pdv(h^s (gvec(r)), s))_(s=0)$.
   Tramite considerazioni geometriche, si trova
-  $ eval(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
+  $ evaluated(pdv(h^s (gvec(r)), s))_(s=0) = (vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)) $
 
   #figure(
     image("../immagini/noetherL.png", width: 60%),
@@ -758,9 +716,7 @@ punti, ma dei punti e delle tangenti ai punti.
 
   Quindi
   $
-    I = grad_dot(gvec(r)) L dprod eval(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 vb(dot(r)_1), ..., m_N vb(dot(r)_N)) dprod (
-      vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N)
-    )
+    I = grad_dot(gvec(r)) L dprod evaluated(pdv(h^s (gvec(r)), s))_(s=0) = (m_1 vb(dot(r)_1), ..., m_N vb(dot(r)_N)) dprod ( vu(e_z) cprod vb(r_1), ..., vu(e_z) cprod vb(r_N) )
   $
   $ ==> I = sum_(i=1)^N (vb(r_i) cprod m_i vb(dot(r_i))) dprod vu(e_z) = L_z $
   e dunque si conserva la componente $z$ del momento angolare totale $vb(L)$.
