@@ -29,9 +29,9 @@
 
 #let dim = thmproof("dim", "Dimostrazione", base: "theorem").with(numbering: none)
 
-#let example = thmplain("example", "Esempio", base_level: 1)
+#let example = thmplain("example", "Esempio", base_level: 1, titlefmt: strong)
 
-#let exercise = thmplain("exercise", "Esercizio", base_level: 1)
+#let exercise = thmplain("exercise", "Esercizio", base_level: 1, titlefmt: strong)
 
 // Other colors:
 // DEEBEB
